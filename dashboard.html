@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ezrelyn AI Proctor System - Dashboard</title>
+  <style>
+    :root {
+      --bg-dark: #040814;
+      --card-bg: rgba(13, 22, 40, 0.85);
+      --card-border: rgba(56, 189, 248, 0.25);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.4);
+      --accent: #0ea5e9;
+      --accent-glow: rgba(14, 165, 233, 0.3);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --success: #34d399;
+      --purple-accent: #a855f7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: radial-gradient(circle at top, #0b1528 0%, var(--bg-dark) 100%); color: var(--text-main); min-height: 100vh; padding-bottom: 60px; }
+
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 20px; background: rgba(8, 14, 28, 0.9);
+      border-bottom: 1px solid var(--card-border); backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--primary); padding: 2px; box-shadow: 0 0 12px var(--primary-glow); }
+    .brand h1 { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.8px; color: #fff; }
+    .brand h1 span { color: var(--primary); }
+    .brand small { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; }
+
+    .user-badge {
+      display: flex; align-items: center; gap: 6px; background: rgba(56, 189, 248, 0.1);
+      padding: 6px 12px; border-radius: 20px; border: 1px solid var(--card-border); font-size: 0.82rem; color: var(--primary);
+      cursor: pointer; font-weight: 700;
+    }
+
+    .main-wrapper { max-width: 950px; margin: 0 auto; padding: 20px 16px; }
+
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(168, 85, 247, 0.08), rgba(13, 22, 40, 0.9));
+      border: 1px solid var(--card-border); border-radius: 16px; padding: 24px; margin-bottom: 24px;
+      position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--success); font-weight: 700; margin-bottom: 8px; }
+    .status-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 10px var(--success); }
+    .hero-banner h2 { font-size: 1.45rem; font-weight: 900; color: #fff; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-banner blockquote { font-style: italic; color: var(--text-muted); border-left: 3px solid var(--primary); padding-left: 12px; font-size: 0.88rem; line-height: 1.4; }
+
+    .controls-bar { margin-bottom: 20px; }
+    .search-input {
+      width: 100%; padding: 14px 18px; border-radius: 12px;
+      background: rgba(13, 22, 40, 0.9); border: 1px solid var(--card-border);
+      color: #fff; font-size: 0.9rem; outline: none; transition: all 0.25s ease;
+    }
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 16px var(--primary-glow); }
+
+    .course-accordion { display: flex; flex-direction: column; gap: 14px; }
+
+    .course-group {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px;
+      overflow: hidden; transition: all 0.3s ease; backdrop-filter: blur(8px);
+    }
+    .course-group:hover { border-color: var(--primary); box-shadow: 0 4px 20px rgba(56, 189, 248, 0.15); }
+
+    .course-header {
+      padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; user-select: none; background: rgba(13, 22, 40, 0.5);
+    }
+    .course-info { display: flex; align-items: center; gap: 14px; }
+    .course-code {
+      background: linear-gradient(135deg, var(--primary), var(--accent)); color: #040814;
+      font-weight: 800; font-size: 0.8rem; padding: 6px 12px; border-radius: 8px; letter-spacing: 0.5px;
+    }
+    .course-title-text { font-size: 1.05rem; font-weight: 700; color: #fff; }
+    .course-meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+    .expand-icon {
+      font-size: 1.1rem; color: var(--primary); transition: transform 0.3s ease;
+      width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; background: rgba(56, 189, 248, 0.1);
+    }
+    .course-group.open .expand-icon { transform: rotate(180deg); background: var(--primary); color: #040814; }
+
+    .exam-modules-panel {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+      background: rgba(8, 14, 28, 0.6); border-top: 1px solid transparent;
+    }
+    .course-group.open .exam-modules-panel {
+      max-height: 2000px; border-top-color: rgba(56, 189, 248, 0.15);
+    }
+
+    .exam-card-list { padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+    .exam-subcard {
+      background: rgba(13, 22, 40, 0.95); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .exam-subcard:hover { transform: translateX(4px); border-color: var(--primary); }
+
+    .exam-details h4 { font-size: 0.95rem; color: var(--text-main); margin-bottom: 4px; }
+    .exam-details p { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 12px; }
+
+    .btn-launch {
+      background: linear-gradient(135deg, var(--primary), var(--accent)); color: #040814;
+      border: none; padding: 10px 18px; font-weight: 800; font-size: 0.8rem; border-radius: 8px;
+      cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 12px var(--primary-glow);
+    }
+    .btn-launch:hover { transform: scale(1.03); box-shadow: 0 6px 18px var(--primary); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="Ezrelyn.jpg" alt="Logo" class="brand-logo" onerror="this.style.display='none'">
+      <div>
+        <h1>EZRELYN <span>AI PROCTOR</span></h1>
+        <small>Simulated Proctored Final Examinations</small>
+      </div>
+    </div>
+    <div class="user-badge" id="userBadge" onclick="changeStudentName()">
+      🎓 <span id="headerUserName">Student</span>
+    </div>
+  </header>
+
+  <div class="main-wrapper">
+    <section class="hero-banner">
+      <div class="status-pill"><span class="status-dot"></span> PROCTOR SYSTEM ONLINE</div>
+      <h2 id="welcomeHeading">WELCOME, STUDENT</h2>
+      <blockquote>"Mastery is not an accident; it is the result of relentless practice under real conditions." — THE SMARTPHONE SCIENTIST</blockquote>
+    </section>
+
+    <div class="controls-bar">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search courses or modules (e.g. UNIV 1001, CS 1101, Computer Science)...">
+    </div>
+
+    <div id="courseAccordion" class="course-accordion">
+      <!-- Dynamic Course Hierarchy Loads Here -->
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

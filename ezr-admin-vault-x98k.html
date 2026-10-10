@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ezrelyn Admin Engine - Vault Manager</title>
+  <style>
+    :root {
+      --bg-dark: #060913;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(56, 189, 248, 0.2);
+      --primary: #38bdf8;
+      --accent: #0ea5e9;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --danger: #ef4444;
+      --success: #34d399;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 24px; }
+
+    /* Lock Screen Overlay */
+    #lockOverlay {
+      position: fixed; inset: 0; background: rgba(4, 7, 17, 0.95); backdrop-filter: blur(16px);
+      z-index: 999; display: flex; align-items: center; justify-content: center;
+    }
+    .auth-box {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px;
+      padding: 36px; width: 90%; max-width: 420px; text-align: center;
+    }
+    .auth-box h2 { color: var(--primary); font-size: 1.4rem; margin-bottom: 8px; }
+    .auth-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px; background: rgba(15, 23, 42, 0.9); border: 1px solid var(--card-border);
+      border-radius: 12px; margin-bottom: 28px;
+    }
+    .brand h1 { font-size: 1.2rem; color: var(--primary); font-weight: 800; letter-spacing: 1px; }
+
+    .nav-btns { display: flex; gap: 12px; }
+    .btn-nav {
+      background: rgba(56, 189, 248, 0.1); color: var(--primary); border: 1px solid var(--card-border);
+      padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 700; cursor: pointer;
+    }
+
+    .section-box {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px;
+      padding: 28px; margin-bottom: 32px;
+    }
+    .section-title { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .input-field {
+      width: 100%; padding: 12px 16px; border-radius: 8px; background: rgba(10, 15, 30, 0.9);
+      border: 1px solid var(--card-border); color: #fff; font-size: 0.9rem; outline: none;
+    }
+    .input-field:focus { border-color: var(--primary); }
+
+    textarea.input-field { font-family: monospace; height: 220px; resize: vertical; }
+
+    .btn-action {
+      background: linear-gradient(135deg, var(--primary), var(--accent)); color: #060913;
+      border: none; padding: 14px 28px; font-weight: 800; font-size: 0.95rem; border-radius: 8px;
+      cursor: pointer; width: 100%; letter-spacing: 0.5px;
+    }
+
+    .q-item-card {
+      background: rgba(10, 15, 30, 0.8); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 16px; margin-bottom: 12px;
+    }
+    .q-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .q-item-title { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+
+    .btn-sm {
+      padding: 6px 12px; font-size: 0.75rem; border-radius: 4px; border: none; cursor: pointer; font-weight: 700;
+    }
+    .btn-edit { background: var(--primary); color: #060913; margin-right: 6px; }
+    .btn-del { background: var(--danger); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- Admin Password Lock Screen -->
+  <div id="lockOverlay">
+    <div class="auth-box">
+      <h2>🔐 ADMIN VAULT AUTHENTICATION</h2>
+      <p>Enter administrative access key to unlock vault management controls.</p>
+      <input type="password" id="adminPasswordInput" class="input-field" placeholder="Enter Admin Password" style="margin-bottom: 14px; text-align: center;">
+      <button class="btn-action" onclick="authenticateAdmin()">UNLOCK VAULT</button>
+      <div id="authError" style="color: var(--danger); font-size: 0.82rem; margin-top: 10px; display: none;">Invalid Admin Key</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="brand">
+      <h1>⚡ EZRELYN ADMIN ENGINE</h1>
+      <small style="color: var(--text-muted);">Course & Exam Control Center</small>
+    </div>
+    <div class="nav-btns">
+      <a href="/dashboard.html" class="btn-nav">Dashboard</a>
+      <button class="btn-nav" onclick="logoutAdmin()" style="color: #fca5a5; border-color: rgba(239, 68, 68, 0.3);">Logout</button>
+    </div>
+  </header>
+
+  <div class="section-box">
+    <div class="section-title">⚡ BULK QUESTION INJECTOR</div>
+
+    <div class="form-grid">
+      <div>
+        <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">COURSE TITLE</label>
+        <input type="text" id="courseInput" class="input-field" placeholder="e.g. UNIV 1001">
+      </div>
+      <div>
+        <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">EXAM MODULE TITLE</label>
+        <input type="text" id="titleInput" class="input-field" placeholder="e.g. Learning Strategies Final Exam">
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">TIME LIMIT (MINUTES)</label>
+      <input type="number" id="timeLimitInput" class="input-field" placeholder="e.g. 45" value="45">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">PASTE QUESTION ARRAY (JSON FORMAT)</label>
+      <textarea id="jsonInput" class="input-field" placeholder='[
+  {
+    "q": "Question text here?",
+    "a": "Option A",
+    "b": "Option B",
+    "c": "Option C",
+    "d": "Option D",
+    "correct": "a",
+    "explanation": "Explanation text here."
+  }
+]'></textarea>
+    </div>
+
+    <button class="btn-action" onclick="injectModule()">INJECT EXAM MODULE INTO SQLITE</button>
+  </div>
+
+  <div class="section-box">
+    <div class="section-title">📚 MANAGED COURSES & INDIVIDUAL QUESTIONS</div>
+    <div id="modulesContainer">
+      <!-- Loaded dynamically -->
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
