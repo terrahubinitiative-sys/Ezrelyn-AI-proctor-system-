@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /ezr-admin-vault-x98k.html
+
+Sitemap: https://terrahubinitiative-sys.onrender.com/sitemap.xml
