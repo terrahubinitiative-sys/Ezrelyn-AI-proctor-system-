@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "id": 1792885684032,
+    "course": "[KPSEA] Welcome to Ezrelyn AI",
+    "title": "Test your knowledge ",
+    "timeLimit": 45,
+    "questions": [
+      {
+        "q": "What is the primary architectural advantage of using local durable storage files like questions.json over volatile databases on cloud platforms like Render?",
+        "a": "It eliminates the need for any frontend CSS frameworks",
+        "b": "It ensures configuration persistence across server restarts and redeploys without external database dependencies",
+        "c": "It automatically compresses image assets to save bandwidth",
+        "d": "It encrypts user passwords using quantum computing keys",
+        "correct": "b",
+        "explanation": "Durable JSON storage files committed directly to GitHub persist across ephemeral container restarts on cloud hosting providers like Render."
+      },
+      {
+        "q": "What security action is automatically triggered if a student switches tabs or loses browser window focus during an active proctored exam?",
+        "a": "A temporary 30-second pause in the exam timer",
+        "b": "An immediate warning email sent to the university dean",
+        "c": "An automatic 0% score violation flag for anti-cheat enforcement",
+        "d": "A mandatory captcha verification prompt",
+        "correct": "c",
+        "explanation": "Strict proctoring rules mandate an immediate 0% score violation flag to maintain exam integrity against tab-switching."
+      },
+      {
+        "q": "How does the Ezrelyn system handle question and option security during high-stakes student evaluations?",
+        "a": "By hiding all correct answers from the server-side code completely",
+        "b": "By dynamically shuffling both questions and multiple-choice options (a, b, c, d) on every student attempt",
+        "c": "By locking the browser into full-screen mode permanently via native system calls",
+        "d": "By requiring biometric fingerprint verification before every click",
+        "correct": "b",
+        "explanation": "Random shuffling of questions and choices prevents cheating and memorization across multiple attempts."
+      }
+    ]
+  }
+]
