@@ -1,5 +1,4 @@
 import express from 'express';
-import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'url';
@@ -24,24 +23,11 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'scientist2026';
 app.use(express.json());
 app.use(express.static(__dirname));
 
-// Initialize SQLite Database using DatabaseSync
-const db = new DatabaseSync('database.sqlite');
+const DATA_FILE = path.join(__dirname, 'questions.json');
 
-db.exec(`
-    CREATE TABLE IF NOT EXISTS modules (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        course TEXT,
-        title TEXT,
-        timeLimit INTEGER,
-        questions TEXT
-    )
-`);
-
-// Auto-migration: ensure timeLimit column exists if table was created previously without it
-try {
-    db.exec(`ALTER TABLE modules ADD COLUMN timeLimit INTEGER DEFAULT 45`);
-} catch (e) {
-    // Column already exists, ignore error
+// Ensure questions.json exists
+if (!fs.existsSync(DATA_FILE)) {
+    fs.writeFileSync(DATA_FILE, JSON.stringify([], null, 2));
 }
 
 // Verify Admin Password Endpoint
@@ -54,22 +40,18 @@ app.post('/api/admin/verify', (req, res) => {
     }
 });
 
-// Get all exam modules
+// Get all exam modules from questions.json
 app.get('/api/questions', (req, res) => {
     try {
-        const query = db.prepare('SELECT * FROM modules');
-        const rows = query.all();
-        const modules = rows.map(row => ({
-            ...row,
-            questions: JSON.parse(row.questions)
-        }));
+        const data = fs.readFileSync(DATA_FILE, 'utf8');
+        const modules = JSON.parse(data);
         res.json(modules);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// Inject new exam module (Admin only)
+// Inject or Update exam module into questions.json (Admin only)
 app.post('/api/questions', (req, res) => {
     const adminPwd = req.headers['x-admin-password'];
     if (adminPwd !== ADMIN_PASSWORD) {
@@ -78,8 +60,20 @@ app.post('/api/questions', (req, res) => {
 
     const { course, title, timeLimit, questions } = req.body;
     try {
-        const insert = db.prepare('INSERT INTO modules (course, title, timeLimit, questions) VALUES (?, ?, ?, ?)');
-        insert.run(course, title, Number(timeLimit), JSON.stringify(questions));
+        const data = fs.readFileSync(DATA_FILE, 'utf8');
+        const modules = JSON.parse(data);
+        
+        const newModule = {
+            id: Date.now(), // Unique ID based on timestamp
+            course,
+            title,
+            timeLimit: Number(timeLimit) || 45,
+            questions
+        };
+
+        modules.push(newModule);
+        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2));
+        
         res.json({ success: true });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
@@ -94,8 +88,12 @@ app.delete('/api/questions/:id', (req, res) => {
     }
 
     try {
-        const remove = db.prepare('DELETE FROM modules WHERE id = ?');
-        remove.run(req.params.id);
+        const data = fs.readFileSync(DATA_FILE, 'utf8');
+        let modules = JSON.parse(data);
+        
+        modules = modules.filter(m => m.id != req.params.id);
+        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2));
+        
         res.json({ success: true });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
