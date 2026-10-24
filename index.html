@@ -1,281 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ezrelyn AI Proctor System - Official Portal</title>
-  <style>
-    :root {
-      --bg-dark: #040711;
-      --card-bg: rgba(13, 21, 38, 0.7);
-      --card-border: rgba(56, 189, 248, 0.2);
-      --primary: #38bdf8;
-      --primary-hover: #0284c7;
-      --primary-glow: rgba(56, 189, 248, 0.35);
-      --accent: #0ea5e9;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-
-    html, body {
-      width: 100%;
-      min-height: 100vh;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
-
-    /* Full-bleed background grid mesh */
-    .viewport-grid {
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Edge-to-Edge Ambient Light Orbs */
-    .glow-orb-top {
-      position: absolute;
-      top: -10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 500px;
-      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-      filter: blur(100px);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Edge-to-Edge Container Wrapper */
-    .hero-wrapper {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0;
-    }
-
-    /* Header Bar */
-    header {
-      width: 100%;
-      padding: 20px 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--card-border);
-      background: rgba(4, 7, 17, 0.8);
-      backdrop-filter: blur(12px);
-    }
-
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .header-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      border: 1px solid var(--primary);
-      padding: 2px;
-    }
-
-    .header-title {
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: #fff;
-    }
-
-    /* Main Content Edge-to-Edge Layout */
-    .main-content {
-      width: 100%;
-      max-width: 1400px;
-      padding: 60px 5vw;
-      margin: auto;
-      text-align: center;
-    }
-
-    .logo-container {
-      margin-bottom: 24px;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    .hero-logo {
-      width: 110px;
-      height: 110px;
-      border-radius: 24px;
-      border: 2px solid var(--primary);
-      padding: 4px;
-      box-shadow: 0 0 30px var(--primary-glow);
-      transition: transform 0.4s ease;
-    }
-
-    .hero-logo:hover {
-      transform: scale(1.08) rotate(3deg);
-    }
-
-    .title-main {
-      font-size: clamp(2rem, 5vw, 3.8rem);
-      font-weight: 900;
-      letter-spacing: -1px;
-      line-height: 1.1;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, #ffffff 30%, var(--primary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeIn 1.2s ease-out;
-    }
-
-    .title-sub {
-      font-size: clamp(0.9rem, 2vw, 1.25rem);
-      color: var(--text-muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 50px;
-      animation: fadeIn 1.4s ease-out;
-    }
-
-    /* Full Width Grid for Mission & Vision */
-    .mission-vision-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      width: 100%;
-      margin-bottom: 50px;
-      animation: fadeInUp 1.6s ease-out;
-    }
-
-    .glass-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 36px 28px;
-      backdrop-filter: blur(16px);
-      text-align: left;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--primary);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .glass-card h3 {
-      font-size: 1.35rem;
-      color: var(--primary);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .glass-card p {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--text-muted);
-    }
-
-    /* Edge-to-Edge Call to Action Button */
-    .cta-container {
-      animation: fadeInUp 1.8s ease-out;
-    }
-
-    .btn-enter {
-      display: inline-block;
-      padding: 20px 60px;
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #040711;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      text-decoration: none;
-      letter-spacing: 1px;
-      box-shadow: 0 0 30px var(--primary-glow);
-      transition: all 0.3s ease;
-    }
-
-    .btn-enter:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 45px var(--primary);
-      color: #ffffff;
-    }
-
-    /* Edge-to-Edge Footer */
-    footer {
-      width: 100%;
-      padding: 24px 5vw;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      background: rgba(4, 7, 17, 0.9);
-    }
-
-    /* Keyframe Animations */
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-25px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezrelyn AI Proctor System</title>
+    <meta name="google-site-verification" content="KnK7fMRavFEkhzW_yI5F8W7LAt7twSg7p9Aj5OWXHwc" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12px;
+            background-color: #030712;
+            background-image: 
+                linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
 </head>
-<body>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
 
-  <div class="viewport-grid"></div>
-  <div class="glow-orb-top"></div>
-
-  <div class="hero-wrapper">
-    <header>
-      <div class="header-brand">
-        <img src="Ezrelyn.jpg" alt="Logo" class="header-logo" onerror="this.style.display='none'">
-        <span class="header-title">EZRELYN AI PROCTOR</span>
-      </div>
-      <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">● SYSTEM ACTIVE</div>
+    <!-- Top Navigation Bar -->
+    <header class="w-full py-4 px-6 flex items-center justify-between border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg overflow-hidden border border-cyan-500/40">
+                <img src="Sarah.jpg" alt="Logo" class="w-full h-full object-cover">
+            </div>
+            <span class="font-bold tracking-wider text-xs text-white" style="font-family: 'Times New Roman', Times, serif;">EZRELYN AI PROCTOR</span>
+        </div>
+        <div class="flex items-center space-x-2 bg-cyan-950/40 border border-cyan-800/50 px-2.5 py-1 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span class="text-[11px] font-semibold tracking-widest text-cyan-400" style="font-family: 'Times New Roman', Times, serif;">SYSTEM ACTIVE</span>
+        </div>
     </header>
 
-    <main class="main-content">
-      <div class="logo-container">
-        <img src="Ezrelyn.jpg" alt="Ezrelyn Logo" class="hero-logo" onerror="this.src='https://via.placeholder.com/110?text=EZRELYN'">
-      </div>
-
-      <h1 class="title-main">EZRELYN AI PROCTOR SYSTEM</h1>
-      <p class="title-sub">Next-Generation Simulated Proctored Final Examinations</p>
-
-      <div class="mission-vision-grid">
-        <div class="glass-card">
-          <h3>🚀 Our Mission</h3>
-          <p>To empower students with an uncompromising, realistic, and persistent examination practice environment that builds true conceptual mastery under formal proctored conditions.</p>
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-10 max-w-lg mx-auto w-full space-y-8">
+        
+        <!-- Center Logo & Titles -->
+        <div class="text-center space-y-4">
+            <div class="flex justify-center">
+                <div class="relative w-36 h-36 rounded-2xl overflow-hidden border-2 border-cyan-500/60 shadow-xl shadow-cyan-500/10">
+                    <img src="Sarah.jpg" alt="Ezrelyn AI Proctor Logo" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-1">
+                <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400" style="font-family: 'Times New Roman', Times, serif;">
+                    EZRELYN AI PROCTOR SYSTEM
+                </h1>
+                <p class="text-[12px] uppercase tracking-widest text-slate-400 font-medium" style="font-family: 'Times New Roman', Times, serif;">
+                    Next-Generation Simulated Proctored Final Examinations
+                </p>
+            </div>
         </div>
 
-        <div class="glass-card">
-          <h3>🎯 Our Vision</h3>
-          <p>To revolutionize self-paced assessment by delivering continuous, high-performance, and offline-resilient AI assessment architectures accessible to learners everywhere.</p>
+        <!-- Mission Card -->
+        <div class="w-full bg-slate-900/80 border border-slate-800/80 p-5 rounded-2xl shadow-lg backdrop-blur-sm space-y-2">
+            <div class="flex items-center space-x-2 text-cyan-400 font-bold text-[13px]" style="font-family: 'Times New Roman', Times, serif;">
+                <span>🚀</span>
+                <h2>Our Mission</h2>
+            </div>
+            <p class="text-[12px] text-slate-300 leading-relaxed" style="font-family: 'Times New Roman', Times, serif;">
+                To empower students with an uncompromising, realistic, and persistent examination practice environment that builds true conceptual mastery under formal proctored conditions.
+            </p>
         </div>
-      </div>
 
-      <div class="cta-container">
-        <a href="/login.html" class="btn-enter">ENTER TO EXPLORE →</a>
-      </div>
+        <!-- Vision Card -->
+        <div class="w-full bg-slate-900/80 border border-slate-800/80 p-5 rounded-2xl shadow-lg backdrop-blur-sm space-y-2">
+            <div class="flex items-center space-x-2 text-red-400 font-bold text-[13px]" style="font-family: 'Times New Roman', Times, serif;">
+                <span>🎯</span>
+                <h2>Our Vision</h2>
+            </div>
+            <p class="text-[12px] text-slate-300 leading-relaxed" style="font-family: 'Times New Roman', Times, serif;">
+                To revolutionize self-paced assessment by delivering continuous, high-performance, and offline-resilient AI assessment architectures accessible to learners everywhere.
+            </p>
+        </div>
+
+        <!-- Enter to Explore CTA Button -->
+        <div class="w-full pt-2">
+            <a href="login.html" class="block w-full py-4 text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-[12px] tracking-wider uppercase rounded-xl shadow-lg shadow-cyan-500/25 transition-all" style="font-family: 'Times New Roman', Times, serif;">
+                ENTER TO EXPLORE &rarr;
+            </a>
+        </div>
+
     </main>
 
-    <footer>
-      &copy; 2026 Ezrelyn AI Proctor System. All rights reserved.
+    <!-- Footer -->
+    <footer class="py-6 text-center text-[12px] text-slate-500 border-t border-slate-900" style="font-family: 'Times New Roman', Times, serif;">
+        &copy; 2026 Ezrelyn AI Proctor System. All rights reserved.
     </footer>
-  </div>
 
 </body>
 </html>

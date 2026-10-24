@@ -1,133 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ezrelyn Admin Engine - Vault Manager</title>
-  <style>
-    :root {
-      --bg-dark: #060913;
-      --card-bg: rgba(15, 23, 42, 0.85);
-      --card-border: rgba(56, 189, 248, 0.2);
-      --primary: #38bdf8;
-      --accent: #0ea5e9;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --danger: #ef4444;
-      --success: #34d399;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 24px; }
-
-    /* Lock Screen Overlay */
-    #lockOverlay {
-      position: fixed; inset: 0; background: rgba(4, 7, 17, 0.95); backdrop-filter: blur(16px);
-      z-index: 999; display: flex; align-items: center; justify-content: center;
-    }
-    .auth-box {
-      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px;
-      padding: 36px; width: 90%; max-width: 420px; text-align: center;
-    }
-    .auth-box h2 { color: var(--primary); font-size: 1.4rem; margin-bottom: 8px; }
-    .auth-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
-
-    header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 24px; background: rgba(15, 23, 42, 0.9); border: 1px solid var(--card-border);
-      border-radius: 12px; margin-bottom: 28px;
-    }
-    .brand h1 { font-size: 1.2rem; color: var(--primary); font-weight: 800; letter-spacing: 1px; }
-
-    .nav-btns { display: flex; gap: 12px; }
-    .btn-nav {
-      background: rgba(56, 189, 248, 0.1); color: var(--primary); border: 1px solid var(--card-border);
-      padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 700; cursor: pointer;
-    }
-
-    .section-box {
-      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px;
-      padding: 28px; margin-bottom: 32px;
-    }
-    .section-title { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-    .input-field {
-      width: 100%; padding: 12px 16px; border-radius: 8px; background: rgba(10, 15, 30, 0.9);
-      border: 1px solid var(--card-border); color: #fff; font-size: 0.9rem; outline: none;
-    }
-    .input-field:focus { border-color: var(--primary); }
-
-    textarea.input-field { font-family: monospace; height: 220px; resize: vertical; }
-
-    .btn-action {
-      background: linear-gradient(135deg, var(--primary), var(--accent)); color: #060913;
-      border: none; padding: 14px 28px; font-weight: 800; font-size: 0.95rem; border-radius: 8px;
-      cursor: pointer; width: 100%; letter-spacing: 0.5px;
-    }
-
-    .q-item-card {
-      background: rgba(10, 15, 30, 0.8); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px; padding: 16px; margin-bottom: 12px;
-    }
-    .q-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .q-item-title { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
-
-    .btn-sm {
-      padding: 6px 12px; font-size: 0.75rem; border-radius: 4px; border: none; cursor: pointer; font-weight: 700;
-    }
-    .btn-edit { background: var(--primary); color: #060913; margin-right: 6px; }
-    .btn-del { background: var(--danger); color: #fff; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezrelyn Admin Vault</title>
+    <meta name="google-site-verification" content="KnK7fMRavFEkhzW_yI5F8W7LAt7twSg7p9Aj5OWXHwc" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12px;
+            background-color: #030712;
+            background-image: 
+                linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
 </head>
-<body>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
 
-  <!-- Admin Password Lock Screen -->
-  <div id="lockOverlay">
-    <div class="auth-box">
-      <h2>🔐 ADMIN VAULT AUTHENTICATION</h2>
-      <p>Enter administrative access key to unlock vault management controls.</p>
-      <input type="password" id="adminPasswordInput" class="input-field" placeholder="Enter Admin Password" style="margin-bottom: 14px; text-align: center;">
-      <button class="btn-action" onclick="authenticateAdmin()">UNLOCK VAULT</button>
-      <div id="authError" style="color: var(--danger); font-size: 0.82rem; margin-top: 10px; display: none;">Invalid Admin Key</div>
-    </div>
-  </div>
+    <!-- Admin Header -->
+    <header class="w-full py-4 px-4 sm:px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg overflow-hidden border border-cyan-500/40">
+                <img src="Sarah.jpg" alt="Logo" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 class="font-bold text-xs text-white">EZRELYN ADMIN ENGINE</h1>
+                <p class="text-[10px] text-cyan-400">Course & Exam Control Center</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <a href="dashboard.html" class="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-slate-300 font-semibold hover:bg-slate-800">Dashboard</a>
+            <button onclick="logoutAdmin()" class="px-3 py-1.5 bg-red-950/40 border border-red-900/50 rounded-lg text-red-400 font-semibold hover:bg-red-950">Logout</button>
+        </div>
+    </header>
 
-  <header>
-    <div class="brand">
-      <h1>⚡ EZRELYN ADMIN ENGINE</h1>
-      <small style="color: var(--text-muted);">Course & Exam Control Center</small>
-    </div>
-    <div class="nav-btns">
-      <a href="/dashboard.html" class="btn-nav">Dashboard</a>
-      <button class="btn-nav" onclick="logoutAdmin()" style="color: #fca5a5; border-color: rgba(239, 68, 68, 0.3);">Logout</button>
-    </div>
-  </header>
-
-  <div class="section-box">
-    <div class="section-title">⚡ BULK QUESTION INJECTOR</div>
-
-    <div class="form-grid">
-      <div>
-        <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">COURSE TITLE</label>
-        <input type="text" id="courseInput" class="input-field" placeholder="e.g. UNIV 1001">
-      </div>
-      <div>
-        <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">EXAM MODULE TITLE</label>
-        <input type="text" id="titleInput" class="input-field" placeholder="e.g. Learning Strategies Final Exam">
-      </div>
+    <!-- Custom Colored Modal Popup Overlay -->
+    <div id="customModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="w-full max-w-sm bg-slate-900 border border-cyan-500/50 p-6 rounded-2xl shadow-2xl space-y-4 text-center">
+            <div id="modalIcon" class="text-3xl">⚡</div>
+            <h3 id="modalTitle" class="text-base font-bold text-cyan-400">NOTIFICATION</h3>
+            <p id="modalMessage" class="text-slate-300 text-[12px] leading-relaxed">Message here...</p>
+            <div id="modalButtons" class="flex space-x-2 pt-2">
+                <button onclick="closeModal()" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px]">OK</button>
+            </div>
+        </div>
     </div>
 
-    <div style="margin-bottom: 16px;">
-      <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">TIME LIMIT (MINUTES)</label>
-      <input type="number" id="timeLimitInput" class="input-field" placeholder="e.g. 45" value="45">
+    <!-- Password Prompt Overlay -->
+    <div id="authModal" class="fixed inset-0 bg-slate-950/95 z-50 flex items-center justify-center p-4">
+        <div class="w-full max-w-sm bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl space-y-4">
+            <h2 class="text-lg font-bold text-cyan-400 text-center">ADMIN VAULT SECURITY</h2>
+            <p class="text-[12px] text-slate-400 text-center">Enter admin password to access control center.</p>
+            <input type="password" id="adminPasswordInput" placeholder="Enter admin password" class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-slate-100 text-[12px] focus:outline-none focus:border-cyan-500">
+            <button onclick="verifyAdminPassword()" class="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px]">Unlock Vault</button>
+        </div>
     </div>
 
-    <div style="margin-bottom: 20px;">
-      <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 6px;">PASTE QUESTION ARRAY (JSON FORMAT)</label>
-      <textarea id="jsonInput" class="input-field" placeholder='[
+    <!-- Main Admin Content -->
+    <main class="flex-grow flex flex-col items-center px-3 sm:px-6 py-8 w-full max-w-3xl mx-auto space-y-6">
+        
+        <!-- Bulk Question Injector Card -->
+        <div class="w-full bg-slate-900/90 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-5">
+            <div class="flex items-center space-x-2 text-cyan-400 font-bold text-sm border-b border-slate-800 pb-3">
+                <span>⚡</span>
+                <h2 id="formVaultTitle">BULK QUESTION INJECTOR & EXAM MANAGER</h2>
+            </div>
+
+            <form id="injectorForm" onsubmit="injectExam(event)" class="space-y-4">
+                <input type="hidden" id="editModuleId" value="">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Education Level -->
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-bold text-slate-300 uppercase">Education Level</label>
+                        <select id="eduLevel" class="w-full px-3 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-slate-200 text-[12px] focus:outline-none focus:border-cyan-500">
+                            <option value="KPSEA">KPSEA (Primary)</option>
+                            <option value="KJSEA">KJSEA (Junior/High)</option>
+                            <option value="University" selected>University</option>
+                        </select>
+                    </div>
+
+                    <!-- Course Title -->
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-bold text-slate-300 uppercase">Course / Subject</label>
+                        <input type="text" id="courseTitle" required placeholder="e.g. Computer Science" class="w-full px-3 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-slate-200 text-[12px] focus:outline-none focus:border-cyan-500">
+                    </div>
+
+                    <!-- Time Limit -->
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-bold text-slate-300 uppercase">Time Limit (Mins)</label>
+                        <input type="number" id="timeLimit" required value="45" min="5" max="180" class="w-full px-3 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-slate-200 text-[12px] focus:outline-none focus:border-cyan-500">
+                    </div>
+                </div>
+
+                <!-- Exam Module Title -->
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase">Exam Module Title</label>
+                    <input type="text" id="examTitle" required placeholder="e.g. Final Evaluation Assessment Predictor" class="w-full px-3 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-slate-200 text-[12px] focus:outline-none focus:border-cyan-500">
+                </div>
+
+                <!-- Questions JSON Array -->
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase">Paste Question Array (JSON Format)</label>
+                    <textarea id="jsonPayload" rows="8" required class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-cyan-300 font-mono text-[11px] focus:outline-none focus:border-cyan-500">[
   {
-    "q": "Question text here?",
+    "q": "Sample question text here?",
     "a": "Option A",
     "b": "Option B",
     "c": "Option C",
@@ -135,19 +115,222 @@
     "correct": "a",
     "explanation": "Explanation text here."
   }
-]'></textarea>
-    </div>
+]</textarea>
+                </div>
 
-    <button class="btn-action" onclick="injectModule()">INJECT EXAM MODULE INTO SQLITE</button>
-  </div>
+                <div class="flex space-x-2">
+                    <button type="submit" id="submitBtn" class="flex-grow py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold uppercase tracking-wider rounded-xl shadow-lg transition-all text-[12px]">
+                        INJECT EXAM MODULE INTO SQLITE &rarr;
+                    </button>
+                    <button type="button" id="cancelEditBtn" onclick="resetForm()" class="hidden px-4 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold uppercase rounded-xl text-[12px]">Cancel</button>
+                </div>
+            </form>
+        </div>
 
-  <div class="section-box">
-    <div class="section-title">📚 MANAGED COURSES & INDIVIDUAL QUESTIONS</div>
-    <div id="modulesContainer">
-      <!-- Loaded dynamically -->
-    </div>
-  </div>
+        <!-- Managed Courses & Questions Section -->
+        <div class="w-full bg-slate-900/90 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+            <div class="flex items-center space-x-2 text-cyan-400 font-bold text-sm border-b border-slate-800 pb-3">
+                <span>📚</span>
+                <h2>MANAGED COURSES & INDIVIDUAL MODULES</h2>
+            </div>
+            <div id="modulesList" class="space-y-3">
+                <p class="text-slate-400 italic">Loading active modules from database...</p>
+            </div>
+        </div>
 
-  <script src="admin.js"></script>
+    </main>
+
+    <footer class="py-5 text-center text-[12px] text-slate-500 border-t border-slate-900">
+        &copy; 2026 Ezrelyn AI Proctor Engine. Secure Admin Vault.
+    </footer>
+
+    <script>
+        let adminPassword = localStorage.getItem('ezr_admin_pwd') || '';
+        let allModules = [];
+
+        function showModal(title, message, icon = '⚡', buttonsHTML = '<button onclick="closeModal()" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px]">OK</button>') {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('modalIcon').textContent = icon;
+            document.getElementById('modalButtons').innerHTML = buttonsHTML;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+
+        async function verifyAdminPassword() {
+            const pwd = document.getElementById('adminPasswordInput').value;
+            const res = await fetch('/api/admin/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password: pwd })
+            });
+            const data = await res.json();
+            if (data.success) {
+                adminPassword = pwd;
+                localStorage.setItem('ezr_admin_pwd', pwd);
+                document.getElementById('authModal').classList.add('hidden');
+                loadModules();
+            } else {
+                showModal('ACCESS DENIED', 'Invalid Admin Password provided!', '❌');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            if (adminPassword) {
+                const res = await fetch('/api/admin/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: adminPassword })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    document.getElementById('authModal').classList.add('hidden');
+                    loadModules();
+                    return;
+                }
+            }
+            document.getElementById('authModal').classList.remove('hidden');
+        });
+
+        function logoutAdmin() {
+            localStorage.removeItem('ezr_admin_pwd');
+            location.reload();
+        }
+
+        async function loadModules() {
+            try {
+                const res = await fetch('/api/questions');
+                allModules = await res.json();
+                const container = document.getElementById('modulesList');
+                
+                if (allModules.length === 0) {
+                    container.innerHTML = '<p class="text-slate-400 italic">No modules injected yet.</p>';
+                    return;
+                }
+
+                container.innerHTML = allModules.map(m => `
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <span class="text-cyan-400 font-bold uppercase text-[10px] bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/50">${m.course}</span>
+                            <h3 class="font-bold text-white text-sm mt-1">${m.title}</h3>
+                            <p class="text-slate-400 text-[11px] mt-0.5">Time Limit: ${m.timeLimit || 45} Mins | Questions: ${m.questions.length}</p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="editModule(${m.id})" class="px-3 py-1.5 bg-cyan-950/50 border border-cyan-800/60 text-cyan-300 rounded-lg font-semibold hover:bg-cyan-900 text-[11px]">Edit</button>
+                            <button onclick="confirmDelete('${m.id}')" class="px-3 py-1.5 bg-red-950/50 border border-red-900/60 text-red-400 rounded-lg font-semibold hover:bg-red-900 text-[11px]">Delete</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function editModule(id) {
+            const m = allModules.find(item => item.id == id);
+            if (!m) return;
+
+            // Parse course format [Level] CourseName
+            const match = m.course.match(/^\[(.*?)\]\s*(.*)$/);
+            if (match) {
+                document.getElementById('eduLevel').value = match[1];
+                document.getElementById('courseTitle').value = match[2];
+            } else {
+                document.getElementById('courseTitle').value = m.course;
+            }
+
+            document.getElementById('examTitle').value = m.title;
+            document.getElementById('timeLimit').value = m.timeLimit || 45;
+            document.getElementById('jsonPayload').value = JSON.stringify(m.questions, null, 2);
+            document.getElementById('editModuleId').value = m.id;
+
+            document.getElementById('formVaultTitle').textContent = "EDIT EXAM MODULE #" + id;
+            document.getElementById('submitBtn').textContent = "UPDATE EXAM MODULE IN SQLITE \u2192";
+            document.getElementById('cancelEditBtn').classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetForm() {
+            document.getElementById('injectorForm').reset();
+            document.getElementById('editModuleId').value = '';
+            document.getElementById('formVaultTitle').textContent = "BULK QUESTION INJECTOR & EXAM MANAGER";
+            document.getElementById('submitBtn').textContent = "INJECT EXAM MODULE INTO SQLITE \u2192";
+            document.getElementById('cancelEditBtn').classList.add('hidden');
+        }
+
+        async function injectExam(event) {
+            event.preventDefault();
+            const editId = document.getElementById('editModuleId').value;
+            const level = document.getElementById('eduLevel').value;
+            const courseInput = document.getElementById('courseTitle').value;
+            const title = document.getElementById('examTitle').value;
+            const timeLimit = document.getElementById('timeLimit').value;
+            let questions;
+
+            try {
+                questions = JSON.parse(document.getElementById('jsonPayload').value);
+            } catch (e) {
+                showModal('JSON ERROR', 'Invalid JSON format in question array!', '⚠️');
+                return;
+            }
+
+            const course = `[${level}] ${courseInput}`;
+
+            // If editing, delete old first or post new
+            if (editId) {
+                await fetch(`/api/questions/${editId}`, {
+                    method: 'DELETE',
+                    headers: { 'x-admin-password': adminPassword }
+                });
+            }
+
+            const res = await fetch('/api/questions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-admin-password': adminPassword
+                },
+                body: JSON.stringify({ course, title, timeLimit, questions })
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                showModal('SUCCESS', editId ? 'Exam module successfully updated!' : 'Exam module successfully injected into SQLite database!', '🚀');
+                resetForm();
+                loadModules();
+            } else {
+                showModal('INJECTION ERROR', data.error, '❌');
+            }
+        }
+
+        function confirmDelete(id) {
+            showModal('CONFIRM DELETE', 'Are you sure you want to delete this module and its questions?', '🗑️', `
+                <div class="flex space-x-2 w-full">
+                    <button onclick="closeModal()" class="w-1/2 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl uppercase text-[12px]">Cancel</button>
+                    <button onclick="deleteModule(${id})" class="w-1/2 py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl uppercase text-[12px]">Delete</button>
+                </div>
+            `);
+        }
+
+        async function deleteModule(id) {
+            closeModal();
+            const res = await fetch(`/api/questions/${id}`, {
+                method: 'DELETE',
+                headers: { 'x-admin-password': adminPassword }
+            });
+            const data = await res.json();
+            if (data.success) {
+                loadModules();
+                showModal('DELETED', 'Module successfully removed from database.', '✅');
+            } else {
+                showModal('ERROR', 'Error deleting module.', '❌');
+            }
+        }
+    </script>
+
 </body>
 </html>

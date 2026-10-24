@@ -1,151 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ezrelyn AI Proctor System - Proctored Examination</title>
-  <!-- Client-side PDF Generator -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <style>
-    :root {
-      --bg-dark: #040814;
-      --card-bg: rgba(13, 22, 40, 0.9);
-      --card-border: rgba(56, 189, 248, 0.25);
-      --primary: #38bdf8;
-      --primary-glow: rgba(56, 189, 248, 0.4);
-      --accent: #0ea5e9;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --danger: #ef4444;
-      --success: #34d399;
-      --warning: #fbbf24;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding-bottom: 60px; user-select: none; }
-
-    header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 24px; background: rgba(8, 14, 28, 0.95);
-      border-bottom: 1px solid var(--card-border); backdrop-filter: blur(12px);
-      position: sticky; top: 0; z-index: 100;
-    }
-    .brand-title { font-size: 1.05rem; font-weight: 800; color: var(--primary); letter-spacing: 0.5px; }
-
-    .timer-badge {
-      background: rgba(239, 68, 68, 0.15); border: 1px solid var(--danger);
-      color: #fca5a5; font-weight: 800; padding: 8px 16px; border-radius: 20px; font-size: 0.95rem;
-    }
-
-    .main-wrapper { max-width: 900px; margin: 24px auto; padding: 0 16px; }
-
-    .exam-header-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 14px; padding: 20px; margin-bottom: 24px; text-align: center;
-    }
-    .exam-header-card h2 { font-size: 1.4rem; color: #fff; margin-bottom: 6px; }
-    .exam-header-card p { font-size: 0.85rem; color: var(--text-muted); }
-
-    /* Single-Page Questions List */
-    .questions-container { display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px; }
-
-    .q-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 14px; padding: 22px; transition: border-color 0.2s ease;
-    }
-    .q-number { font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; text-transform: uppercase; }
-    .q-text { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 18px; line-height: 1.5; }
-
-    .options-grid { display: flex; flex-direction: column; gap: 10px; }
-
-    .opt-label {
-      background: rgba(8, 14, 28, 0.8); border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 12px 16px; border-radius: 10px; cursor: pointer; font-size: 0.9rem;
-      display: flex; align-items: center; gap: 12px; transition: all 0.2s ease; color: var(--text-main);
-    }
-    .opt-label:hover { border-color: var(--primary); background: rgba(56, 189, 248, 0.08); }
-    .opt-label.selected { border-color: var(--primary); background: rgba(56, 189, 248, 0.2); font-weight: 700; }
-
-    /* Corrections Styling (After Submit) */
-    .opt-label.correct-target { border-color: var(--success) !important; background: rgba(52, 211, 153, 0.2) !important; color: #fff !important; }
-    .opt-label.wrong-choice { border-color: var(--danger) !important; background: rgba(239, 68, 68, 0.2) !important; color: #fff !important; }
-
-    .explanation-box {
-      margin-top: 14px; padding: 12px 16px; border-radius: 8px;
-      background: rgba(56, 189, 248, 0.08); border-left: 3px solid var(--primary);
-      font-size: 0.85rem; color: var(--text-muted); display: none;
-    }
-
-    .submit-bar { text-align: center; margin-top: 30px; }
-    .btn-submit {
-      background: linear-gradient(135deg, var(--primary), var(--accent)); color: #040814;
-      border: none; padding: 16px 40px; font-weight: 900; font-size: 1.05rem; border-radius: 30px;
-      cursor: pointer; box-shadow: 0 4px 20px var(--primary-glow); transition: all 0.3s ease;
-    }
-    .btn-submit:hover { transform: scale(1.04); box-shadow: 0 6px 30px var(--primary); color: #fff; }
-
-    /* Floating Score Summary Bar */
-    .score-summary-card {
-      display: none; background: rgba(8, 14, 28, 0.95); border: 1px solid var(--card-border);
-      border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 24px; backdrop-filter: blur(12px);
-    }
-    .score-summary-card h2 { font-size: 1.6rem; color: var(--primary); margin-bottom: 8px; }
-    .score-summary-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 18px; }
-
-    .btn-pdf {
-      background: linear-gradient(135deg, var(--success), #059669); color: #040814;
-      border: none; padding: 12px 28px; font-weight: 900; border-radius: 20px;
-      cursor: pointer; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(52, 211, 153, 0.3);
-    }
-
-    .overlay {
-      position: fixed; inset: 0; background: rgba(4, 7, 17, 0.95); backdrop-filter: blur(16px);
-      z-index: 999; display: flex; align-items: center; justify-content: center; padding: 20px;
-    }
-    .modal-box {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 20px; padding: 32px; max-width: 480px; width: 100%; text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination Portal | Ezrelyn AI Proctor</title>
+    <meta name="google-site-verification" content="KnK7fMRavFEkhzW_yI5F8W7LAt7twSg7p9Aj5OWXHwc" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12px;
+            background-color: #030712;
+            background-image: 
+                linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none !important; }
+            .print-header { display: block !important; }
+        }
+    </style>
 </head>
-<body>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
 
-  <!-- Violation Modal -->
-  <div id="flaggedOverlay" class="overlay" style="display: none;">
-    <div class="modal-box" style="border-color: var(--danger);">
-      <h2 style="color: var(--danger);">🚨 PROCTOR VIOLATION DETECTED</h2>
-      <p style="color: var(--text-muted); margin: 12px 0 24px 0;">You switched away from the active exam window. As per security rules, your session has been terminated and assigned a <b>0%</b> score.</p>
-      <button class="btn-submit" style="background: var(--danger); color: #fff;" onclick="window.location.href='/dashboard.html'">RETURN TO DASHBOARD</button>
+    <!-- Top Examination Navbar with Timer -->
+    <header class="w-full py-3 px-4 sm:px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-lg overflow-hidden border border-cyan-500/40 flex-shrink-0">
+                <img src="Sarah.jpg" alt="Logo" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <span id="examHeaderTitle" class="font-bold text-xs text-white block">EXAMINATION IN PROGRESS</span>
+                <span id="studentBadge" class="text-[10px] text-cyan-400">Candidate</span>
+            </div>
+        </div>
+
+        <!-- Synchronized Timer Box (Top Right) -->
+        <div class="bg-cyan-950/60 border border-cyan-800/80 px-3.5 py-1.5 rounded-xl flex items-center space-x-2 shadow-lg shadow-cyan-500/15">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span class="text-[11px] font-semibold text-slate-300">Time Left:</span>
+            <span id="timerDisplay" class="text-cyan-400 font-mono font-bold text-xs">--:--</span>
+        </div>
+    </header>
+
+    <!-- Custom Colored Modal Popup Overlay -->
+    <div id="customModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-2 sm:p-4">
+        <div id="modalBox" class="w-full max-w-2xl bg-slate-900 border border-cyan-500/50 p-4 sm:p-6 rounded-2xl shadow-2xl space-y-4 text-center max-h-[92vh] flex flex-col">
+            
+            <!-- PDF / Print Header Branding -->
+            <div class="print-header hidden text-center border-b border-slate-700 pb-3 mb-2">
+                <h1 class="text-lg font-bold text-cyan-600">EZRELYN AI PROCTOR SYSTEM</h1>
+                <p class="text-[11px] text-slate-600">Architected & Engineered by <strong>Ezra Wanyama - THE SMARTPHONE SCIENTIST</strong></p>
+                <p class="text-[10px] text-slate-500">Official Helpline & Inquiries: ezrawanyama74@gmail.com</p>
+            </div>
+
+            <div id="modalIcon" class="text-3xl">⚡</div>
+            <h3 id="modalTitle" class="text-base font-bold text-cyan-400">NOTIFICATION</h3>
+            <p id="modalMessage" class="text-slate-300 text-[12px] leading-relaxed">Message here...</p>
+            <div id="modalContentArea" class="flex-grow overflow-y-auto space-y-3 text-left"></div>
+            
+            <!-- Buttons Area -->
+            <div id="modalButtons" class="pt-2 flex flex-col sm:flex-row gap-2 no-print">
+                <button onclick="closeModal()" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px]">OK</button>
+            </div>
+
+            <!-- Footer Branding inside Modal -->
+            <div class="text-[10px] text-slate-500 border-t border-slate-800 pt-2 text-center">
+                Certified by Ezra Wanyama (THE SMARTPHONE SCIENTIST) | Helpline: ezrawanyama74@gmail.com
+            </div>
+        </div>
     </div>
-  </div>
 
-  <header>
-    <div class="brand-title">EZRELYN PROCTOR SESSION</div>
-    <div class="timer-badge" id="timerDisplay">⏱️ 00:00</div>
-  </header>
+    <!-- Main Exam Container -->
+    <main class="flex-grow flex flex-col items-center px-2 sm:px-6 py-6 w-full max-w-4xl mx-auto space-y-6">
+        
+        <div id="moduleBanner" class="w-full bg-slate-900/90 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-1 text-center">
+            <h1 id="moduleTitle" class="text-lg font-bold text-cyan-400">Loading Exam Module...</h1>
+            <p id="moduleCourse" class="text-[11px] text-slate-400 uppercase tracking-widest">Shuffling questions & options for maximum security...</p>
+        </div>
 
-  <div class="main-wrapper" id="pdfReportContent">
-    <div class="exam-header-card">
-      <h2 id="examModuleTitle">Loading Examination Module...</h2>
-      <p id="studentSessionMeta">Student: Ezra Wanyama | Mode: Single-Page 1-Shot Examination</p>
-    </div>
+        <form id="examForm" onsubmit="submitExam(event)" class="w-full space-y-6 hidden">
+            <div id="questionsContainer" class="space-y-6">
+                <!-- Dynamically shuffled questions -->
+            </div>
 
-    <!-- Final Score Header (Visible After Submission) -->
-    <div class="score-summary-card" id="scoreCard">
-      <h2 id="scoreHeader">SCORE: 0 / 0 (0%)</h2>
-      <p id="scoreSubtext">Review your itemized corrections below.</p>
-      <button class="btn-pdf" onclick="downloadPdfReport()">📥 DOWNLOAD PDF RESULTS REPORT</button>
-    </div>
+            <div class="pt-4 pb-10">
+                <button type="submit" class="w-full py-4 text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-[12px] tracking-wider uppercase rounded-xl shadow-lg shadow-cyan-500/25 transition-all">
+                    SUBMIT EXAMINATION PAPERS &rarr;
+                </button>
+            </div>
+        </form>
 
-    <div class="questions-container" id="questionsList">
-      <!-- Questions rendered sequentially on 1 page -->
-    </div>
+    </main>
 
-    <div class="submit-bar" id="submitBar">
-      <button class="btn-submit" onclick="submitExam()">SUBMIT EXAMINATION FOR GRADING</button>
-    </div>
-  </div>
+    <footer class="py-5 text-center text-[12px] text-slate-500 border-t border-slate-900">
+        &copy; 2026 Ezrelyn AI Proctor System. Architected by Ezra Wanyama (THE SMARTPHONE SCIENTIST).
+    </footer>
 
-  <script src="exam.js"></script>
+    <script>
+        let currentModule = null;
+        let shuffledQuestions = [];
+        let timerInterval = null;
+        let timeLeftSeconds = 0;
+        let isSubmitted = false;
+
+        const studentName = localStorage.getItem('ezr_student_name') || 'Candidate';
+        document.getElementById('studentBadge').textContent = 'Candidate: ' + studentName;
+
+        function showModal(title, message, icon = '⚡', contentHTML = '', buttonsHTML = '<button onclick="closeModal()" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px]">OK</button>') {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('modalIcon').textContent = icon;
+            document.getElementById('modalContentArea').innerHTML = contentHTML;
+            document.getElementById('modalButtons').innerHTML = buttonsHTML;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+
+        // Fisher-Yates Shuffle Algorithm
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // Anti-Cheat Mechanism
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && !isSubmitted) {
+                triggerAntiCheatViolation();
+            }
+        });
+
+        window.addEventListener('blur', () => {
+            if (!isSubmitted) {
+                triggerAntiCheatViolation();
+            }
+        });
+
+        function triggerAntiCheatViolation() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            if (timerInterval) clearInterval(timerInterval);
+
+            showModal('VIOLATION DETECTED - 0% SCORE', 'You switched tabs or left the active examination window. Strict proctoring policy mandates an automatic 0% permanent score.', '🚨', '', `
+                <button onclick="window.location.href='dashboard.html'" class="w-full py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl uppercase tracking-wider text-[12px]">RETURN TO DASHBOARD</button>
+            `);
+        }
+
+        async function loadExam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            if (!id) {
+                showModal('ERROR', 'No examination module specified.', '❌', '', `<button onclick="window.location.href='dashboard.html'" class="w-full py-2.5 bg-cyan-500 text-slate-950 font-bold rounded-xl">GO TO DASHBOARD</button>`);
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/questions');
+                const modules = await res.json();
+                currentModule = modules.find(m => m.id == id);
+
+                if (!currentModule) {
+                    showModal('NOT FOUND', 'The requested examination module could not be found.', '❌', '', `<button onclick="window.location.href='dashboard.html'" class="w-full py-2.5 bg-cyan-500 text-slate-950 font-bold rounded-xl">GO TO DASHBOARD</button>`);
+                    return;
+                }
+
+                document.getElementById('moduleTitle').textContent = currentModule.title;
+                document.getElementById('moduleCourse').textContent = currentModule.course;
+                document.getElementById('examHeaderTitle').textContent = currentModule.title.toUpperCase();
+
+                timeLeftSeconds = (currentModule.timeLimit || 45) * 60;
+                startTimer();
+
+                // Shuffle Questions AND Shuffle Options for each question
+                shuffledQuestions = shuffleArray(currentModule.questions).map(q => {
+                    const validOpts = ['a', 'b', 'c', 'd'].filter(opt => q[opt]);
+                    const correctText = q[q.correct]; // get correct answer string value
+                    
+                    // Shuffle the option keys (e.g. ['c', 'a', 'd', 'b'])
+                    const shuffledKeys = shuffleArray(validOpts);
+                    
+                    let newObj = { ...q, shuffledMap: {} };
+                    shuffledKeys.forEach((oldKey, newIdx) => {
+                        const targetKey = ['a', 'b', 'c', 'd'][newIdx];
+                        newObj[targetKey] = q[oldKey];
+                        if (q[oldKey] === correctText) {
+                            newObj.correct = targetKey; // reassign correct pointer
+                        }
+                        newObj.shuffledMap[targetKey] = oldKey;
+                    });
+                    return newObj;
+                });
+
+                renderQuestions(shuffledQuestions);
+                document.getElementById('examForm').classList.remove('hidden');
+
+            } catch (err) {
+                console.error(err);
+                showModal('ERROR', 'Failed to load examination questions.', '❌');
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeLeftSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    if (!isSubmitted) {
+                        autoSubmitExam();
+                    }
+                    return;
+                }
+                timeLeftSeconds--;
+                const mins = Math.floor(timeLeftSeconds / 60);
+                const secs = timeLeftSeconds % 60;
+                document.getElementById('timerDisplay').textContent = 
+                    String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+            }, 1000);
+        }
+
+        function renderQuestions(questions) {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = questions.map((q, idx) => `
+                <div class="bg-slate-900/90 border border-slate-800 p-4 sm:p-6 rounded-2xl shadow-xl space-y-3">
+                    <div class="flex items-start space-x-2">
+                        <span class="bg-cyan-950 border border-cyan-800 text-cyan-400 font-bold px-2.5 py-1 rounded-lg text-xs flex-shrink-0">Q${idx + 1}</span>
+                        <p class="text-slate-200 text-[12px] font-semibold leading-relaxed pt-1">${q.q}</p>
+                    </div>
+
+                    <div class="space-y-2 pl-2 sm:pl-8">
+                        ${['a', 'b', 'c', 'd'].map(opt => q[opt] ? `
+                            <label class="flex items-center space-x-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 cursor-pointer hover:bg-cyan-950/20 hover:border-cyan-800/50 transition-all">
+                                <input type="radio" name="q_${idx}" value="${opt}" required class="text-cyan-500 bg-slate-900 border-slate-700 focus:ring-cyan-500 w-4 h-4">
+                                <span class="text-slate-300 text-[12px]"><strong class="text-cyan-400 uppercase">${opt}.</strong> ${q[opt]}</span>
+                            </label>
+                        ` : '').join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function submitExam(event) {
+            event.preventDefault();
+            if (isSubmitted) return;
+            processScore();
+        }
+
+        function autoSubmitExam() {
+            showModal('TIME UP', 'Your examination time has expired. Your papers are being submitted automatically.', '⏰');
+            processScore();
+        }
+
+        function processScore() {
+            isSubmitted = true;
+            if (timerInterval) clearInterval(timerInterval);
+
+            let score = 0;
+            let reviewHTML = '';
+
+            shuffledQuestions.forEach((q, idx) => {
+                const selected = document.querySelector(`input[name="q_${idx}"]:checked`);
+                const userAns = selected ? selected.value : null;
+                const isCorrect = userAns === q.correct;
+                if (isCorrect) score++;
+
+                reviewHTML += `
+                    <div class="bg-slate-950 border ${isCorrect ? 'border-emerald-800/60' : 'border-red-900/60'} p-3.5 rounded-xl space-y-1">
+                        <p class="font-bold text-slate-200 text-[12px]">Q${idx + 1}: ${q.q}</p>
+                        <p class="text-[11px] ${isCorrect ? 'text-emerald-400' : 'text-red-400'}">
+                            Your Answer: <strong>${userAns ? userAns.toUpperCase() : 'None'}</strong> | Correct Answer: <strong>${q.correct.toUpperCase()}</strong>
+                        </p>
+                        <p class="text-slate-400 text-[11px] italic bg-slate-900/60 p-2 rounded border border-slate-800">
+                            <strong>Explanation:</strong> ${q.explanation || 'No explanation provided.'}
+                        </p>
+                    </div>
+                `;
+            });
+
+            const percentage = Math.round((score / shuffledQuestions.length) * 100);
+            const whatsappGroupLink = "https://chat.whatsapp.com/KmHZQYK3i3R8DTgGY5TNLS?s=cl&p=a&mlu=4&ilr=4";
+
+            showModal('EXAMINATION RESULTS', `Certified by Ezra Wanyama (THE SMARTPHONE SCIENTIST)\nCandidate: ${studentName} | Score: ${score}/${shuffledQuestions.length} (${percentage}%)`, percentage >= 50 ? '🎉' : '📊', reviewHTML, `
+                <div class="flex flex-col gap-2 w-full">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <button onclick="window.print()" class="w-full sm:w-1/2 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px] shadow-lg">📄 DOWNLOAD AS PDF</button>
+                        <a href="${whatsappGroupLink}" target="_blank" class="w-full sm:w-1/2 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl uppercase tracking-wider text-[12px] text-center shadow-lg">💬 JOIN 3000+ STUDENTS ON WHATSAPP</a>
+                    </div>
+                    <button onclick="window.location.href='dashboard.html'" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl uppercase tracking-wider text-[12px]">RETURN TO DASHBOARD</button>
+                </div>
+            `);
+        }
+
+        loadExam();
+    </script>
+
 </body>
 </html>
