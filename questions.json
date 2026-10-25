@@ -33,5 +33,2928 @@
         "explanation": "Random shuffling of questions and choices prevents cheating and memorization across multiple attempts."
       }
     ]
+  },
+  {
+    "id": 1792887997116,
+    "course": "[University] UNIV 1001",
+    "title": "Foundation course (I)",
+    "timeLimit": 100,
+    "questions": [
+      {
+        "q": "Why is it important to avoid flaming in academic discussions?",
+        "a": "To eliminate disagreements altogether",
+        "b": "To create a supportive environment that fosters meaningful dialogue",
+        "c": "To promote informal and casual communication styles",
+        "d": "To allow participants to vent their frustrations",
+        "correct": "b",
+        "explanation": "Avoiding flaming ensures that discussions remain polite, safe, and collaborative."
+      },
+      {
+        "q": "Netiquette ensures that communication in a collaborative learning community is respectful, professional, and constructive.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Netiquette sets the baseline guidelines for polite and effective digital peer integration."
+      },
+      {
+        "q": "Why is practicing netiquette important in an online community of peers?",
+        "a": "It guarantees agreement among all participants",
+        "b": "It replicates the nonverbal cues found in face-to-face interactions",
+        "c": "It eliminates the need for instructors to moderate discussions",
+        "d": "It ensures discussions remain polite, focused, and productive",
+        "correct": "d",
+        "explanation": "Netiquette protects academic focus and professional collaboration standards."
+      },
+      {
+        "q": "Maintaining a respectful tone and following academic protocols are important when transitioning from informal to formal online discussions.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Academic environments require moving past text slang or casual dialogue conventions into rigorous protocols."
+      },
+      {
+        "q": "LIRN and JSTOR are examples of:",
+        "a": "Course Codes",
+        "b": "Student organizations",
+        "c": "Career Service Centers",
+        "d": "Library Databases",
+        "correct": "d",
+        "explanation": "These are digital libraries housing thousands of high-quality peer-reviewed materials."
+      },
+      {
+        "q": "Why is using AI-generated text without citation considered plagiarism?",
+        "a": "AI-generated text cannot be detected",
+        "b": "The work is not the user's own, even if AI is not a physical person",
+        "c": "AI tools do not produce original work",
+        "d": "AI-generated text is always inaccurate",
+        "correct": "b",
+        "explanation": "Academic integrity requires presenting original work or giving precise attribution if text belongs to an outside source."
+      },
+      {
+        "q": "What is the primary role of the Program Advising Office?",
+        "a": "To maintain student records and support students with administrative services",
+        "b": "To handle technical issues and peer assessment concerns",
+        "c": "To provide academic and administrative support to students throughout their studies",
+        "d": "To assign coursework to students and resolve technical issues",
+        "correct": "c",
+        "explanation": "Advisors provide general guidance, programmatic answers, and support structural progress."
+      },
+      {
+        "q": "Why is it important to engage in discussions within a learning community?",
+        "a": "It is socially expected behavior",
+        "b": "It replaces the need to study independently",
+        "c": "It is required to pass the course",
+        "d": "It helps build critical thinking and collaboration skills",
+        "correct": "d",
+        "explanation": "Peer-to-peer exploration exposes students to alternative logic arrays, enhancing overall evaluation metrics."
+      },
+      {
+        "q": "A rubric is a guide that helps both teachers and students understand how an assignment will be evaluated.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Rubrics map the grading parameters objectively so expectations are entirely crystal clear."
+      },
+      {
+        "q": "Why is plagiarism not tolerated in academic settings?",
+        "a": "It is a common practice in professional writing",
+        "b": "It helps students complete assignments faster",
+        "c": "It is only an issue if the instructor notices",
+        "d": "It violates academic integrity and misrepresents original work",
+        "correct": "d",
+        "explanation": "Plagiarism misrepresents someone else's structural intelligence as your own, breaking institutional trust."
+      },
+      {
+        "q": "How can AI be used ethically for academic papers?",
+        "a": "By leveraging AI for brainstorming, proofreading, and improving clarity while properly citing sources",
+        "b": "By allowing AI to write entire papers to save time",
+        "c": "By using AI-generated content without modifications or citations",
+        "d": "By copying and pasting AI-generated text without review",
+        "correct": "a",
+        "explanation": "AI is an excellent technical sandbox assistant, but original formulation and final ownership must stem from the human student."
+      },
+      {
+        "q": "APA formatting promotes learning by teaching students how to ________ information properly and ethically.",
+        "a": "Ignore academic standards",
+        "b": "Copy and paste",
+        "c": "Avoid using sources",
+        "d": "Organize and cite",
+        "correct": "d",
+        "explanation": "APA structures structural citation hierarchies clearly so authors receive due credit."
+      },
+      {
+        "q": "Why is citing sources important in academic writing?",
+        "a": "To give credit to original authors and avoid plagiarism",
+        "b": "To avoid having to explain ideas in your own words",
+        "c": "To make the paper longer",
+        "d": "To confuse readers with extra information",
+        "correct": "a",
+        "explanation": "Citations build a clear roadmap verifying research depth while honoring historical source authors."
+      },
+      {
+        "q": "When summarizing an assigned reading, it does not need to include citations.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Even when using your own words to summarize external arguments, structural logic ownership remains with the author."
+      },
+      {
+        "q": "An academic five-paragraph essay should be based on personal opinion to increase motivation instead of using research.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Academic essays must leverage objective facts and library evidence instead of isolated personal feelings."
+      },
+      {
+        "q": "In addition to googling, it is a good idea to try library article databases to learn more about an author.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Library data structures offer peer-reviewed historical profiles unavailable via basic public web layers."
+      },
+      {
+        "q": "The Cornell note-taking method involves dividing a page into three sections: a note-taking area, a cue column, and a summary section.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "This visual system organizes structural notes efficiently to facilitate retention and testing."
+      },
+      {
+        "q": "What is the primary cause of misinformation?",
+        "a": "Deliberate attempts to deceive",
+        "b": "Lack of access to information",
+        "c": "Mistakes and human error",
+        "d": "Biased opinions without factual basis",
+        "correct": "c",
+        "explanation": "While malicious intent exists, simple tracking mistakes, language hurdles, and systemic human reproduction errors drive massive information drift."
+      },
+      {
+        "q": "The statement that 'intelligent people always question and evaluate' means:",
+        "a": "Good listeners can predict exam items",
+        "b": "Facts need to be verified in order to understand a topic well",
+        "c": "You can't trust anyone at all in textbooks",
+        "d": "Writers hide bias so everything must be guessed",
+        "correct": "b",
+        "explanation": "Deep literacy requires running assertions through checking models (like SIFT) instead of absorbing claims passively."
+      },
+      {
+        "q": "Values are beliefs that influence our thinking, actions, and attitudes, even if we are not consciously aware of them.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Values form baseline behavioral heuristics that drive standard choices subconsciously."
+      },
+      {
+        "q": "How can developing self-assessment skills improve your contributions to peer discussions?",
+        "a": "By encouraging blind conformity",
+        "b": "By enabling you to provide more constructive and insightful feedback",
+        "c": "By reducing participation need",
+        "d": "By helping you dominate space",
+        "correct": "b",
+        "explanation": "Critiquing your own logical gaps refines your eye for structure, making you helpful during external review tasks."
+      },
+      {
+        "q": "What is a key difference between internal and external factors that influence change?",
+        "a": "Internal factors are completely unmanageable",
+        "b": "Both tracking metrics are uniform",
+        "c": "External metrics are always easily accepted",
+        "d": "Internal factors stem from choices; external factors are often unexpected and uncontrollable",
+        "correct": "d",
+        "explanation": "Internal elements deal with your locus of control; external forces deal with ambient disruptions or context adjustments."
+      },
+      {
+        "q": "Which of the following is essential when providing quality feedback in peer assessment?",
+        "a": "Generic copypasta",
+        "b": "Skipping critique areas",
+        "c": "Positive validation only",
+        "d": "The sandwich technique: praise + critique + motivating closing",
+        "correct": "d",
+        "explanation": "The sandwich structure preserves peer motivation while outlining concrete technical improvements."
+      },
+      {
+        "q": "Which mindset focuses on performance goals, and which focuses on learning goals?",
+        "a": "Performance maps to Growth, Learning maps to Fixed",
+        "b": "Both align to Fixed tracking",
+        "c": "Performance maps to Fixed, Learning maps to Growth",
+        "d": "Both require baseline mechanical isolation",
+        "correct": "c",
+        "explanation": "Performance seek verification via easy metrics (Fixed); learning goals focus on operational mastery (Growth)."
+      },
+      {
+        "q": "How can students shift from a performance-based mindset to a learning-based mindset?",
+        "a": "Asking questions they already know metrics for",
+        "b": "Prioritizing validation checks",
+        "c": "Avoiding tough modules",
+        "d": "Recognizing performance limitations and focusing on developmental evolution",
+        "correct": "d",
+        "explanation": "Dropping ego constraints lets individuals embrace errors as diagnostic data arrays."
+      },
+      {
+        "q": "How are grit and the Uses and Gratifications Theory (UGT) related to motivation?",
+        "a": "They prioritize task avoidance",
+        "b": "They maximize short-term pleasure hits",
+        "c": "Grit focuses on long-term execution stamina; UGT tracks info choices driven by specific functional needs",
+        "d": "They rely purely on immediate external rewards",
+        "correct": "c",
+        "explanation": "Grit handles macro endurance; UGT clarifies micro information selection behaviors."
+      },
+      {
+        "q": "Which mindset is most closely associated with the concept of grit?",
+        "a": "Performance Mindset",
+        "b": "Fixed Mindset",
+        "c": "Learning Mindset",
+        "d": "Growth Mindset",
+        "correct": "d",
+        "explanation": "Grit needs a Growth foundation because if talent is viewed as fixed, extended struggle looks useless."
+      },
+      {
+        "q": "What does the 'S' in SMART goals represent?",
+        "a": "Strategic",
+        "b": "Sustainable",
+        "c": "Simple",
+        "d": "Specific",
+        "correct": "d",
+        "explanation": "Specific boundaries turn fuzzy desires into targeted destinations."
+      },
+      {
+        "q": "Multitasking allows the human brain to efficiently focus on multiple tasks at the same time.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "The human brain cannot process parallel tasks; it constantly toggles back and forth, losing accuracy."
+      },
+      {
+        "q": "Which of the following defines a fully complete SMART goal?",
+        "a": "I want to finish a programming degree soon",
+        "b": "Earning a degree with a GPA of 3.0+ by May 2029 via studying 17+ hours weekly per course",
+        "c": "Studying computing topics at the local library often",
+        "d": "Getting high marks in my upcoming computer science class",
+        "correct": "b",
+        "explanation": "This item tracks a clear metric, execution intensity parameters, and an absolute calendar date."
+      },
+      {
+        "q": "Which of the following is NOT a characteristic of a SMART goal?",
+        "a": "Transformable",
+        "b": "Relevant",
+        "c": "Achievable",
+        "d": "Measurable",
+        "correct": "a",
+        "explanation": "Transformable is a distractor phrase; the 'T' stands exclusively for Time-bound."
+      },
+      {
+        "q": "To locate the official student Code of Conduct, you should navigate to:",
+        "a": "Syllabus overview text",
+        "b": "Peer social channels",
+        "c": "The University Catalog document",
+        "d": "Course description headers",
+        "correct": "c",
+        "explanation": "The institution's primary regulatory Catalog anchors official definitions of rights and infractions."
+      },
+      {
+        "q": "Is using emoticons a standard strategy to optimize professional academic papers?",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Emoticons introduce informal ambiguity, lowering overall formal academic delivery standards."
+      },
+      {
+        "q": "The Learning Resource Center offers referencing support, but what tool is explicitly excluded?",
+        "a": "APA Style Tutorials",
+        "b": "Writing Process Overviews",
+        "c": "Automated APA Citation Generators",
+        "d": "Outline examples",
+        "correct": "c",
+        "explanation": "The LRC trains students on the manual mechanics of formatting rather than providing automated click tools."
+      },
+      {
+        "q": "Why should researchers deploy database engines rather than standard commercial web search engines?",
+        "a": "They drop citation needs",
+        "b": "They curate peer-reviewed, vetted, credible journal articles",
+        "c": "They offer completely free access to all consumer goods",
+        "d": "They prioritize personal opinion blogs",
+        "correct": "b",
+        "explanation": "Databases use institutional validation protocols to ensure source reliability."
+      },
+      {
+        "q": "Reviewing instructor feedback patterns and applying tips to downstream modules is a sign of:",
+        "a": "A passive learner approach",
+        "b": "An effective feedback loop optimization strategy",
+        "c": "A fixed mindset reaction pattern",
+        "d": "Unnecessary academic dependence",
+        "correct": "b",
+        "explanation": "Using critiques as corrective data points maps perfectly to proactive educational systems."
+      },
+      {
+        "q": "What privacy risk is highlighted when running prompts through consumer generative AI tools?",
+        "a": "Engines immediately wipe entries",
+        "b": "Tools might compile and process inputs without explicit permission elements",
+        "c": "System requires a manual user password for every prompt",
+        "d": "Models flatly refuse long prompts",
+        "correct": "b",
+        "explanation": "Inputs are often integrated into public training cycles, causing leakage risks for sensitive assets."
+      },
+      {
+        "q": "Active learning community participation is defined by:",
+        "a": "Lurking on threads silently",
+        "b": "Submitting work via individual mail while avoiding forums",
+        "c": "Contributing to prompts, sharing peer reviews, and raising diagnostic questions",
+        "d": "Interacting with the mentor via private lines only",
+        "correct": "c",
+        "explanation": "Active footprints demand collaborative engagement within peer discussion loops."
+      },
+      {
+        "q": "What is the primary function of assignment evaluation rubrics?",
+        "a": "To constrain student formatting creativity",
+        "b": "To clarify baseline criteria requirements so users can hit goals accurately",
+        "c": "To speed up grading timelines by eliminating comment space",
+        "d": "To prevent peer collaboration",
+        "correct": "b",
+        "explanation": "Rubrics remove grading subjectivity by mapping requirements explicitly before submission."
+      },
+      {
+        "q": "How can generative AI accidentally prompt severe instances of academic dishonesty?",
+        "a": "By offering stylistic spelling corrections",
+        "b": "By outlining basic historical timelines",
+        "c": "By hallucinating completely false citations or non-existent authors",
+        "d": "By helping explain abstract terminology parameters",
+        "correct": "c",
+        "explanation": "AI tools often generate real-sounding but totally fake academic sources, leading to severe fabrication violations."
+      }
+    ]
+  },
+  {
+    "id": 1792888260587,
+    "course": "[University] UNIV 1001",
+    "title": "Foundation course (II)",
+    "timeLimit": 40,
+    "questions": [
+      {
+        "q": "If you interact in an academic discussion by sending aggressive, hostile, or deeply insulting digital statements, what netiquette infraction are you executing?",
+        "a": "Plagiarism",
+        "b": "Flaming",
+        "c": "Collusion",
+        "d": "Lurking",
+        "correct": "b",
+        "explanation": "Flaming refers to posting hostile, aggressive, or insulting messages in online academic or public communications, violating digital netiquette."
+      },
+      {
+        "q": "Which core repository provides students with direct access to vetted, peer-reviewed journals and scholarly databases like JSTOR?",
+        "a": "The Program Advising Office",
+        "b": "The Public Web Search Layer",
+        "c": "The Learning Resource Center / Library Databases",
+        "d": "Social Media Author Directories",
+        "correct": "c",
+        "explanation": "The Learning Resource Center (LRC) and integrated library databases curate academic, peer-reviewed research material."
+      },
+      {
+        "q": "Why does the utilization of uncredited generative AI text outputs in an academic essay trigger plagiarism violations?",
+        "a": "Because AI models operate under paid licensing structures",
+        "b": "Because the output is structurally unverified and consistently wrong",
+        "c": "Because the material is not the student's original structural thought, regardless of its machine origin",
+        "d": "Because proctor systems auto-lock AI text files",
+        "correct": "c",
+        "explanation": "Academic integrity demands presenting original work; submitting content produced by external generators without citation misrepresents non-original work as your own."
+      },
+      {
+        "q": "What is the primary operational mandate of the institutional Program Advising Office?",
+        "a": "Directly grading weekly discussion forum contributions",
+        "b": "Providing academic and administrative navigation support across your degree timeline",
+        "c": "Repairing device operating system faults or technical portal errors",
+        "d": "Hosting research source generation tools",
+        "correct": "b",
+        "explanation": "Program Advisors assist students with institutional navigation, degree tracking, administrative policies, and academic progress."
+      },
+      {
+        "q": "What is the true function of an academic grading rubric attached to an assignment?",
+        "a": "To obscure evaluation requirements from candidate view",
+        "b": "To set a strict word velocity boundary calculation",
+        "c": "To outline performance metrics and explicit criteria parameters used for evaluation",
+        "d": "To act as an automated citation rendering application",
+        "correct": "c",
+        "explanation": "Rubrics clearly delineate expectations, performance criteria, and point breakdowns so students know how work will be evaluated."
+      },
+      {
+        "q": "When modifying writing behaviors based on grading feedback, which path optimizes downstream module performance?",
+        "a": "Ignoring negative parameters if overall totals pass baseline weights",
+        "b": "Isolating feedback loops to identify systematic error patterns and intentionally fixing them",
+        "c": "Scrapping entire structural documents from scratch over micro errors",
+        "d": "Relying on peer assessment channels over formal instructor critiques",
+        "correct": "b",
+        "explanation": "Effective learning requires using instructor critiques as data points to fix systematic weaknesses in subsequent assignments."
+      },
+      {
+        "q": "Which explicit action directly breaches the university General Code of Conduct regulations?",
+        "a": "Engaging in fierce analytical debate regarding sensitive data parameters",
+        "b": "Soliciting financial aid or private monetary distributions from peers or instructors",
+        "c": "Utilizing complex library search keyword combinations",
+        "d": "Challenging an author's bias using secondary sources",
+        "correct": "b",
+        "explanation": "Soliciting money or financial help from peers or staff breaks professional boundaries and explicit student conduct rules."
+      },
+      {
+        "q": "What severe data risk occurs if you prompt proprietary research data into public generative AI engines?",
+        "a": "The platform automatically wipes input memory instantly",
+        "b": "The information can be incorporated into public model retraining cycles without consent",
+        "c": "The engine immediately creates falsified citations of your content",
+        "d": "The tool converts texts into APA format structures without permission",
+        "correct": "b",
+        "explanation": "Consumer AI systems often log user inputs to train future iterations, exposing private or sensitive data publicly."
+      },
+      {
+        "q": "The Cornell note-taking structure requires dividing a physical page array into which explicit functional divisions?",
+        "a": "Title block, Introduction block, Conclusion block",
+        "b": "Cue Column, Note-taking Area, Summary Section",
+        "c": "Vocabulary zone, Citation indexing vector, Timeline margin",
+        "d": "Analytical grid, Hypothesis quadrant, Bibliography footer",
+        "correct": "b",
+        "explanation": "The Cornell note-taking layout splits the page into a main Note-taking Area, a left Cue Column for key terms/questions, and a bottom Summary Section."
+      },
+      {
+        "q": "What primary mechanism acts as the dominant catalyst for real-world misinformation distribution across networks?",
+        "a": "Deliberate high level server hacking events",
+        "b": "Systemic language translation blocks and simple human recording errors",
+        "c": "Hardware failure rates in global consumer electronics routing nodes",
+        "d": "Sophisticated corporate marketing campaigns",
+        "correct": "b",
+        "explanation": "Misinformation stems primarily from human error, misunderstandings, and misinterpretations rather than pure malicious hacking (disinformation)."
+      },
+      {
+        "q": "The assertion that 'intelligent individuals consistently interrogate and evaluate text objects' establishes that:",
+        "a": "A candidate can deduce quiz answers via casual hearing traits",
+        "b": "Assertion claims must run through validation models to understand text effectively",
+        "c": "All textbook documentation is deliberately deceptive",
+        "d": "Authors clearly state their personal biases in introductory lines",
+        "correct": "b",
+        "explanation": "Critical thinking demands active verification, questioning arguments, and evaluating proof rather than passive acceptance."
+      },
+      {
+        "q": "How are personal human values structurally defined in relation to everyday behavioral heuristics?",
+        "a": "They are superficial preferences easily discarded during testing configurations",
+        "b": "They are foundational beliefs that direct decisions and actions, often operating subconsciously",
+        "c": "They are identical to institutional code regulations",
+        "d": "They are external pressures managed by advising cells",
+        "correct": "b",
+        "explanation": "Values form core psychological foundations that consistently shape priorities, behavior, and subconscious decision-making."
+      },
+      {
+        "q": "How does the execution of objective self-assessment routines directly optimize a candidate's collaborative footprint?",
+        "a": "It encourages absolute agreement with group consensus positions",
+        "b": "It builds analytical skills needed to offer personalized, constructive peer feedback",
+        "c": "It reduces overall motivation to participate in collaborative forums",
+        "d": "It allows a user to control team focus arrays exclusively",
+        "correct": "b",
+        "explanation": "Evaluating one's own work objectively sharpens critical analysis, enabling more thoughtful, constructive evaluation of peers."
+      },
+      {
+        "q": "What is the structural difference between internal and external parameters prompting change vectors?",
+        "a": "Internal changes are uncontrollable; external changes are completely predictable",
+        "b": "Both parameters track identical metrics in execution",
+        "c": "Internal factors stem from personal decisions; external factors are sudden and outside your control",
+        "d": "External changes are easier to process because they match personal choices",
+        "correct": "c",
+        "explanation": "Internal factors relate to choices within your locus of control, whereas external factors are outside conditions or unexpected events."
+      },
+      {
+        "q": "When applying the feedback 'sandwich technique' during peer review tasks, what is the mandatory structural sequence?",
+        "a": "Critique + Vague Validation + Generic closing",
+        "b": "Praise + Constructive Target Outline + Validating Closing Statement",
+        "c": "Complete grading calculation + Rule checklist + Score summary",
+        "d": "Correction warning + Penalty alert + Feedback resource link",
+        "correct": "b",
+        "explanation": "The sandwich method layers feedback: positive encouragement (praise), constructive critique/improvement steps, followed by an encouraging closing."
+      },
+      {
+        "q": "The 'Uses and Gratifications Theory' (UGT) dictates that consumers interact with information objects based on:",
+        "a": "Random environmental exposures",
+        "b": "Targeted personal needs, goals, and internal psychological motivations",
+        "c": "Direct instructions issued by university monitoring structures",
+        "d": "Algorithmic force vectors",
+        "correct": "b",
+        "explanation": "UGT states that audiences actively select media and information channels to fulfill specific personal desires, goals, or needs."
+      },
+      {
+        "q": "A candidate who structures study parameters around absolute performance verification metrics most likely hosts which mindset paradigm?",
+        "a": "Growth Mindset",
+        "b": "Fixed Mindset",
+        "c": "Strategic Mindset",
+        "d": "Holistic Mindset",
+        "correct": "b",
+        "explanation": "A Fixed Mindset prioritizes demonstrating ability and getting validation (performance goals) over deep conceptual learning."
+      },
+      {
+        "q": "How can a student systematically transition an active mental framework from a Fixed state to a Growth profile?",
+        "a": "By exclusively attempting modules where success metrics are already guaranteed",
+        "b": "By recognizing fixed limitations and reframing obstacles as data inputs for development",
+        "c": "By prioritizing external praise metrics over actual operational execution",
+        "d": "By minimizing engagement with challenging curriculum blocks",
+        "correct": "b",
+        "explanation": "Shifting to a Growth Mindset involves seeing mistakes as valuable diagnostic data and view effort as the path to mastery."
+      },
+      {
+        "q": "Which framework defines 'grit' in direct relation to psychological stamina configuration models?",
+        "a": "The capacity to finish short-term simple evaluation scripts fast",
+        "b": "Perseverance and passion directed toward long-term strategic objectives despite obstacles",
+        "c": "The active choice of media arrays based on immediate entertainment gratification targets",
+        "d": "The mechanical memorization of technical definition indices",
+        "correct": "b",
+        "explanation": "Grit is defined by researcher Angela Duckworth as sustained passion and perseverance toward long-term goals."
+      },
+      {
+        "q": "The 'R' matrix indicator inside standard SMART target setting documentation stands for:",
+        "a": "Rapid",
+        "b": "Rigorous",
+        "c": "Relevant",
+        "d": "Routine",
+        "correct": "c",
+        "explanation": "In SMART goals, R stands for Relevant (aligning with overall long-term objectives)."
+      },
+      {
+        "q": "What cognitive focus penalty occurs when switching between multitasking windows?",
+        "a": "The brain processes information in parallel with increased precision",
+        "b": "Cognitive efficiency drops due to constant refocusing delays, increasing stress levels",
+        "c": "Memory retention increases by opening alternative sensory fields",
+        "d": "Anxiety levels flatten to zero due to continuous task distribution",
+        "correct": "b",
+        "explanation": "Multitasking forces context switching, which degrades focus, increases error frequency, and elevates stress."
+      },
+      {
+        "q": "Identify the properly configured SMART target option from the collection below:",
+        "a": "I will attempt to improve my overall computer science performance soon.",
+        "b": "Secure a B.Sc. in Computer Science by August 2029 with a cumulative GPA above 3.0 via 17 hours of weekly study per course.",
+        "c": "Spend extensive time reviewing core research assets inside library reading rooms.",
+        "d": "Acquire software programming positions at local tech agencies next semester.",
+        "correct": "b",
+        "explanation": "Option B is Specific, Measurable (GPA > 3.0), Achievable, Relevant (B.Sc CS), and Time-bound (August 2029)."
+      },
+      {
+        "q": "Is utilizing extensive emoticons an official method to clarify professional academic papers?",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Emoticons are informal visual indicators unsuitable for rigorous academic or technical writing standards."
+      },
+      {
+        "q": "When summarizing external reading sources, what is the protocol regarding text citation requirements?",
+        "a": "Citations are unnecessary if the summary uses original student text expressions",
+        "b": "Citations are mandatory because the underlying structural logic belongs to the original author",
+        "c": "Citations are only executed if requested by an inspection proctor",
+        "d": "Citations are bypassed if text length drops beneath five paragraphs",
+        "correct": "b",
+        "explanation": "Summarizing or paraphrasing still requires full in-text citation because the core ideas and arguments remain the property of the original author."
+      },
+      {
+        "q": "The acronym SIFT matches which precise operational data verification steps?",
+        "a": "Search, Inspect, Format, Track",
+        "b": "Stop, Investigate the source, Find trusted coverage, Trace claims to original context",
+        "c": "Synthesize evidence, Illustrate frameworks, Formulate theses, Test logic",
+        "d": "Scan data, Interpret arguments, File records, Transcribe text",
+        "correct": "b",
+        "explanation": "The SIFT method for digital information evaluation stands for: Stop, Investigate the source, Find better coverage, and Trace claims back to the original context."
+      }
+    ]
+  },
+  {
+    "id": 1792888588245,
+    "course": "[University] UNIV 1001",
+    "title": "Foundation course (III)",
+    "timeLimit": 80,
+    "questions": [
+      {
+        "q": "What specific type of academic integrity violation occurs when two or more students engage in unauthorized collaboration on a strictly individual task?",
+        "a": "Self-Plagiarism",
+        "b": "Fabrication",
+        "c": "Collusion",
+        "d": "Phishing",
+        "correct": "c",
+        "explanation": "Collusion occurs when students secretly work together on tasks explicitly designated for independent completion."
+      },
+      {
+        "q": "According to the OpenStax textbook guidelines, what dangerous scenario can be triggered by a single major time-management mistake?",
+        "a": "An automatic transformation of a growth mindset into a fixed mindset.",
+        "b": "A complete structural change of the course syllabus grading weights.",
+        "c": "An immediate, permanent internet server disconnection.",
+        "d": "A dangerous 'domino effect' of cascading delays that can quickly threaten graduation.",
+        "correct": "d",
+        "explanation": "A small slip creates cascading backlogs: missed readings lead to late discussions, causing poor peer evaluations and risking academic failure."
+      },
+      {
+        "q": "According to your portal's validated grading criteria, what exact percentage of the overall course grade do Discussion Assignments constitute?",
+        "a": "35%",
+        "b": "20%",
+        "c": "5%",
+        "d": "30%",
+        "correct": "a",
+        "explanation": "Your specific course configuration registers Discussion Assignments as representing exactly 35% of the total cumulative course marks."
+      },
+      {
+        "q": "Based on cognitive psychology research outlined in your readings, what is the brain's baseline capacity regarding multitasking?",
+        "a": "Multitasking is highly effective when executed using a mobile smartphone.",
+        "b": "The human brain can process multiple complex cognitive lines simultaneously.",
+        "c": "Multitasking is a myth; the human brain cannot efficiently focus on multiple tasks at once.",
+        "d": "Multitasking optimizes cognitive capacity and reduces overall academic stress.",
+        "correct": "c",
+        "explanation": "Neurological evidence demonstrates that the brain cannot multi-process complex tasks; attempting to do so causes cognitive switching costs, leading to errors."
+      },
+      {
+        "q": "What is the primary cognitive risk associated with a rigid 'Performance-Based Mindset'?",
+        "a": "It guarantees that a student will achieve a perfect institutional GPA.",
+        "b": "It causes an exponential increase in neuroplastic pathway generation.",
+        "c": "It completely eliminates the possibility of digital social media distractions.",
+        "d": "It forces a student to prioritize grades and validation over true deep learning, causing them to avoid hard challenges.",
+        "correct": "d",
+        "explanation": "Performance mindsets cause individuals to fear looking incompetent, driving them to avoid complex assignments that are critical for long-term growth."
+      },
+      {
+        "q": "What structural design defines the famous Cornell Note-Taking Method?",
+        "a": "A digital spreadsheet cataloging external hyperlinks by units.",
+        "b": "A chronological text stream containing verbatim lecture transcripts.",
+        "c": "A single grid broken into three sections: a note-taking zone, a cue column, and a summary block.",
+        "d": "A circular mind map connected by branching colored lines.",
+        "correct": "c",
+        "explanation": "The Cornell architecture explicitly splits a sheet into main notes, a left-hand cue column for keywords/questions, and a bottom summary zone."
+      },
+      {
+        "q": "When providing formal peer review critiques on an essay, what structure does the 'sandwich technique' mandate?",
+        "a": "Instructor transcript quote + personal opinion + summary sentence",
+        "b": "Generic praise + structural line edits + final numeric score alignment",
+        "c": "Positive comment + constructive criticism + positive closing",
+        "d": "Grammar correction + citation audit + subjective final impression",
+        "correct": "c",
+        "explanation": "The sandwich technique delivers necessary constructive critique sandwiched between two distinct layers of supportive, respectful reinforcement."
+      },
+      {
+        "q": "The standard University of the People Learning Week operates on which precise cyclical timeline?",
+        "a": "Starts Monday at midnight and terminates Sunday night.",
+        "b": "Starts Friday morning and terminates Thursday evening.",
+        "c": "Starts at midnight between Wednesday and Thursday and terminates on the following Wednesday.",
+        "d": "Starts Wednesday at midnight and terminates the following Tuesday.",
+        "correct": "c",
+        "explanation": "The official institutional learning calendar strictly dictates that the learning week initializes at midnight between Wednesday and Thursday and concludes the following Wednesday."
+      },
+      {
+        "q": "Where within the standard Course Introduction module is the definitive 'contact list' including email lines for student support services hosted?",
+        "a": "Navigating this Course Screen",
+        "b": "Course Forum",
+        "c": "Resources Tab",
+        "d": "The Syllabus",
+        "correct": "d",
+        "explanation": "The Syllabus acts as the fundamental contract of the course and contains the full contact details for administrative and support services."
+      },
+      {
+        "q": "How does an unexpected external factor of change differ fundamentally from an internal factor of change?",
+        "a": "Internal factors stem from personal decisions, whereas external factors are often unexpected and out of your control.",
+        "b": "There is zero structural difference between internal and external factors.",
+        "c": "Internal factors are completely unmanageable and random.",
+        "d": "External factors are personal choices, while internal factors are mandated by employers.",
+        "correct": "a",
+        "explanation": "Internal change stems from personal agency and decisions, while external change is driven by environmental conditions out of your direct control."
+      },
+      {
+        "q": "In the context of evaluating digital source materials, what does the functional acronym SIFT stand for?",
+        "a": "Source, Index, Format, Transfer",
+        "b": "Scan, Inspect, Filter, Tabulate",
+        "c": "Stop, Investigate the source, Find better coverage, Trace claims to original context",
+        "d": "Search, Identify, Forward, Track",
+        "correct": "c",
+        "explanation": "The SIFT model is an information literacy standard designed to systematically check the credibility of digital claims."
+      },
+      {
+        "q": "When analyzing data sources, a completely raw, unedited historical letter or archival diary is classified as a:",
+        "a": "Meta-Analysis",
+        "b": "Secondary Source",
+        "c": "Tertiary Index",
+        "d": "Primary Source",
+        "correct": "d",
+        "explanation": "Primary sources are direct, firsthand contemporary records of a historical period or event, unfiltered by later evaluation."
+      },
+      {
+        "q": "What is the exact functional email address utilized to communicate with the University Librarian directly for academic inquiries?",
+        "a": "librarydatabases@uopeople.edu",
+        "b": "librarian@uopeople.edu",
+        "c": "uopeoplelibrary@uopeople.edu",
+        "d": "library@uopeople.edu",
+        "correct": "d",
+        "explanation": "The official system inbox for direct verification of library resources and inquiries is library@uopeople.edu."
+      },
+      {
+        "q": "Under the UoPeople General Code of Conduct, which of the following activities represents a severe and reportable ethical violation?",
+        "a": "Providing detailed constructive critique within peer assessment tasks.",
+        "b": "Using application blockers to maintain focus during study blocks.",
+        "c": "Engaging in academic debates regarding conflicting cultural frameworks.",
+        "d": "Soliciting financial assistance or monetary favors from instructors or fellow students.",
+        "correct": "d",
+        "explanation": "The institutional Code of Conduct strictly prohibits the solicitation of financial aid, loans, or monetary gifts from peers or faculty."
+      },
+      {
+        "q": "Which official library resource database contains validated, peer-reviewed journals, e-books, and multimedia files for UoPeople student research?",
+        "a": "The Career Resource Center",
+        "b": "The Course Forum Archive",
+        "c": "The LRC Tool",
+        "d": "LIRN/JSTOR",
+        "correct": "d",
+        "explanation": "LIRN and JSTOR are specialized institutional library databases containing validated, peer-reviewed material crucial for academic validity."
+      },
+      {
+        "q": "Which specific campus platform or resource is designated solely to improve general and academic writing skills rather than hosting research databases?",
+        "a": "Learning Resource Center (LRC)",
+        "b": "LIRN Portal",
+        "c": "Program Advising Module",
+        "d": "JSTOR Registry",
+        "correct": "a",
+        "explanation": "The Learning Resource Center (LRC) focuses primarily on refining general and academic writing competencies, offering tutorials but not direct citation generators or academic databases."
+      },
+      {
+        "q": "What is the primary benefit of a structured evaluation rubric for both instructors and active learners?",
+        "a": "It allows participants to bypass the mandatory unit readings.",
+        "b": "It provides clear performance guidelines and clear accountability for academic execution.",
+        "c": "It guarantees an automatic perfect grade score for all submissions.",
+        "d": "It completely eliminates the requirement for personalized feedback notes.",
+        "correct": "b",
+        "explanation": "Rubrics remove subjective grading bias, establishing transparent, accountable benchmarks for assessing student work."
+      },
+      {
+        "q": "Which high-level policy text outlines the formal expectations regarding student code of conduct, grading practices, and institutional timelines?",
+        "a": "The Unit Learning Guide",
+        "b": "The UoPeople Catalog",
+        "c": "The Discussion Rubric Summary",
+        "d": "The Course Syllabus",
+        "correct": "b",
+        "explanation": "The institutional UoPeople Catalog houses broad organizational mandates, code of conduct requirements, and macro-level academic calendar policies."
+      },
+      {
+        "q": "Why are personal opinions alone insufficient within a formal academic five-paragraph essay?",
+        "a": "Academic texts require arguments to be anchored in validated, credible research data.",
+        "b": "Using personal opinions automatically triggers plagiarism software alerts.",
+        "c": "Personal opinions are strictly banned from any form of creative writing.",
+        "d": "Opinions increase the reading speed of the evaluating instructor.",
+        "correct": "a",
+        "explanation": "Scholarly discourse requires arguments to be verified with factual data, peer-reviewed logic, and verifiable citations rather than unbacked personal feelings."
+      },
+      {
+        "q": "The academic learning concept that states individuals actively select specific media and information channels to fulfill their personal needs and long-term goals is known as:",
+        "a": "Uses and Gratifications Theory (UGT)",
+        "b": "Neuroplastic Cognitive Framing Theory",
+        "c": "The Cornell Hierarchy Hypothesis",
+        "d": "The Eisenhower Allocation Rule",
+        "correct": "a",
+        "explanation": "Uses and Gratifications Theory positions the learner as an active agent choosing specific educational platforms to meet clear personal goals."
+      },
+      {
+        "q": "According to Carol Dweck's growth mindset model, how should a student frame a severe conceptual error or assignment failure?",
+        "a": "By assuming the grading instructor possesses a negative institutional bias.",
+        "b": "By immediately abandoning the task to protect their mental well-being.",
+        "c": "As definitive evidence of an inherent lack of natural intelligence.",
+        "d": "By utilizing the 'Power of Yet' to reframe the error as an ongoing developmental process.",
+        "correct": "d",
+        "explanation": "The 'Power of Yet' shifts an error from a permanent failure into a stepping stone, recognizing that mastery is a function of effort over time."
+      },
+      {
+        "q": "Which specific component of the SMART goal framework ensures that a student has the immediate skills, access, and resources to complete their goal?",
+        "a": "Achievable",
+        "b": "Time-bound",
+        "c": "Relevant",
+        "d": "Measurable",
+        "correct": "a",
+        "explanation": "The 'Achievable' parameter forces the student to analyze realistic resource constraints, ensuring the goal is within their current capacity."
+      },
+      {
+        "q": "According to the University of the People institutional framework, how many hours per week must a student dedicate to independent study for each course?",
+        "a": "5 - 7 hours",
+        "b": "15 - 17 hours",
+        "c": "10 - 12 hours",
+        "d": "20 hours or more",
+        "correct": "b",
+        "explanation": "The institutional syllabus explicitly states that a student must expect to allocate approximately 15 - 17 hours weekly per course to successfully process assignments and readings."
+      },
+      {
+        "q": "For how many consecutive days does the Final Exam terminal remain open for student completion across all standard university courses?",
+        "a": "3 days",
+        "b": "4 days",
+        "c": "7 days",
+        "d": "1 day",
+        "correct": "b",
+        "explanation": "The institutional protocol opens the final examination dashboard for a non-negotiable window of exactly 4 days."
+      },
+      {
+        "q": "When compiling an academic paper, what form of academic dishonesty occurs if you invent data or create completely artificial references?",
+        "a": "Plagiarism",
+        "b": "Collusion",
+        "c": "Fabrication",
+        "d": "Cheating",
+        "correct": "c",
+        "explanation": "Fabrication is the intentional creation or counterfeiting of data, facts, research metrics, or reference listings within a scholarly piece."
+      },
+      {
+        "q": "In an APA 7th edition reference list, how must the title of a standard published book be formatted textually?",
+        "a": "Written entirely in capital letters",
+        "b": "Underlined with a solid line",
+        "c": "Italicized",
+        "d": "Enclosed within double quotation marks",
+        "correct": "c",
+        "explanation": "APA 7th edition formatting rules state that the titles of standalone volumes (books, reports) must be italicized in the references."
+      },
+      {
+        "q": "What does the 'S' represent in the classic SMART goal setting framework?",
+        "a": "Specific",
+        "b": "Sustainable",
+        "c": "Simple",
+        "d": "Strategic",
+        "correct": "a",
+        "explanation": "SMART stands for Specific, Measurable, Achievable, Relevant, and Time-bound. 'Specific' eliminates vague or ambiguous planning."
+      },
+      {
+        "q": "If you change information from a textbook into your own vocabulary, which of the following rules governs your writing?",
+        "a": "No reference is required since the phrasing is unique.",
+        "b": "References are completely waived if the source text is an open educational resource (OER).",
+        "c": "A citation must be added because you are summarizing or paraphrasing an author's original idea.",
+        "d": "Citations are only mandatory if you quote more than three consecutive sentences.",
+        "correct": "c",
+        "explanation": "Paraphrasing requires strict citation. Changing the wording does not change the fact that the underlying intellectual property belongs to the source author."
+      },
+      {
+        "q": "Which psychological trait is defined as the persistent determination and passion toward an extensive, long-term milestone, regardless of immediate setbacks?",
+        "a": "Extrinsic Motivation",
+        "b": "Fixed Perception",
+        "c": "Performance Orientation",
+        "d": "Grit",
+        "correct": "d",
+        "explanation": "Grit represents long-term stamina and determination, allowing a student to survive challenging structural conditions without giving up."
+      },
+      {
+        "q": "What exact information is mandatory for an APA 7th edition in-text citation when a writer quotes a source word-for-word?",
+        "a": "Author's full name, Publisher, and full web URL link.",
+        "b": "Author's last name, Year of publication, and exact Page number.",
+        "c": "The student's name, Course code, and total Word count.",
+        "d": "Article title, Journal volume number, and Access date.",
+        "correct": "b",
+        "explanation": "Direct quotes require three keys for academic tracing: the author's surname, the publication year, and the exact page or paragraph location."
+      }
+    ]
+  },
+  {
+    "id": 1792888836552,
+    "course": "[University] UNIV 1001",
+    "title": "Foundation course (IV)",
+    "timeLimit": 40,
+    "questions": [
+      {
+        "q": "Students with a growth mindset believe that intelligence and abilities can be developed through effort and learning, while students with a fixed mindset think their intelligence is unchangeable.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Growth mindset framework (Carol Dweck) defines intelligence as adaptable through effort, whereas a fixed mindset views intelligence as static."
+      },
+      {
+        "q": "The academic requirements a student must follow are based on the most recent version of the University Catalog, regardless of when they started their studies.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Students follow the degree requirements outlined in the University Catalog active at the time of their enrollment unless they formally change catalogs."
+      },
+      {
+        "q": "Grit, as defined by Angela Duckworth's and Carol Dweck’s research, is most closely tied to the __________ mindset, which emphasizes persistence and the belief that abilities can be developed through hard work and dedication.",
+        "a": "Fixed",
+        "b": "Performance",
+        "c": "Passive",
+        "d": "Growth",
+        "correct": "d",
+        "explanation": "Grit requires a Growth Mindset foundation because long-term perseverance relies on the belief that ability can expand with ongoing effort."
+      },
+      {
+        "q": "Which of the following demonstrates engagement as a contributing member of the learning community?",
+        "a": "Submitting assignments but never participating in discussions",
+        "b": "Reading discussion posts but not responding",
+        "c": "Only communicating with the instructor privately",
+        "d": "Actively contributing to discussions, providing peer feedback, and asking relevant questions",
+        "correct": "d",
+        "explanation": "Active engagement demands interactive collaboration, constructive peer review, and contributing meaningful diagnostic questions to forums."
+      },
+      {
+        "q": "Which of the following best describes the importance of reflection in learning?",
+        "a": "Reflection hinders the learning process by making students focus too much on past assignments.",
+        "b": "Reflection is only necessary for students struggling with the material.",
+        "c": "Reflection allows students to complete assignments without needing to review the material.",
+        "d": "Reflection helps students document their learning journey, offering insights for improvement and future students.",
+        "correct": "d",
+        "explanation": "Reflection transforms passive experiences into actionable insights, helping learners track growth and refine future learning strategies."
+      },
+      {
+        "q": "Chronic stress has no impact on a person’s ability to concentrate or their overall mental well-being.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Chronic stress severely degrades cognitive capacity, working memory focus, and overall psychological and physical health."
+      },
+      {
+        "q": "The Learning Resource Center provides access to databases for locating credible references and validating research.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "The LRC acts as an institutional portal directing students to accredited research databases (like LIRN and JSTOR) for scholarly sources."
+      },
+      {
+        "q": "When giving peer feedback, it is important to provide justification using substantial, rubric-based feedback.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Effective academic peer review requires grounding critiques in objective evaluation rubrics rather than casual personal opinions."
+      },
+      {
+        "q": "Why is it important to respect diversity in online discussions?",
+        "a": "To focus solely on academic content without addressing personal differences",
+        "b": "To promote uniformity in opinions and beliefs",
+        "c": "To avoid disagreements and debates entirely",
+        "d": "To ensure that all participants feel valued and included",
+        "correct": "d",
+        "explanation": "Respecting diversity fosters an inclusive, safe academic environment that encourages varied perspectives and rich collaborative discussion."
+      },
+      {
+        "q": "Is the goal “I will eat healthy” a SMART goal?",
+        "a": "Yes, it is specific, measurable, attainable, relevant, and time-bound.",
+        "b": "No, it is time-bound but not measurable.",
+        "c": "Yes, it is clear and provides a timeline for success.",
+        "d": "No, it lacks specificity and measurability.",
+        "correct": "d",
+        "explanation": "\"I will eat healthy\" is vague; it does not define specific action parameters, measurable criteria, or a target calendar deadline."
+      },
+      {
+        "q": "Writing down an academic success plan can increase the likelihood of achieving your academic goals by enhancing focus and accountability.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Documenting action plans creates clear goal parameters and personal accountability, significantly increasing overall completion rates."
+      },
+      {
+        "q": "According to the Course Description included in the syllabus, what is the primary goal of this course?",
+        "a": "To earn required credit focused on earning a degree",
+        "b": "To memorize the University of the People policies",
+        "c": "To develop foundational skills for success during the UoPeople education journey",
+        "d": "To improve communication in synchronous discussions",
+        "correct": "c",
+        "explanation": "UNIV 1001 (Online Education Strategies) is specifically designed to equip students with core academic, technical, and self-directed learning skills."
+      },
+      {
+        "q": "Many benefits of note-taking are discussed in the College Success text; which of the following is not a benefit?",
+        "a": "Notes help you identify areas requiring additional research and study.",
+        "b": "Notes help you stay focused on the task at hand.",
+        "c": "Notes help you organize your ideas.",
+        "d": "Notes can help reduce the amount of time you spend reading.",
+        "correct": "d",
+        "explanation": "Note-taking does not replace or shorten initial textual reading time; it focuses on active processing, structuring ideas, and aiding long-term memory."
+      },
+      {
+        "q": "What is the key idea behind the Uses and Gratifications Theory?",
+        "a": "People consume information randomly without any specific purpose.",
+        "b": "The media controls what people think and believe.",
+        "c": "People are passive recipients of media messages.",
+        "d": "People actively choose information based on personal needs and goals.",
+        "correct": "d",
+        "explanation": "UGT models the audience as active consumers who intentionally select specific media channels to satisfy psychological or functional needs."
+      },
+      {
+        "q": "Test anxiety can cause both mental and _______ symptoms, such as sweating or nausea.",
+        "a": "Social",
+        "b": "Physical",
+        "c": "Emotional",
+        "d": "Academic",
+        "correct": "b",
+        "explanation": "Stress triggers somatic biological responses, producing physical symptoms like hyperventilation, elevated heart rate, sweating, and nausea."
+      },
+      {
+        "q": "What is one key reason the importance of feedback is emphasized?",
+        "a": "It allows individuals to avoid making any mistakes.",
+        "b": "It helps individuals understand their strengths and areas for improvement.",
+        "c": "It ensures that everyone receives equal praise.",
+        "d": "It reduces the need for self-reflection.",
+        "correct": "b",
+        "explanation": "Feedback serves as a vital diagnostic tool that highlights technical strengths while mapping concrete areas requiring structural improvement."
+      },
+      {
+        "q": "Which of the following should be examined to determine the validity of a resource’s contents?",
+        "a": "The number of images and graphics included in the resource.",
+        "b": "Author's credibility, accuracy of information, bias, and supporting evidence.",
+        "c": "Whether the website looks visually appealing and well-designed.",
+        "d": "Author's credibility, advertisement, the length of the article or resource.",
+        "correct": "b",
+        "explanation": "Information literacy requires evaluating authority (author credibility), objective factual accuracy, author bias, and peer-reviewed supporting evidence."
+      },
+      {
+        "q": "What is one benefit of creating SMART goals?",
+        "a": "They eliminate the need for time management.",
+        "b": "They make tasks automatically easier to complete.",
+        "c": "They help provide clear direction and focus.",
+        "d": "They guarantee success without effort.",
+        "correct": "c",
+        "explanation": "SMART targets break vague ambitions into clear, measurable, and time-bound roadmaps that drive sustained focus."
+      },
+      {
+        "q": "Understanding degree requirements has no impact on career options and does not help in gaining the necessary skills and qualifications for a profession.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Mapping degree requirements ensures alignment with industry skills, professional accreditations, and technical post-graduate opportunities."
+      },
+      {
+        "q": "You do not need to cite the source if you put information in your own words.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "Paraphrasing requires mandatory citation; altering sentence structure does not change original intellectual property ownership."
+      }
+    ]
+  },
+  {
+    "id": 1792889200574,
+    "course": "[University] ENGL 1102",
+    "title": "Foundation course (I)",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "What is the definition of synthesis in academic writing?",
+        "a": "Combining multiple sources and documents to create a new, integrated point.",
+        "b": "Summarizing a single book chapter.",
+        "c": "Copying a paragraph word-for-word.",
+        "d": "Deleting references.",
+        "correct": "a",
+        "explanation": "Synthesis weaves multiple references together into an integrated argument."
+      },
+      {
+        "q": "Why do scientists avoid claiming 'scientific proof'?",
+        "a": "It sounds too informal.",
+        "b": "Because Type I or Type II errors can occur in any study.",
+        "c": "Proof does not exist in mathematics.",
+        "d": "Journals forbid the word.",
+        "correct": "b",
+        "explanation": "Probability and statistical errors mean science yields probabilistic findings."
+      },
+      {
+        "q": "What is a controlling idea in a topic sentence?",
+        "a": "The word count limit.",
+        "b": "The page margin size.",
+        "c": "The name of the textbook author.",
+        "d": "The specific stance or main point the paragraph makes about the topic.",
+        "correct": "d",
+        "explanation": "The controlling idea governs the specific argument of that paragraph."
+      },
+      {
+        "q": "What does an empirical literature gap refer to?",
+        "a": "Missing data or conflicting evidence in previous observational studies",
+        "b": "Broken laboratory computers",
+        "c": "Student tuition issues",
+        "d": "Lack of grammar books",
+        "correct": "a",
+        "explanation": "Empirical gaps highlight missing data or contradictions in prior studies."
+      },
+      {
+        "q": "What must a persuasive essay always include to be fully balanced and effective?",
+        "a": "Acknowledgement and refutation of opposing ideas/counterarguments",
+        "b": "At least 50 references",
+        "c": "A humorous poem",
+        "d": "Fictional characters",
+        "correct": "a",
+        "explanation": "Addressing counterarguments reinforces writer credibility."
+      },
+      {
+        "q": "What makes a SMART goal 'Time-bound'?",
+        "a": "It has a set deadline or start and finish date.",
+        "b": "It is measured in meters.",
+        "c": "It takes forever to finish.",
+        "d": "It has no schedule.",
+        "correct": "a",
+        "explanation": "Time-bound goals have clearly established deadlines."
+      },
+      {
+        "q": "Where does the thesis statement standardly appear in an academic research paper?",
+        "a": "Conclusion summary box",
+        "b": "Beginning of the abstract",
+        "c": "Middle of the first body paragraph",
+        "d": "Toward the end of the introduction",
+        "correct": "d",
+        "explanation": "A precise thesis statement traditionally anchors the conclusion of the introduction."
+      },
+      {
+        "q": "Which reasoning moves from specific observations to broader generalizations and theories?",
+        "a": "Deductive reasoning",
+        "b": "Circular reasoning",
+        "c": "Mechanical reasoning",
+        "d": "Inductive reasoning",
+        "correct": "d",
+        "explanation": "Inductive reasoning builds up from specific data to broader claims."
+      },
+      {
+        "q": "What is the primary characteristic of operational definitions in research?",
+        "a": "Defining abstract concepts (like stress or productivity) into measurable, observable terms",
+        "b": "Mathematical rounding rules",
+        "c": "Surgical procedures in labs",
+        "d": "Operating heavy machinery",
+        "correct": "a",
+        "explanation": "Operational definitions translate constructs into measurable metrics."
+      },
+      {
+        "q": "Which organizational order is best for describing historical developments or timelines?",
+        "a": "Chronological order",
+        "b": "Random order",
+        "c": "Spatial order",
+        "d": "Order of importance",
+        "correct": "a",
+        "explanation": "Chronological order maps events sequentially by time."
+      },
+      {
+        "q": "What is a key limitation of relying on authority for knowledge?",
+        "a": "Authority is too scientific.",
+        "b": "Authorities are never wrong.",
+        "c": "Authorities may have their own reasons or biases to mislead.",
+        "d": "Authority requires no books.",
+        "correct": "c",
+        "explanation": "Authorities can harbor hidden motives or biases."
+      },
+      {
+        "q": "What is a running head in APA style?",
+        "a": "A header at the bottom of the last page",
+        "b": "The student's running shoes brand",
+        "c": "The abstract subtitle",
+        "d": "A title that appears at the top of every page in professional papers",
+        "correct": "d",
+        "explanation": "Running heads provide document identification across headers."
+      },
+      {
+        "q": "What is the purpose of formulating a testable hypothesis?",
+        "a": "To make the paper longer",
+        "b": "To guess blindly without data",
+        "c": "To articulate a clear, falsifiable relationship between variables that can be tested empirically",
+        "d": "To avoid writing an introduction",
+        "correct": "c",
+        "explanation": "Hypotheses must state falsifiable empirical relationships."
+      },
+      {
+        "q": "What scientific method involves deriving hypotheses from established theories and testing them empirically?",
+        "a": "Observational trial",
+        "b": "Hypothetico-deductive method",
+        "c": "Descriptive synthesis",
+        "d": "Inductive method",
+        "correct": "b",
+        "explanation": "The hypothetico-deductive method tests derived hypotheses from theories."
+      },
+      {
+        "q": "What does intuition as a method of knowing suffer from?",
+        "a": "Mathematical perfection.",
+        "b": "Excessive speed.",
+        "c": "Cognitive and motivational biases.",
+        "d": "Complete objectivity.",
+        "correct": "c",
+        "explanation": "Intuition is vulnerable to personal cognitive biases."
+      },
+      {
+        "q": "What is the primary function of an Executive Summary?",
+        "a": "To summarize main points quickly for decision-makers.",
+        "b": "To provide a fictional story.",
+        "c": "To list author contact emails.",
+        "d": "To replace the reference list.",
+        "correct": "a",
+        "explanation": "Executive summaries provide rapid briefings for leaders."
+      },
+      {
+        "q": "What does a negative correlation indicate between two variables?",
+        "a": "There is zero relationship.",
+        "b": "Both variables increase together.",
+        "c": "As one variable increases, the other variable decreases.",
+        "d": "The data is corrupt.",
+        "correct": "c",
+        "explanation": "Negative correlations move inversely."
+      },
+      {
+        "q": "What is the definition of a research objective?",
+        "a": "A list of textbook prices",
+        "b": "A vague wish",
+        "c": "An actionable, distinct milestone using precise verbs that outlines what the study will achieve",
+        "d": "The final grade of the class",
+        "correct": "c",
+        "explanation": "Objectives are actionable, precise milestones for a study."
+      },
+      {
+        "q": "What graph type is used to plot two quantitative variables to inspect for correlations?",
+        "a": "Bar graph",
+        "b": "Histogram",
+        "c": "Pie chart",
+        "d": "Scatterplot",
+        "correct": "d",
+        "explanation": "Scatterplots map paired numerical variables across two dimensions."
+      },
+      {
+        "q": "What does Pathos appeal to in persuasive writing?",
+        "a": "Logic and data",
+        "b": "Financial records",
+        "c": "Ethics and authority",
+        "d": "The reader's emotions and values",
+        "correct": "d",
+        "explanation": "Pathos connects with audience sentiment and human values."
+      },
+      {
+        "q": "Which error occurs when a researcher incorrectly rejects a true null hypothesis (false positive)?",
+        "a": "Type I error",
+        "b": "Sampling error",
+        "c": "Measurement bias",
+        "d": "Type II error",
+        "correct": "a",
+        "explanation": "A Type I error represents a false positive."
+      },
+      {
+        "q": "What is the primary goal of formatting academic papers according to strict style guides like APA?",
+        "a": "To prevent digital publishing",
+        "b": "To confuse students intentionally",
+        "c": "To increase ink usage",
+        "d": "To make papers look uniform, professional, and easily readable across the scholarly community",
+        "correct": "d",
+        "explanation": "Style manuals ensure uniformity and readability across disciplines."
+      },
+      {
+        "q": "What does 'empirical research' rely upon primarily?",
+        "a": "Personal opinions and rumors",
+        "b": "Unverified historical myths",
+        "c": "Pure speculation and dreams",
+        "d": "Systematic observation, data collection, and measurable evidence",
+        "correct": "d",
+        "explanation": "Empirical work depends on systematic observation."
+      },
+      {
+        "q": "What is the primary characteristic of a case study?",
+        "a": "In-depth examination of a single individual, group, or unique event",
+        "b": "Simulating macroeconomic stock markets",
+        "c": "Analyzing millions of survey responses",
+        "d": "Testing chemical compounds in beakers",
+        "correct": "a",
+        "explanation": "Case studies involve intensive scrutiny of a single subject or event."
+      },
+      {
+        "q": "What does a Type II error mean in statistical testing?",
+        "a": "Rejecting a true null hypothesis",
+        "b": "Formatting references wrong",
+        "c": "Failing to reject a false null hypothesis (missing a real effect)",
+        "d": "Typing the paper incorrectly",
+        "correct": "c",
+        "explanation": "Type II errors are false negatives."
+      },
+      {
+        "q": "What is the main difference between basic and applied research?",
+        "a": "Basic research is only done by students.",
+        "b": "Basic research develops and tests theories; applied research solves practical, real-world problems.",
+        "c": "Applied research has no rules.",
+        "d": "Basic research uses surveys; applied uses labs.",
+        "correct": "b",
+        "explanation": "Applied research targets practical issues while basic research targets core theories."
+      },
+      {
+        "q": "What is the purpose of conducting a literature review before starting a new study?",
+        "a": "To copy other people's grades",
+        "b": "To avoid talking to professors",
+        "c": "To fill up blank pages",
+        "d": "To understand existing knowledge, identify gaps, and establish a foundation for the new research",
+        "correct": "d",
+        "explanation": "Literature reviews map existing insights and highlight open gaps."
+      },
+      {
+        "q": "Why are .edu and .gov web domains typically valued higher for academic credibility than commercial blogs?",
+        "a": "They are harder to read.",
+        "b": "They maintain stricter institutional oversight, peer review, and editorial standards.",
+        "c": "They contain more advertisements.",
+        "d": "They feature flashier colors.",
+        "correct": "b",
+        "explanation": "Institutional domains enforce rigorous editorial oversight."
+      },
+      {
+        "q": "What is the primary danger of unverified self-reporting data in surveys?",
+        "a": "It is too heavy to print.",
+        "b": "It lacks spelling errors.",
+        "c": "It introduces self-reporting bias and subjective distortion.",
+        "d": "It is always 100% accurate.",
+        "correct": "c",
+        "explanation": "Self-reporting is vulnerable to subjective bias."
+      },
+      {
+        "q": "What is the difference between structured and semi-structured interviews?",
+        "a": "There is no difference.",
+        "b": "Semi-structured interviews are illegal.",
+        "c": "Structured interviews use a strict script with zero deviation; semi-structured allow flexible follow-up questions.",
+        "d": "Structured interviews are written on paper only.",
+        "correct": "c",
+        "explanation": "Semi-structured methods allow conversational flexibility around core prompts."
+      }
+    ]
+  },
+  {
+    "id": 1792889459371,
+    "course": "[University] ENG 1102",
+    "title": "Final exam prediction (II)",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "Which error occurs when a researcher incorrectly rejects a true null hypothesis (false positive)?",
+        "a": "Type II error",
+        "b": "Sampling error",
+        "c": "Type I error",
+        "d": "Measurement bias",
+        "correct": "c",
+        "explanation": "A Type I error represents a false positive."
+      },
+      {
+        "q": "What does Pathos appeal to in persuasive writing?",
+        "a": "The reader's emotions and values",
+        "b": "Logic and data",
+        "c": "Ethics and authority",
+        "d": "Financial records",
+        "correct": "a",
+        "explanation": "Pathos connects with audience sentiment and human values."
+      },
+      {
+        "q": "What is the definition of synthesis in academic writing?",
+        "a": "Deleting references.",
+        "b": "Summarizing a single book chapter.",
+        "c": "Copying a paragraph word-for-word.",
+        "d": "Combining multiple sources and documents to create a new, integrated point.",
+        "correct": "d",
+        "explanation": "Synthesis weaves multiple references together into an integrated argument."
+      },
+      {
+        "q": "What scientific method involves deriving hypotheses from established theories and testing them empirically?",
+        "a": "Observational trial",
+        "b": "Hypothetico-deductive method",
+        "c": "Descriptive synthesis",
+        "d": "Inductive method",
+        "correct": "b",
+        "explanation": "The hypothetico-deductive method tests derived hypotheses from theories."
+      },
+      {
+        "q": "What is the purpose of formulating a testable hypothesis?",
+        "a": "To articulate a clear, falsifiable relationship between variables that can be tested empirically",
+        "b": "To make the paper longer",
+        "c": "To avoid writing an introduction",
+        "d": "To guess blindly without data",
+        "correct": "a",
+        "explanation": "Hypotheses must state falsifiable empirical relationships."
+      },
+      {
+        "q": "Which organizational order is best for describing historical developments or timelines?",
+        "a": "Spatial order",
+        "b": "Order of importance",
+        "c": "Chronological order",
+        "d": "Random order",
+        "correct": "c",
+        "explanation": "Chronological order maps events sequentially by time."
+      },
+      {
+        "q": "What makes a SMART goal 'Time-bound'?",
+        "a": "It has a set deadline or start and finish date.",
+        "b": "It is measured in meters.",
+        "c": "It takes forever to finish.",
+        "d": "It has no schedule.",
+        "correct": "a",
+        "explanation": "Time-bound goals have clearly established deadlines."
+      },
+      {
+        "q": "How is an APA 7th edition Level 2 heading formatted?",
+        "a": "Flush left, bold, title case",
+        "b": "Centered, normal text",
+        "c": "Indented, italicized, ending with a period",
+        "d": "Centered, bold, title case",
+        "correct": "a",
+        "explanation": "APA Level 2 headings are flush left, bold, and title-cased."
+      },
+      {
+        "q": "What graph type is used to plot two quantitative variables to inspect for correlations?",
+        "a": "Scatterplot",
+        "b": "Pie chart",
+        "c": "Histogram",
+        "d": "Bar graph",
+        "correct": "a",
+        "explanation": "Scatterplots map paired numerical variables across two dimensions."
+      },
+      {
+        "q": "Why are .edu and .gov web domains typically valued higher for academic credibility than commercial blogs?",
+        "a": "They contain more advertisements.",
+        "b": "They feature flashier colors.",
+        "c": "They are harder to read.",
+        "d": "They maintain stricter institutional oversight, peer review, and editorial standards.",
+        "correct": "d",
+        "explanation": "Institutional domains enforce rigorous editorial oversight."
+      },
+      {
+        "q": "What is a running head in APA style?",
+        "a": "A title that appears at the top of every page in professional papers",
+        "b": "The abstract subtitle",
+        "c": "The student's running shoes brand",
+        "d": "A header at the bottom of the last page",
+        "correct": "a",
+        "explanation": "Running heads provide document identification across headers."
+      },
+      {
+        "q": "What is the main difference between basic and applied research?",
+        "a": "Basic research uses surveys; applied uses labs.",
+        "b": "Applied research has no rules.",
+        "c": "Basic research is only done by students.",
+        "d": "Basic research develops and tests theories; applied research solves practical, real-world problems.",
+        "correct": "d",
+        "explanation": "Applied research targets practical issues while basic research targets core theories."
+      },
+      {
+        "q": "What is the main focus of abstracts in scientific and empirical papers?",
+        "a": "Historical fiction",
+        "b": "Poetic metaphors",
+        "c": "Personal memoirs",
+        "d": "Methods and findings",
+        "correct": "d",
+        "explanation": "Science abstracts focus heavily on empirical methods and results."
+      },
+      {
+        "q": "Where does the thesis statement standardly appear in an academic research paper?",
+        "a": "Conclusion summary box",
+        "b": "Beginning of the abstract",
+        "c": "Toward the end of the introduction",
+        "d": "Middle of the first body paragraph",
+        "correct": "c",
+        "explanation": "A precise thesis statement traditionally anchors the conclusion of the introduction."
+      },
+      {
+        "q": "What is the primary characteristic of a case study?",
+        "a": "Analyzing millions of survey responses",
+        "b": "Simulating macroeconomic stock markets",
+        "c": "Testing chemical compounds in beakers",
+        "d": "In-depth examination of a single individual, group, or unique event",
+        "correct": "d",
+        "explanation": "Case studies involve intensive scrutiny of a single subject or event."
+      },
+      {
+        "q": "What is the primary function of an Executive Summary?",
+        "a": "To replace the reference list.",
+        "b": "To provide a fictional story.",
+        "c": "To list author contact emails.",
+        "d": "To summarize main points quickly for decision-makers.",
+        "correct": "d",
+        "explanation": "Executive summaries provide rapid briefings for leaders."
+      },
+      {
+        "q": "Which reasoning moves from specific observations to broader generalizations and theories?",
+        "a": "Mechanical reasoning",
+        "b": "Circular reasoning",
+        "c": "Deductive reasoning",
+        "d": "Inductive reasoning",
+        "correct": "d",
+        "explanation": "Inductive reasoning builds up from specific data to broader claims."
+      },
+      {
+        "q": "What is a controlling idea in a topic sentence?",
+        "a": "The specific stance or main point the paragraph makes about the topic.",
+        "b": "The page margin size.",
+        "c": "The name of the textbook author.",
+        "d": "The word count limit.",
+        "correct": "a",
+        "explanation": "The controlling idea governs the specific argument of that paragraph."
+      },
+      {
+        "q": "What is the difference between structured and semi-structured interviews?",
+        "a": "There is no difference.",
+        "b": "Structured interviews are written on paper only.",
+        "c": "Structured interviews use a strict script with zero deviation; semi-structured allow flexible follow-up questions.",
+        "d": "Semi-structured interviews are illegal.",
+        "correct": "c",
+        "explanation": "Semi-structured methods allow conversational flexibility around core prompts."
+      },
+      {
+        "q": "What is the very first goal of scientific research?",
+        "a": "Control outcomes",
+        "b": "Predict behavior",
+        "c": "Explain causes",
+        "d": "Describe behavior",
+        "correct": "d",
+        "explanation": "Description of behavior is the primary foundational goal of science."
+      },
+      {
+        "q": "What is the definition of a research objective?",
+        "a": "A vague wish",
+        "b": "The final grade of the class",
+        "c": "A list of textbook prices",
+        "d": "An actionable, distinct milestone using precise verbs that outlines what the study will achieve",
+        "correct": "d",
+        "explanation": "Objectives are actionable, precise milestones for a study."
+      },
+      {
+        "q": "What type of research gap addresses the need for new instruments, procedures, or measurement tools?",
+        "a": "Methodological gap",
+        "b": "Empirical gap",
+        "c": "Theoretical gap",
+        "d": "Temporal gap",
+        "correct": "a",
+        "explanation": "Methodological gaps point out where new measurement tools or procedures are needed."
+      },
+      {
+        "q": "What does intuition as a method of knowing suffer from?",
+        "a": "Mathematical perfection.",
+        "b": "Complete objectivity.",
+        "c": "Excessive speed.",
+        "d": "Cognitive and motivational biases.",
+        "correct": "d",
+        "explanation": "Intuition is vulnerable to personal cognitive biases."
+      },
+      {
+        "q": "What must a persuasive essay always include to be fully balanced and effective?",
+        "a": "At least 50 references",
+        "b": "A humorous poem",
+        "c": "Acknowledgement and refutation of opposing ideas/counterarguments",
+        "d": "Fictional characters",
+        "correct": "c",
+        "explanation": "Addressing counterarguments reinforces writer credibility."
+      },
+      {
+        "q": "Why do scientists avoid claiming 'scientific proof'?",
+        "a": "It sounds too informal.",
+        "b": "Proof does not exist in mathematics.",
+        "c": "Journals forbid the word.",
+        "d": "Because Type I or Type II errors can occur in any study.",
+        "correct": "d",
+        "explanation": "Probability and statistical errors mean science yields probabilistic findings."
+      },
+      {
+        "q": "What does an empirical literature gap refer to?",
+        "a": "Broken laboratory computers",
+        "b": "Lack of grammar books",
+        "c": "Student tuition issues",
+        "d": "Missing data or conflicting evidence in previous observational studies",
+        "correct": "d",
+        "explanation": "Empirical gaps highlight missing data or contradictions in prior studies."
+      },
+      {
+        "q": "What does a Type II error mean in statistical testing?",
+        "a": "Rejecting a true null hypothesis",
+        "b": "Failing to reject a false null hypothesis (missing a real effect)",
+        "c": "Formatting references wrong",
+        "d": "Typing the paper incorrectly",
+        "correct": "b",
+        "explanation": "Type II errors are false negatives."
+      },
+      {
+        "q": "What does a negative correlation indicate between two variables?",
+        "a": "The data is corrupt.",
+        "b": "As one variable increases, the other variable decreases.",
+        "c": "Both variables increase together.",
+        "d": "There is zero relationship.",
+        "correct": "b",
+        "explanation": "Negative correlations move inversely."
+      },
+      {
+        "q": "What is the purpose of conducting a literature review before starting a new study?",
+        "a": "To understand existing knowledge, identify gaps, and establish a foundation for the new research",
+        "b": "To fill up blank pages",
+        "c": "To copy other people's grades",
+        "d": "To avoid talking to professors",
+        "correct": "a",
+        "explanation": "Literature reviews map existing insights and highlight open gaps."
+      },
+      {
+        "q": "What tense is required when explaining the significance of texts in a humanities abstract?",
+        "a": "Present tense",
+        "b": "Past tense",
+        "c": "Conditional tense",
+        "d": "Future tense",
+        "correct": "a",
+        "explanation": "Literary and textual works are discussed in the present tense."
+      }
+    ]
+  },
+  {
+    "id": 1792889669501,
+    "course": "[University] ENG 1102",
+    "title": "Final exam prediction (III)",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "What is the function of a topic sentence in a well-structured paragraph?",
+        "a": "To list references",
+        "b": "To introduce the main point and controlling idea of that specific paragraph",
+        "c": "To summarize the entire 10-page paper",
+        "d": "To provide random trivia",
+        "correct": "b",
+        "explanation": "Topic sentences anchor individual paragraph focus."
+      },
+      {
+        "q": "What graph type is used to plot two quantitative variables to inspect for correlations?",
+        "a": "Histogram",
+        "b": "Bar graph",
+        "c": "Scatterplot",
+        "d": "Pie chart",
+        "correct": "c",
+        "explanation": "Scatterplots map paired numerical variables across two dimensions."
+      },
+      {
+        "q": "What is the difference between structured and semi-structured interviews?",
+        "a": "Structured interviews are written on paper only.",
+        "b": "Semi-structured interviews are illegal.",
+        "c": "There is no difference.",
+        "d": "Structured interviews use a strict script with zero deviation; semi-structured allow flexible follow-up questions.",
+        "correct": "d",
+        "explanation": "Semi-structured methods allow conversational flexibility around core prompts."
+      },
+      {
+        "q": "What does 'empirical research' rely upon primarily?",
+        "a": "Unverified historical myths",
+        "b": "Pure speculation and dreams",
+        "c": "Systematic observation, data collection, and measurable evidence",
+        "d": "Personal opinions and rumors",
+        "correct": "c",
+        "explanation": "Empirical work depends on systematic observation."
+      },
+      {
+        "q": "Which organizational order is best for describing historical developments or timelines?",
+        "a": "Random order",
+        "b": "Spatial order",
+        "c": "Chronological order",
+        "d": "Order of importance",
+        "correct": "c",
+        "explanation": "Chronological order maps events sequentially by time."
+      },
+      {
+        "q": "Why do scientists avoid claiming 'scientific proof'?",
+        "a": "Proof does not exist in mathematics.",
+        "b": "Journals forbid the word.",
+        "c": "It sounds too informal.",
+        "d": "Because Type I or Type II errors can occur in any study.",
+        "correct": "d",
+        "explanation": "Probability and statistical errors mean science yields probabilistic findings."
+      },
+      {
+        "q": "What is the primary danger of unverified self-reporting data in surveys?",
+        "a": "It introduces self-reporting bias and subjective distortion.",
+        "b": "It lacks spelling errors.",
+        "c": "It is too heavy to print.",
+        "d": "It is always 100% accurate.",
+        "correct": "a",
+        "explanation": "Self-reporting is vulnerable to subjective bias."
+      },
+      {
+        "q": "What makes a SMART goal 'Time-bound'?",
+        "a": "It is measured in meters.",
+        "b": "It takes forever to finish.",
+        "c": "It has no schedule.",
+        "d": "It has a set deadline or start and finish date.",
+        "correct": "d",
+        "explanation": "Time-bound goals have clearly established deadlines."
+      },
+      {
+        "q": "What is the very first goal of scientific research?",
+        "a": "Describe behavior",
+        "b": "Predict behavior",
+        "c": "Explain causes",
+        "d": "Control outcomes",
+        "correct": "a",
+        "explanation": "Description of behavior is the primary foundational goal of science."
+      },
+      {
+        "q": "What is a running head in APA style?",
+        "a": "The abstract subtitle",
+        "b": "A title that appears at the top of every page in professional papers",
+        "c": "A header at the bottom of the last page",
+        "d": "The student's running shoes brand",
+        "correct": "b",
+        "explanation": "Running heads provide document identification across headers."
+      },
+      {
+        "q": "What does intuition as a method of knowing suffer from?",
+        "a": "Excessive speed.",
+        "b": "Cognitive and motivational biases.",
+        "c": "Mathematical perfection.",
+        "d": "Complete objectivity.",
+        "correct": "b",
+        "explanation": "Intuition is vulnerable to personal cognitive biases."
+      },
+      {
+        "q": "What is the primary characteristic of a case study?",
+        "a": "Analyzing millions of survey responses",
+        "b": "Testing chemical compounds in beakers",
+        "c": "Simulating macroeconomic stock markets",
+        "d": "In-depth examination of a single individual, group, or unique event",
+        "correct": "d",
+        "explanation": "Case studies involve intensive scrutiny of a single subject or event."
+      },
+      {
+        "q": "What does Pathos appeal to in persuasive writing?",
+        "a": "Ethics and authority",
+        "b": "Logic and data",
+        "c": "Financial records",
+        "d": "The reader's emotions and values",
+        "correct": "d",
+        "explanation": "Pathos connects with audience sentiment and human values."
+      },
+      {
+        "q": "What is a key limitation of relying on authority for knowledge?",
+        "a": "Authority requires no books.",
+        "b": "Authorities may have their own reasons or biases to mislead.",
+        "c": "Authority is too scientific.",
+        "d": "Authorities are never wrong.",
+        "correct": "b",
+        "explanation": "Authorities can harbor hidden motives or biases."
+      },
+      {
+        "q": "What is the purpose of an academic abstract?",
+        "a": "To act as a complete substitute for the article.",
+        "b": "To provide a short summary helping readers decide whether to read the full paper.",
+        "c": "To introduce personal opinions.",
+        "d": "To list publishing fees.",
+        "correct": "b",
+        "explanation": "Abstracts help readers evaluate paper relevance quickly."
+      },
+      {
+        "q": "What is the definition of a research objective?",
+        "a": "An actionable, distinct milestone using precise verbs that outlines what the study will achieve",
+        "b": "The final grade of the class",
+        "c": "A list of textbook prices",
+        "d": "A vague wish",
+        "correct": "a",
+        "explanation": "Objectives are actionable, precise milestones for a study."
+      },
+      {
+        "q": "What scientific method involves deriving hypotheses from established theories and testing them empirically?",
+        "a": "Observational trial",
+        "b": "Descriptive synthesis",
+        "c": "Hypothetico-deductive method",
+        "d": "Inductive method",
+        "correct": "c",
+        "explanation": "The hypothetico-deductive method tests derived hypotheses from theories."
+      },
+      {
+        "q": "What is the definition of synthesis in academic writing?",
+        "a": "Copying a paragraph word-for-word.",
+        "b": "Combining multiple sources and documents to create a new, integrated point.",
+        "c": "Summarizing a single book chapter.",
+        "d": "Deleting references.",
+        "correct": "b",
+        "explanation": "Synthesis weaves multiple references together into an integrated argument."
+      },
+      {
+        "q": "How is an APA 7th edition Level 2 heading formatted?",
+        "a": "Centered, normal text",
+        "b": "Flush left, bold, title case",
+        "c": "Centered, bold, title case",
+        "d": "Indented, italicized, ending with a period",
+        "correct": "b",
+        "explanation": "APA Level 2 headings are flush left, bold, and title-cased."
+      },
+      {
+        "q": "What is the primary characteristic of operational definitions in research?",
+        "a": "Mathematical rounding rules",
+        "b": "Defining abstract concepts (like stress or productivity) into measurable, observable terms",
+        "c": "Surgical procedures in labs",
+        "d": "Operating heavy machinery",
+        "correct": "b",
+        "explanation": "Operational definitions translate constructs into measurable metrics."
+      },
+      {
+        "q": "What is the main difference between basic and applied research?",
+        "a": "Basic research develops and tests theories; applied research solves practical, real-world problems.",
+        "b": "Basic research is only done by students.",
+        "c": "Basic research uses surveys; applied uses labs.",
+        "d": "Applied research has no rules.",
+        "correct": "a",
+        "explanation": "Applied research targets practical issues while basic research targets core theories."
+      },
+      {
+        "q": "Which error occurs when a researcher incorrectly rejects a true null hypothesis (false positive)?",
+        "a": "Measurement bias",
+        "b": "Sampling error",
+        "c": "Type II error",
+        "d": "Type I error",
+        "correct": "d",
+        "explanation": "A Type I error represents a false positive."
+      },
+      {
+        "q": "Why are .edu and .gov web domains typically valued higher for academic credibility than commercial blogs?",
+        "a": "They feature flashier colors.",
+        "b": "They contain more advertisements.",
+        "c": "They maintain stricter institutional oversight, peer review, and editorial standards.",
+        "d": "They are harder to read.",
+        "correct": "c",
+        "explanation": "Institutional domains enforce rigorous editorial oversight."
+      },
+      {
+        "q": "What does a negative correlation indicate between two variables?",
+        "a": "There is zero relationship.",
+        "b": "As one variable increases, the other variable decreases.",
+        "c": "Both variables increase together.",
+        "d": "The data is corrupt.",
+        "correct": "b",
+        "explanation": "Negative correlations move inversely."
+      },
+      {
+        "q": "What does an empirical literature gap refer to?",
+        "a": "Broken laboratory computers",
+        "b": "Student tuition issues",
+        "c": "Missing data or conflicting evidence in previous observational studies",
+        "d": "Lack of grammar books",
+        "correct": "c",
+        "explanation": "Empirical gaps highlight missing data or contradictions in prior studies."
+      },
+      {
+        "q": "What is the purpose of conducting a literature review before starting a new study?",
+        "a": "To copy other people's grades",
+        "b": "To fill up blank pages",
+        "c": "To avoid talking to professors",
+        "d": "To understand existing knowledge, identify gaps, and establish a foundation for the new research",
+        "correct": "d",
+        "explanation": "Literature reviews map existing insights and highlight open gaps."
+      },
+      {
+        "q": "What tense is required when explaining the significance of texts in a humanities abstract?",
+        "a": "Future tense",
+        "b": "Conditional tense",
+        "c": "Past tense",
+        "d": "Present tense",
+        "correct": "d",
+        "explanation": "Literary and textual works are discussed in the present tense."
+      },
+      {
+        "q": "Which reasoning moves from specific observations to broader generalizations and theories?",
+        "a": "Deductive reasoning",
+        "b": "Inductive reasoning",
+        "c": "Circular reasoning",
+        "d": "Mechanical reasoning",
+        "correct": "b",
+        "explanation": "Inductive reasoning builds up from specific data to broader claims."
+      },
+      {
+        "q": "What is the purpose of formulating a testable hypothesis?",
+        "a": "To avoid writing an introduction",
+        "b": "To guess blindly without data",
+        "c": "To make the paper longer",
+        "d": "To articulate a clear, falsifiable relationship between variables that can be tested empirically",
+        "correct": "d",
+        "explanation": "Hypotheses must state falsifiable empirical relationships."
+      },
+      {
+        "q": "What is the primary characteristic of focus groups in qualitative research?",
+        "a": "Strict numerical tallying.",
+        "b": "Group interaction that generates rich, interactive qualitative data.",
+        "c": "Silent observation of individuals.",
+        "d": "Closed-ended yes/no voting.",
+        "correct": "b",
+        "explanation": "Focus group interactions foster dynamic qualitative insights."
+      }
+    ]
+  },
+  {
+    "id": 1792889890012,
+    "course": "[University] ENG 1102",
+    "title": "Foundation course (IV)",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "What is the limitation of using authority as a method of acquiring knowledge?",
+        "a": "It is prone to observational errors.",
+        "b": "Authorities always rely on scientific methods.",
+        "c": "It requires considerable time and resources.",
+        "d": "Authorities may have their own reasons to mislead.",
+        "correct": "d",
+        "explanation": "Authorities may have their own reasons or biases to mislead."
+      },
+      {
+        "q": "What is the first step in the writing process?",
+        "a": "Revising.",
+        "b": "Drafting.",
+        "c": "Prewriting.",
+        "d": "Editing.",
+        "correct": "c",
+        "explanation": "Prewriting is the foundational first step in structuring your thoughts before drafting."
+      },
+      {
+        "q": "Which of the following is a problem with relying on intuition as a method of acquiring knowledge?",
+        "a": "It is prone to cognitive and motivational biases.",
+        "b": "It requires structured observations.",
+        "c": "It is time-consuming.",
+        "d": "It depends on scientific evidence.",
+        "correct": "a",
+        "explanation": "Intuition is heavily influenced by cognitive and motivational biases."
+      },
+      {
+        "q": "What does basic research aim to achieve?",
+        "a": "Improve real-world applications.",
+        "b": "Develop theories and test them.",
+        "c": "Study social phenomena.",
+        "d": "Solve practical issues.",
+        "correct": "b",
+        "explanation": "Basic research focuses on advancing theoretical understanding and testing theories."
+      },
+      {
+        "q": "What are the three common sources of research ideas in the behavioral sciences?",
+        "a": "Surveys, interviews, focus groups.",
+        "b": "Informal observations, practical problems, previous research.",
+        "c": "Experimental studies, hypothesis testing, theoretical debates.",
+        "d": "Case studies, literature reviews, expert opinions.",
+        "correct": "b",
+        "explanation": "Ideas typically spring from informal observations, practical challenges, and existing literature."
+      },
+      {
+        "q": "The body paragraphs should closely follow the path set forth by which structural element?",
+        "a": "Supporting details.",
+        "b": "Introduction.",
+        "c": "Topic sentences.",
+        "d": "Thesis statement.",
+        "correct": "d",
+        "explanation": "The thesis statement governs the overall argumentative direction of the body paragraphs."
+      },
+      {
+        "q": "In academic writing, when an author combines multiple documents to create a new point, this is called a _______ paragraph.",
+        "a": "Evaluation.",
+        "b": "Synthesis.",
+        "c": "Summary.",
+        "d": "Analysis.",
+        "correct": "b",
+        "explanation": "Synthesis involves weaving multiple sources together to establish a unified perspective."
+      },
+      {
+        "q": "The three common methods of organizing writing are chronological order, spatial order, and ______.",
+        "a": "Logical order.",
+        "b": "Sequential order.",
+        "c": "Order of importance.",
+        "d": "Narrative order.",
+        "correct": "c",
+        "explanation": "Order of importance is a standard structural method for persuasive and academic papers."
+      },
+      {
+        "q": "What type of research gap refers to the absence of adequate research methods or the need for new techniques?",
+        "a": "Theoretical gaps.",
+        "b": "Empirical gaps.",
+        "c": "Practical gaps.",
+        "d": "Methodological gaps.",
+        "correct": "d",
+        "explanation": "Methodological gaps point out where new techniques or study designs are required."
+      },
+      {
+        "q": "Which section of a paper typically introduces the gap statement and fills the gap?",
+        "a": "Introduction section.",
+        "b": "Discussion section.",
+        "c": "Conclusion section.",
+        "d": "Results section.",
+        "correct": "a",
+        "explanation": "The introduction builds the literature foundation, states the gap, and outlines how the paper fills it."
+      },
+      {
+        "q": "What is the primary goal of science?",
+        "a": "Describe phenomena through careful observations.",
+        "b": "Prove absolute truths without error.",
+        "c": "Eliminate all variables from observation.",
+        "d": "Replace philosophical debate.",
+        "correct": "a",
+        "explanation": "Science aims to systematically describe natural and behavioral phenomena."
+      },
+      {
+        "q": "What distinguishes applied research from basic research?",
+        "a": "Basic research relies on experimental methods, while applied research uses observational.",
+        "b": "Applied research aims to address practical problems, while basic research focuses on theoretical understanding.",
+        "c": "Applied research always leads to new laws, whereas basic research does not.",
+        "d": "There is no distinction between applied and basic research.",
+        "correct": "b",
+        "explanation": "Applied research targets practical solutions; basic research targets foundational theory."
+      },
+      {
+        "q": "What does pathos refer to in persuasive writing?",
+        "a": "Ensuring the message is delivered at the right time.",
+        "b": "Appealing to the reader's emotions and values.",
+        "c": "Using facts and data to support the argument.",
+        "d": "Demonstrating the writer's expertise and knowledge.",
+        "correct": "b",
+        "explanation": "Pathos connects with audience emotion and core human values."
+      },
+      {
+        "q": "Which reporting method is considered the most prestigious way to share findings, following strict formatting guidelines?",
+        "a": "Poster presentation.",
+        "b": "Conference presentation.",
+        "c": "Peer reviewed journal article.",
+        "d": "Book chapter.",
+        "correct": "c",
+        "explanation": "Peer-reviewed journal articles represent the highest standard of academic dissemination."
+      },
+      {
+        "q": "The ____ summarizes the main points of a report and is designed to provide a quick overview for decision makers.",
+        "a": "Executive Summary.",
+        "b": "Background.",
+        "c": "Introduction.",
+        "d": "Conclusion.",
+        "correct": "a",
+        "explanation": "Executive summaries provide a rapid briefing of key takeaways."
+      },
+      {
+        "q": "A thesis statement is usually _________ long and appears toward the _________ of the introduction.",
+        "a": "One sentence; beginning.",
+        "b": "One sentence; end.",
+        "c": "Two sentences; end.",
+        "d": "One sentence; middle.",
+        "correct": "b",
+        "explanation": "A precise one-sentence thesis is traditionally placed at the conclusion of the introduction."
+      },
+      {
+        "q": "What is the first goal of science?",
+        "a": "Predict events.",
+        "b": "Explain causes.",
+        "c": "Control behavior.",
+        "d": "Describe behavior.",
+        "correct": "d",
+        "explanation": "Description of behavioral or physical phenomena is the foundational first goal."
+      },
+      {
+        "q": "What does the “goal of control” in science aim to achieve?",
+        "a": "Bringing about changes in subject matter using knowledge of functional relationships.",
+        "b": "Predicting relationships between variables.",
+        "c": "Determining the ethical implications of behaviour.",
+        "d": "Observing behaviours in their natural settings.",
+        "correct": "a",
+        "explanation": "Control allows researchers to apply functional knowledge to influence outcomes."
+      },
+      {
+        "q": "In qualitative research, what is a significant advantage of using focus groups?",
+        "a": "They enable interactions that may bring out more information.",
+        "b": "They provide a large sample size for statistical analysis.",
+        "c": "They focus on unstructured observations only.",
+        "d": "They allow for structured interviews without deviation.",
+        "correct": "a",
+        "explanation": "Group dynamics stimulate dynamic discussions and richer qualitative insights."
+      },
+      {
+        "q": "What type of graph is commonly used to display the relationship between two quantitative variables?",
+        "a": "Histogram.",
+        "b": "Scatterplot.",
+        "c": "Bar graph.",
+        "d": "Frequency Polygon.",
+        "correct": "b",
+        "explanation": "Scatterplots map paired numerical data points across two axes."
+      },
+      {
+        "q": "Heading Level 2 in APA style is characterized by:",
+        "a": "Flush left, boldface, uppercase and lowercase.",
+        "b": "Centered, italicized, lowercase ending with a period.",
+        "c": "Indented bold face, lowercase ending with a period.",
+        "d": "Centered, boldface, uppercase and lowercase.",
+        "correct": "a",
+        "explanation": "APA Level 2 headings are flush-left, bold, and title-cased."
+      },
+      {
+        "q": "Why do scientists avoid using the term “scientific proof”?",
+        "a": "Because Type I or Type II errors might occur in the study.",
+        "b": "To maintain modesty in their findings.",
+        "c": "Because journals discourage the term.",
+        "d": "To prevent disagreements in the scientific community.",
+        "correct": "a",
+        "explanation": "Statistical error probabilities mean empirical findings are probabilistic, not absolute proof."
+      },
+      {
+        "q": "What type of error occurs when a researcher concludes that results are statistically significant when there is no real effect in the population?",
+        "a": "Sampling error.",
+        "b": "Measurement error.",
+        "c": "Type I error.",
+        "d": "Type II error.",
+        "correct": "c",
+        "explanation": "A Type I error is a false positive."
+      },
+      {
+        "q": "Which characteristic is essential for a good topic sentence?",
+        "a": "It includes both a topic and a controlling idea.",
+        "b": "It contains specific supporting details and statistics.",
+        "c": "It lists all evidence used in the paragraph.",
+        "d": "It must always be two sentences long.",
+        "correct": "a",
+        "explanation": "Topic sentences anchor paragraphs with a subject and a governing stance."
+      },
+      {
+        "q": "What is a key feature of a semi-structured interview?",
+        "a": "A strict interview script without deviation.",
+        "b": "Flexible interview style with consistent base questions and follow-ups.",
+        "c": "Group discussions without a moderator.",
+        "d": "Observation without interaction.",
+        "correct": "b",
+        "explanation": "Semi-structured formats balance standardized core prompts with organic follow-up exploration."
+      },
+      {
+        "q": "Which rhetorical appeal focuses on establishing the author's credibility, character, and expertise?",
+        "a": "Pathos.",
+        "b": "Logos.",
+        "c": "Ethos.",
+        "d": "Chronos.",
+        "correct": "c",
+        "explanation": "Ethos builds speaker authority and trustworthiness."
+      },
+      {
+        "q": "In an APA reference entry for a journal article, what element immediately follows the author's name and publication year?",
+        "a": "The name of the publisher.",
+        "b": "The article title.",
+        "c": "The university department.",
+        "d": "The website URL.",
+        "correct": "b",
+        "explanation": "APA format places the article title right after the author and publication year."
+      },
+      {
+        "q": "What does a Type II error represent in hypothesis testing?",
+        "a": "Concluding there is an effect when none exists.",
+        "b": "Failing to reject the null hypothesis when a real effect actually exists.",
+        "c": "Using the wrong graph type.",
+        "d": "Miscalculating sample mean.",
+        "correct": "b",
+        "explanation": "A Type II error is a false negative."
+      },
+      {
+        "q": "Which of the following data visualizations uses bars to show frequency distributions of continuous quantitative data grouped into bins?",
+        "a": "Pie chart.",
+        "b": "Scatterplot.",
+        "c": "Histogram.",
+        "d": "Flowchart.",
+        "correct": "c",
+        "explanation": "Histograms display frequency distributions across continuous bin intervals."
+      },
+      {
+        "q": "When evaluating internet sources, what do domains like .edu and .gov typically indicate compared to commercial blogs?",
+        "a": "Greater institutional rigor and reliability.",
+        "b": "Outdated data formatting.",
+        "c": "Commercial bias.",
+        "d": "Unverified student research.",
+        "correct": "a",
+        "explanation": "Domains like .edu and .gov maintain strict institutional oversight, editorial control, and peer review standards."
+      }
+    ]
+  },
+  {
+    "id": 1792890158811,
+    "course": "[University] CS111",
+    "title": "Final exam prediction (I)",
+    "timeLimit": 70,
+    "questions": [
+      {
+        "q": "Which of the following is a key feature of a NoSQL database?",
+        "a": "Emphasis on horizontal scalability",
+        "b": "Strict relational table constraints",
+        "c": "Mandatory ACID compliance across all nodes",
+        "d": "Fixed schema architecture",
+        "correct": "a",
+        "explanation": "NoSQL databases are designed for horizontal scaling across distributed clusters."
+      },
+      {
+        "q": "What is the primary role of the control unit in the Von Neumann architecture?",
+        "a": "Perform arithmetic calculations",
+        "b": "Execute instructions and direct operations",
+        "c": "Store permanent system BIOS",
+        "d": "Manage long-term secondary storage",
+        "correct": "b",
+        "explanation": "The control unit fetches, decodes, and directs the execution of instructions."
+      },
+      {
+        "q": "Which of the following is NOT a standard application of a database in the healthcare sector?",
+        "a": "Managing patient medical histories",
+        "b": "Tracking prescription records",
+        "c": "Playing video games",
+        "d": "Scheduling clinical appointments",
+        "correct": "c",
+        "explanation": "Playing video games is entertainment software, not a healthcare database application."
+      },
+      {
+        "q": "In data independence, what does schema modification refer to?",
+        "a": "Modifying the database structure without affecting application programs",
+        "b": "Encrypting sensitive user passwords",
+        "c": "Backing up raw server logs",
+        "d": "Changing network cable routing",
+        "correct": "a",
+        "explanation": "Data independence ensures schema changes do not break existing applications."
+      },
+      {
+        "q": "The network device known as a gateway connects two different networks.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Gateways operate as network nodes interfacing networks using different protocols."
+      },
+      {
+        "q": "What is a key principle of structured programming that promotes clear code organization and reusability?",
+        "a": "Modularity",
+        "b": "Global variable mutation",
+        "c": "Spaghetti logic branching",
+        "d": "Hardcoded redundancy",
+        "correct": "a",
+        "explanation": "Modularity breaks programs into manageable, reusable sub-routines or functions."
+      },
+      {
+        "q": "What is a primary characteristic of a Real-Time operating system (RTOS)?",
+        "a": "Support for mobile touchscreens",
+        "b": "Quick response to external events within strict time constraints",
+        "c": "Executing batch jobs overnight",
+        "d": "Unlimited multi-user desktop graphics",
+        "correct": "b",
+        "explanation": "RTOS environments guarantee precise timing and rapid event processing."
+      },
+      {
+        "q": "Which network topology is formed by a combination of two or more different topologies?",
+        "a": "Star",
+        "b": "Bus",
+        "c": "Hybrid",
+        "d": "Ring",
+        "correct": "c",
+        "explanation": "A hybrid topology links two or more distinct basic topologies (e.g., star-bus)."
+      },
+      {
+        "q": "How many bits are typically grouped together to form a standard byte?",
+        "a": "4",
+        "b": "8",
+        "c": "16",
+        "d": "32",
+        "correct": "b",
+        "explanation": "A standard byte consists of exactly 8 bits."
+      },
+      {
+        "q": "What does ASCII stand for in computer data representation?",
+        "a": "Advanced System Character Integration Index",
+        "b": "American Standard Code for Information Interchange",
+        "c": "Algorithmic Secure Communication Integration Interface",
+        "d": "Automated Serial Character Interchange Definition",
+        "correct": "b",
+        "explanation": "ASCII is the premier character encoding standard for electronic communication."
+      },
+      {
+        "q": "Convert the hexadecimal number 1A to binary.",
+        "a": "11101",
+        "b": "11010",
+        "c": "10001",
+        "d": "11110",
+        "correct": "b",
+        "explanation": "Hex 1 is 0001 and A (10) is 1010 in binary, giving 11010."
+      },
+      {
+        "q": "What is the standard expanded form of ISDN?",
+        "a": "International System for Digital Networking",
+        "b": "Integrated Services Digital Network",
+        "c": "Internet Standard Data Node",
+        "d": "Internal Secure Device Network",
+        "correct": "b",
+        "explanation": "ISDN stands for Integrated Services Digital Network."
+      },
+      {
+        "q": "Which operating system can process numerous similar tasks without requiring user intervention?",
+        "a": "Batch Processing OS",
+        "b": "Real-Time OS",
+        "c": "Mobile Touch OS",
+        "d": "Interactive Desktop OS",
+        "correct": "a",
+        "explanation": "Batch operating systems execute queued jobs automatically without user interaction."
+      },
+      {
+        "q": "The full-duplex communication mode supports data transmission in both directions at the same time.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "a",
+        "explanation": "Full-duplex allows simultaneous bidirectional communication (like telephone lines)."
+      },
+      {
+        "q": "What does ISP stand for in computer networking?",
+        "a": "Integrated Security Platform",
+        "b": "Internet Service Provider",
+        "c": "Internal System Protocol",
+        "d": "Information Storage Point",
+        "correct": "b",
+        "explanation": "An ISP provides individuals and organizations access to the internet."
+      },
+      {
+        "q": "BIOS (Basic Input/Output System) is stored in RAM.",
+        "a": "True",
+        "b": "False",
+        "c": "",
+        "d": "",
+        "correct": "b",
+        "explanation": "BIOS is stored in non-volatile ROM or flash memory, not volatile RAM."
+      },
+      {
+        "q": "What is a defining characteristic of a relational database?",
+        "a": "Only stores numeric data",
+        "b": "Utilizes tables (relations) to organize data",
+        "c": "Relies entirely on flat text files",
+        "d": "Has no schema structure",
+        "correct": "b",
+        "explanation": "Relational databases structure data into rows and columns within tables."
+      },
+      {
+        "q": "In which network topology are all stations connected by a single cable known as a backbone cable?",
+        "a": "Ring topology",
+        "b": "Bus topology",
+        "c": "Star topology",
+        "d": "Mesh topology",
+        "correct": "b",
+        "explanation": "Bus topology connects nodes along a single shared central cable."
+      },
+      {
+        "q": "What is universally recognized as the very first step to solve any technical problem?",
+        "a": "Design implementation",
+        "b": "Problem identification",
+        "c": "Code compilation",
+        "d": "Final testing",
+        "correct": "b",
+        "explanation": "You must first accurately identify and define a problem before solving it."
+      },
+      {
+        "q": "Why is a firewall important in a computer network?",
+        "a": "It helps to prevent unauthorized access and control data traffic.",
+        "b": "It increases CPU processing speed.",
+        "c": "It provides backup power during outages.",
+        "d": "It replaces physical routers.",
+        "correct": "a",
+        "explanation": "Firewalls filter incoming and outgoing network traffic based on security rules."
+      },
+      {
+        "q": "Which operating system type is designed to fulfill the specialized requirements of mobile devices?",
+        "a": "Real-Time OS",
+        "b": "Mobile OS",
+        "c": "Mainframe Batch OS",
+        "d": "Supercomputer Cluster OS",
+        "correct": "b",
+        "explanation": "Mobile operating systems optimize power, touch input, and wireless connectivity."
+      },
+      {
+        "q": "What is the primary difference between primary memory (RAM) and secondary storage?",
+        "a": "Physical dimensions only",
+        "b": "Volatility and persistence of data",
+        "c": "Color coding of circuit boards",
+        "d": "Manufacturer branding",
+        "correct": "b",
+        "explanation": "RAM is volatile (loses data on power loss), whereas secondary storage is persistent."
+      },
+      {
+        "q": "An operating system is fundamentally a collection of ________.",
+        "a": "software routines",
+        "b": "physical monitors",
+        "c": "printer cables",
+        "d": "plastic casings",
+        "correct": "a",
+        "explanation": "An OS consists of core software routines and system programs managing hardware."
+      },
+      {
+        "q": "Why does a computer system need cache memory?",
+        "a": "To provide backup power",
+        "b": "To temporarily store frequently used data for rapid CPU access",
+        "c": "To cool down the processor core",
+        "d": "To permanently archive old files",
+        "correct": "b",
+        "explanation": "Cache memory bridges the speed gap between fast CPU registers and slower RAM."
+      },
+      {
+        "q": "Which OS component is vital to achieve a degree of multiprogramming?",
+        "a": "Network management",
+        "b": "Memory management",
+        "c": "Audio driver control",
+        "d": "Desktop wallpaper scaling",
+        "correct": "b",
+        "explanation": "Memory management allocates space so multiple programs reside in memory simultaneously."
+      },
+      {
+        "q": "Which phase of the software development life cycle involves creating a structural blueprint for the solution?",
+        "a": "Testing",
+        "b": "System design",
+        "c": "Marketing",
+        "d": "Deployment",
+        "correct": "b",
+        "explanation": "System design establishes architecture, data models, and component blueprints."
+      },
+      {
+        "q": "A ________ attack attempts to learn or make use of information from a system without affecting system resources.",
+        "a": "passive",
+        "b": "destructive",
+        "c": "denial-of-service",
+        "d": "buffer-overflow",
+        "correct": "a",
+        "explanation": "Passive attacks (like eavesdropping) monitor data without altering system resources."
+      },
+      {
+        "q": "What is a primary benefit of using database views?",
+        "a": "Slower query performance",
+        "b": "Simplified data retrieval and enhanced security",
+        "c": "Increased disk fragmentation",
+        "d": "Eliminating table indexes entirely",
+        "correct": "b",
+        "explanation": "Views virtualize tables to restrict sensitive columns and simplify complex queries."
+      },
+      {
+        "q": "What is the base of the binary number system?",
+        "a": "10",
+        "b": "2",
+        "c": "8",
+        "d": "16",
+        "correct": "b",
+        "explanation": "The binary system operates on a base of 2 (using digits 0 and 1)."
+      },
+      {
+        "q": "Which component of the CPU is responsible for performing mathematical and logical operations?",
+        "a": "Register",
+        "b": "Arithmetic Logic Unit (ALU)",
+        "c": "Control Unit",
+        "d": "Bus Interface",
+        "correct": "b",
+        "explanation": "The ALU executes all basic arithmetic and logic gate operations."
+      }
+    ]
+  },
+  {
+    "id": 1792890510416,
+    "course": "[University] Health science ",
+    "title": "Health science exam prediction (I)",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "What is the primary focus of the Health Science field?",
+        "a": "Only clinical treatment of patients",
+        "b": "Applying scientific knowledge to improve health outcomes, prevent disease, and promote wellness",
+        "c": "Solely pharmaceutical research",
+        "d": "Administrative tasks in hospitals only",
+        "correct": "b",
+        "explanation": "Health Science applies scientific knowledge broadly to prevent disease, improve outcomes, and promote general wellness."
+      },
+      {
+        "q": "According to the course, Health Science is best described as:",
+        "a": "A single narrow specialty",
+        "b": "A broad multidisciplinary field with many subdisciplines",
+        "c": "Identical to nursing",
+        "d": "Limited to laboratory work",
+        "correct": "b",
+        "explanation": "Health Science encompasses diverse fields including biology, psychology, public health, and administration."
+      },
+      {
+        "q": "PLO 1 of the UoPeople Health Science program emphasizes:",
+        "a": "Only biological causes of disease",
+        "b": "Applying biopsychosocial determinants of health and quantitative reasoning to analyze issues and design interventions",
+        "c": "Ignoring social factors",
+        "d": "Focusing exclusively on mental health",
+        "correct": "b",
+        "explanation": "PLO 1 integrates biological, psychological, and social determinants with quantitative data to create interventions."
+      },
+      {
+        "q": "PLO 3 focuses on:",
+        "a": "Policy identification only",
+        "b": "Using ethical principles to evaluate dilemmas in disease prevention and health promotion",
+        "c": "Anatomy memorization",
+        "d": "Budget management",
+        "correct": "b",
+        "explanation": "PLO 3 centers on applying ethical frameworks to evaluate health promotion and disease prevention challenges."
+      },
+      {
+        "q": "PLO 5 emphasizes:",
+        "a": "Silent observation",
+        "b": "Clear communication using oral, written, and technology skills with credible sources",
+        "c": "Avoiding stakeholder interaction",
+        "d": "Working in isolation",
+        "correct": "b",
+        "explanation": "PLO 5 highlights effective multimodal communication supported by credible, evidence-based data."
+      },
+      {
+        "q": "Which statement best reflects the holistic approach promoted in the course?",
+        "a": "Health is determined only by genetics",
+        "b": "Biological, psychological, and social factors interact to influence health",
+        "c": "Environment has no role in health",
+        "d": "Only medical treatment matters",
+        "correct": "b",
+        "explanation": "The holistic biopsychosocial model views health as an interactive outcome of bio, psycho, and social factors."
+      },
+      {
+        "q": "A major historical shift in health sciences was the move from:",
+        "a": "Formal education to informal apprenticeships",
+        "b": "Informal to formal medical education",
+        "c": "Hospitals to home-only care",
+        "d": "Science to superstition",
+        "correct": "b",
+        "explanation": "Historical advancement standardized care by shifting from informal apprenticeships to rigorous formal medical training."
+      },
+      {
+        "q": "Evidence-based practice in health science relies on:",
+        "a": "Personal opinion only",
+        "b": "Integrating the best available research evidence with clinical expertise and patient values",
+        "c": "Tradition alone",
+        "d": "Anecdotes exclusively",
+        "correct": "b",
+        "explanation": "Evidence-based practice merges high-quality scientific evidence with clinician experience and patient preferences."
+      },
+      {
+        "q": "Current trends in health science include increased emphasis on:",
+        "a": "Ignoring technology",
+        "b": "Digital transformation, virtual health, health equity, and sustainability",
+        "c": "Reducing workforce development",
+        "d": "Isolating mental and physical health",
+        "correct": "b",
+        "explanation": "Modern health trends prioritize technology integration, equal access (equity), and sustainable healthcare delivery."
+      },
+      {
+        "q": "Credible sources in health science typically include:",
+        "a": "Peer-reviewed academic journals and reputable databases",
+        "b": "Unverified social media posts only",
+        "c": "Anonymous blogs without references",
+        "d": "Advertisements alone",
+        "correct": "a",
+        "explanation": "Academic journals and peer-reviewed databases ensure vetted, accurate research information."
+      },
+      {
+        "q": "When evaluating a source, important criteria include:",
+        "a": "Author credentials, publication date, peer review, and bias",
+        "b": "How entertaining it is",
+        "c": "Number of likes on social media",
+        "d": "Length of the article only",
+        "correct": "a",
+        "explanation": "Rigorous source evaluation checks author authority, recency, peer review status, and potential bias."
+      },
+      {
+        "q": "Peer review in scientific publishing helps ensure:",
+        "a": "Popularity of the article",
+        "b": "Quality, validity, and reliability of the research",
+        "c": "Faster publication without scrutiny",
+        "d": "Guaranteed funding",
+        "correct": "b",
+        "explanation": "Peer review acts as an academic filter ensuring research methodologies and conclusions are sound."
+      },
+      {
+        "q": "The biopsychosocial model includes which three main domains?",
+        "a": "Biological, psychological, and social",
+        "b": "Only biological and chemical",
+        "c": "Economic, political, and legal only",
+        "d": "Spiritual, financial, and legal",
+        "correct": "a",
+        "explanation": "The model systematically categorizes determinants into biological, psychological, and social dimensions."
+      },
+      {
+        "q": "Social determinants of health include factors such as:",
+        "a": "Income, education, housing, social support, and environment",
+        "b": "Only individual genetics",
+        "c": "Personal willpower exclusively",
+        "d": "Random chance",
+        "correct": "a",
+        "explanation": "Social determinants represent ambient conditions like housing, income, and education influencing health status."
+      },
+      {
+        "q": "An example of a social determinant is:",
+        "a": "Access to safe housing and nutritious food",
+        "b": "A specific gene mutation",
+        "c": "Individual blood type",
+        "d": "Personal height",
+        "correct": "a",
+        "explanation": "Environmental accessibility to nutritious food and secure living conditions exemplifies social determinants."
+      },
+      {
+        "q": "Stress and coping styles primarily fall under which domain?",
+        "a": "Psychological",
+        "b": "Purely biological",
+        "c": "Purely social",
+        "d": "Legal",
+        "correct": "a",
+        "explanation": "Cognitive appraisal, coping mechanisms, and emotional stress responses reside in the psychological domain."
+      },
+      {
+        "q": "Health disparities often arise from differences in:",
+        "a": "Social and economic determinants of health",
+        "b": "Random individual choices only",
+        "c": "Genetics exclusively",
+        "d": "Weather patterns alone",
+        "correct": "a",
+        "explanation": "Systemic inequities in economic resources and social conditions drive health disparities across populations."
+      },
+      {
+        "q": "Ignoring social determinants when addressing health problems can lead to:",
+        "a": "Incomplete or less effective solutions",
+        "b": "Better outcomes always",
+        "c": "No impact",
+        "d": "Automatic success",
+        "correct": "a",
+        "explanation": "Focusing solely on clinical symptoms while ignoring environmental causes yields incomplete health interventions."
+      },
+      {
+        "q": "The basic unit of life is the:",
+        "a": "Cell",
+        "b": "Organ",
+        "c": "Tissue",
+        "d": "Organism",
+        "correct": "a",
+        "explanation": "The cell is the fundamental structural and functional unit of all living organisms."
+      },
+      {
+        "q": "Homeostasis refers to:",
+        "a": "The body’s ability to maintain a stable internal environment",
+        "b": "Complete absence of change",
+        "c": "Only disease processes",
+        "d": "External environmental control only",
+        "correct": "a",
+        "explanation": "Homeostasis represents physiological self-regulating mechanisms maintaining internal stability."
+      },
+      {
+        "q": "Non-communicable diseases are those that:",
+        "a": "Are not passed from person to person",
+        "b": "Always spread rapidly between people",
+        "c": "Are caused only by viruses",
+        "d": "Affect only children",
+        "correct": "a",
+        "explanation": "Non-communicable diseases (like heart disease or diabetes) cannot be transmitted between individuals."
+      },
+      {
+        "q": "Communicable (infectious) diseases are typically caused by:",
+        "a": "Pathogens such as bacteria, viruses, fungi, or parasites",
+        "b": "Genetics alone",
+        "c": "Lifestyle choices exclusively",
+        "d": "Aging only",
+        "correct": "a",
+        "explanation": "Communicable illnesses stem from biological pathogen vectors moving between hosts."
+      },
+      {
+        "q": "Health psychology examines:",
+        "a": "How psychological factors influence health, illness, and healthcare",
+        "b": "Only brain surgery",
+        "c": "Economic policy exclusively",
+        "d": "Architectural design",
+        "correct": "a",
+        "explanation": "Health psychology investigates psychological influences on behavioral choices and medical recovery."
+      },
+      {
+        "q": "Stress can affect health by:",
+        "a": "Influencing physiological processes (e.g., immune function, cardiovascular system)",
+        "b": "Having no biological effects",
+        "c": "Only improving health always",
+        "d": "Affecting only social relationships",
+        "correct": "a",
+        "explanation": "Chronic psychological stress triggers hormonal pathways that suppress immunity and stress the heart."
+      },
+      {
+        "q": "Understanding mental health is important because:",
+        "a": "Mental and physical health are interconnected",
+        "b": "Mental health has no relation to physical outcomes",
+        "c": "It can be ignored in health science",
+        "d": "It only matters in isolation",
+        "correct": "a",
+        "explanation": "Psychological health directly alters neuroendocrine pathways, impacting systemic physical wellness."
+      },
+      {
+        "q": "Public health focuses on:",
+        "a": "Population-level health, prevention, and health promotion",
+        "b": "Only individual clinical treatment",
+        "c": "Laboratory research exclusively",
+        "d": "Hospital administration only",
+        "correct": "a",
+        "explanation": "Public health concentrates on community-wide outcomes, preventative policies, and health promotion."
+      },
+      {
+        "q": "Ethical principles in health science include considerations of:",
+        "a": "Autonomy, beneficence, non-maleficence, and justice",
+        "b": "Ignoring patient rights",
+        "c": "Profit only",
+        "d": "Speed over quality",
+        "correct": "a",
+        "explanation": "Core bioethics rests on respecting patient choices (autonomy), doing good (beneficence), doing no harm (non-maleficence), and fairness (justice)."
+      },
+      {
+        "q": "Disease prevention strategies can be:",
+        "a": "Primary (prevent onset), secondary (early detection), tertiary (reduce impact)",
+        "b": "Only tertiary",
+        "c": "Unnecessary",
+        "d": "Limited to medication",
+        "correct": "a",
+        "explanation": "Preventative medicine divides into primary (vaccines), secondary (screening), and tertiary (rehabilitation)."
+      },
+      {
+        "q": "Health equity means:",
+        "a": "Everyone has a fair opportunity to attain their full health potential",
+        "b": "Identical outcomes regardless of need",
+        "c": "Ignoring social differences",
+        "d": "Equal resources without considering need",
+        "correct": "a",
+        "explanation": "Equity ensures individuals receive tailored resource access to achieve optimal health outcomes."
+      },
+      {
+        "q": "When evaluating a health claim, the first step is often to:",
+        "a": "Check the source credibility and supporting evidence",
+        "b": "Share it immediately on social media",
+        "c": "Accept it if it sounds appealing",
+        "d": "Ignore scientific consensus",
+        "correct": "a",
+        "explanation": "Information verification requires assessing the origin domain, peer review status, and empirical evidence."
+      }
+    ]
+  },
+  {
+    "id": 1792890549284,
+    "course": "[University] Health science ",
+    "title": "Health science exam prediction (II)",
+    "timeLimit": 40,
+    "questions": [
+      {
+        "q": "Applying the biopsychosocial model allows analysis of health issues in:",
+        "a": "Communities and individuals",
+        "b": "Only laboratory settings",
+        "c": "Isolated cases without context",
+        "d": "Animals only",
+        "correct": "a",
+        "explanation": "The framework operates at both micro (individual biology/psychology) and macro (community social systems) levels."
+      },
+      {
+        "q": "Quantitative reasoning is used in PLO 1 to:",
+        "a": "Analyze health data and support recommendations",
+        "b": "Avoid numbers entirely",
+        "c": "Focus only on qualitative stories",
+        "d": "Ignore statistics",
+        "correct": "a",
+        "explanation": "Quantitative reasoning applies statistical data analysis to formulate evidence-based health interventions."
+      },
+      {
+        "q": "An intervention based on the biopsychosocial model might address:",
+        "a": "Behavior change, social support, and biological risk factors together",
+        "b": "Only one isolated factor",
+        "c": "Ignoring the patient",
+        "d": "Medication without education",
+        "correct": "a",
+        "explanation": "Effective solutions address lifestyle behaviors, community support systems, and biological pathology simultaneously."
+      },
+      {
+        "q": "Tissues are best defined as:",
+        "a": "Collections of similar cells carrying out similar functions",
+        "b": "Random groups of organs",
+        "c": "Entire organ systems",
+        "d": "Single molecules",
+        "correct": "a",
+        "explanation": "Specialized cells aggregate to form functional tissues within human anatomical hierarchy."
+      },
+      {
+        "q": "Understanding levels of organization (cells → tissues → organs → systems) is important for:",
+        "a": "Relating structure to function in the body",
+        "b": "Ignoring anatomy",
+        "c": "Focusing only on psychology",
+        "d": "Administrative tasks",
+        "correct": "a",
+        "explanation": "Anatomical hierarchies demonstrate how microscopic cellular structures perform complex systemic functions."
+      },
+      {
+        "q": "An example of a biological factor influencing health is:",
+        "a": "Genetic predisposition to a condition",
+        "b": "Neighborhood walkability",
+        "c": "Cultural attitudes toward exercise",
+        "d": "Social media use",
+        "correct": "a",
+        "explanation": "Inherited genomic traits directly affect disease susceptibility and baseline biological function."
+      },
+      {
+        "q": "Behavior change is important in health science because many health outcomes are influenced by:",
+        "a": "Lifestyle behaviors (diet, activity, smoking, adherence, etc.)",
+        "b": "Genetics alone",
+        "c": "Random chance",
+        "d": "Weather only",
+        "correct": "a",
+        "explanation": "Preventable non-communicable diseases stem heavily from modifiable daily behaviors."
+      },
+      {
+        "q": "An example of a psychological intervention in health is:",
+        "a": "Cognitive-behavioral approaches to support behavior change or manage chronic illness",
+        "b": "Only prescribing medication without support",
+        "c": "Ignoring patient thoughts and feelings",
+        "d": "Focusing solely on surgery",
+        "correct": "a",
+        "explanation": "Therapeutic psychological strategies reframe health perceptions and support long-term regimen adherence."
+      },
+      {
+        "q": "Motivation, self-efficacy, and coping strategies are primarily:",
+        "a": "Psychological factors relevant to health behaviors",
+        "b": "Purely genetic traits",
+        "c": "Social policies",
+        "d": "Environmental toxins",
+        "correct": "a",
+        "explanation": "Self-efficacy and internal motivation govern how effectively individuals adopt preventive health routines."
+      },
+      {
+        "q": "Health behavior theories (e.g., stages of change, health belief model concepts) are useful for:",
+        "a": "Designing effective health promotion programs",
+        "b": "Diagnosing infections only",
+        "c": "Performing surgery",
+        "d": "Ignoring patient motivation",
+        "correct": "a",
+        "explanation": "Theoretical models provide frameworks for structuring community health campaigns that drive behavior change."
+      },
+      {
+        "q": "When responding to a public health issue such as an outbreak, professionals should consider:",
+        "a": "Ethical, legal, and evidence-based responsibilities",
+        "b": "Personal convenience only",
+        "c": "Ignoring transmission",
+        "d": "Avoiding communication",
+        "correct": "a",
+        "explanation": "Epidemic containment demands balancing legal mandates, patient ethics, and scientific transmission data."
+      },
+      {
+        "q": "Clear communication with stakeholders is important for:",
+        "a": "Discussing recommendations and improving health outcomes (PLO 5)",
+        "b": "Keeping information secret",
+        "c": "Avoiding collaboration",
+        "d": "Working alone",
+        "correct": "a",
+        "explanation": "Translating scientific evidence into clear stakeholder communication drives effective policy adoption."
+      },
+      {
+        "q": "Collaboration using technology supports:",
+        "a": "Improving health outcomes with diverse teams (PLO 2)",
+        "b": "Isolation of professionals",
+        "c": "Reducing knowledge sharing",
+        "d": "Ending teamwork",
+        "correct": "a",
+        "explanation": "Digital platforms enable cross-functional teams to share diagnostic insights and coordinate care."
+      },
+      {
+        "q": "Health promotion aims to:",
+        "a": "Enable people to increase control over and improve their health",
+        "b": "Focus only on treating advanced disease",
+        "c": "Ignore prevention",
+        "d": "Limit access to information",
+        "correct": "a",
+        "explanation": "Health promotion empowers communities through education and environmental access to self-manage wellness."
+      },
+      {
+        "q": "Teamwork in healthcare is essential because:",
+        "a": "Complex health issues often require interdisciplinary collaboration",
+        "b": "Individuals work best in complete isolation",
+        "c": "Communication is not needed",
+        "d": "Hierarchy eliminates the need for teams",
+        "correct": "a",
+        "explanation": "Complex human pathology demands combined insights from physicians, nurses, social workers, and epidemiologists."
+      },
+      {
+        "q": "Cultural competence and diversity awareness support:",
+        "a": "Better collaboration and more effective care",
+        "b": "Ignoring differences",
+        "c": "One-size-fits-all approaches only",
+        "d": "Reducing communication",
+        "correct": "a",
+        "explanation": "Understanding diverse patient cultural backgrounds improves trust, communication clarity, and treatment compliance."
+      },
+      {
+        "q": "Digital transformation in healthcare includes:",
+        "a": "Virtual care, data use, and technology-enabled services",
+        "b": "Ending all technology use",
+        "c": "Returning exclusively to paper records",
+        "d": "Ignoring equity",
+        "correct": "a",
+        "explanation": "Modern health systems deploy electronic records, telehealth infrastructure, and predictive analytics."
+      },
+      {
+        "q": "Sustainability in health systems refers to:",
+        "a": "Meeting current needs without compromising future capacity",
+        "b": "Short-term fixes only",
+        "c": "Ignoring environmental and resource factors",
+        "d": "Unlimited resource use",
+        "correct": "a",
+        "explanation": "Sustainable operations manage financial, environmental, and human resources for long-term clinical viability."
+      },
+      {
+        "q": "Patient-centered care aligns with:",
+        "a": "Considering biological, psychological, and social needs of the individual",
+        "b": "Provider convenience only",
+        "c": "Ignoring patient preferences",
+        "d": "Standardized care without adaptation",
+        "correct": "a",
+        "explanation": "Patient-centered frameworks adapt clinical plans to fit individual patient values and life contexts."
+      },
+      {
+        "q": "Overall, HS 1101 prepares students to:",
+        "a": "Understand the multidisciplinary nature of health science and apply foundational concepts to real-world health issues",
+        "b": "Practice independently as licensed clinicians immediately",
+        "c": "Ignore ethics and evidence",
+        "d": "Work only in non-health fields",
+        "correct": "a",
+        "explanation": "HS 1101 provides the core interdisciplinary knowledge needed to analyze complex real-world health challenges."
+      }
+    ]
   }
 ]
