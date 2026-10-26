@@ -2956,5 +2956,283 @@
         "explanation": "HS 1101 provides the core interdisciplinary knowledge needed to analyze complex real-world health challenges."
       }
     ]
+  },
+  {
+    "id": 1793006825898,
+    "course": "[University] CS1111",
+    "title": "Final exam prediction (II)",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "What is the primary function of the Arithmetic Logic Unit (ALU) within the CPU?",
+        "a": "Managing secondary storage devices",
+        "b": "Performing mathematical calculations and logical operations",
+        "c": "Directing data flow across network cables",
+        "d": "Temporarily holding desktop wallpaper configurations",
+        "correct": "b",
+        "explanation": "The ALU handles all arithmetic (addition, subtraction) and logical (AND, OR, comparisons) operations in the processor."
+      },
+      {
+        "q": "Why is cache memory integrated directly into or close to the processor core?",
+        "a": "To permanently archive old operating system files",
+        "b": "To cool down the processor during heavy computations",
+        "c": "To temporarily store frequently used data for rapid CPU access",
+        "d": "To replace the need for primary RAM entirely",
+        "correct": "c",
+        "explanation": "Cache memory provides extremely fast, low-latency access to frequently used instructions and data, reducing wait times."
+      },
+      {
+        "q": "Where is the BIOS (Basic Input/Output System) typically stored when the computer is powered off?",
+        "a": "Volatile RAM",
+        "b": "Read-Only Memory (ROM) or Flash memory",
+        "c": "Hard disk cache sectors",
+        "d": "Virtual memory paging files",
+        "correct": "b",
+        "explanation": "BIOS is stored in non-volatile ROM or flash memory so it is preserved when the computer is turned off."
+      },
+      {
+        "q": "What is the defining characteristic of a Real-Time Operating System (RTOS)?",
+        "a": "Quick response to external events within strict, guaranteed time constraints",
+        "b": "Support for high-end multi-user desktop video editing",
+        "c": "Executing long batch jobs overnight without user supervision",
+        "d": "Maximizing battery efficiency on mobile smartphones",
+        "correct": "a",
+        "explanation": "RTOS is designed for embedded systems where timely processing and strict deadlines are critical (e.g., robotics, flight controls)."
+      },
+      {
+        "q": "Which type of operating system is designed to execute large collections of similar tasks efficiently without manual user intervention?",
+        "a": "Batch Processing OS",
+        "b": "Interactive Desktop OS",
+        "c": "Real-Time OS",
+        "d": "Mobile Touch OS",
+        "correct": "a",
+        "explanation": "A batch operating system processes jobs in groups sequentially without direct user interaction during execution."
+      },
+      {
+        "q": "What is the primary purpose of a Network Operating System (NOS)?",
+        "a": "Optimizing local graphics performance",
+        "b": "Managing shared resources and facilitating communication across a network",
+        "c": "Ensuring physical security of individual workstation casings",
+        "d": "Compiling high-level programming languages",
+        "correct": "b",
+        "explanation": "A NOS manages network resources like files, printers, users, and security across connected systems."
+      },
+      {
+        "q": "Scalability is the characteristic of an operating system to handle an increasing amount of work by doing what?",
+        "a": "Shutting down background applications",
+        "b": "Restricting user permissions",
+        "c": "Adding system resources",
+        "d": "Lowering CPU clock speeds",
+        "correct": "c",
+        "explanation": "Scalability refers to an OS or system's capability to accommodate growth and increased workload by integrating additional resources."
+      },
+      {
+        "q": "What is a defining structural characteristic of a relational database?",
+        "a": "It stores all information in unstructured flat text files",
+        "b": "It utilizes tables (relations) with rows and columns to organize data",
+        "c": "It has no schema structure whatsoever",
+        "d": "It exclusively stores numeric audio streams",
+        "correct": "b",
+        "explanation": "Relational databases store data in structured tables (relations) consisting of rows (tuples) and columns (attributes)."
+      },
+      {
+        "q": "What is a primary benefit of creating database views?",
+        "a": "Eliminating all table indexes entirely",
+        "b": "Simplified data retrieval and enhanced user security",
+        "c": "Increasing disk fragmentation rates",
+        "d": "Slower, more secure query performance",
+        "correct": "b",
+        "explanation": "Views present specific subsets of data to users, simplifying complex queries and hiding sensitive underlying columns."
+      },
+      {
+        "q": "In database management, what does 'data independence' mean?",
+        "a": "Data that is completely encrypted and locked",
+        "b": "The ability to modify the database schema without affecting application programs",
+        "c": "Data files stored on separate physical servers",
+        "d": "Data that is excluded from backup routines",
+        "correct": "b",
+        "explanation": "Data independence separates conceptual/physical schemas from application programs so changes don't break code."
+      },
+      {
+        "q": "Which of the following is a key feature of a NoSQL database?",
+        "a": "Strict relational table constraints",
+        "b": "Emphasis on horizontal scalability and flexible schemas",
+        "c": "Mandatory ACID compliance across rigid tables",
+        "d": "Reliance exclusively on SQL join queries",
+        "correct": "b",
+        "explanation": "NoSQL databases prioritize horizontal scalability (scaling out) and handle unstructured or semi-structured data with flexible schemas."
+      },
+      {
+        "q": "End-users interacting with software over the internet are typically utilizing which cloud computing service model?",
+        "a": "IaaS (Infrastructure as a Service)",
+        "b": "PaaS (Platform as a Service)",
+        "c": "SaaS (Software as a Service)",
+        "d": "FaaS (Function as a Service)",
+        "correct": "c",
+        "explanation": "SaaS delivers fully functioning software applications over the internet to end-users (e.g., email, productivity tools)."
+      },
+      {
+        "q": "What does 'elasticity' refer to in cloud computing?",
+        "a": "Dynamic scaling of computing resources up or down based on demand",
+        "b": "Increasing upfront hardware purchase costs",
+        "c": "Reducing network packet travel distance",
+        "d": "Physical stretching of server rack cables",
+        "correct": "a",
+        "explanation": "Elasticity allows cloud systems to automatically provision or de-provision resources dynamically as workload changes."
+      },
+      {
+        "q": "What is the primary purpose of the Domain Name System (DNS)?",
+        "a": "To provide hardware network security firewalls",
+        "b": "To transmit large backup files between servers",
+        "c": "To resolve human-readable domain names to numerical IP addresses",
+        "d": "To manage internal corporate email accounts",
+        "correct": "c",
+        "explanation": "DNS acts as the phone book of the internet, translating text domain names like google.com into numerical IP addresses."
+      },
+      {
+        "q": "Which protocol is standard for transferring hypermedia documents on the World Wide Web?",
+        "a": "FTP",
+        "b": "TCP",
+        "c": "IP",
+        "d": "HTTP",
+        "correct": "d",
+        "explanation": "HTTP (Hypertext Transfer Protocol) is the foundational protocol used for data communication on the World Wide Web."
+      },
+      {
+        "q": "Which transmission mode doubles transmission bandwidth utilization by allowing simultaneous data flow in both directions?",
+        "a": "Simplex",
+        "b": "Half-duplex",
+        "c": "Full-duplex",
+        "d": "Unicast",
+        "correct": "c",
+        "explanation": "Full-duplex communication allows data to flow in both directions across the transmission medium at the same time."
+      },
+      {
+        "q": "In which network topology are all devices connected in a continuous closed loop where data tokens circulate?",
+        "a": "Star topology",
+        "b": "Bus topology",
+        "c": "Ring topology",
+        "d": "Hybrid topology",
+        "correct": "c",
+        "explanation": "In a ring topology, devices form a circular data path where packets or tokens travel from node to node."
+      },
+      {
+        "q": "A passive security attack is characterized by which of the following behaviors?",
+        "a": "Altering system resources or disrupting services",
+        "b": "Eavesdropping on or monitoring transmissions without affecting system resources",
+        "c": "Injecting malicious buffer overflows",
+        "d": "Deleting system database logs",
+        "correct": "b",
+        "explanation": "Passive attacks involve listening in or monitoring traffic (like traffic analysis) without modifying data or disrupting operations."
+      },
+      {
+        "q": "Why is a firewall an essential component of a computer network?",
+        "a": "It provides backup emergency power during outages",
+        "b": "It increases overall CPU clock speed",
+        "c": "It helps prevent unauthorized access and controls incoming/outgoing data traffic",
+        "d": "It completely replaces physical routers",
+        "correct": "c",
+        "explanation": "Firewalls monitor and filter network traffic based on predetermined security rules to block unauthorized access."
+      },
+      {
+        "q": "What is universally recognized as the very first step in solving any technical or programming problem?",
+        "a": "Writing compiled code",
+        "b": "Problem identification and analysis",
+        "c": "Final software deployment",
+        "d": "Aesthetic user interface design",
+        "correct": "b",
+        "explanation": "Before designing or coding, you must clearly identify and analyze the problem to understand requirements and constraints."
+      },
+      {
+        "q": "What does the term 'debugging' refer to in program development?",
+        "a": "Identifying system business requirements",
+        "b": "Eliminating and fixing errors in program code",
+        "c": "Writing technical user manuals",
+        "d": "Analyzing hardware specifications",
+        "correct": "b",
+        "explanation": "Debugging is the systematic process of finding and removing bugs, defects, or logical errors in computer source code."
+      },
+      {
+        "q": "What key principle of structured programming promotes clear code organization, reusability, and manageable blocks?",
+        "a": "Modularity",
+        "b": "Hardcoded redundancy",
+        "c": "Global variable mutation",
+        "d": "Spaghetti branching",
+        "correct": "a",
+        "explanation": "Modularity breaks programs down into smaller, self-contained, and reusable modules or functions."
+      },
+      {
+        "q": "Which control structure is used in algorithmic design to make decisions based on evaluating conditions?",
+        "a": "Sequencing",
+        "b": "Iteration",
+        "c": "Selection",
+        "d": "Abstraction",
+        "correct": "c",
+        "explanation": "Selection structures (like if-else statements) direct the flow of execution based on whether a condition is true or false."
+      },
+      {
+        "q": "What does the acronym ASCII stand for in computer data representation?",
+        "a": "American Standard Code for Information Interchange",
+        "b": "Algorithmic Secure Communication Integration Interface",
+        "c": "Advanced System Character Integration Index",
+        "d": "Automated Serial Character Interchange Definition",
+        "correct": "a",
+        "explanation": "ASCII is the standard character encoding scheme used for electronic communication representing text in computers."
+      },
+      {
+        "q": "Convert the hexadecimal number 1A to binary.",
+        "a": "11010",
+        "b": "11101",
+        "c": "11110",
+        "d": "10001",
+        "correct": "a",
+        "explanation": "Hex 1 is 0001 (or 1) and Hex A (10) is 1010 in binary. Combined, 1A equals 11010."
+      },
+      {
+        "q": "According to De Morgan's laws in Boolean algebra, what is the expansion of (A + B)'?",
+        "a": "A' + B'",
+        "b": "A' * B'",
+        "c": "A + B'",
+        "d": "A * B",
+        "correct": "b",
+        "explanation": "De Morgan's law states that the complement of a sum is equal to the product of the complements: (A + B)' = A' * B'."
+      },
+      {
+        "q": "What is the simplified form of the Boolean expression (A + B) * (A + B')?",
+        "a": "A + B'",
+        "b": "A * B",
+        "c": "A",
+        "d": "B",
+        "correct": "c",
+        "explanation": "Using distribution laws or factoring out A: (A + B)(A + B') = A + (B * B') = A + 0 = A."
+      },
+      {
+        "q": "Which three characteristics commonly define the traditional 3Vs of Big Data?",
+        "a": "Volume, Velocity, Variety",
+        "b": "Value, Viscosity, Validity",
+        "c": "Velocity, Versatility, Viscosity",
+        "d": "Volume, Validity, Variability",
+        "correct": "a",
+        "explanation": "The foundational 3Vs of Big Data are Volume (scale), Velocity (speed), and Variety (data types)."
+      },
+      {
+        "q": "Which type of machine learning algorithm is designed to find hidden structures or patterns in unlabelled data?",
+        "a": "Supervised Learning",
+        "b": "Reinforcement Learning",
+        "c": "Unsupervised Learning",
+        "d": "Semi-supervised Learning",
+        "correct": "c",
+        "explanation": "Unsupervised learning algorithms analyze unlabeled datasets to discover hidden patterns, clusters, or anomalies."
+      },
+      {
+        "q": "How many individual bits are grouped together to form a standard byte?",
+        "a": "4",
+        "b": "8",
+        "c": "16",
+        "d": "32",
+        "correct": "b",
+        "explanation": "A standard byte consists of exactly 8 bits, capable of representing 256 different values."
+      }
+    ]
   }
 ]
