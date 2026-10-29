@@ -20,169 +20,249 @@
 </head>
 <body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
 
-    <!-- Top Navigation Bar with Hamburger -->
-    <header class="w-full py-4 px-4 sm:px-6 flex items-center justify-between border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md sticky top-0 z-50">
+    <!-- Top Navbar with Hamburger Menu -->
+    <header class="w-full py-3 px-4 sm:px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 backdrop-blur-md sticky top-0 z-50">
         <div class="flex items-center space-x-3">
-            <button onclick="toggleSidebar()" class="p-2 text-cyan-400 hover:bg-slate-900 rounded-xl transition-all focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+            <button onclick="toggleSidebar()" class="text-cyan-400 hover:text-cyan-300 text-lg p-1 focus:outline-none">
+                ☰
             </button>
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 rounded-lg overflow-hidden border border-cyan-500/40 flex-shrink-0">
-                    <img src="Sarah.jpg" alt="Logo" class="w-full h-full object-cover">
-                </div>
-                <span class="font-bold tracking-wider text-xs text-white hidden sm:inline">EZRELYN AI</span>
+            <div class="w-8 h-8 rounded-xl overflow-hidden border border-cyan-500/40 flex-shrink-0 shadow-md">
+                <img src="Sarah.jpg" alt="Profile" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <span class="font-bold text-xs text-white block" id="navUserName">Ezra Wanyama</span>
+                <span class="text-[10px] text-cyan-400">Secure Candidate Portal</span>
             </div>
         </div>
 
         <div class="flex items-center space-x-3">
-            <div class="bg-cyan-950/40 border border-cyan-800/50 px-3 py-1.5 rounded-full flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span id="studentDisplay" class="text-[11px] font-semibold tracking-wider text-cyan-300">Student</span>
+            <div class="bg-cyan-950/80 border border-cyan-800 px-3 py-1.5 rounded-xl flex items-center space-x-1.5 shadow-lg shadow-cyan-500/10 hidden sm:flex">
+                <span class="text-xs">🔥</span>
+                <span id="headerCandidateName" class="text-cyan-400 font-bold text-[11px]">Ezra Wanyama</span>
             </div>
-            <a href="login.html" class="text-[11px] text-red-400 hover:text-red-300 font-semibold px-2 py-1 bg-red-950/30 border border-red-900/50 rounded-lg">Logout</a>
+            <button onclick="logout()" class="bg-rose-950/80 hover:bg-rose-900 border border-rose-800 text-rose-300 px-3 py-1.5 rounded-xl font-bold text-[11px] transition-all shadow-md">Logout</button>
         </div>
     </header>
 
-    <!-- Slide-out Sidebar (Dynamic Categories from Database) -->
-    <div id="sidebarOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity" onclick="toggleSidebar()"></div>
-    <aside id="sidebar" class="fixed top-0 left-0 bottom-0 w-80 bg-slate-950 border-r border-slate-800 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
-        <div class="p-5 border-b border-slate-800 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="text-cyan-400 font-bold text-sm">🎓 EDUCATION LEVELS</span>
-            </div>
-            <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white p-1">✕</button>
-        </div>
-
-        <div class="flex-grow overflow-y-auto p-4 space-y-4 text-[12px]" id="dynamicMenuContainer">
-            <p class="text-slate-400 italic">Loading categories...</p>
-        </div>
-
-        <div class="p-4 border-t border-slate-800 text-center text-[11px] text-slate-500">
-            Ezrelyn AI Navigation v2.6
-        </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-grow flex flex-col items-center px-4 py-8 w-full max-w-4xl mx-auto space-y-6">
-        
-        <div class="w-full bg-slate-900/90 border border-slate-800 p-6 rounded-2xl shadow-xl backdrop-blur-md space-y-3">
-            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                WELCOME, <span id="welcomeName">STUDENT</span>
-            </h1>
-            <p class="italic text-slate-300 text-[12px] border-l-2 border-cyan-500 pl-3 py-1">
-                "Mastery is not an accident; it is the result of relentless practice under real conditions." — THE SMARTPHONE SCIENTIST
-            </p>
-        </div>
-
-        <div class="w-full bg-slate-900/80 border border-slate-800 p-6 rounded-2xl shadow-xl backdrop-blur-sm space-y-4 text-slate-300 leading-relaxed text-[12px]">
-            <div class="flex items-center space-x-2 text-cyan-400 font-bold text-sm border-b border-slate-800 pb-2">
-                <span>📖</span>
-                <h2>About Ezrelyn AI Proctor System</h2>
+    <!-- Sidebar Drawer with Academic Tabs Accordion -->
+    <div id="sidebarDrawer" class="fixed inset-y-0 left-0 w-80 bg-slate-950 border-r border-slate-800 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col justify-between p-5 shadow-2xl overflow-y-auto">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <h3 class="font-bold text-cyan-400 text-sm flex items-center space-x-2">
+                    <span>🎓</span><span>ACADEMIC TABS</span>
+                </h3>
+                <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white text-base">✕</button>
             </div>
             
-            <p>
-                <strong>1. Realistic Simulation & Anxiety Reduction:</strong> Ezrelyn AI Proctor is engineered specifically to help students overcome formal examination anxiety. By immersing learners in strict, high-fidelity proctored environments that mirror official university and national testing standards, candidates build robust mental resilience and unshakeable confidence.
-            </p>
+            <nav class="space-y-3">
+                <button onclick="filterCategory('All')" class="w-full text-left py-2.5 px-3 rounded-xl bg-cyan-950/40 border border-cyan-800 text-cyan-400 font-bold text-[12px] flex items-center justify-between">
+                    <span>📚 All Examination Modules</span>
+                </button>
 
-            <p>
-                <strong>2. Complete Privacy & Zero History Architecture:</strong> Designed with absolute student privacy at its core, the platform operates without archiving or tracking personal historical records on remote servers. Every practice session is clean, isolated, and focused entirely on immediate performance improvement and conceptual mastery.
-            </p>
+                <!-- Computer Science Accordion -->
+                <div class="space-y-1">
+                    <button onclick="toggleAccordion('csDropdown')" class="w-full text-left py-3 px-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 font-bold text-[12px] flex items-center justify-between hover:border-cyan-500/50 transition-all">
+                        <span class="flex items-center space-x-2"><span>💻</span><span>Computer Science</span></span>
+                        <span id="csArrow" class="text-cyan-400 text-xs">▼</span>
+                    </button>
+                    <div id="csDropdown" class="hidden pl-4 pr-1 py-1 space-y-1 bg-slate-950/60 rounded-xl border border-slate-900">
+                        <div id="csList" class="space-y-1 py-1"></div>
+                    </div>
+                </div>
 
-            <p>
-                <strong>3. Multi-Tier Academic Scope:</strong> Spanning from foundational primary school subjects to advanced university disciplines like Computer Science, Health Sciences, and Business Administration, the system provides structured modular evaluations with instant scoring, feedback, and strict focus enforcement.
+                <!-- Health Science Accordion -->
+                <div class="space-y-1">
+                    <button onclick="toggleAccordion('hsDropdown')" class="w-full text-left py-3 px-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 font-bold text-[12px] flex items-center justify-between hover:border-cyan-500/50 transition-all">
+                        <span class="flex items-center space-x-2"><span>🏥</span><span>Health Science</span></span>
+                        <span id="hsArrow" class="text-cyan-400 text-xs">▼</span>
+                    </button>
+                    <div id="hsDropdown" class="hidden pl-4 pr-1 py-1 space-y-1 bg-slate-950/60 rounded-xl border border-slate-900">
+                        <div id="hsList" class="space-y-1 py-1"></div>
+                    </div>
+                </div>
+
+                <!-- Business Administration Accordion -->
+                <div class="space-y-1">
+                    <button onclick="toggleAccordion('baDropdown')" class="w-full text-left py-3 px-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 font-bold text-[12px] flex items-center justify-between hover:border-cyan-500/50 transition-all">
+                        <span class="flex items-center space-x-2"><span>📊</span><span>Business Administration</span></span>
+                        <span id="baArrow" class="text-cyan-400 text-xs">▼</span>
+                    </button>
+                    <div id="baDropdown" class="hidden pl-4 pr-1 py-1 space-y-1 bg-slate-950/60 rounded-xl border border-slate-900">
+                        <div id="baList" class="space-y-1 py-1"></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-900 space-y-1">
+                    <a href="ezr-admin-vault-x98k.html" class="block py-2.5 px-3 rounded-xl hover:bg-slate-900 text-slate-400 font-semibold text-[11px] transition-all">⚙️ Admin Vault & Injector</a>
+                </div>
+            </nav>
+        </div>
+        <div class="text-[10px] text-slate-500 border-t border-slate-900 pt-3 text-center">
+            Ezrelyn AI Navigation v3.0
+        </div>
+    </div>
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden"></div>
+
+    <!-- Main Dashboard Container -->
+    <main class="flex-grow flex flex-col items-center px-3 sm:px-6 py-6 w-full max-w-4xl mx-auto space-y-6">
+        
+        <!-- Welcome Banner -->
+        <div class="w-full bg-slate-900/90 border border-slate-800 p-5 sm:p-6 rounded-2xl shadow-xl space-y-3 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <h1 class="text-lg sm:text-xl font-bold text-cyan-400 tracking-wide">WELCOME, EZRA WANYAMA</h1>
+            <p class="text-slate-300 text-[12px] italic leading-relaxed border-l-2 border-cyan-500 pl-3 py-0.5">
+                "Mastery is not an accident; it is the result of relentless practice under real conditions." &mdash; <strong class="text-white not-italic font-semibold">THE SMARTPHONE SCIENTIST</strong>
             </p>
         </div>
 
-        <div class="w-full text-center pt-2">
-            <button onclick="toggleSidebar()" class="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-[12px] tracking-wider uppercase rounded-xl shadow-lg shadow-cyan-500/25 transition-all">
+        <!-- Premium Digital Learning Lab Feature Card (learn.jpg) -->
+        <div class="w-full bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl space-y-4">
+            <div class="relative h-48 sm:h-64 w-full overflow-hidden">
+                <img src="learn.jpg" alt="Digital Learning Lab" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-5">
+                    <div>
+                        <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-950/90 px-3 py-1 rounded-full border border-cyan-800 shadow-lg">Secure Digital Environment</span>
+                        <h3 class="text-sm sm:text-base font-bold text-white mt-2">Ezrelyn AI Proctored Study Lab</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="p-5 pt-0 text-slate-300 text-[12px] leading-relaxed space-y-2">
+                <p>Engineered for high-performance mobile-first academic execution. Immersing candidates in state-of-the-art virtual testing spaces designed to eliminate exam anxiety, enforce strict time discipline, and cultivate absolute conceptual mastery.</p>
+            </div>
+        </div>
+
+        <!-- About Section with history.jpg between 2 and 3 -->
+        <div class="w-full bg-slate-900/90 border border-slate-800 p-5 sm:p-6 rounded-2xl shadow-xl space-y-5">
+            <h2 class="text-sm font-bold text-cyan-400 flex items-center space-x-2">
+                <span>📖</span>
+                <span>About Ezrelyn AI Proctor System</span>
+            </h2>
+            <div class="space-y-4 text-slate-300 text-[12px] leading-relaxed">
+                <p><strong>1. Realistic Simulation & Anxiety Reduction:</strong> Ezrelyn AI Proctor is engineered specifically to help students overcome formal examination anxiety. By immersing learners in strict, high-fidelity proctored environments that mirror official university and national testing standards, candidates build robust mental resilience and unshakeable confidence.</p>
+                <p><strong>2. Complete Privacy & Zero History Architecture:</strong> Designed with absolute student privacy at its core, the platform operates without archiving or tracking personal historical records on remote servers. Every practice session is clean, isolated, and focused entirely on immediate performance improvement and conceptual mastery.</p>
+                
+                <!-- History.jpg Featured Banner Card -->
+                <div class="rounded-xl overflow-hidden border border-cyan-500/40 shadow-2xl my-3">
+                    <div class="relative h-44 sm:h-56 w-full overflow-hidden">
+                        <img src="history.jpg" alt="Zero History Stored" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent flex items-end p-4">
+                            <div>
+                                <span class="text-[9px] font-bold text-cyan-300 uppercase tracking-widest bg-cyan-950/90 px-2.5 py-0.5 rounded border border-cyan-800">Secure Privacy Guarantee</span>
+                                <h4 class="text-xs sm:text-sm font-bold text-white mt-1">Zero History Architecture & Active Protection</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p><strong>3. Multi-Tier Academic Scope:</strong> Spanning from foundational primary school subjects to advanced university disciplines like Computer Science, Health Sciences, and Business Administration, the system provides structured modular evaluations with instant scoring, feedback, and strict focus enforcement.</p>
+            </div>
+        </div>
+        <!-- Available Modules & Course Selector Section -->
+        <div class="w-full bg-slate-900/90 border border-slate-800 p-5 sm:p-6 rounded-2xl shadow-xl space-y-4">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+                <div>
+                    <h2 class="text-sm font-bold text-cyan-400" id="currentFilterTitle">AVAILABLE EXAMINATION MODULES (ALL)</h2>
+                </div>
+                <span id="moduleCountBadge" class="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-2.5 py-1 rounded-lg font-bold">0 Modules Loaded</span>
+            </div>
+
+            <div id="dashboardModulesList" class="space-y-3">
+                <!-- Dynamically populated modules from localStorage -->
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="w-full pt-2 pb-6">
+            <a href="exam.html" class="block w-full py-4 text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-[12px] tracking-wider uppercase rounded-xl shadow-lg shadow-cyan-500/25 transition-all">
                 OPEN COURSES & LEVELS MENU &rarr;
-            </button>
+            </a>
         </div>
 
     </main>
 
     <footer class="py-5 text-center text-[12px] text-slate-500 border-t border-slate-900">
-        &copy; 2026 Ezrelyn AI Proctor System. All rights reserved.
+        &copy; 2026 Ezrelyn AI Proctor System. Certified by Ezrelyn Proctor AI.
     </footer>
 
     <script>
-        const storedName = localStorage.getItem('ezr_student_name');
-        if (storedName) {
-            document.getElementById('studentDisplay').textContent = storedName;
-            document.getElementById('welcomeName').textContent = storedName.toUpperCase();
-        }
+        const studentName = localStorage.getItem('ezr_student_name') || 'Ezra Wanyama';
+        document.getElementById('navUserName').textContent = studentName;
+        document.getElementById('headerCandidateName').textContent = studentName;
+
+        let activeFilter = 'All';
 
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
+            const sidebar = document.getElementById('sidebarDrawer');
             const overlay = document.getElementById('sidebarOverlay');
             sidebar.classList.toggle('-translate-x-full');
             overlay.classList.toggle('hidden');
         }
 
-        function toggleAccordion(id) {
-            const el = document.getElementById(id);
-            const icon = document.getElementById('icon-' + id);
-            el.classList.toggle('hidden');
-            icon.textContent = el.classList.contains('hidden') ? '▼' : '▲';
+        function toggleAccordion(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.classList.toggle('hidden');
         }
 
-        // Fetch modules from SQLite and group them by Education Level in the Sidebar
-        async function loadSidebarMenu() {
-            try {
-                const res = await fetch('/api/questions');
-                const modules = await res.json();
-                const container = document.getElementById('dynamicMenuContainer');
+        function filterCategory(category) {
+            activeFilter = category;
+            document.getElementById('currentFilterTitle').textContent = `EXAMINATION MODULES (${category.toUpperCase()})`;
+            toggleSidebar();
+            loadDashboardModules();
+        }
 
-                // Group by Level: KPSEA, KJSEA, University
-                const levels = {
-                    'KPSEA': { title: 'KPSEA (Primary School)', items: [] },
-                    'KJSEA': { title: 'KJSEA (Junior/High School)', items: [] },
-                    'University': { title: 'University', items: [] }
-                };
+        function logout() {
+            localStorage.removeItem('ezr_student_name');
+            window.location.href = 'index.html';
+        }
 
-                modules.forEach(m => {
-                    // Match pattern like [University] Computer Science
-                    const match = m.course.match(/^\[(.*?)\]\s*(.*)$/);
-                    let levelKey = 'University';
-                    let courseName = m.course;
+        function loadDashboardModules() {
+            const stored = localStorage.getItem('ezrelyn_modules');
+            const modules = stored ? JSON.parse(stored) : [];
+            const container = document.getElementById('dashboardModulesList');
 
-                    if (match) {
-                        levelKey = match[1];
-                        courseName = match[2];
-                    }
+            const csList = document.getElementById('csList');
+            const hsList = document.getElementById('hsList');
+            const baList = document.getElementById('baList');
 
-                    if (!levels[levelKey]) {
-                        levels[levelKey] = { title: levelKey, items: [] };
-                    }
-                    levels[levelKey].items.push({ course: courseName, moduleTitle: m.title, id: m.id });
-                });
+            const csMods = modules.filter(m => m.level && m.level.toLowerCase().includes('computer science'));
+            const hsMods = modules.filter(m => m.level && m.level.toLowerCase().includes('health science'));
+            const baMods = modules.filter(m => m.level && m.level.toLowerCase().includes('business'));
 
-                let html = '';
-                for (const [key, data] of Object.entries(levels)) {
-                    html += `
-                        <div class="border border-slate-800 rounded-xl bg-slate-900/60 overflow-hidden">
-                            <button onclick="toggleAccordion('${key}')" class="w-full p-3 text-left font-bold flex justify-between items-center bg-slate-900 hover:bg-slate-800/80 text-cyan-400">
-                                <span>${data.title}</span>
-                                <span id="icon-${key}">▼</span>
-                            </button>
-                            <div id="${key}" class="hidden p-3 space-y-2 border-t border-slate-800/80 bg-slate-950/50 text-slate-300">
-                                ${data.items.length === 0 ? '<p class="text-slate-500 text-[11px] italic p-1">No modules injected yet.</p>' : 
-                                    data.items.map(i => `<a href="exam.html?id=${i.id}" class="block p-2 rounded hover:bg-cyan-950/40 transition-all font-semibold text-cyan-300">📚 ${i.course} - <span class="text-slate-300 font-normal">${i.moduleTitle}</span></a>`).join('')}
-                            </div>
-                        </div>
-                    `;
-                }
+            csList.innerHTML = csMods.length ? csMods.map((m, idx) => `<a href="exam.html?id=${m.id || (1792887997100 + idx)}" class="block py-1.5 px-2 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 text-[11px]">▪️ ${m.title}</a>`).join('') : '<span class="block py-1.5 px-2 text-slate-500 text-[11px]">No exams listed</span>';
 
-                container.innerHTML = html;
-            } catch (err) {
-                console.error(err);
+            hsList.innerHTML = hsMods.length ? hsMods.map((m, idx) => `<a href="exam.html?id=${m.id || (1792887997100 + idx)}" class="block py-1.5 px-2 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 text-[11px]">▪️ ${m.title}</a>`).join('') : '<span class="block py-1.5 px-2 text-slate-500 text-[11px]">No exams listed</span>';
+
+            baList.innerHTML = baMods.length ? baMods.map((m, idx) => `<a href="exam.html?id=${m.id || (1792887997100 + idx)}" class="block py-1.5 px-2 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 text-[11px]">▪️ ${m.title}</a>`).join('') : '<span class="block py-1.5 px-2 text-slate-500 text-[11px]">No exams listed</span>';
+
+            const filteredModules = activeFilter === 'All' 
+                ? modules 
+                : modules.filter(m => m.level && m.level.toLowerCase().includes(activeFilter.toLowerCase()));
+
+            document.getElementById('moduleCountBadge').textContent = `${filteredModules.length} Modules Loaded`;
+
+            if (filteredModules.length === 0) {
+                container.innerHTML = `<p class="text-slate-400 text-center py-6 text-[12px]">No examination modules found for <strong>${activeFilter}</strong>. Inject modules via Admin Vault.</p>`;
+                return;
             }
+
+            container.innerHTML = filteredModules.map((m, idx) => {
+                const uniqueId = m.id || (1792887997100 + idx);
+                return `
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-cyan-500/50 transition-all">
+                        <div class="space-y-1">
+                            <span class="text-[10px] text-cyan-400 uppercase tracking-widest bg-cyan-950 px-2.5 py-0.5 rounded border border-cyan-900">${m.level} (${m.subject.toUpperCase()})</span>
+                            <h3 class="font-bold text-slate-200 text-[13px]">${m.title}</h3>
+                            <p class="text-[11px] text-slate-400">⏱️ Time Limit: ${m.time} mins | 📝 Questions: ${m.questions ? m.questions.length : 0}</p>
+                        </div>
+                        <a href="exam.html?id=${uniqueId}" class="w-full sm:w-auto text-center px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl text-[11px] uppercase tracking-wider transition-all shadow-md">
+                            START EXAM &rarr;
+                        </a>
+                    </div>
+                `;
+            }).join('');
         }
 
-        loadSidebarMenu();
+        loadDashboardModules();
     </script>
-
 </body>
 </html>
