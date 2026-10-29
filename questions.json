@@ -1,23 +1,5 @@
 [
   {
-    "id": 1792887997116,
-    "level": "Computer Science",
-    "subject": "cs1101",
-    "time": "45",
-    "title": "Programming Fundamentals - CS1101 Evaluator",
-    "questions": [
-      {
-        "q": "Which data structure operates on a First-In, First-Out (FIFO) basis?",
-        "a": "Stack",
-        "b": "Queue",
-        "c": "Binary Tree",
-        "d": "Graph",
-        "correct": "b",
-        "explanation": "A Queue follows the FIFO principle where elements are inserted at the rear and removed from the front."
-      }
-    ]
-  },
-  {
     "id": 1793265477216,
     "level": "Computer Science",
     "subject": "Testing ",
