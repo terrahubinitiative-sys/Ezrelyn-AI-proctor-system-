@@ -1,26 +1,299 @@
-{
-  "univ1001": [
-    {
-      "id": 1,
-      "question": "Which of the following is NOT a characteristic of a SMART goal?",
-      "options": ["A. Relevant", "B. Time-bound", "C. Subjective", "D. Measurable"],
-      "answer": "C"
-    }
-  ],
-  "cs1101": [
-    {
-      "id": 1,
-      "question": "Which data structure operates on a First-In, First-Out (FIFO) basis?",
-      "options": ["A. Stack", "B. Queue", "C. Tree", "D. Graph"],
-      "answer": "B"
-    }
-  ],
-  "bus1101": [
-    {
-      "id": 1,
-      "question": "Which management function involves setting goals and determining the best course of action to achieve them?",
-      "options": ["A. Controlling", "B. Leading", "C. Planning", "D. Organizing"],
-      "answer": "C"
-    }
-  ]
-}
+[
+  {
+    "id": 1792887997116,
+    "level": "Computer Science",
+    "subject": "cs1101",
+    "time": "45",
+    "title": "Programming Fundamentals - CS1101 Evaluator",
+    "questions": [
+      {
+        "q": "Which data structure operates on a First-In, First-Out (FIFO) basis?",
+        "a": "Stack",
+        "b": "Queue",
+        "c": "Binary Tree",
+        "d": "Graph",
+        "correct": "b",
+        "explanation": "A Queue follows the FIFO principle where elements are inserted at the rear and removed from the front."
+      }
+    ]
+  },
+  {
+    "id": 1793265477216,
+    "level": "Computer Science",
+    "subject": "Testing ",
+    "title": "Testing ",
+    "time": "45",
+    "questions": [
+      {
+        "q": "What is the key characteristic that distinguishes a workstation from a personal computer?",
+        "a": "Operating system",
+        "b": "Processing power",
+        "c": "Physical size",
+        "d": "Storage capacity",
+        "correct": "B",
+        "explanation": "Workstations offer advanced processing power, multi-threaded CPU configurations, and high-velocity memory capacities tailored for heavy computational workloads compared to standard PCs."
+      },
+      {
+        "q": "What is the role of the control unit in the Von Neumann architecture?",
+        "a": "Store data",
+        "b": "Perform arithmetic operations",
+        "c": "Execute instructions",
+        "d": "Manage peripherals",
+        "correct": "C",
+        "explanation": "The Control Unit manages the retrieval, decoding, and systematic execution sequencing of system instructions."
+      },
+      {
+        "q": "Why does a computer system need a cache?",
+        "a": "To temporarily store frequently used data",
+        "b": "To provide backup power",
+        "c": "To cool down the CPU",
+        "d": "To store long-term files",
+        "correct": "A",
+        "explanation": "Cache memory holds frequently accessed data close to the CPU to reduce access latency from main RAM."
+      },
+      {
+        "q": "Where is the BIOS (Basic Input/Output System) permanently stored?",
+        "a": "RAM",
+        "b": "Hard Drive",
+        "c": "ROM",
+        "d": "Cache",
+        "correct": "C",
+        "explanation": "BIOS is non-volatile startup firmware permanently hosted on ROM or flash chips."
+      },
+      {
+        "q": "What is a key characteristic that differentiates supercomputers from personal computers?",
+        "a": "Size",
+        "b": "Weight",
+        "c": "Cost",
+        "d": "Color",
+        "correct": "C",
+        "explanation": "Supercomputers are enterprise-scale systems characterized by extremely high cost, scale, and immense processing power."
+      },
+      {
+        "q": "Which coding representation is traditionally and commonly used in mainframe computers?",
+        "a": "ASCII",
+        "b": "Unicode",
+        "c": "EBCDIC",
+        "d": "BCD",
+        "correct": "C",
+        "explanation": "EBCDIC (Extended Binary Coded Decimal Interchange Code) is an 8-bit character encoding system historically used in IBM mainframes."
+      },
+      {
+        "q": "Unicode is universally known for its ________.",
+        "a": "Limited character set",
+        "b": "Variable character set size",
+        "c": "Exclusive use in mainframes",
+        "d": "Fixed 7-bit architecture",
+        "correct": "B",
+        "explanation": "Unicode accommodates international text representations using variable-width character set size layouts like UTF-8."
+      },
+      {
+        "q": "What is the base of the binary number system?",
+        "a": "10",
+        "b": "16",
+        "c": "8",
+        "d": "2",
+        "correct": "D",
+        "explanation": "The binary number system operates strictly on a base radix of 2."
+      },
+      {
+        "q": "Convert the hexadecimal number 1A to its binary equivalent.",
+        "a": "11011",
+        "b": "11010",
+        "c": "10100",
+        "d": "11101",
+        "correct": "B",
+        "explanation": "Hexadecimal 1 converts to 0001 and A (10) converts to 1010, resulting in binary 11010."
+      },
+      {
+        "q": "Which Boolean algebra law is represented by the expression A + (B * C) = (A + B) * (A + C)?",
+        "a": "Associative law",
+        "b": "Distributive law",
+        "c": "Commutative law",
+        "d": "De Morgan's Law",
+        "correct": "B",
+        "explanation": "This formula demonstrates the distributive law of Boolean algebra over addition and multiplication."
+      },
+      {
+        "q": "Which of the following are recognized as universal logic gates?",
+        "a": "AND and OR",
+        "b": "NAND and NOR",
+        "c": "NOT and XOR",
+        "d": "Buffered gates",
+        "correct": "B",
+        "explanation": "NAND and NOR gates are universal gates because any Boolean function can be implemented using only NAND or only NOR gates."
+      },
+      {
+        "q": "The simplified Boolean expression for A'BC + AC is equal to:",
+        "a": "ABC",
+        "b": "(A+C)B",
+        "c": "(A+B)C",
+        "d": "AC",
+        "correct": "C",
+        "explanation": "Factoring and applying logical simplification rules reduces A'BC + AC to (A + B)C."
+      },
+      {
+        "q": "Simplify the expression: AB + A(CD + CD')",
+        "a": "A(B + C)",
+        "b": "BCD",
+        "c": "ABC + AB",
+        "d": "AB + BCD",
+        "correct": "A",
+        "explanation": "Inside parentheses, CD + CD' simplifies to C. This leaves AB + AC, which factors out to A(B + C)."
+      },
+      {
+        "q": "The logic expression XYZ + XYZ' + X'YZ simplifies directly to:",
+        "a": "XY + XZ",
+        "b": "XY + X'YZ",
+        "c": "XYZ + XZ",
+        "d": "XY + X'YZ'",
+        "correct": "B",
+        "explanation": "Combining XYZ + XYZ' yields XY, which when combined with X'YZ simplifies to XY + X'YZ."
+      },
+      {
+        "q": "What type of software is responsible for managing hardware resources and providing a user interface?",
+        "a": "Application software",
+        "b": "Operating system",
+        "c": "Firmware",
+        "d": "Device driver",
+        "correct": "B",
+        "explanation": "Operating systems manage hardware abstractions and resource balancing while offering user interface layers."
+      },
+      {
+        "q": "What is the maximum digit allowed in the octal number system?",
+        "a": "8",
+        "b": "9",
+        "c": "7",
+        "d": "10",
+        "correct": "C",
+        "explanation": "The octal system uses base 8, utilizing digits 0 through 7."
+      },
+      {
+        "q": "A gate gives an output of 1 ONLY if all its input signals are 1. Which gate is it?",
+        "a": "OR",
+        "b": "AND",
+        "c": "XOR",
+        "d": "NOR",
+        "correct": "B",
+        "explanation": "An AND gate requires all inputs to be true (1) to output a 1."
+      },
+      {
+        "q": "Applying the Commutative law to the Boolean expression A + B results in:",
+        "a": "AB",
+        "b": "A + B",
+        "c": "B + A",
+        "d": "BA",
+        "correct": "C",
+        "explanation": "The commutative law of addition dictates that order can be reversed: A + B = B + A."
+      },
+      {
+        "q": "The foundation of fifth-generation computers is fundamentally based on:",
+        "a": "Vacuum tubes",
+        "b": "Transistors",
+        "c": "Artificial Intelligence",
+        "d": "Very Large Scale Integration",
+        "correct": "C",
+        "explanation": "Fifth-generation architecture anchors heavily upon AI development, parallel computing, and advanced ULSI."
+      },
+      {
+        "q": "Which operating system is specifically tailored to meet the strict requirements of handheld mobile devices?",
+        "a": "Real-Time OS",
+        "b": "Batch Processing OS",
+        "c": "Mobile OS",
+        "d": "Parallel OS",
+        "correct": "C",
+        "explanation": "Mobile operating systems are optimized for touchscreens, battery efficiency, and portable hardware constraints."
+      },
+      {
+        "q": "What is a primary, definitive characteristic of a Real-Time Operating System (RTOS)?",
+        "a": "High storage capacity",
+        "b": "Quick response to external events",
+        "c": "Efficient file system structures",
+        "d": "Complex graphical interfaces",
+        "correct": "B",
+        "explanation": "RTOS environments guarantee precise, predictable response timing to external events within strict time constraints."
+      },
+      {
+        "q": "Which operating system processes batches of similar tasks sequentially without needing active user intervention?",
+        "a": "Batch Processing OS",
+        "b": "Distributed OS",
+        "c": "Real-Time OS",
+        "d": "Mobile OS",
+        "correct": "A",
+        "explanation": "Batch operating systems execute jobs in groups automatically without interactive user prompts."
+      },
+      {
+        "q": "What is a key responsibility of memory management in a modern operating system?",
+        "a": "Managing active network sockets",
+        "b": "Printing spool management",
+        "c": "Allocating and deallocating memory space",
+        "d": "Data backup automation",
+        "correct": "C",
+        "explanation": "Memory managers dynamically allocate and reclaim RAM space for executing programs."
+      },
+      {
+        "q": "Embedded computers found in automation systems and robotics typically execute on a ___ OS.",
+        "a": "Clustered",
+        "b": "Network",
+        "c": "Real-Time",
+        "d": "Single-tasking",
+        "correct": "C",
+        "explanation": "Robotics and automated hardware require real-time predictable response loops managed by an RTOS."
+      },
+      {
+        "q": "What is considered a significant structural disadvantage of a Distributed DBMS?",
+        "a": "Complex nature",
+        "b": "Reduced reliability",
+        "c": "Lower data availability",
+        "d": "Poor transparency",
+        "correct": "A",
+        "explanation": "Distributed databases introduce high operational, networking, and transaction control complexity."
+      },
+      {
+        "q": "Which database structural type organizes data strictly into a collection of tables?",
+        "a": "Hierarchical database",
+        "b": "Network database",
+        "c": "Relational database",
+        "d": "NoSQL database",
+        "correct": "C",
+        "explanation": "Relational databases structure datasets uniformly into two-dimensional tables of rows and columns."
+      },
+      {
+        "q": "In the context of data independence, what does a schema modification refer to?",
+        "a": "Changing actual row values",
+        "b": "Deleting database logs",
+        "c": "Modifying the structure without affecting application programs",
+        "d": "Database encryption tasks",
+        "correct": "C",
+        "explanation": "Data independence ensures physical or logical schema modifications happen without disrupting client application layers."
+      },
+      {
+        "q": "Which of the following fields represents a standard enterprise application of a database?",
+        "a": "Customer Relationship Management (CRM)",
+        "b": "Client-side video game loops",
+        "c": "Local variable storage",
+        "d": "Raw text rendering",
+        "correct": "A",
+        "explanation": "CRM engines rely heavily on enterprise database infrastructures to store client records and transaction data."
+      },
+      {
+        "q": "The network device that functions to explicitly connect two completely different networks is called a:",
+        "a": "Switch",
+        "b": "Hub",
+        "c": "Gateway",
+        "d": "Repeater",
+        "correct": "C",
+        "explanation": "Gateways operate at higher network layers to translate protocols and connect disparate network systems."
+      },
+      {
+        "q": "In which network topology are all station nodes attached directly along a single continuous backbone cable?",
+        "a": "Star topology",
+        "b": "Bus topology",
+        "c": "Ring topology",
+        "d": "Mesh topology",
+        "correct": "B",
+        "explanation": "Bus topology links all devices directly to a single central communication line or backbone cable."
+      }
+    ]
+  }
+]

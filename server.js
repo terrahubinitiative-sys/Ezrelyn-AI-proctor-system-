@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Simple .env parser
 if (fs.existsSync(path.join(__dirname, '.env'))) {
     const envConfig = fs.readFileSync(path.join(__dirname, '.env'), 'utf8');
     envConfig.split('\n').forEach(line => {
@@ -25,12 +24,10 @@ app.use(express.static(__dirname));
 
 const DATA_FILE = path.join(__dirname, 'questions.json');
 
-// Ensure questions.json exists
 if (!fs.existsSync(DATA_FILE)) {
     fs.writeFileSync(DATA_FILE, JSON.stringify([], null, 2));
 }
 
-// Verify Admin Password Endpoint
 app.post('/api/admin/verify', (req, res) => {
     const { password } = req.body;
     if (password === ADMIN_PASSWORD) {
@@ -40,7 +37,6 @@ app.post('/api/admin/verify', (req, res) => {
     }
 });
 
-// Get all exam modules from questions.json
 app.get('/api/questions', (req, res) => {
     try {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
@@ -51,36 +47,67 @@ app.get('/api/questions', (req, res) => {
     }
 });
 
-// Inject or Update exam module into questions.json (Admin only)
 app.post('/api/questions', (req, res) => {
     const adminPwd = req.headers['x-admin-password'];
     if (adminPwd !== ADMIN_PASSWORD) {
         return res.status(403).json({ success: false, error: 'Unauthorized' });
     }
 
-    const { course, title, timeLimit, questions } = req.body;
+    const { course, title, timeLimit, level, questions } = req.body;
     try {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
         const modules = JSON.parse(data);
         
         const newModule = {
-            id: Date.now(), // Unique ID based on timestamp
-            course,
-            title,
-            timeLimit: Number(timeLimit) || 45,
-            questions
+            id: Date.now(),
+            level: level || course || 'Computer Science',
+            subject: course || 'cs1101',
+            title: title || 'Examination Module',
+            time: String(timeLimit || 45),
+            questions: questions || []
         };
 
         modules.push(newModule);
-        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2));
-        
+        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2), 'utf8');
         res.json({ success: true });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
     }
 });
 
-// Delete exam module (Admin only)
+// Update / Edit exam module
+app.put('/api/questions/:id', (req, res) => {
+    const adminPwd = req.headers['x-admin-password'];
+    if (adminPwd !== ADMIN_PASSWORD) {
+        return res.status(403).json({ success: false, error: 'Unauthorized' });
+    }
+
+    const { course, title, timeLimit, level, questions } = req.body;
+    try {
+        const data = fs.readFileSync(DATA_FILE, 'utf8');
+        let modules = JSON.parse(data);
+        
+        const index = modules.findIndex(m => m.id == req.params.id);
+        if (index === -1) {
+            return res.status(404).json({ success: false, error: 'Module not found' });
+        }
+
+        modules[index] = {
+            ...modules[index],
+            level: level || modules[index].level,
+            subject: course || modules[index].subject,
+            title: title || modules[index].title,
+            time: String(timeLimit || modules[index].time),
+            questions: questions || modules[index].questions
+        };
+
+        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2), 'utf8');
+        res.json({ success: true });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 app.delete('/api/questions/:id', (req, res) => {
     const adminPwd = req.headers['x-admin-password'];
     if (adminPwd !== ADMIN_PASSWORD) {
@@ -92,17 +119,11 @@ app.delete('/api/questions/:id', (req, res) => {
         let modules = JSON.parse(data);
         
         modules = modules.filter(m => m.id != req.params.id);
-        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2));
-        
+        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2), 'utf8');
         res.json({ success: true });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
     }
-});
-
-// Block standard admin.html for security
-app.get('/admin.html', (req, res) => {
-    res.status(404).send('Not Found');
 });
 
 app.listen(PORT, () => {
