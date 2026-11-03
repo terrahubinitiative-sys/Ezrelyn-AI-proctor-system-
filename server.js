@@ -6,11 +6,24 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Automatically load local .env file into process.env if it exists
+if (fs.existsSync('.env')) {
+    const envConfig = fs.readFileSync('.env', 'utf8');
+    envConfig.split('\n').forEach(line => {
+        const [key, ...valueParts] = line.split('=');
+        if (key && valueParts.length > 0) {
+            const val = valueParts.join('=').trim().replace(/^["']|["']$/g, '');
+            process.env[key.trim()] = val;
+        }
+    });
+    console.log('⚡ Loaded environment variables from .env file');
+}
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Use environment variable with local fallback for smooth testing
-const ADMIN_SECRET = process.env.ADMIN_SECRET || 'ezrelyn2026';
+// STRICT: Pulling password exclusively from environment variables
+const ADMIN_SECRET = process.env.ADMIN_SECRET;
 
 app.use(express.json());
 app.use(express.static(__dirname));
@@ -28,14 +41,20 @@ app.get('/api/topics', (req, res) => {
     }
 });
 
-// API: Verify Admin Secret Key
+// API: Verify Admin Secret Key strictly against process.env.ADMIN_SECRET
 app.post('/api/admin/verify', (req, res) => {
     try {
         const { password } = req.body;
-        
+
+        if (!ADMIN_SECRET) {
+            console.error('❌ ADMIN_SECRET is missing from environment variables!');
+            return res.status(500).json({ success: false, error: 'ADMIN_SECRET environment variable is not defined.' });
+        }
+
         if (password === ADMIN_SECRET) {
             return res.json({ success: true });
         }
+        
         res.status(401).json({ success: false, error: 'Invalid security key' });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
