@@ -1,12 +1,3 @@
-# Environment & Secret files
+node_modules
 .env
-
-# Local SQLite databases
 database.sqlite
-*.sqlite
-*.sqlite3
-
-# Node modules & logs
-node_modules/
-npm-debug.log*
-.DS_Store
