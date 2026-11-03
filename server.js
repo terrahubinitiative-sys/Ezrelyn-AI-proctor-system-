@@ -12,6 +12,17 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'scientist2026';
 app.use(express.json());
 app.use(express.static(__dirname));
 
+app.get('/sitemap.xml', (req, res) => {
+    res.header('Content-Type', 'application/xml');
+    res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
+app.get('/robots.txt', (req, res) => {
+    res.header('Content-Type', 'text/plain');
+    res.sendFile(path.join(__dirname, 'robots.txt'));
+});
+
+
 const DATA_FILE = path.join(__dirname, 'questions.json');
 const RESULTS_FILE = path.join(__dirname, 'results.json');
 
