@@ -7,11 +7,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-// Robust absolute URL XML Sitemap for Googlebot Indexing
+// TOP PRIORITY: Explicit Googlebot SEO routes
 app.get('/sitemap.xml', (req, res) => {
-    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-    res.status(200);
-    res.send(`<?xml version="1.0" encoding="UTF-8"?>
+    res.writeHead(200, {
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600'
+    });
+    res.end(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ezrelyn-ai-proctor-system.onrender.com/</loc>
@@ -41,10 +43,14 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 app.get('/robots.txt', (req, res) => {
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.status(200);
-    res.send("User-agent: *\nAllow: /\nSitemap: https://ezrelyn-ai-proctor-system.onrender.com/sitemap.xml");
+    res.writeHead(200, {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600'
+    });
+    res.end("User-agent: *\nAllow: /\nSitemap: https://ezrelyn-ai-proctor-system.onrender.com/sitemap.xml");
 });
+
+
 
 
 // Explicit high-speed sitemap and robots endpoints for Googlebot
