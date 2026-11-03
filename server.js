@@ -1,170 +1,104 @@
 import express from 'express';
 import fs from 'node:fs';
-import path from 'node:path';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
-import path from 'node:path';
-
-// TOP PRIORITY: Direct file serving for SEO bots
-app.get('/sitemap.xml', (req, res) => {
-    res.typeapplication = res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-    res.sendFile(path.join(process.cwd(), 'sitemap.xml'));
-});
-
-app.get('/robots.txt', (req, res) => {
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.sendFile(path.join(process.cwd(), 'robots.txt'));
-});
-
-
-// TOP PRIORITY: Explicit Googlebot SEO routes
-    res.end(`<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ezrelyn-ai-proctor-system.onrender.com/</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://ezrelyn-ai-proctor-system.onrender.com/login.html</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ezrelyn-ai-proctor-system.onrender.com/dashboard.html</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ezrelyn-ai-proctor-system.onrender.com/exam.html</loc>
-    <lastmod>2026-11-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>`);
-});
-
-    res.end("User-agent: *\nAllow: /\nSitemap: https://ezrelyn-ai-proctor-system.onrender.com/sitemap.xml");
-});
-
-
-
-
-// Explicit high-speed sitemap and robots endpoints for Googlebot
-
-
 const PORT = process.env.PORT || 8080;
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'scientist2026';
+
+// Use environment variable with local fallback for smooth testing
+const ADMIN_SECRET = process.env.ADMIN_SECRET || 'ezrelyn2026';
 
 app.use(express.json());
 app.use(express.static(__dirname));
 
-
-
-
-const DATA_FILE = path.join(__dirname, 'questions.json');
-const RESULTS_FILE = path.join(__dirname, 'results.json');
-
-if (!fs.existsSync(DATA_FILE)) {
-    fs.writeFileSync(DATA_FILE, JSON.stringify([], null, 2));
-}
-if (!fs.existsSync(RESULTS_FILE)) {
-    fs.writeFileSync(RESULTS_FILE, JSON.stringify([], null, 2));
-}
-
-app.post('/api/admin/verify', (req, res) => {
-    const { password } = req.body;
-    res.json({ success: password === ADMIN_PASSWORD });
-});
-
-app.get('/api/questions', (req, res) => {
+// API: Get all stored topics/question packs from disk
+app.get('/api/topics', (req, res) => {
     try {
-        const data = fs.readFileSync(DATA_FILE, 'utf8');
-        res.json(JSON.parse(data));
+        if (fs.existsSync('questions.json')) {
+            const data = fs.readFileSync('questions.json', 'utf8');
+            return res.json(JSON.parse(data));
+        }
+        res.json([]);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// Save or add topic-based question pack
-app.post('/api/questions', (req, res) => {
-    if (req.headers['x-admin-password'] !== ADMIN_PASSWORD) {
-        return res.status(403).json({ success: false, error: 'Unauthorized' });
-    }
-
-    const { level, course, topic, timeLimit, questions } = req.body;
+// API: Verify Admin Secret Key
+app.post('/api/admin/verify', (req, res) => {
     try {
-        const data = fs.readFileSync(DATA_FILE, 'utf8');
-        let modules = JSON.parse(data);
+        const { password } = req.body;
         
-        const newModule = {
-            id: Date.now(),
-            level: level || 'Computer Science',
-            subject: course || 'cs1101',
-            topic: topic || 'General Topic',
-            time: String(timeLimit || 45),
-            questions: questions || []
-        };
-
-        modules.push(newModule);
-        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2), 'utf8');
-        res.json({ success: true });
+        if (password === ADMIN_SECRET) {
+            return res.json({ success: true });
+        }
+        res.status(401).json({ success: false, error: 'Invalid security key' });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
     }
 });
 
-// Update topic module
-app.put('/api/questions/:id', (req, res) => {
-    if (req.headers['x-admin-password'] !== ADMIN_PASSWORD) {
-        return res.status(403).json({ success: false, error: 'Unauthorized' });
-    }
-
-    const { level, course, topic, timeLimit, questions } = req.body;
+// API: Save new topic pack to disk
+app.post('/api/admin/save-topic', (req, res) => {
     try {
-        const data = fs.readFileSync(DATA_FILE, 'utf8');
-        let modules = JSON.parse(data);
-        const index = modules.findIndex(m => m.id == req.params.id);
-        if (index === -1) return res.status(404).json({ success: false, error: 'Not found' });
+        const newTopic = req.body;
+        let topics = [];
+        
+        if (fs.existsSync('questions.json')) {
+            topics = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
+        }
 
-        modules[index] = {
-            ...modules[index],
-            level: level || modules[index].level,
-            subject: course || modules[index].subject,
-            topic: topic || modules[index].topic,
-            time: String(timeLimit || modules[index].time),
-            questions: questions || modules[index].questions
-        };
-
-        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2), 'utf8');
-        res.json({ success: true });
+        topics.push(newTopic);
+        fs.writeFileSync('questions.json', JSON.stringify(topics, null, 2), 'utf8');
+        res.json({ success: true, message: 'Topic pack saved successfully' });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
     }
 });
 
-app.delete('/api/questions/:id', (req, res) => {
-    if (req.headers['x-admin-password'] !== ADMIN_PASSWORD) {
-        return res.status(403).json({ success: false, error: 'Unauthorized' });
-    }
-
+// API: Update existing topic pack
+app.put('/api/admin/topic/:index', (req, res) => {
     try {
-        const data = fs.readFileSync(DATA_FILE, 'utf8');
-        let modules = JSON.parse(data);
-        modules = modules.filter(m => m.id != req.params.id);
-        fs.writeFileSync(DATA_FILE, JSON.stringify(modules, null, 2), 'utf8');
-        res.json({ success: true });
+        const index = parseInt(req.params.index, 10);
+        const updatedData = req.body;
+
+        if (fs.existsSync('questions.json')) {
+            let topics = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
+            if (index >= 0 && index < topics.length) {
+                topics[index] = updatedData;
+                fs.writeFileSync('questions.json', JSON.stringify(topics, null, 2), 'utf8');
+                return res.json({ success: true, message: 'Topic updated successfully' });
+            }
+        }
+        res.status(404).json({ success: false, error: 'Topic not found' });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// API: Delete topic pack
+app.delete('/api/admin/topic/:index', (req, res) => {
+    try {
+        const index = parseInt(req.params.index, 10);
+
+        if (fs.existsSync('questions.json')) {
+            let topics = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
+            if (index >= 0 && index < topics.length) {
+                topics.splice(index, 1);
+                fs.writeFileSync('questions.json', JSON.stringify(topics, null, 2), 'utf8');
+                return res.json({ success: true, message: 'Topic deleted successfully' });
+            }
+        }
+        res.status(404).json({ success: false, error: 'Topic not found' });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
     }
 });
 
 app.listen(PORT, () => {
-    console.log(`Ezrelyn AI Proctor running on http://localhost:${PORT}`);
+    console.log(`🚀 Ezrelyn Proctor AI server running on port ${PORT}`);
 });
