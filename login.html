@@ -3,112 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Authentication | Ezrelyn AI Proctor</title>
+    <title>Authentication & Compliance | Ezrelyn AI</title>
     <meta name="google-site-verification" content="KnK7fMRavFEkhzW_yI5F8W7LAt7twSg7p9Aj5OWXHwc" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 12px;
-            background-color: #030712;
-            background-image: 
-                linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-    </style>
+    <style>body { font-family: 'Times New Roman', Times, serif; font-size: 12px; background-color: #030712; }</style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 w-full m-0 p-0">
 
-    <!-- Header -->
-    <header class="w-full py-4 px-4 sm:px-6 flex items-center justify-between border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="flex items-center space-x-2 sm:space-x-3">
-            <div class="w-8 h-8 rounded-lg overflow-hidden border border-cyan-500/40 flex-shrink-0">
-                <img src="Sarah.jpg" alt="Logo" class="w-full h-full object-cover">
-            </div>
-            <span class="font-bold tracking-wider text-xs text-white">EZRELYN AI PROCTOR</span>
+    <!-- TOP HEADER (EDGE-TO-EDGE) -->
+    <header class="w-full py-3 px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 sticky top-0 z-40">
+        <div class="flex items-center space-x-3">
+            <img src="Sarah.jpg" alt="Sarah Logo" class="w-9 h-9 rounded-full border border-cyan-500/50 object-cover shadow-sm">
+            <span class="text-xs font-bold text-cyan-400 tracking-wider">EZRELYN AI PROCTOR</span>
         </div>
-        <div class="flex items-center space-x-2 bg-cyan-950/40 border border-cyan-800/50 px-2.5 py-1 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span class="text-[11px] font-semibold tracking-widest text-cyan-400">AUTHENTICATION</span>
-        </div>
+        <span class="px-3 py-1 bg-cyan-950/80 border border-cyan-800 text-cyan-300 rounded-lg text-[9px] font-bold uppercase tracking-wider">AUTHENTICATION</span>
     </header>
 
-    <!-- Main Container (Edge-to-Edge full width integration) -->
-    <main class="flex-grow flex flex-col items-center justify-center px-3 sm:px-5 py-6 w-full max-w-2xl mx-auto">
+    <!-- MAIN COMPLIANCE CONTAINER (EDGE-TO-EDGE MAXIMIZED) -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-6 w-full max-w-xl mx-auto space-y-6">
         
-        <div class="w-full bg-slate-900/90 border border-slate-800 p-5 sm:p-8 rounded-2xl shadow-2xl backdrop-blur-md space-y-6">
+        <div class="w-full bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-2xl space-y-6">
             
-            <!-- Title -->
-            <div class="text-center space-y-2">
-                <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                    STUDENT AUTHENTICATION
-                </h1>
-                <p class="text-[12px] text-slate-400 leading-relaxed">
-                    Please enter your legal name and carefully review all compliance & integrity policies below to proceed.
-                </p>
+            <div class="space-y-1 text-center border-b border-slate-800 pb-4">
+                <h1 class="text-base font-bold text-cyan-400 uppercase tracking-widest">STUDENT AUTHENTICATION</h1>
+                <p class="text-[11px] text-slate-400">Please review all compliance & integrity policies below to proceed to your secure candidate portal.</p>
             </div>
 
-            <form id="authForm" onsubmit="handleAuth(event)" class="space-y-5">
-                <!-- Name Input -->
-                <div class="space-y-1.5">
-                    <label for="studentName" class="block font-bold text-slate-300 text-[12px] uppercase tracking-wider">
-                        FULL STUDENT NAME
-                    </label>
-                    <input type="text" id="studentName" required placeholder="e.g. Ezra Wanyama" 
-                           class="w-full px-4 py-3 bg-slate-950/90 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-[12px]">
-                </div>
-
-                <!-- Compliance & Integrity Rules Box (5 Comprehensive Rules) -->
-                <div class="space-y-3 pt-1">
-                    <div class="flex items-center space-x-2 text-cyan-400 font-bold text-[12px]">
-                        <span>🛡️</span>
-                        <span>COMPLIANCE & INTEGRITY VERIFICATION POLICY</span>
-                    </div>
-
-                    <div class="bg-slate-950/80 border border-slate-800 p-4 rounded-xl space-y-3 text-slate-300 text-[12px] leading-relaxed">
+            <form onsubmit="handleLoginAgreement(event)" class="space-y-5">
+                
+                <!-- COMPLIANCE & INTEGRITY RULES -->
+                <div class="space-y-3">
+                    <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest flex items-center gap-1.5">🛡️ COMPLIANCE & INTEGRITY VERIFICATION POLICY</span>
+                    
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-3 text-[11px] text-slate-300 leading-relaxed max-h-72 overflow-y-auto pr-2">
                         <p><strong>1. Window Lock:</strong> Switching tabs, minimizing, or leaving the examination window during an active session triggers instant violation flags.</p>
-                        <p><strong>2. Zero History:</strong> The Ezrelyn AI Proctor System never permanently stores or archives your session history on remote databases.</p>
+                        <p><strong>2. Zero History:</strong> The Ezrelyn AI Proctor System never permanently stores or archives your session history on remote servers.</p>
                         <p><strong>3. AI Behavioral Monitoring:</strong> Real-time heuristic checks monitor for unauthorized background tool usage or external interventions.</p>
                         <p><strong>4. Environment Compliance:</strong> Candidates must maintain a quiet, distraction-free testing environment with single-screen visibility.</p>
                         <p><strong>5. Work Representation:</strong> All submitted solutions and answers must represent exclusively your own independent intellectual work.</p>
                     </div>
+                </div>
 
-                    <!-- Single Agreement Checkbox -->
-                    <label class="flex items-start space-x-3 p-2.5 rounded-lg cursor-pointer hover:bg-slate-800/40 transition-all border border-slate-800/50">
-                        <input type="checkbox" id="agreePolicy" required class="mt-0.5 rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-cyan-500 w-4 h-4 flex-shrink-0">
-                        <span class="text-slate-300 text-[12px] leading-snug">
-                            I confirm that I have read, understood, and unconditionally agree to abide by all 5 compliance and proctoring conditions.
-                        </span>
+                <!-- AGREEMENT CHECKBOX -->
+                <div class="flex items-start space-x-3 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
+                    <input type="checkbox" id="agreeCheckbox" required class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-cyan-500 cursor-pointer">
+                    <label for="agreeCheckbox" class="text-[11px] text-slate-300 leading-tight cursor-pointer">
+                        I confirm that I have read, understood, and unconditionally agree to abide by all 5 compliance and proctoring conditions.
                     </label>
                 </div>
 
-                <!-- Submit Button -->
-                <button type="submit" 
-                        class="w-full py-4 text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-[12px] tracking-wider uppercase rounded-xl shadow-lg shadow-cyan-500/25 transition-all">
-                    AGREE & ENTER DASHBOARD &rarr;
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer">
+                    AGREE & ENTER DASHBOARD →
                 </button>
             </form>
-
         </div>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="py-5 text-center text-[12px] text-slate-500 border-t border-slate-900">
-        &copy; 2026 Ezrelyn AI Proctor System. Strict Proctored Integrity Enforced.
+    <!-- FOOTER (EDGE-TO-EDGE) -->
+    <footer class="w-full py-4 text-center text-[10px] text-slate-500 border-t border-slate-900 bg-slate-950">
+        © 2026 Ezrelyn AI Proctor System. Strict Proctored Integrity Enforced.
     </footer>
 
     <script>
-        function handleAuth(event) {
-            event.preventDefault();
-            const name = document.getElementById('studentName').value.trim();
-            if (name) {
-                localStorage.setItem('ezr_student_name', name);
-                window.location.href = 'dashboard.html';
+        function handleLoginAgreement(e) {
+            e.preventDefault();
+            const checkbox = document.getElementById('agreeCheckbox');
+            if (!checkbox.checked) {
+                return;
             }
+
+            localStorage.setItem('ezrelyn_authenticated', 'true');
+            window.location.href = 'dashboard.html';
         }
     </script>
-
 </body>
 </html>

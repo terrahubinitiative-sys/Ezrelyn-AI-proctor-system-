@@ -3,277 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Vault & Module Injector | Ezrelyn AI Proctor</title>
+    <title>Admin Vault & Topic Injector | Ezrelyn AI Proctor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 12px;
-            background-color: #030712;
-            background-image: 
-                linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
+        body { font-family: 'Times New Roman', Times, serif; font-size: 12px; background-color: #030712; }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
+<body class="text-slate-100 min-h-screen flex flex-col justify-between">
 
-    <!-- SECURE LOGIN GATEWAY MODAL -->
+    <!-- Login Modal -->
     <div id="loginModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl w-full max-w-sm space-y-4">
             <div class="text-center space-y-1">
-                <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">🔒 RESTRICTED ACCESS</span>
-                <h2 class="text-base font-bold text-slate-100">Admin Vault Gateway</h2>
-                <p class="text-[11px] text-slate-400">Enter administrator credentials to access persistent storage.</p>
+                <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">🔒 SECURE GATEWAY</span>
+                <h2 class="text-base font-bold text-slate-100">Admin Vault Access</h2>
             </div>
-            <form onsubmit="handleAdminLogin(event)" class="space-y-3">
-                <input type="password" id="adminPasswordInput" required placeholder="Enter admin password..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
-                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all">
-                    UNLOCK VAULT &rarr;
-                </button>
+            <form onsubmit="handleLogin(event)" class="space-y-3">
+                <input type="password" id="adminPwd" required placeholder="Enter admin password..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold rounded-xl text-xs uppercase shadow-lg">UNLOCK VAULT →</button>
             </form>
-            <div class="text-center">
-                <a href="dashboard.html" class="text-[11px] text-slate-500 hover:text-cyan-400">&larr; Return to Dashboard</a>
-            </div>
+            <div class="text-center"><a href="dashboard.html" class="text-[11px] text-slate-500 hover:text-cyan-400">&larr; Return to Dashboard</a></div>
         </div>
     </div>
 
-    <!-- Navbar -->
-    <header class="w-full py-3 px-4 sm:px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 backdrop-blur-md sticky top-0 z-40">
-        <div class="flex items-center space-x-3">
-            <a href="dashboard.html" class="text-cyan-400 hover:text-cyan-300 font-bold text-xs">&larr; BACK TO DASHBOARD</a>
-        </div>
-        <div class="text-xs font-bold text-cyan-400">⚙️ ADMIN VAULT & DISK STORAGE</div>
+    <header class="w-full py-3 px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 sticky top-0 z-40">
+        <a href="dashboard.html" class="text-cyan-400 hover:text-cyan-300 font-bold text-xs">&larr; BACK TO DASHBOARD</a>
+        <div class="text-xs font-bold text-cyan-400">⚙️ TOPIC-BASED VAULT & DISK STORAGE</div>
     </header>
 
-    <!-- Main Container -->
-    <main class="flex-grow flex flex-col items-center px-3 sm:px-6 py-6 w-full max-w-3xl mx-auto space-y-6">
-        
-        <!-- Header Banner -->
+    <main class="flex-grow flex flex-col items-center px-4 py-6 w-full max-w-3xl mx-auto space-y-6">
         <div class="w-full bg-slate-900/90 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-2">
-            <h1 class="text-base font-bold text-cyan-400">Examination Module Injector & Persistent Disk Vault</h1>
-            <p class="text-slate-300 text-[11px] leading-relaxed">
-                Securely manage, edit, and delete examination modules directly on disk (<code class="text-cyan-400">questions.json</code>).
-            </p>
+            <h1 class="text-base font-bold text-cyan-400">Topic-by-Topic Question Injector</h1>
+            <p class="text-slate-300 text-[11px]">Inject questions by specific topics. The exam engine will automatically aggregate topics and randomize 40 questions per test session with full weakness diagnostics.</p>
         </div>
 
-        <!-- Injector / Editor Form -->
-        <div class="w-full bg-slate-900/90 border border-slate-800 p-5 sm:p-6 rounded-2xl shadow-xl space-y-4">
-            <h2 id="formTitleText" class="text-xs font-bold text-cyan-400 uppercase tracking-widest border-b border-slate-800 pb-2">Inject New Examination Module</h2>
-            
-            <form id="injectForm" onsubmit="handleSaveModule(event)" class="space-y-4">
-                <input type="hidden" id="editModuleId" value="">
+        <div class="w-full bg-slate-900/90 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+            <h2 id="formTitle" class="text-xs font-bold text-cyan-400 uppercase tracking-widest border-b border-slate-800 pb-2">Inject Topic Question Pack</h2>
+            <form id="vaultForm" onsubmit="saveModule(event)" class="space-y-4">
+                <input type="hidden" id="editId">
                 <div>
                     <label class="block text-[11px] font-semibold text-slate-300 mb-1">EDUCATION LEVEL / CATEGORY</label>
-                    <select id="modLevel" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
+                    <select id="modLevel" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs">
                         <option value="Computer Science">Computer Science</option>
                         <option value="Health Science">Health Science</option>
                         <option value="Business Administration">Business Administration</option>
                     </select>
                 </div>
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">COURSE / SUBJECT CODE</label>
-                        <input type="text" id="modCourse" required placeholder="e.g. cs1101" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
+                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">SUBJECT CODE</label>
+                        <input type="text" id="modCourse" required placeholder="e.g. cs1101" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs">
                     </div>
                     <div>
-                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">TIME LIMIT (MINUTES)</label>
-                        <input type="number" id="modTime" required value="45" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
+                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">SPECIFIC TOPIC NAME</label>
+                        <input type="text" id="modTopic" required placeholder="e.g. Boolean Algebra" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs">
                     </div>
                 </div>
-
-                <div>
-                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">EXAM MODULE TITLE</label>
-                    <input type="text" id="modTitle" required placeholder="e.g. Programming Fundamentals - CS1101" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">EXAM MODULE TITLE</label>
+                        <input type="text" id="modTitle" required placeholder="e.g. CS1101 Master Evaluator" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">TIME LIMIT (MINS)</label>
+                        <input type="number" id="modTime" required value="45" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs">
+                    </div>
                 </div>
-
                 <div>
-                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">QUESTIONS ARRAY (JSON FORMAT)</label>
-                    <textarea id="modQuestions" rows="8" required class="w-full font-mono bg-slate-950 border border-slate-800 rounded-xl p-3 text-cyan-300 text-[11px] focus:outline-none focus:border-cyan-500">[
+                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">QUESTIONS ARRAY (JSON)</label>
+                    <textarea id="modQuestions" rows="8" required class="w-full font-mono bg-slate-950 border border-slate-800 rounded-xl p-3 text-cyan-300 text-[11px]">[
   {
-    "q": "Which data structure operates on a First-In, First-Out (FIFO) basis?",
-    "a": "Stack",
-    "b": "Queue",
-    "c": "Binary Tree",
-    "d": "Graph",
+    "q": "What is the result of True AND False in Boolean logic?",
+    "a": "True",
+    "b": "False",
+    "c": "Null",
+    "d": "Undefined",
     "correct": "b",
-    "explanation": "A Queue follows the FIFO principle where elements are inserted at the rear and removed from the front."
+    "explanation": "AND requires both operands to be True."
   }
 ]</textarea>
                 </div>
-
                 <div class="flex gap-3">
-                    <button type="submit" id="submitBtn" class="flex-grow py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all">
-                        INJECT & SAVE PERMANENTLY &rarr;
-                    </button>
-                    <button type="button" id="cancelEditBtn" onclick="resetForm()" class="hidden px-4 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs uppercase tracking-wider transition-all">
-                        CANCEL
-                    </button>
+                    <button type="submit" id="submitBtn" class="flex-grow py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl text-xs uppercase shadow-lg">SAVE TOPIC PACK TO DISK →</button>
+                    <button type="button" id="cancelBtn" onclick="resetForm()" class="hidden px-4 py-3 bg-slate-800 text-slate-300 font-bold rounded-xl text-xs uppercase">CANCEL</button>
                 </div>
             </form>
         </div>
 
-        <!-- Managed Modules List -->
-        <div class="w-full bg-slate-900/90 border border-slate-800 p-5 sm:p-6 rounded-2xl shadow-xl space-y-4">
-            <h2 class="text-xs font-bold text-cyan-400 uppercase tracking-widest border-b border-slate-800 pb-2">Managed Server Modules on Disk</h2>
-            <div id="adminModuleList" class="space-y-3">
-                <p class="text-slate-400 text-center py-4">Loading modules from server...</p>
-            </div>
+        <div class="w-full bg-slate-900/90 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+            <h2 class="text-xs font-bold text-cyan-400 uppercase tracking-widest border-b border-slate-800 pb-2">Active Stored Topics on Disk</h2>
+            <div id="moduleList" class="space-y-3"><p class="text-slate-400 text-center py-4">Loading topics...</p></div>
         </div>
-
     </main>
 
-    <footer class="py-5 text-center text-[12px] text-slate-500 border-t border-slate-900">
-        &copy; 2026 Ezrelyn AI Proctor System. Secure Persistent Storage.
-    </footer>
-
     <script>
-        let cachedModules = [];
-        let adminPassword = '';
+        let adminPwd = '';
+        let modulesData = [];
 
-        async function handleAdminLogin(event) {
-            event.preventDefault();
-            const pwd = document.getElementById('adminPasswordInput').value;
-
-            try {
-                const res = await fetch('/api/admin/verify', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ password: pwd })
-                });
-                const data = await res.json();
-                if (data.success) {
-                    adminPassword = pwd;
-                    document.getElementById('loginModal').classList.add('hidden');
-                    fetchAdminModules();
-                } else {
-                    alert('❌ Incorrect administrator password.');
-                }
-            } catch (err) {
-                alert('❌ Server verification error: ' + err.message);
+        async function handleLogin(e) {
+            e.preventDefault();
+            const pwd = document.getElementById('adminPwd').value;
+            const res = await fetch('/api/admin/verify', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({password: pwd}) });
+            const data = await res.json();
+            if (data.success) {
+                adminPwd = pwd;
+                document.getElementById('loginModal').classList.add('hidden');
+                loadModules();
+            } else {
+                alert('Incorrect password.');
             }
         }
 
-        async function fetchAdminModules() {
-            try {
-                const res = await fetch('/api/questions');
-                cachedModules = await res.json();
-                const container = document.getElementById('adminModuleList');
-
-                if (!cachedModules.length) {
-                    container.innerHTML = `<p class="text-slate-400 text-center py-4 text-[11px]">No modules found on disk.</p>`;
-                    return;
-                }
-
-                container.innerHTML = cachedModules.map(m => `
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl flex items-center justify-between gap-3">
-                        <div>
-                            <span class="text-[10px] text-cyan-400 uppercase tracking-widest bg-cyan-950 px-2 py-0.5 rounded border border-cyan-900">${m.level || 'General'} (${(m.subject || m.course || '').toUpperCase()})</span>
-                            <h3 class="font-bold text-slate-200 text-[12px] mt-1">${m.title}</h3>
-                            <p class="text-[10px] text-slate-400">⏱️ Time: ${m.time || m.timeLimit || 45} mins | 📝 Questions: ${m.questions ? m.questions.length : 0}</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="editModule(${m.id})" class="px-3 py-1.5 bg-cyan-950 hover:bg-cyan-900 border border-cyan-800 text-cyan-300 font-bold rounded-lg text-[10px] uppercase transition-all">
-                                EDIT
-                            </button>
-                            <button onclick="deleteModule(${m.id})" class="px-3 py-1.5 bg-rose-950 hover:bg-rose-900 border border-rose-800 text-rose-300 font-bold rounded-lg text-[10px] uppercase transition-all">
-                                DELETE
-                            </button>
-                        </div>
+        async function loadModules() {
+            const res = await fetch('/api/questions');
+            modulesData = await res.json();
+            const container = document.getElementById('moduleList');
+            if (!modulesData.length) {
+                container.innerHTML = `<p class="text-slate-400 text-center py-4">No topics stored yet.</p>`;
+                return;
+            }
+            container.innerHTML = modulesData.map(m => `
+                <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl flex items-center justify-between gap-3">
+                    <div>
+                        <span class="text-[10px] text-cyan-400 uppercase bg-cyan-950 px-2 py-0.5 rounded border border-cyan-900">${m.level} • Topic: ${m.topic || 'General'}</span>
+                        <h3 class="font-bold text-slate-200 text-[12px] mt-1">${m.title} (${m.subject.toUpperCase()})</h3>
+                        <p class="text-[10px] text-slate-400">⏱️ ${m.time} mins | 📝 ${m.questions.length} questions</p>
                     </div>
-                `).join('');
-            } catch (err) {
-                document.getElementById('adminModuleList').innerHTML = `<p class="text-rose-400 text-center py-4 text-[11px]">Error loading modules from server.</p>`;
-            }
+                    <div class="flex gap-2">
+                        <button onclick="editMod(${m.id})" class="px-3 py-1.5 bg-cyan-950 border border-cyan-800 text-cyan-300 font-bold rounded-lg text-[10px]">EDIT</button>
+                        <button onclick="delMod(${m.id})" class="px-3 py-1.5 bg-rose-950 border border-rose-800 text-rose-300 font-bold rounded-lg text-[10px]">DELETE</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        function editModule(id) {
-            const mod = cachedModules.find(m => m.id == id);
-            if (!mod) return;
-
-            document.getElementById('editModuleId').value = mod.id;
-            document.getElementById('modLevel').value = mod.level || 'Computer Science';
-            document.getElementById('modCourse').value = mod.subject || mod.course || '';
-            document.getElementById('modTime').value = mod.time || mod.timeLimit || 45;
-            document.getElementById('modTitle').value = mod.title || '';
-            document.getElementById('modQuestions').value = JSON.stringify(mod.questions, null, 2);
-
-            document.getElementById('formTitleText').textContent = 'EDIT EXISTING EXAMINATION MODULE';
-            document.getElementById('submitBtn').textContent = 'UPDATE MODULE ON DISK →';
-            document.getElementById('cancelEditBtn').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function editMod(id) {
+            const m = modulesData.find(x => x.id == id);
+            if (!m) return;
+            document.getElementById('editId').value = m.id;
+            document.getElementById('modLevel').value = m.level;
+            document.getElementById('modCourse').value = m.subject;
+            document.getElementById('modTopic').value = m.topic || '';
+            document.getElementById('modTitle').value = m.title;
+            document.getElementById('modTime').value = m.time;
+            document.getElementById('modQuestions').value = JSON.stringify(m.questions, null, 2);
+            document.getElementById('formTitle').textContent = 'EDIT TOPIC PACK';
+            document.getElementById('submitBtn').textContent = 'UPDATE TOPIC PACK →';
+            document.getElementById('cancelBtn').classList.remove('hidden');
+            window.scrollTo({top:0, behavior:'smooth'});
         }
 
         function resetForm() {
-            document.getElementById('injectForm').reset();
-            document.getElementById('editModuleId').value = '';
-            document.getElementById('formTitleText').textContent = 'INJECT NEW EXAMINATION MODULE';
-            document.getElementById('submitBtn').textContent = 'INJECT & SAVE PERMANENTLY →';
-            document.getElementById('cancelEditBtn').classList.add('hidden');
+            document.getElementById('vaultForm').reset();
+            document.getElementById('editId').value = '';
+            document.getElementById('formTitle').textContent = 'INJECT TOPIC QUESTION PACK';
+            document.getElementById('submitBtn').textContent = 'SAVE TOPIC PACK TO DISK →';
+            document.getElementById('cancelBtn').classList.add('hidden');
         }
 
-        async function handleSaveModule(event) {
-            event.preventDefault();
-            const editId = document.getElementById('editModuleId').value;
-            const isEditing = Boolean(editId);
-
-            try {
-                const questionsParsed = JSON.parse(document.getElementById('modQuestions').value);
-                const payload = {
-                    level: document.getElementById('modLevel').value,
-                    course: document.getElementById('modCourse').value,
-                    timeLimit: Number(document.getElementById('modTime').value),
-                    title: document.getElementById('modTitle').value,
-                    questions: questionsParsed
-                };
-
-                const url = isEditing ? `/api/questions/${editId}` : '/api/questions';
-                const method = isEditing ? 'PUT' : 'POST';
-
-                const res = await fetch(url, {
-                    method: method,
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'x-admin-password': adminPassword
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await res.json();
-                if (result.success) {
-                    alert(isEditing ? "✅ Module successfully updated on disk!" : "✅ Module successfully injected and saved permanently!");
-                    resetForm();
-                    fetchAdminModules();
-                } else {
-                    alert("❌ Operation failed: " + (result.error || "Unauthorized password"));
-                }
-            } catch (err) {
-                alert("❌ Invalid JSON format in questions array or server error: " + err.message);
+        async function saveModule(e) {
+            e.preventDefault();
+            const id = document.getElementById('editId').value;
+            const payload = {
+                level: document.getElementById('modLevel').value,
+                course: document.getElementById('modCourse').value,
+                topic: document.getElementById('modTopic').value,
+                timeLimit: Number(document.getElementById('modTime').value),
+                title: document.getElementById('modTitle').value,
+                questions: JSON.parse(document.getElementById('modQuestions').value)
+            };
+            const url = id ? `/api/questions/${id}` : '/api/questions';
+            const method = id ? 'PUT' : 'POST';
+            const res = await fetch(url, { method, headers: {'Content-Type': 'application/json', 'x-admin-password': adminPwd}, body: JSON.stringify(payload) });
+            const data = await res.json();
+            if (data.success) {
+                alert('Saved successfully to disk!');
+                resetForm();
+                loadModules();
+            } else {
+                alert('Error saving module.');
             }
         }
 
-        async function deleteModule(id) {
-            if (!confirm("Are you sure you want to permanently delete this module from disk?")) return;
-
-            try {
-                const res = await fetch(`/api/questions/${id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'x-admin-password': adminPassword
-                    }
-                });
-                const result = await res.json();
-                if (result.success) {
-                    alert("🗑️ Module deleted successfully from disk.");
-                    fetchAdminModules();
-                } else {
-                    alert("❌ Unauthorized or error deleting module.");
-                }
-            } catch (err) {
-                alert("❌ Server error: " + err.message);
-            }
+        async function delMod(id) {
+            if (!confirm('Delete topic pack?')) return;
+            const res = await fetch(`/api/questions/${id}`, { method: 'DELETE', headers: {'x-admin-password': adminPwd} });
+            const data = await res.json();
+            if (data.success) { loadModules(); } else { alert('Delete failed.'); }
         }
     </script>
 </body>

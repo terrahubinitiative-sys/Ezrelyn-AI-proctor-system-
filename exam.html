@@ -3,614 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examination Portal | Ezrelyn AI Proctor</title>
-    <meta name="google-site-verification" content="KnK7fMRavFEkhzW_yI5F8W7LAt7twSg7p9Aj5OWXHwc" />
+    <title>Proctored Examination | Ezrelyn AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 12px;
-            background-color: #030712;
-            background-image: 
-                linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-        .screen { display: none; }
-        .screen.active { display: flex; flex-direction: column; width: 100%; }
+        body { font-family: 'Times New Roman', Times, serif; font-size: 12px; background-color: #030712; }
 
         @media print {
-            body * { visibility: hidden !important; }
-            #resultsScreen, #resultsScreen * { visibility: visible !important; }
-            #resultsScreen {
-                position: absolute !important;
-                left: 0 !important;
-                top: 0 !important;
-                width: 100% !important;
-                background: white !important;
-                color: black !important;
-            }
-            .no-print { display: none !important; }
-            .print-bg-fix {
-                background-color: #ffffff !important;
-                color: #000000 !important;
-                border-color: #cbd5e1 !important;
-                box-shadow: none !important;
-            }
+            body { background-color: #ffffff !important; color: #000000 !important; }
+            header, main, #submitController, #nameConfirmationModal, .no-print { display: none !important; }
+            #resultsModal { position: static !important; background: transparent !important; display: block !important; padding: 0 !important; }
+            .print-area { background: #ffffff !important; color: #000000 !important; border: none !important; box-shadow: none !important; width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+            .print-card { background: #f8fafc !important; border: 1px solid #cbd5e1 !important; color: #0f172a !important; }
+            .print-text-dark { color: #0f172a !important; }
+            .print-text-cyan { color: #0284c7 !important; }
+            .print-text-rose { color: #e11d48 !important; }
+            .print-hide-overflow { max-height: none !important; overflow: visible !important; }
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500">
 
-    <!-- Top Examination Navbar with Timer -->
-    <header class="w-full py-3 px-4 sm:px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 backdrop-blur-md sticky top-0 z-50">
-        <div class="flex items-center space-x-3">
-            <div class="w-7 h-7 rounded-lg overflow-hidden border border-cyan-500/40 flex-shrink-0">
-                <img src="Sarah.jpg" alt="Logo" class="w-full h-full object-cover">
+    <!-- CUSTOM DARK SECURITY ALERT MODAL -->
+    <div id="securityAlertModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-rose-800 p-6 rounded-2xl shadow-2xl w-full max-w-sm text-center space-y-4">
+            <div class="w-12 h-12 bg-rose-950/80 border border-rose-800 text-rose-400 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+                🚨
             </div>
-            <div>
-                <span id="examHeaderTitle" class="font-bold text-xs text-white block">EXAMINATION IN PROGRESS</span>
-                <span id="studentBadge" class="text-[10px] text-cyan-400">Candidate</span>
+            <div class="space-y-1">
+                <h3 id="alertModalTitle" class="text-sm font-bold text-rose-400 uppercase tracking-wider">SECURITY VIOLATION DETECTED</h3>
+                <p id="alertModalMessage" class="text-xs text-slate-300 leading-relaxed"></p>
             </div>
+            <button onclick="dismissAlertModal()" class="w-full py-3 bg-rose-950 hover:bg-rose-900 border border-rose-700 text-rose-200 font-bold rounded-xl text-xs uppercase tracking-wider transition-all">
+                ACKNOWLEDGE & PROCEED →
+            </button>
         </div>
+    </div>
 
-        <div class="flex items-center space-x-3">
-            <div id="warningBadge" class="hidden bg-amber-950/80 border border-amber-600 px-2.5 py-1 rounded-xl text-[10px] text-amber-400 font-bold animate-bounce">
-                ⚠️ Flags: <span id="violationCount">0</span>/2
+    <!-- CANDIDATE NAME CONFIRMATION MODAL -->
+    <div id="nameConfirmationModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-cyan-800 p-6 rounded-2xl shadow-2xl w-full max-w-sm space-y-4">
+            <div class="text-center space-y-1">
+                <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">📝 FINAL VERIFICATION</span>
+                <h3 class="text-base font-bold text-slate-100">Confirm Your Full Name</h3>
+                <p class="text-[11px] text-slate-400">Enter your official name as it should appear on your proctored evaluation report and PDF certificate.</p>
             </div>
-
-            <div class="bg-cyan-950/60 border border-cyan-800/80 px-3.5 py-1.5 rounded-xl flex items-center space-x-2 shadow-lg shadow-cyan-500/15">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span class="text-[11px] font-semibold text-slate-300">Time:</span>
-                <span id="timerDisplay" class="text-cyan-400 font-mono font-bold text-xs">--:--</span>
-            </div>
+            <form onsubmit="handleNameConfirmation(event)" class="space-y-3">
+                <input type="text" id="confirmedCandidateName" required placeholder="e.g. James Wanyama" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all">
+                    GENERATE REPORT & RESULTS →
+                </button>
+            </form>
         </div>
+    </div>
+
+    <header class="w-full py-3 px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 sticky top-0 z-40">
+        <a href="dashboard.html" class="text-cyan-400 font-bold text-xs">&larr; EXIT EXAM</a>
+        <div class="flex items-center space-x-3">
+            <span id="tabSwitchWarningBadge" class="hidden px-2 py-0.5 bg-rose-950 border border-rose-800 text-rose-300 rounded text-[10px] font-bold">⚠️ Proctor Flags: <span id="tabSwitchCount">0</span> / 2</span>
+            <div id="examTitleHeader" class="text-xs font-bold text-cyan-400 uppercase">Proctored Assessment</div>
+        </div>
+        <div id="timerDisplay" class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-cyan-400 font-mono font-bold">45:00</div>
     </header>
 
-    <!-- Modal for Warning / Disqualification -->
-    <div id="customModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-2 sm:p-4">
-        <div class="w-full max-w-md bg-slate-900 border border-cyan-500/50 p-6 rounded-2xl shadow-2xl space-y-4 text-center">
-            <div id="modalIcon" class="text-3xl">⚡</div>
-            <h3 id="modalTitle" class="text-base font-bold text-cyan-400">NOTIFICATION</h3>
-            <p id="modalMessage" class="text-slate-300 text-[12px] leading-relaxed">Message...</p>
-            <div id="modalButtons" class="pt-2">
-                <button onclick="closeModal()" class="w-full py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px]">OK</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Exam Screen -->
-    <main id="quizScreen" class="screen active flex-grow items-center px-2 sm:px-6 py-6 w-full max-w-4xl mx-auto space-y-6">
-        <div id="moduleBanner" class="w-full bg-slate-900/90 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-1 text-center">
-            <h1 id="moduleTitle" class="text-lg font-bold text-cyan-400">Loading Exam Module...</h1>
-            <p id="moduleCourse" class="text-[11px] text-slate-400 uppercase tracking-widest">Secure Proctored Environment Active...</p>
+    <main class="flex-grow flex flex-col items-center px-4 py-6 w-full max-w-3xl mx-auto space-y-6">
+        <div id="examContainer" class="w-full space-y-6">
+            <div class="text-center py-12 text-slate-400">Loading randomized assessment questions...</div>
         </div>
 
-        <form id="examForm" onsubmit="submitExam(event)" class="w-full space-y-6 hidden">
-            <div id="questionsContainer" class="space-y-6"></div>
-            <div class="pt-4 pb-10">
-                <button type="submit" class="w-full py-4 text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-[12px] tracking-wider uppercase rounded-xl shadow-lg shadow-cyan-500/25 transition-all">
-                    SUBMIT EXAMINATION PAPERS &rarr;
-                </button>
-            </div>
-        </form>
+        <div id="submitController" class="w-full bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col items-center space-y-3 hidden">
+            <p id="completionWarning" class="text-amber-400 text-[11px] font-bold">⚠️ All questions must be answered before submission is unlocked.</p>
+            <button id="finalSubmitBtn" onclick="promptForCandidateName()" disabled class="w-full py-3.5 bg-slate-800 text-slate-500 font-bold rounded-xl text-xs uppercase tracking-wider cursor-not-allowed transition-all">
+                SUBMIT EXAM & CONFIRM NAME →
+            </button>
+        </div>
     </main>
-
-    <!-- Dedicated Results Screen (Neat Executive Layout) -->
-    <div id="resultsScreen" class="screen flex-grow items-center px-2 sm:px-6 py-6 w-full max-w-4xl mx-auto space-y-6">
-        <div class="w-full bg-slate-900 print-bg-fix border border-cyan-500/50 p-6 rounded-2xl shadow-2xl space-y-5">
-            <div class="text-center border-b border-slate-800 pb-3">
-                <h2 class="text-base font-bold text-cyan-400">EZRELYN AI PROCTOR EVALUATION REPORT</h2>
-                <p class="text-[11px] text-slate-400">Certified by Ezrelyn Proctor AI | Architected by <strong>Ezra Wanyama</strong></p>
+    <!-- Results Modal -->
+    <div id="resultsModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="print-area bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl w-full max-w-2xl space-y-6 my-8">
+            
+            <div class="text-center space-y-1.5 border-b border-slate-800 pb-4">
+                <span class="print-text-cyan text-cyan-400 text-[11px] font-bold tracking-widest uppercase">EZRELYN PROCTOR AI - OFFICIAL EXAMINATION REPORT</span>
+                <h2 class="print-text-dark text-lg font-bold text-slate-100">Assessment Performance & Security Evaluation</h2>
+                <p id="candidateNameDisplay" class="text-xs font-semibold text-slate-300 print-text-dark">Candidate: Student Scholar</p>
+                <p id="resScoreText" class="text-sm font-bold text-cyan-400 print-text-cyan pt-1"></p>
+                <p id="resSecurityFlag" class="text-[11px] text-rose-400 print-text-rose font-semibold"></p>
             </div>
 
-            <!-- Summary Box at the Top -->
-            <div id="resultSummaryBox" class="p-4 rounded-xl bg-cyan-950/40 print-bg-fix border border-cyan-800 text-center space-y-2">
-                <!-- Dynamically filled -->
+            <!-- Metrics Grid -->
+            <div class="grid grid-cols-3 gap-2">
+                <div class="print-card bg-slate-950 p-3 rounded-xl border border-slate-800 text-center">
+                    <span class="text-[9px] text-slate-400 print-text-dark uppercase">Confidence Index</span>
+                    <p id="resConfidence" class="text-xs font-bold text-cyan-400 print-text-cyan mt-1">0%</p>
+                </div>
+                <div class="print-card bg-slate-950 p-3 rounded-xl border border-slate-800 text-center">
+                    <span class="text-[9px] text-slate-400 print-text-dark uppercase">Answer Switches</span>
+                    <p id="resSwitches" class="text-xs font-bold text-amber-400 mt-1">0</p>
+                </div>
+                <div class="print-card bg-slate-950 p-3 rounded-xl border border-slate-800 text-center">
+                    <span class="text-[9px] text-slate-400 print-text-dark uppercase">Speed / Accuracy</span>
+                    <p id="resSpeed" class="text-xs font-bold text-blue-400 mt-1">Optimal</p>
+                </div>
             </div>
 
-            <!-- Canvas Badge Preview Centered -->
-            <div class="flex justify-center my-1">
-                <canvas id="badgeCanvas" width="400" height="400" class="w-56 h-56 rounded-xl border border-cyan-500/50 shadow-lg"></canvas>
+            <!-- Topic Strengths & Weaknesses Breakdown -->
+            <div class="space-y-3">
+                <h3 class="print-text-cyan text-xs font-bold text-cyan-400 uppercase tracking-widest">📈 Topic Strengths & Weaknesses</h3>
+                <div id="diagnosticsList" class="space-y-2"></div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-3 no-print">
-                <button onclick="window.print()" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl uppercase tracking-wider text-[12px] shadow-lg">📄 DOWNLOAD / PRINT PDF</button>
-                <button onclick="window.location.href='dashboard.html'" class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl uppercase tracking-wider text-[12px]">RETURN TO DASHBOARD</button>
+            <!-- Full Corrections & Explanations -->
+            <div class="space-y-3">
+                <h3 class="print-text-cyan text-xs font-bold text-cyan-400 uppercase tracking-widest">📖 Detailed Corrections & Explanations</h3>
+                <div id="correctionsList" class="print-hide-overflow space-y-3 max-h-80 overflow-y-auto pr-2"></div>
             </div>
 
-            <div class="text-xs font-bold text-cyan-300 pt-2 border-t border-slate-800">DETAILED CORRECTIONS & EXPLANATIONS:</div>
-            <div id="correctionsWrapper" class="space-y-3"></div>
+            <div class="flex gap-3 pt-4 border-t border-slate-800 no-print">
+                <button onclick="downloadPDF()" class="flex-grow py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl text-xs uppercase shadow-lg transition-all">DOWNLOAD REPORT PDF 📄</button>
+                <a href="dashboard.html" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs uppercase text-center">DASHBOARD</a>
+            </div>
         </div>
     </div>
 
-    <footer class="py-5 text-center text-[12px] text-slate-500 border-t border-slate-900 no-print">
-        &copy; 2026 Ezrelyn AI Proctor System. Certified by Ezrelyn Proctor AI.
-    </footer>
     <script>
-        let currentModule = null;
-        let shuffledQuestions = [];
-        let timerInterval = null;
-        let timeLeftSeconds = 0;
-        let totalExamDuration = 0;
-        let isSubmitted = false;
-        let violationCount = 0;
-        let optionChangesCount = 0;
+        let questions = [];
+        let userAnswers = {};
+        let totalTimeSeconds = 45 * 60;
+        let timerInterval;
+        let tabSwitchCount = 0;
+        let alertCallback = null;
+        let verifiedCandidateName = "";
 
-        const studentName = localStorage.getItem('ezr_student_name') || 'Ezra Wanyama';
-        document.getElementById('studentBadge').textContent = 'Candidate: ' + studentName;
-
-        function showModal(title, message, icon = '⚡') {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalMessage').textContent = message;
-            document.getElementById('modalIcon').textContent = icon;
-            document.getElementById('customModal').classList.remove('hidden');
+        function promptForCandidateName() {
+            clearInterval(timerInterval);
+            document.getElementById('nameConfirmationModal').classList.remove('hidden');
         }
 
-        function closeModal() {
-            document.getElementById('customModal').classList.add('hidden');
+        function handleNameConfirmation(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('confirmedCandidateName').value.trim();
+            if (!nameInput) return;
+
+            verifiedCandidateName = nameInput;
+            document.getElementById('nameConfirmationModal').classList.add('hidden');
+            submitExam();
         }
 
-        function shuffleArray(array) {
-            let arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
+        function showCustomAlert(title, message, callback = null) {
+            document.getElementById('alertModalTitle').textContent = title;
+            document.getElementById('alertModalMessage').textContent = message;
+            document.getElementById('securityAlertModal').classList.remove('hidden');
+            alertCallback = callback;
+        }
+
+        function dismissAlertModal() {
+            document.getElementById('securityAlertModal').classList.add('hidden');
+            if (alertCallback) {
+                alertCallback();
+                alertCallback = null;
             }
-            return arr;
         }
 
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden && !isSubmitted) {
-                handleViolation("Tab switching or leaving the active screen detected.");
+        function flagViolation(reason) {
+            tabSwitchCount++;
+            document.getElementById('tabSwitchCount').textContent = tabSwitchCount;
+            document.getElementById('tabSwitchWarningBadge').classList.remove('hidden');
+
+            if (tabSwitchCount > 2) {
+                showCustomAlert(
+                    "EXAM DISQUALIFIED",
+                    "You exceeded 2 proctor security flags (tab switches/overlays). Your score is automatically set to 0%.",
+                    () => promptForCandidateName()
+                );
             }
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) flagViolation("Tab hidden or minimized");
         });
 
-        window.addEventListener('blur', () => {
-            if (!isSubmitted) {
-                handleViolation("Window focus lost.");
-            }
+        window.addEventListener("blur", () => {
+            flagViolation("Window lost focus (Home button / Assistant overlay)");
         });
 
-        function handleViolation(reason) {
-            if (isSubmitted) return;
-            violationCount++;
-            document.getElementById('warningBadge').classList.remove('hidden');
-            document.getElementById('violationCount').textContent = violationCount;
-
-            if (violationCount === 1) {
-                showModal('⚠️ PROCTORING WARNING (1/2)', `${reason} Strict rules prohibit leaving the test interface. One more violation results in disqualification.`, '🚨');
-            } else {
-                isSubmitted = true;
-                if (timerInterval) clearInterval(timerInterval);
-                showModal('❌ EXAM DISQUALIFIED (0% SCORE)', 'Multiple proctoring security violations recorded. Session locked.', '🛑');
-                setTimeout(() => window.location.href='dashboard.html', 3000);
-            }
-        }
-
-        function ensureDefaultModules() {
-            const stored = localStorage.getItem('ezrelyn_modules');
-            if (!stored || JSON.parse(stored).length === 0) {
-                const defaultModules = [
-                    {
-                        id: 1792887997116,
-                        level: "Computer Science",
-                        subject: "cs1101",
-                        time: "45",
-                        title: "Programming Fundamentals - CS1101 Evaluator",
-                        questions: [
-                            {
-                                q: "Which data structure operates on a First-In, First-Out (FIFO) basis?",
-                                a: "Stack",
-                                b: "Queue",
-                                c: "Binary Tree",
-                                d: "Graph",
-                                correct: "b",
-                                explanation: "A Queue follows the FIFO principle where elements are inserted at the rear and removed from the front."
-                            }
-                        ]
-                    }
-                ];
-                localStorage.setItem('ezrelyn_modules', JSON.stringify(defaultModules));
-            }
-        }
-
-        function loadExam() {
-            ensureDefaultModules();
-            const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
-            const subjectCode = urlParams.get('subject');
-
-            const stored = localStorage.getItem('ezrelyn_modules');
-            const modules = stored ? JSON.parse(stored) : [];
-
-            if (!id && !subjectCode && modules.length > 0) {
-                currentModule = modules[0];
-            } else {
-                currentModule = modules.find((m, idx) => {
-                    const uniqueId = m.id || (1792887997100 + idx);
-                    return uniqueId == id || m.subject === subjectCode;
-                });
-            }
-
-            if (!currentModule || !currentModule.questions || currentModule.questions.length === 0) {
-                showModal('NOT FOUND', 'The requested examination module could not be found.', '❌');
-                return;
-            }
-
-            document.getElementById('moduleTitle').textContent = currentModule.title;
-            document.getElementById('moduleCourse').textContent = `Subject: ${currentModule.subject.toUpperCase()} | Level: ${currentModule.level}`;
-            document.getElementById('examHeaderTitle').textContent = currentModule.title.toUpperCase();
-
-            timeLeftSeconds = (parseInt(currentModule.time) || 45) * 60;
-            totalExamDuration = timeLeftSeconds;
-            startTimer();
-
-            shuffledQuestions = shuffleArray(currentModule.questions).map(q => {
-                const validOpts = ['a', 'b', 'c', 'd'].filter(opt => q[opt]);
-                const correctText = q[q.correct || 'correct']; 
-                const shuffledKeys = shuffleArray(validOpts);
-                
-                let newObj = { ...q, shuffledMap: {} };
-                shuffledKeys.forEach((oldKey, newIdx) => {
-                    const targetKey = ['a', 'b', 'c', 'd'][newIdx];
-                    newObj[targetKey] = q[oldKey];
-                    if (q[oldKey] === correctText || oldKey === q.correct) {
-                        newObj.correct = targetKey; 
-                    }
-                });
-                
-                if (!newObj.correct && q.correct) newObj.correct = q.correct;
-                return newObj;
+        if (window.visualViewport) {
+            let initialHeight = window.visualViewport.height;
+            window.visualViewport.addEventListener('resize', () => {
+                if (window.visualViewport.height < initialHeight * 0.85) {
+                    flagViolation("Screen resized / System overlay invoked");
+                }
             });
+        }
 
-            renderQuestions(shuffledQuestions);
-            document.getElementById('examForm').classList.remove('hidden');
+        async function initExam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const subjectCode = urlParams.get('subject') || 'cs1101';
+
+            try {
+                const res = await fetch('/api/questions');
+                const modules = await res.json();
+
+                let pool = [];
+                modules.filter(m => (m.subject || '').toLowerCase() === subjectCode.toLowerCase()).forEach(mod => {
+                    if (mod.questions) {
+                        mod.questions.forEach(q => pool.push({ ...q, topic: mod.topic || 'General' }));
+                    }
+                });
+
+                if (pool.length === 0) {
+                    modules.forEach(mod => {
+                        if (mod.questions) mod.questions.forEach(q => pool.push({ ...q, topic: mod.topic || 'General' }));
+                    });
+                }
+
+                pool.sort(() => Math.random() - 0.5);
+                questions = pool.slice(0, 40);
+
+                if (questions.length === 0) {
+                    document.getElementById('examContainer').innerHTML = `<p class="text-rose-400 text-center py-12">No questions found in database. Please inject topics via Admin Vault.</p>`;
+                    return;
+                }
+
+                renderExam();
+                startTimer();
+                document.getElementById('submitController').classList.remove('hidden');
+            } catch (err) {
+                console.error(err);
+            }
         }
 
         function startTimer() {
             timerInterval = setInterval(() => {
-                if (timeLeftSeconds <= 0) {
+                totalTimeSeconds--;
+                const mins = Math.floor(totalTimeSeconds / 60);
+                const secs = totalTimeSeconds % 60;
+                document.getElementById('timerDisplay').textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+                if (totalTimeSeconds <= 0) {
                     clearInterval(timerInterval);
-                    if (!isSubmitted) autoSubmitExam();
-                    return;
+                    showCustomAlert("TIME EXPIRED", "Time is up! Please confirm your name to submit.", () => promptForCandidateName());
                 }
-                timeLeftSeconds--;
-                const mins = Math.floor(timeLeftSeconds / 60);
-                const secs = timeLeftSeconds % 60;
-                document.getElementById('timerDisplay').textContent = 
-                    String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
             }, 1000);
         }
 
-        function renderQuestions(questions) {
-            const container = document.getElementById('questionsContainer');
-            container.innerHTML = questions.map((q, idx) => `
-                <div class="bg-slate-900/90 border border-slate-800 p-4 sm:p-6 rounded-2xl shadow-xl space-y-3">
-                    <div class="flex items-start space-x-2">
-                        <span class="bg-cyan-950 border border-cyan-800 text-cyan-400 font-bold px-2.5 py-1 rounded-lg text-xs flex-shrink-0">Q${idx + 1}</span>
-                        <p class="text-slate-200 text-[12px] font-semibold leading-relaxed pt-1">${q.q || q.question}</p>
-                    </div>
+        function selectOption(qIdx, optKey) {
+            if (!userAnswers[qIdx]) {
+                userAnswers[qIdx] = { selected: optKey, history: [optKey] };
+            } else {
+                if (userAnswers[qIdx].selected !== optKey) {
+                    userAnswers[qIdx].history.push(optKey);
+                }
+                userAnswers[qIdx].selected = optKey;
+            }
 
-                    <div class="space-y-2 pl-2 sm:pl-8">
-                        ${['a', 'b', 'c', 'd'].map(opt => q[opt] ? `
-                            <label class="flex items-center space-x-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 cursor-pointer hover:bg-cyan-950/20 hover:border-cyan-800/50 transition-all">
-                                <input type="radio" name="q_${idx}" value="${opt}" onchange="trackSelection(${idx}, '${opt}')" class="text-cyan-500 bg-slate-900 border-slate-700 focus:ring-cyan-500 w-4 h-4">
-                                <span class="text-slate-300 text-[12px]"><strong class="text-cyan-400 uppercase">${opt}.</strong> ${q[opt]}</span>
-                            </label>
+            ['a', 'b', 'c', 'd'].forEach(k => {
+                const btn = document.getElementById(`q${qIdx}_opt_${k}`);
+                if (btn) {
+                    if (k === optKey) {
+                        btn.className = "w-full text-left p-3 rounded-xl border border-cyan-500 bg-cyan-950/40 text-cyan-200 font-medium text-xs transition-all";
+                    } else {
+                        btn.className = "w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 text-xs transition-all";
+                    }
+                }
+            });
+
+            checkCompletion();
+        }
+
+        function checkCompletion() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const btn = document.getElementById('finalSubmitBtn');
+            const warning = document.getElementById('completionWarning');
+
+            if (answeredCount >= questions.length) {
+                btn.disabled = false;
+                btn.className = "w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer";
+                warning.textContent = "✅ All questions answered. Exam ready for submission.";
+                warning.className = "text-cyan-400 text-[11px] font-bold";
+            } else {
+                btn.disabled = true;
+                btn.className = "w-full py-3.5 bg-slate-800 text-slate-500 font-bold rounded-xl text-xs uppercase tracking-wider cursor-not-allowed transition-all";
+                warning.textContent = `⚠️ Answer all questions to unlock submission (${answeredCount}/${questions.length} completed).`;
+                warning.className = "text-amber-400 text-[11px] font-bold";
+            }
+        }
+
+        function renderExam() {
+            const container = document.getElementById('examContainer');
+            container.innerHTML = questions.map((q, idx) => `
+                <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl shadow-lg space-y-3">
+                    <div class="flex justify-between items-center text-[10px] text-cyan-400 uppercase tracking-widest border-b border-slate-800 pb-2">
+                        <span>Question ${idx + 1} of ${questions.length}</span>
+                        <span class="bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Topic: ${q.topic}</span>
+                    </div>
+                    <p class="font-bold text-slate-100 text-[13px] leading-relaxed">${q.q}</p>
+                    <div class="space-y-2 pt-1">
+                        ${['a', 'b', 'c', 'd'].map(k => q[k] ? `
+                            <button type="button" id="q${idx}_opt_${k}" onclick="selectOption(${idx}, '${k}')" class="w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 text-xs transition-all">
+                                <strong class="text-cyan-400 uppercase mr-2">${k}.</strong> ${q[k]}
+                            </button>
                         ` : '').join('')}
                     </div>
                 </div>
             `).join('');
         }
 
-        const userSelections = {};
-        function trackSelection(qIdx, opt) {
-            if (userSelections[qIdx] && userSelections[qIdx] !== opt) {
-                optionChangesCount++;
-            }
-            userSelections[qIdx] = opt;
-        }
-
-        function submitExam(event) {
-            event.preventDefault();
-            if (isSubmitted) return;
-            processScore();
-        }
-
-        function autoSubmitExam() {
-            showModal('TIME UP', 'Your examination time has expired. Submitting automatically.', '⏰');
-            processScore();
-        }
-
-        function processScore() {
-            isSubmitted = true;
-            if (timerInterval) clearInterval(timerInterval);
-
+        function submitExam() {
             let score = 0;
-            let reviewHTML = '';
+            let switches = 0;
+            let topicStats = {};
 
-            shuffledQuestions.forEach((q, idx) => {
-                const userAns = userSelections[idx] || null;
-                const isCorrect = userAns === q.correct;
-                if (isCorrect) score++;
+            questions.forEach((q, idx) => {
+                const topic = q.topic || 'General';
+                if (!topicStats[topic]) topicStats[topic] = { correct: 0, total: 0 };
+                topicStats[topic].total++;
 
-                reviewHTML += `
-                    <div class="bg-slate-950 border ${isCorrect ? 'border-emerald-800/60' : 'border-red-900/60'} p-3.5 rounded-xl space-y-1">
-                        <p class="font-bold text-slate-200 text-[12px]">Q${idx + 1}: ${q.q || q.question}</p>
-                        <p class="text-[11px] ${isCorrect ? 'text-emerald-400' : 'text-red-400'}">
-                            Your Answer: <strong>${userAns ? userAns.toUpperCase() : 'None'}</strong> | Correct Answer: <strong>${q.correct.toUpperCase()}</strong>
-                        </p>
-                        <p class="text-slate-400 text-[11px] italic bg-slate-900/60 p-2 rounded border border-slate-800">
-                            <strong>Explanation:</strong> ${q.explanation || 'No explanation provided.'}
-                        </p>
+                const ans = userAnswers[idx];
+                if (ans) {
+                    if (ans.history.length > 1) {
+                        switches += (ans.history.length - 1);
+                    }
+                    if (ans.selected === q.correct) {
+                        score++;
+                        topicStats[topic].correct++;
+                    }
+                }
+            });
+
+            const isDisqualified = tabSwitchCount > 2;
+            const finalScore = isDisqualified ? 0 : score;
+            const percentage = isDisqualified ? 0 : Math.round((finalScore / questions.length) * 100);
+            const confidenceIndex = isDisqualified ? 0 : Math.max(0, 100 - (switches * 5));
+
+            document.getElementById('candidateNameDisplay').textContent = `Candidate: ${verifiedCandidateName || 'Student Scholar'}`;
+            document.getElementById('resScoreText').textContent = isDisqualified ? 
+                `Score: 0 / ${questions.length} (0%) - DISQUALIFIED` : 
+                `Score: ${finalScore} / ${questions.length} (${percentage}%)`;
+
+            document.getElementById('resConfidence').textContent = `${confidenceIndex}%`;
+            document.getElementById('resSwitches').textContent = `${switches} changes`;
+            document.getElementById('resSpeed').textContent = switches <= 3 ? 'High Accuracy' : 'Revising Frequently';
+
+            document.getElementById('resSecurityFlag').textContent = isDisqualified ?
+                `🚨 SECURITY VIOLATION: Disqualified due to ${tabSwitchCount} proctor flags (>2 threshold).` :
+                (tabSwitchCount > 0 ? `⚠️ Proctorship Warning: ${tabSwitchCount} security flag(s) recorded.` : '🛡️ Proctorship Verified: Zero security infractions.');
+
+            let diagHTML = '';
+            for (let t in topicStats) {
+                const tScore = topicStats[t];
+                const tPct = isDisqualified ? 0 : Math.round((tScore.correct / tScore.total) * 100);
+                const isWeak = tPct < 60;
+                diagHTML += `
+                    <div class="print-card bg-slate-950 p-3 rounded-xl border ${isWeak ? 'border-rose-900/50 bg-rose-950/10' : 'border-slate-800'} flex justify-between items-center text-xs">
+                        <div>
+                            <span class="font-bold text-slate-200 print-text-dark">${t}</span>
+                            <p class="text-[10px] ${isWeak ? 'text-rose-400 print-text-rose' : 'text-slate-400 print-text-dark'}">${isWeak ? '⚠️ Weak Area - Recommended Revision' : '✅ Strength Confirmed'} (${isDisqualified ? 0 : tScore.correct}/${tScore.total} correct)</p>
+                        </div>
+                        <span class="font-bold ${isWeak ? 'text-rose-400 print-text-rose' : 'text-cyan-400 print-text-cyan'}">${tPct}%</span>
+                    </div>
+                `;
+            }
+            document.getElementById('diagnosticsList').innerHTML = diagHTML;
+
+            let corrHTML = '';
+            questions.forEach((q, idx) => {
+                const userAns = userAnswers[idx] ? userAnswers[idx].selected : 'None';
+                const isCorrect = !isDisqualified && (userAns === q.correct);
+                corrHTML += `
+                    <div class="print-card bg-slate-950 p-4 rounded-xl border ${isCorrect ? 'border-cyan-900/40' : 'border-rose-900/40'} space-y-1">
+                        <div class="flex justify-between text-[10px] text-slate-400 print-text-dark">
+                            <span>Q${idx + 1}: ${q.topic}</span>
+                            <span class="${isCorrect ? 'text-cyan-400 print-text-cyan' : 'text-rose-400 print-text-rose'} font-bold">${isCorrect ? 'CORRECT' : 'INCORRECT'}</span>
+                        </div>
+                        <p class="font-bold text-slate-200 print-text-dark text-xs">${q.q}</p>
+                        <p class="text-[11px] text-slate-300 print-text-dark">Your Answer: <strong class="uppercase ${isCorrect ? 'text-cyan-400 print-text-cyan' : 'text-rose-400 print-text-rose'}">${userAns}</strong> | Correct Answer: <strong class="uppercase text-cyan-400 print-text-cyan">${q.correct}</strong></p>
+                        ${q.explanation ? `<p class="text-[10px] text-slate-400 print-text-dark italic bg-slate-900 p-2 rounded border border-slate-800">💡 <strong>Explanation:</strong> ${q.explanation}</p>` : ''}
                     </div>
                 `;
             });
-
-            const percentage = Math.round((score / shuffledQuestions.length) * 100);
-            
-            const timeSpentSeconds = totalExamDuration - timeLeftSeconds;
-            const minutesTaken = Math.floor(timeSpentSeconds / 60);
-            const secondsTaken = timeSpentSeconds % 60;
-            const speedRating = timeSpentSeconds < 120 ? '⚡ Lightning Fast' : timeSpentSeconds < 300 ? '🚀 Optimal Pace' : '⏱️ Methodical';
-
-            // Precise Tiered Badge Logic (70-80 Bronze, 81-90 Silver, 91-100 Gold)
-            let aiBadge = "Completion Certificate";
-            let badgeColor = "text-slate-400";
-            let badgeEmoji = "📜";
-            if (percentage >= 91) {
-                aiBadge = "🥇 GOLD BADGE (91% - 100% Excellence)";
-                badgeColor = "text-amber-400 font-bold text-sm";
-                badgeEmoji = "🥇";
-            } else if (percentage >= 81) {
-                aiBadge = "🥈 SILVER BADGE (81% - 90% Advanced)";
-                badgeColor = "text-slate-300 font-bold text-sm";
-                badgeEmoji = "🥈";
-            } else if (percentage >= 70) {
-                aiBadge = "🥉 BRONZE BADGE (70% - 80% Proficient)";
-                badgeColor = "text-amber-600 font-bold text-sm";
-                badgeEmoji = "🥉";
-            } else if (percentage >= 50) {
-                aiBadge = "📜 Standard Pass";
-                badgeColor = "text-blue-400";
-            } else {
-                aiBadge = "📚 Remedial Study Required";
-                badgeColor = "text-rose-400";
-            }
-
-            // Populate clean summary box
-            document.getElementById('resultSummaryBox').innerHTML = `
-                <p class="text-xs text-slate-200">Candidate: <strong>${studentName}</strong></p>
-                <p class="text-2xl font-mono font-bold text-white">${score} / ${shuffledQuestions.length} (${percentage}%)</p>
-                <div class="p-2 rounded-lg bg-slate-900/80 border border-slate-700 ${badgeColor}">${aiBadge}</div>
-                <div class="text-[10px] text-slate-300 flex justify-center gap-4 pt-1 border-t border-cyan-900/50">
-                    <span>⏱️ Time: ${minutesTaken}m ${secondsTaken}s (${speedRating})</span>
-                    <span>⚠️ Security Flags: ${violationCount}</span>
-                    <span>🔄 Option Changes: ${optionChangesCount}</span>
-                </div>
-            `;
-
-            document.getElementById('correctionsWrapper').innerHTML = reviewHTML;
-
-            // Render Canvas Badge
-            const ctx = document.getElementById('badgeCanvas').getContext('2d');
-            ctx.fillStyle = '#1e1b4b'; ctx.fillRect(0, 0, 400, 400);
-            ctx.strokeStyle = '#eab308'; ctx.lineWidth = 12; ctx.strokeRect(20, 20, 360, 360);
-            ctx.fillStyle = '#eab308'; ctx.font = 'bold 20px Arial'; ctx.textAlign = 'center'; ctx.fillText('EZRELYN AI PROCTOR', 200, 75);
-            ctx.fillStyle = '#ffffff'; ctx.font = '14px Courier New'; ctx.fillText('OFFICIAL DIGITAL CREDENTIAL', 200, 105);
-            ctx.beginPath(); ctx.arc(200, 195, 55, 0, Math.PI * 2); ctx.fillStyle = '#4f46e5'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = '#eab308'; ctx.stroke();
-            ctx.fillStyle = '#eab308'; ctx.font = '50px Arial'; ctx.fillText(badgeEmoji, 200, 215);
-            ctx.fillStyle = '#ffffff'; ctx.font = 'bold 18px Arial'; ctx.fillText(studentName.toUpperCase(), 200, 290);
-            ctx.fillStyle = '#16a34a'; ctx.font = 'bold 13px Arial'; ctx.fillText(`✓ SCORE: ${percentage}% (${aiBadge.split(' ')[1]})`, 200, 330);
-
-            // Switch active screens
-            document.getElementById('quizScreen').classList.remove('active');
-            document.getElementById('resultsScreen').classList.add('active');
-            window.scrollTo(0,0);
+            document.getElementById('correctionsList').innerHTML = corrHTML;
+            document.getElementById('resultsModal').classList.remove('hidden');
         }
 
-        loadExam();
+        function downloadPDF() {
+            window.print();
+        }
+
+        initExam();
     </script>
 </body>
 </html>
-    <script>
-        // Override render code for rectangular badge format (400x250)
-        function renderRectangularBadge(studentName, percentage, aiBadge, badgeEmoji) {
-            const canvas = document.getElementById('badgeCanvas');
-            canvas.width = 400;
-            canvas.height = 250;
-            const ctx = canvas.getContext('2d');
-            
-            // Background
-            ctx.fillStyle = '#0f172a'; 
-            ctx.fillRect(0, 0, 400, 250);
-            
-            // Outer Border
-            ctx.strokeStyle = '#eab308'; 
-            ctx.lineWidth = 8; 
-            ctx.strokeRect(12, 12, 376, 226);
-
-            // Header Text
-            ctx.fillStyle = '#eab308'; 
-            ctx.font = 'bold 16px Arial'; 
-            ctx.textAlign = 'center'; 
-            ctx.fillText('EZRELYN AI PROCTOR', 200, 42);
-
-            ctx.fillStyle = '#94a3b8'; 
-            ctx.font = '11px Courier New'; 
-            ctx.fillText('OFFICIAL VERIFIED DIGITAL CREDENTIAL', 200, 62);
-
-            // Divider Line
-            ctx.strokeStyle = '#334155';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(35, 75);
-            ctx.lineTo(365, 75);
-            ctx.stroke();
-
-            // Badge Icon Circle & Emoji
-            ctx.beginPath(); 
-            ctx.arc(75, 140, 32, 0, Math.PI * 2); 
-            ctx.fillStyle = '#1e1b4b'; 
-            ctx.fill(); 
-            ctx.lineWidth = 3; 
-            ctx.strokeStyle = '#eab308'; 
-            ctx.stroke();
-            
-            ctx.font = '32px Arial'; 
-            ctx.textAlign = 'center';
-            ctx.fillText(badgeEmoji, 75, 151);
-
-            // Candidate Info (Right side of icon)
-            ctx.textAlign = 'left';
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '10px Arial';
-            ctx.fillText('CANDIDATE NAME:', 125, 115);
-
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 16px Arial';
-            ctx.fillText(studentName.toUpperCase(), 125, 138);
-
-            ctx.fillStyle = '#38bdf8';
-            ctx.font = 'bold 12px Arial';
-            ctx.fillText(`SCORE: ${percentage}% (${aiBadge.split(' ')[1] || 'Completed'})`, 125, 162);
-
-            // Footer Stamp
-            ctx.fillStyle = '#16a34a';
-            ctx.font = 'bold 10px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText('✓ SECURE PROCTORED & ENCRYPTED EVALUATION', 200, 212);
-        }
-    </script>
-    <script>
-        // Elite ID Card Style Canvas Badge Renderer (400x420 Rectangular ID Format)
-        function renderIdCardBadge(studentName, percentage, aiBadge, badgeEmoji, courseTitle = "Computer Science & AI Systems") {
-            const canvas = document.getElementById('badgeCanvas');
-            canvas.width = 400;
-            canvas.height = 420;
-            const ctx = canvas.getContext('2d');
-            
-            // 1. Deep Gradient Background (Navy to Cyan Glow)
-            const bgGradient = ctx.createLinearGradient(0, 0, 0, 420);
-            bgGradient.addColorStop(0, '#020617'); // slate-950
-            bgGradient.addColorStop(0.5, '#09203f');
-            bgGradient.addColorStop(1, '#0284c7'); // sky-600
-            ctx.fillStyle = bgGradient;
-            ctx.fillRect(0, 0, 400, 420);
-
-            // 2. Outer Gold Border
-            ctx.strokeStyle = '#eab308';
-            ctx.lineWidth = 3;
-            ctx.strokeRect(15, 15, 370, 390);
-
-            // 3. Header Titles
-            ctx.fillStyle = '#f59e0b'; // Gold
-            ctx.font = 'bold 12px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText('EZRELYN AI PROCTOR SYSTEM', 200, 42);
-
-            ctx.fillStyle = '#38bdf8'; // Cyan
-            ctx.font = 'bold 16px Arial';
-            ctx.fillText('SECURE CANDIDATE CREDENTIAL', 200, 65);
-
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '10px Courier New';
-            ctx.fillText('EXECUTION OVER EXCUSES • PROVEN MASTERY', 200, 82);
-
-            // Divider Line
-            ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(25, 95);
-            ctx.lineTo(375, 95);
-            ctx.stroke();
-
-            // 4. Portrait / Avatar Box (Left side)
-            ctx.fillStyle = '#0f172a';
-            ctx.fillRect(25, 115, 110, 135);
-            ctx.strokeStyle = '#f59e0b';
-            ctx.lineWidth = 2;
-            ctx.strokeRect(25, 115, 110, 135);
-
-            // Draw user avatar placeholder or emoji in box
-            ctx.font = '45px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText(badgeEmoji, 80, 185);
-
-            // VERIFIED Ribbon under Avatar
-            ctx.fillStyle = '#d97706';
-            ctx.fillRect(35, 235, 90, 20);
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 10px Arial';
-            ctx.fillText('VERIFIED', 80, 249);
-
-            // 5. Candidate Metadata (Right side)
-            ctx.textAlign = 'left';
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '9px Arial';
-            ctx.fillText('CANDIDATE NAME', 150, 132);
-
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 14px Arial';
-            ctx.fillText(studentName.toUpperCase(), 150, 152);
-
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '9px Arial';
-            ctx.fillText('ACADEMIC LEVEL & BADGE', 150, 180);
-
-            ctx.fillStyle = '#38bdf8';
-            ctx.font = 'bold 12px Arial';
-            ctx.fillText(aiBadge, 150, 198);
-
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '9px Arial';
-            ctx.fillText('ASSESSMENT SCORE', 150, 226);
-
-            ctx.fillStyle = '#eab308';
-            ctx.font = 'bold 13px Arial';
-            ctx.fillText(`${percentage}% Verified Accuracy`, 150, 244);
-
-            // Divider Line 2
-            ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)';
-            ctx.beginPath();
-            ctx.moveTo(25, 275);
-            ctx.lineTo(375, 275);
-            ctx.stroke();
-
-            // 6. School / Hub details
-            ctx.textAlign = 'left';
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '9px Arial';
-            ctx.fillText('INSTITUTION / UNIVERSITY', 25, 298);
-
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 11px Arial';
-            ctx.fillText('University of the People (B.Sc. CS)', 25, 315);
-
-            // Seal / Stamp on bottom right
-            ctx.beginPath();
-            ctx.arc(335, 315, 32, 0, Math.PI * 2);
-            ctx.fillStyle = '#d97706';
-            ctx.fill();
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#fef08a';
-            ctx.stroke();
-
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 9px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText('AI SEAL', 335, 310);
-            ctx.fillText('VERIFIED', 335, 324);
-
-            // 7. Cryptographic SHA-256 Signature at bottom
-            ctx.textAlign = 'left';
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '8px Courier New';
-            ctx.fillText('SHA-256 SECURITY HASH:', 25, 355);
-
-            ctx.fillStyle = '#eab308';
-            ctx.font = '8px Courier New';
-            ctx.fillText('9269e0ad1f849ca4ffac8dff12966dfab1ff3d2274626a7639ef8503d474b0ca', 25, 372);
-        }
-    </script>
