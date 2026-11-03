@@ -1,27 +1,58 @@
-{
-  "computer_science": {
+[
+  {
+    "id": "cs-101",
+    "title": "Computer Science Foundation",
+    "topics": [
+      {
+        "id": "intro",
+        "name": "Introduction to Programming"
+      },
+      {
+        "id": "algorithms",
+        "name": "Data Structures & Algorithms"
+      }
+    ]
+  },
+  {
+    "id": "computer-science",
     "title": "Computer Science",
-    "courses": [
-      { "code": "univ1001", "name": "UNIV 1001 - Foundation course (I)" },
-      { "code": "cs1101", "name": "CS 1101 - Programming Fundamentals" },
-      { "code": "cs1111", "name": "CS 1111 - Final exam prediction (I)" },
-      { "code": "cs1112", "name": "CS 1112 - Final exam prediction (II)" }
+    "topics": [
+      {
+        "id": "testing",
+        "name": "Testing",
+        "timeLimit": 45
+      },
+      {
+        "id": "testing",
+        "name": "Testing",
+        "timeLimit": 45
+      },
+      {
+        "id": "testing",
+        "name": "Testing",
+        "timeLimit": 45
+      },
+      {
+        "id": "unit-1-quiz",
+        "name": "Unit 1 Quiz",
+        "timeLimit": 45
+      },
+      {
+        "id": "unit-1-quiz",
+        "name": "Unit 1 Quiz",
+        "timeLimit": 45
+      }
     ]
   },
-  "health_science": {
+  {
+    "id": "health-science",
     "title": "Health Science",
-    "courses": [
-      { "code": "hs1101", "name": "Health science - Exam prediction (I)" },
-      { "code": "hs1102", "name": "Health science - Exam prediction (II)" },
-      { "code": "hs2211", "name": "HS 2211 - Anatomy & Physiology" }
-    ]
-  },
-  "business_administration": {
-    "title": "Business Administration",
-    "courses": [
-      { "code": "bus1101", "name": "BUS 1101 - Principles of Management" },
-      { "code": "bus1102", "name": "BUS 1102 - Basic Accounting" },
-      { "code": "bus2201", "name": "BUS 2201 - Microeconomics" }
+    "topics": [
+      {
+        "id": "unit-quiz",
+        "name": "Unit Quiz",
+        "timeLimit": 45
+      }
     ]
   }
-}
+]

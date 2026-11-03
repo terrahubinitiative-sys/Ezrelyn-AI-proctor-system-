@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /api/
+Disallow: /ezr-admin-vault-x98k.html
+
 Sitemap: https://ezrelyn-ai-proctor-system.onrender.com/sitemap.xml

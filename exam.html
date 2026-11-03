@@ -3,391 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proctored Examination | Ezrelyn AI</title>
+    <title>Ezrelyn Proctor AI - Secure Examination Room</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Times New Roman', Times, serif; font-size: 12px; background-color: #030712; }
-
+    <style> 
+        body { font-family: 'Times New Roman', Times, serif, sans-serif; } 
         @media print {
-            body { background-color: #ffffff !important; color: #000000 !important; }
-            header, main, #submitController, #nameConfirmationModal, .no-print { display: none !important; }
-            #resultsModal { position: static !important; background: transparent !important; display: block !important; padding: 0 !important; }
-            .print-area { background: #ffffff !important; color: #000000 !important; border: none !important; box-shadow: none !important; width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
-            .print-card { background: #f8fafc !important; border: 1px solid #cbd5e1 !important; color: #0f172a !important; }
-            .print-text-dark { color: #0f172a !important; }
-            .print-text-cyan { color: #0284c7 !important; }
-            .print-text-rose { color: #e11d48 !important; }
-            .print-hide-overflow { max-height: none !important; overflow: visible !important; }
+            body { background: white !important; color: black !important; }
+            .no-print { display: none !important; }
+            .print-border { border: 1px solid #cbd5e1 !important; background: white !important; box-shadow: none !important; }
+            .print-header { border-bottom: 2px solid #0f172a !important; margin-bottom: 20px; padding-bottom: 15px; }
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between antialiased select-none">
 
-    <!-- CUSTOM DARK SECURITY ALERT MODAL -->
-    <div id="securityAlertModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-rose-800 p-6 rounded-2xl shadow-2xl w-full max-w-sm text-center space-y-4">
-            <div class="w-12 h-12 bg-rose-950/80 border border-rose-800 text-rose-400 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-                🚨
+    <!-- Top Secure Header -->
+    <header class="no-print border-b border-slate-800 bg-slate-900/90 px-4 py-3 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <span id="proctor-indicator" class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
+            <div>
+                <h1 class="text-xs font-bold text-white uppercase tracking-wider" id="exam-heading">Proctored Examination</h1>
+                <p class="text-[10px] text-slate-400">Ezrelyn AI Proctor Active — Zero-Tolerance Proctorship</p>
             </div>
-            <div class="space-y-1">
-                <h3 id="alertModalTitle" class="text-sm font-bold text-rose-400 uppercase tracking-wider">SECURITY VIOLATION DETECTED</h3>
-                <p id="alertModalMessage" class="text-xs text-slate-300 leading-relaxed"></p>
-            </div>
-            <button onclick="dismissAlertModal()" class="w-full py-3 bg-rose-950 hover:bg-rose-900 border border-rose-700 text-rose-200 font-bold rounded-xl text-xs uppercase tracking-wider transition-all">
-                ACKNOWLEDGE & PROCEED →
-            </button>
         </div>
-    </div>
-
-    <!-- CANDIDATE NAME CONFIRMATION MODAL -->
-    <div id="nameConfirmationModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-cyan-800 p-6 rounded-2xl shadow-2xl w-full max-w-sm space-y-4">
-            <div class="text-center space-y-1">
-                <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">📝 FINAL VERIFICATION</span>
-                <h3 class="text-base font-bold text-slate-100">Confirm Your Full Name</h3>
-                <p class="text-[11px] text-slate-400">Enter your official name as it should appear on your proctored evaluation report and PDF certificate.</p>
-            </div>
-            <form onsubmit="handleNameConfirmation(event)" class="space-y-3">
-                <input type="text" id="confirmedCandidateName" required placeholder="e.g. James Wanyama" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-cyan-500">
-                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all">
-                    GENERATE REPORT & RESULTS →
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <header class="w-full py-3 px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950/95 sticky top-0 z-40">
-        <a href="dashboard.html" class="text-cyan-400 font-bold text-xs">&larr; EXIT EXAM</a>
         <div class="flex items-center space-x-3">
-            <span id="tabSwitchWarningBadge" class="hidden px-2 py-0.5 bg-rose-950 border border-rose-800 text-rose-300 rounded text-[10px] font-bold">⚠️ Proctor Flags: <span id="tabSwitchCount">0</span> / 2</span>
-            <div id="examTitleHeader" class="text-xs font-bold text-cyan-400 uppercase">Proctored Assessment</div>
+            <div id="timer-box" class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-cyan-400 font-bold">
+                ⏱️ <span id="time-left">45:00</span>
+            </div>
+            <button onclick="confirmSubmit()" class="px-3 py-1.5 bg-gradient-to-r from-red-600 to-rose-700 text-white rounded-lg text-xs font-semibold shadow-md hover:opacity-95 transition">Submit & Grade</button>
         </div>
-        <div id="timerDisplay" class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-cyan-400 font-mono font-bold">45:00</div>
     </header>
 
-    <main class="flex-grow flex flex-col items-center px-4 py-6 w-full max-w-3xl mx-auto space-y-6">
-        <div id="examContainer" class="w-full space-y-6">
-            <div class="text-center py-12 text-slate-400">Loading randomized assessment questions...</div>
+    <!-- Main Single-Page Exam Container -->
+    <main class="flex-grow max-w-4xl w-full mx-auto p-4 sm:p-6 space-y-6">
+        
+        <!-- Results & Certificate Banner -->
+        <div id="results-banner" class="hidden bg-slate-900 print-border border border-cyan-500/50 rounded-2xl p-6 shadow-2xl space-y-6">
+            
+            <div class="print-header text-center space-y-2 border-b border-slate-800 pb-5">
+                <div class="inline-block px-3 py-1 bg-cyan-950 border border-cyan-800 text-cyan-300 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                    Ezrelyn Proctor AI — Official Academic Report
+                </div>
+                <h2 id="report-exam-title" class="text-lg font-bold text-white">Proctored Examination Certificate</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 text-xs text-slate-300 text-left bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <div><span class="text-slate-500 block text-[10px]">Candidate Name</span><strong id="report-candidate-name" class="text-cyan-400">Sarah</strong></div>
+                    <div><span class="text-slate-500 block text-[10px]">Evaluation Date</span><strong id="report-date">2026-10-24</strong></div>
+                    <div><span class="text-slate-500 block text-[10px]">Timestamp</span><strong id="report-time">19:30:00</strong></div>
+                    <div><span class="text-slate-500 block text-[10px]">Final Status</span><strong class="text-emerald-400">Verified & Graded</strong></div>
+                </div>
+            </div>
+
+            <div class="flex justify-center space-x-6 text-sm">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center w-1/2">
+                    <p class="text-xs text-slate-400">Final Score Percentage</p>
+                    <p id="score-percentage" class="text-2xl font-extrabold text-cyan-400 mt-1">0%</p>
+                </div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center w-1/2">
+                    <p class="text-xs text-slate-400">Correct Answers</p>
+                    <p id="score-raw" class="text-2xl font-extrabold text-emerald-400 mt-1">0 / 0</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center space-x-3 pt-2 no-print">
+                <button onclick="window.print()" class="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl text-xs font-semibold shadow-lg hover:opacity-95 transition">
+                    📥 Download Official PDF Report
+                </button>
+                <button onclick="window.location.href='dashboard.html'" class="px-5 py-2.5 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold hover:bg-slate-700 transition">
+                    ← Return to Dashboard
+                </button>
+            </div>
         </div>
 
-        <div id="submitController" class="w-full bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col items-center space-y-3 hidden">
-            <p id="completionWarning" class="text-amber-400 text-[11px] font-bold">⚠️ All questions must be answered before submission is unlocked.</p>
-            <button id="finalSubmitBtn" onclick="promptForCandidateName()" disabled class="w-full py-3.5 bg-slate-800 text-slate-500 font-bold rounded-xl text-xs uppercase tracking-wider cursor-not-allowed transition-all">
-                SUBMIT EXAM & CONFIRM NAME →
+        <!-- Questions List Container -->
+        <div id="questions-list-container" class="space-y-6">
+            <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl text-center">
+                <p class="text-xs text-slate-400 animate-pulse">Loading secure shuffled examination paper...</p>
+            </div>
+        </div>
+
+        <!-- Bottom Submit Bar -->
+        <div id="submit-bar" class="no-print text-center pt-4 pb-8">
+            <button onclick="confirmSubmit()" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl text-xs font-bold uppercase tracking-wider shadow-lg hover:opacity-95 transition">
+                Submit All Answers & View Corrections →
             </button>
         </div>
     </main>
-    <!-- Results Modal -->
-    <div id="resultsModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="print-area bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl w-full max-w-2xl space-y-6 my-8">
-            
-            <div class="text-center space-y-1.5 border-b border-slate-800 pb-4">
-                <span class="print-text-cyan text-cyan-400 text-[11px] font-bold tracking-widest uppercase">EZRELYN PROCTOR AI - OFFICIAL EXAMINATION REPORT</span>
-                <h2 class="print-text-dark text-lg font-bold text-slate-100">Assessment Performance & Security Evaluation</h2>
-                <p id="candidateNameDisplay" class="text-xs font-semibold text-slate-300 print-text-dark">Candidate: Student Scholar</p>
-                <p id="resScoreText" class="text-sm font-bold text-cyan-400 print-text-cyan pt-1"></p>
-                <p id="resSecurityFlag" class="text-[11px] text-rose-400 print-text-rose font-semibold"></p>
-            </div>
 
-            <!-- Metrics Grid -->
-            <div class="grid grid-cols-3 gap-2">
-                <div class="print-card bg-slate-950 p-3 rounded-xl border border-slate-800 text-center">
-                    <span class="text-[9px] text-slate-400 print-text-dark uppercase">Confidence Index</span>
-                    <p id="resConfidence" class="text-xs font-bold text-cyan-400 print-text-cyan mt-1">0%</p>
-                </div>
-                <div class="print-card bg-slate-950 p-3 rounded-xl border border-slate-800 text-center">
-                    <span class="text-[9px] text-slate-400 print-text-dark uppercase">Answer Switches</span>
-                    <p id="resSwitches" class="text-xs font-bold text-amber-400 mt-1">0</p>
-                </div>
-                <div class="print-card bg-slate-950 p-3 rounded-xl border border-slate-800 text-center">
-                    <span class="text-[9px] text-slate-400 print-text-dark uppercase">Speed / Accuracy</span>
-                    <p id="resSpeed" class="text-xs font-bold text-blue-400 mt-1">Optimal</p>
-                </div>
+    <!-- CUSTOM DARK MODAL POPUP & NAME INPUT -->
+    <div id="custom-modal" class="no-print fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center space-y-4">
+            <div id="modal-icon" class="text-3xl">⚠️</div>
+            <h3 id="modal-title" class="text-base font-bold text-white">Notice</h3>
+            <p id="modal-msg" class="text-xs text-slate-300 leading-relaxed"></p>
+            <div id="modal-input-container" class="hidden pt-1">
+                <input type="text" id="candidate-name-input" placeholder="Enter your full name..." 
+                    class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-cyan-500">
             </div>
-
-            <!-- Topic Strengths & Weaknesses Breakdown -->
-            <div class="space-y-3">
-                <h3 class="print-text-cyan text-xs font-bold text-cyan-400 uppercase tracking-widest">📈 Topic Strengths & Weaknesses</h3>
-                <div id="diagnosticsList" class="space-y-2"></div>
-            </div>
-
-            <!-- Full Corrections & Explanations -->
-            <div class="space-y-3">
-                <h3 class="print-text-cyan text-xs font-bold text-cyan-400 uppercase tracking-widest">📖 Detailed Corrections & Explanations</h3>
-                <div id="correctionsList" class="print-hide-overflow space-y-3 max-h-80 overflow-y-auto pr-2"></div>
-            </div>
-
-            <div class="flex gap-3 pt-4 border-t border-slate-800 no-print">
-                <button onclick="downloadPDF()" class="flex-grow py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl text-xs uppercase shadow-lg transition-all">DOWNLOAD REPORT PDF 📄</button>
-                <a href="dashboard.html" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs uppercase text-center">DASHBOARD</a>
+            <div id="modal-actions" class="flex space-x-2 pt-2">
+                <button onclick="closeModal()" class="w-full py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-xs font-semibold text-white uppercase shadow-lg">OK</button>
             </div>
         </div>
     </div>
+
+    <footer class="no-print text-center py-3 text-[11px] text-slate-600 border-t border-slate-900">
+        © 2026 Ezrelyn Proctor AI System. Secure Sandbox Active.
+    </footer>
 
     <script>
         let questions = [];
         let userAnswers = {};
-        let totalTimeSeconds = 45 * 60;
+        let infractionCount = 0;
         let timerInterval;
-        let tabSwitchCount = 0;
-        let alertCallback = null;
-        let verifiedCandidateName = "";
+        let timeLeftSeconds = 45 * 60;
+        let isSubmitted = false;
+        let candidateFullName = "Sarah";
 
-        function promptForCandidateName() {
-            clearInterval(timerInterval);
-            document.getElementById('nameConfirmationModal').classList.remove('hidden');
-        }
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetCategory = urlParams.get('category') || 'Computer Science';
+        const targetSubtopic = urlParams.get('subtopic') || '';
+        const isFullExam = urlParams.get('full') === 'true';
 
-        function handleNameConfirmation(e) {
-            e.preventDefault();
-            const nameInput = document.getElementById('confirmedCandidateName').value.trim();
-            if (!nameInput) return;
-
-            verifiedCandidateName = nameInput;
-            document.getElementById('nameConfirmationModal').classList.add('hidden');
-            submitExam();
-        }
-
-        function showCustomAlert(title, message, callback = null) {
-            document.getElementById('alertModalTitle').textContent = title;
-            document.getElementById('alertModalMessage').textContent = message;
-            document.getElementById('securityAlertModal').classList.remove('hidden');
-            alertCallback = callback;
-        }
-
-        function dismissAlertModal() {
-            document.getElementById('securityAlertModal').classList.add('hidden');
-            if (alertCallback) {
-                alertCallback();
-                alertCallback = null;
-            }
-        }
-
-        function flagViolation(reason) {
-            tabSwitchCount++;
-            document.getElementById('tabSwitchCount').textContent = tabSwitchCount;
-            document.getElementById('tabSwitchWarningBadge').classList.remove('hidden');
-
-            if (tabSwitchCount > 2) {
-                showCustomAlert(
-                    "EXAM DISQUALIFIED",
-                    "You exceeded 2 proctor security flags (tab switches/overlays). Your score is automatically set to 0%.",
-                    () => promptForCandidateName()
-                );
-            }
-        }
-
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden) flagViolation("Tab hidden or minimized");
-        });
-
-        window.addEventListener("blur", () => {
-            flagViolation("Window lost focus (Home button / Assistant overlay)");
-        });
-
-        if (window.visualViewport) {
-            let initialHeight = window.visualViewport.height;
-            window.visualViewport.addEventListener('resize', () => {
-                if (window.visualViewport.height < initialHeight * 0.85) {
-                    flagViolation("Screen resized / System overlay invoked");
-                }
-            });
-        }
-
-        async function initExam() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const subjectCode = urlParams.get('subject') || 'cs1101';
+        document.addEventListener('DOMContentLoaded', async () => {
+            document.getElementById('exam-heading').textContent = isFullExam ? `Full Exam (40 Qs): ${targetCategory}` : `Exam: ${targetSubtopic}`;
 
             try {
-                const res = await fetch('/api/questions');
-                const modules = await res.json();
-
+                const res = await fetch('/api/topics');
+                const diskTopics = await res.json();
+                
                 let pool = [];
-                modules.filter(m => (m.subject || '').toLowerCase() === subjectCode.toLowerCase()).forEach(mod => {
-                    if (mod.questions) {
-                        mod.questions.forEach(q => pool.push({ ...q, topic: mod.topic || 'General' }));
+
+                if (isFullExam) {
+                    diskTopics.forEach(t => {
+                        const cat = t.category || "Computer Science";
+                        if (cat === targetCategory && t.questions && Array.isArray(t.questions)) {
+                            pool = pool.concat(t.questions);
+                        }
+                    });
+                    pool.sort(() => Math.random() - 0.5);
+                    questions = pool.slice(0, 40);
+                } else {
+                    const match = diskTopics.find(t => 
+                        (t.category || "Computer Science") === targetCategory && 
+                        (t.moduleTitle === targetSubtopic || t.topicName === targetSubtopic)
+                    );
+                    
+                    if (match && match.questions) {
+                        questions = JSON.parse(JSON.stringify(match.questions)); // Deep clone
+                    } else if (diskTopics.length > 0) {
+                        questions = JSON.parse(JSON.stringify(diskTopics[0].questions || []));
+                    }
+                }
+
+                // SHUFFLE QUESTIONS & OPTIONS DYNAMICALLY
+                shuffleExamContent();
+
+                renderExamPaper();
+                startTimer();
+            } catch (err) {
+                console.error('Error loading questions:', err);
+            }
+
+            document.addEventListener('visibilitychange', () => { if (document.hidden) triggerInfraction(); });
+            window.addEventListener('blur', () => { triggerInfraction(); });
+        });
+
+        function shuffleExamContent() {
+            // 1. Shuffle question order
+            questions.sort(() => Math.random() - 0.5);
+
+            // 2. Shuffle options for each question and remap correct answer
+            questions.forEach(q => {
+                const keys = ['a', 'b', 'c', 'd'].filter(k => q[k]);
+                const originalCorrectText = q[q.correct];
+
+                // Shuffle keys array
+                keys.sort(() => Math.random() - 0.5);
+
+                const newOptions = {};
+                let newCorrectKey = '';
+
+                keys.forEach((newKey, index) => {
+                    const mappedKey = ['a', 'b', 'c', 'd'][index];
+                    newOptions[mappedKey] = q[newKey];
+                    if (q[newKey] === originalCorrectText) {
+                        newCorrectKey = mappedKey;
                     }
                 });
 
-                if (pool.length === 0) {
-                    modules.forEach(mod => {
-                        if (mod.questions) mod.questions.forEach(q => pool.push({ ...q, topic: mod.topic || 'General' }));
-                    });
-                }
+                // Apply shuffled options and correct key back to question object
+                ['a', 'b', 'c', 'd'].forEach(k => delete q[k]);
+                Object.assign(q, newOptions);
+                q.correct = newCorrectKey;
+            });
+        }
 
-                pool.sort(() => Math.random() - 0.5);
-                questions = pool.slice(0, 40);
+        function showCustomModal(title, message, icon = '⚠️', showInput = false, confirmCallback = null) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-msg').textContent = message;
+            document.getElementById('modal-icon').textContent = icon;
+            const inputContainer = document.getElementById('modal-input-container');
+            const actions = document.getElementById('modal-actions');
 
-                if (questions.length === 0) {
-                    document.getElementById('examContainer').innerHTML = `<p class="text-rose-400 text-center py-12">No questions found in database. Please inject topics via Admin Vault.</p>`;
-                    return;
-                }
+            if (showInput) {
+                inputContainer.classList.remove('hidden');
+            } else {
+                inputContainer.classList.add('hidden');
+            }
 
-                renderExam();
-                startTimer();
-                document.getElementById('submitController').classList.remove('hidden');
-            } catch (err) {
-                console.error(err);
+            if (confirmCallback) {
+                actions.innerHTML = `
+                    <button onclick="closeModal()" class="w-1/2 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-semibold text-slate-300 transition">Cancel</button>
+                    <button id="modal-confirm-btn" class="w-1/2 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-xs font-semibold text-white transition">Proceed</button>
+                `;
+                document.getElementById('modal-confirm-btn').onclick = () => {
+                    if (showInput) {
+                        const val = document.getElementById('candidate-name-input').value.trim();
+                        if (!val) {
+                            alert('⚠️ Please enter your full name to proceed.');
+                            return;
+                        }
+                        candidateFullName = val;
+                    }
+                    closeModal();
+                    confirmCallback();
+                };
+            } else {
+                actions.innerHTML = `<button onclick="closeModal()" class="w-full py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-xs font-semibold text-white uppercase shadow-lg">OK</button>`;
+            }
+
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        function triggerInfraction() {
+            if (isSubmitted) return;
+            infractionCount++;
+            
+            if (infractionCount === 1) {
+                showCustomModal("⚠️ First Warning: Tab Switch Detected", "You navigated away from the secure exam view. One more infraction will result in immediate disqualification and a 0% score.", '⚠️');
+            } else if (infractionCount >= 2) {
+                clearInterval(timerInterval);
+                document.body.innerHTML = '<div class="flex items-center justify-center min-h-screen bg-slate-950 text-red-500 font-bold text-lg p-6 text-center">Exam Terminated: 0% Score Recorded due to Multiple Proctoring Infractions.</div>';
             }
         }
 
         function startTimer() {
             timerInterval = setInterval(() => {
-                totalTimeSeconds--;
-                const mins = Math.floor(totalTimeSeconds / 60);
-                const secs = totalTimeSeconds % 60;
-                document.getElementById('timerDisplay').textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-                if (totalTimeSeconds <= 0) {
+                timeLeftSeconds--;
+                const mins = Math.floor(timeLeftSeconds / 60);
+                const secs = timeLeftSeconds % 60;
+                document.getElementById('time-left').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                
+                if (timeLeftSeconds <= 0) {
                     clearInterval(timerInterval);
-                    showCustomAlert("TIME EXPIRED", "Time is up! Please confirm your name to submit.", () => promptForCandidateName());
+                    promptCandidateNameForSubmission();
                 }
             }, 1000);
         }
 
-        function selectOption(qIdx, optKey) {
-            if (!userAnswers[qIdx]) {
-                userAnswers[qIdx] = { selected: optKey, history: [optKey] };
-            } else {
-                if (userAnswers[qIdx].selected !== optKey) {
-                    userAnswers[qIdx].history.push(optKey);
-                }
-                userAnswers[qIdx].selected = optKey;
+        function renderExamPaper() {
+            const container = document.getElementById('questions-list-container');
+            if (!questions || questions.length === 0) {
+                container.innerHTML = '<div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl text-center text-xs text-slate-400">No questions found in this module.</div>';
+                return;
             }
 
-            ['a', 'b', 'c', 'd'].forEach(k => {
-                const btn = document.getElementById(`q${qIdx}_opt_${k}`);
-                if (btn) {
-                    if (k === optKey) {
-                        btn.className = "w-full text-left p-3 rounded-xl border border-cyan-500 bg-cyan-950/40 text-cyan-200 font-medium text-xs transition-all";
-                    } else {
-                        btn.className = "w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 text-xs transition-all";
-                    }
-                }
-            });
-
-            checkCompletion();
+            container.innerHTML = questions.map((q, idx) => {
+                const options = ['a', 'b', 'c', 'd'];
+                return `
+                    <div id="q-card-${idx}" class="p-5 bg-slate-900 print-border border border-slate-800 rounded-2xl shadow-xl space-y-3">
+                        <div class="flex justify-between items-center text-xs text-slate-400">
+                            <span class="font-bold text-cyan-400">Question ${idx + 1} of ${questions.length}</span>
+                        </div>
+                        <p class="text-sm font-bold text-white leading-relaxed">${q.q}</p>
+                        <div class="space-y-2 pt-1" id="options-group-${idx}">
+                            ${options.map(opt => {
+                                if (!q[opt]) return '';
+                                return `
+                                    <label class="flex items-center space-x-3 p-3 border border-slate-800 bg-slate-950/60 rounded-xl cursor-pointer hover:border-slate-700 transition">
+                                        <input type="radio" name="question-${idx}" value="${opt}" onchange="userAnswers[${idx}] = '${opt}'" class="text-cyan-500 focus:ring-0">
+                                        <span class="text-xs font-semibold uppercase text-cyan-400 w-5">${opt}.</span>
+                                        <span class="text-xs text-slate-300">${q[opt]}</span>
+                                    </label>
+                                `;
+                            }).join('')}
+                        </div>
+                        <div id="correction-${idx}" class="hidden mt-3 p-3 rounded-xl text-xs"></div>
+                    </div>
+                `;
+            }).join('');
         }
 
-        function checkCompletion() {
+        function confirmSubmit() {
+            if (isSubmitted) return;
             const answeredCount = Object.keys(userAnswers).length;
-            const btn = document.getElementById('finalSubmitBtn');
-            const warning = document.getElementById('completionWarning');
 
-            if (answeredCount >= questions.length) {
-                btn.disabled = false;
-                btn.className = "w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer";
-                warning.textContent = "✅ All questions answered. Exam ready for submission.";
-                warning.className = "text-cyan-400 text-[11px] font-bold";
-            } else {
-                btn.disabled = true;
-                btn.className = "w-full py-3.5 bg-slate-800 text-slate-500 font-bold rounded-xl text-xs uppercase tracking-wider cursor-not-allowed transition-all";
-                warning.textContent = `⚠️ Answer all questions to unlock submission (${answeredCount}/${questions.length} completed).`;
-                warning.className = "text-amber-400 text-[11px] font-bold";
+            if (answeredCount < questions.length) {
+                const remaining = questions.length - answeredCount;
+                showCustomModal("Incomplete Examination", `You have ${remaining} unanswered question(s). You must attempt all questions before submitting and viewing corrections.`, '🔒');
+                return;
             }
+
+            promptCandidateNameForSubmission();
         }
 
-        function renderExam() {
-            const container = document.getElementById('examContainer');
-            container.innerHTML = questions.map((q, idx) => `
-                <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-2xl shadow-lg space-y-3">
-                    <div class="flex justify-between items-center text-[10px] text-cyan-400 uppercase tracking-widest border-b border-slate-800 pb-2">
-                        <span>Question ${idx + 1} of ${questions.length}</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Topic: ${q.topic}</span>
-                    </div>
-                    <p class="font-bold text-slate-100 text-[13px] leading-relaxed">${q.q}</p>
-                    <div class="space-y-2 pt-1">
-                        ${['a', 'b', 'c', 'd'].map(k => q[k] ? `
-                            <button type="button" id="q${idx}_opt_${k}" onclick="selectOption(${idx}, '${k}')" class="w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700 text-xs transition-all">
-                                <strong class="text-cyan-400 uppercase mr-2">${k}.</strong> ${q[k]}
-                            </button>
-                        ` : '').join('')}
-                    </div>
-                </div>
-            `).join('');
+        function promptCandidateNameForSubmission() {
+            showCustomModal("Candidate Certification", "Please enter your full legal name to generate your official PDF score report and view corrections:", '🎓', true, () => {
+                submitExam();
+            });
         }
 
         function submitExam() {
+            isSubmitted = true;
+            clearInterval(timerInterval);
+            document.getElementById('submit-bar').classList.add('hidden');
+
             let score = 0;
-            let switches = 0;
-            let topicStats = {};
-
             questions.forEach((q, idx) => {
-                const topic = q.topic || 'General';
-                if (!topicStats[topic]) topicStats[topic] = { correct: 0, total: 0 };
-                topicStats[topic].total++;
+                const userAns = userAnswers[idx];
+                const card = document.getElementById(`q-card-${idx}`);
+                const correctionBox = document.getElementById(`correction-${idx}`);
+                const optionsGroup = document.getElementById(`options-group-${idx}`);
 
-                const ans = userAnswers[idx];
-                if (ans) {
-                    if (ans.history.length > 1) {
-                        switches += (ans.history.length - 1);
-                    }
-                    if (ans.selected === q.correct) {
-                        score++;
-                        topicStats[topic].correct++;
-                    }
+                const inputs = optionsGroup.querySelectorAll('input');
+                inputs.forEach(inp => inp.disabled = true);
+
+                if (userAns === q.correct) {
+                    score++;
+                    card.classList.add('border-emerald-500/60', 'bg-emerald-950/10');
+                    correctionBox.className = "mt-3 p-3 rounded-xl text-xs bg-emerald-950/40 border border-emerald-800 text-emerald-300";
+                    correctionBox.innerHTML = `✅ <strong>Correct!</strong> ${q.explanation || ''}`;
+                } else {
+                    card.classList.add('border-red-500/60', 'bg-red-950/10');
+                    correctionBox.className = "mt-3 p-3 rounded-xl text-xs bg-red-950/40 border border-red-800 text-red-300";
+                    correctionBox.innerHTML = `❌ <strong>Incorrect.</strong> Your answer: <span class="uppercase font-bold">${userAns || 'None'}</span>. Correct answer: <span class="uppercase font-bold">${q.correct}</span>. ${q.explanation || ''}`;
                 }
+                correctionBox.classList.remove('hidden');
             });
 
-            const isDisqualified = tabSwitchCount > 2;
-            const finalScore = isDisqualified ? 0 : score;
-            const percentage = isDisqualified ? 0 : Math.round((finalScore / questions.length) * 100);
-            const confidenceIndex = isDisqualified ? 0 : Math.max(0, 100 - (switches * 5));
+            const percent = Math.round((score / questions.length) * 100);
+            const now = new Date();
+            
+            document.getElementById('report-candidate-name').textContent = candidateFullName;
+            document.getElementById('report-exam-title').textContent = isFullExam ? `Full Exam: ${targetCategory}` : `Topic Exam: ${targetSubtopic}`;
+            document.getElementById('report-date').textContent = now.toISOString().split('T')[0];
+            document.getElementById('report-time').textContent = now.toTimeString().split(' ')[0];
 
-            document.getElementById('candidateNameDisplay').textContent = `Candidate: ${verifiedCandidateName || 'Student Scholar'}`;
-            document.getElementById('resScoreText').textContent = isDisqualified ? 
-                `Score: 0 / ${questions.length} (0%) - DISQUALIFIED` : 
-                `Score: ${finalScore} / ${questions.length} (${percentage}%)`;
-
-            document.getElementById('resConfidence').textContent = `${confidenceIndex}%`;
-            document.getElementById('resSwitches').textContent = `${switches} changes`;
-            document.getElementById('resSpeed').textContent = switches <= 3 ? 'High Accuracy' : 'Revising Frequently';
-
-            document.getElementById('resSecurityFlag').textContent = isDisqualified ?
-                `🚨 SECURITY VIOLATION: Disqualified due to ${tabSwitchCount} proctor flags (>2 threshold).` :
-                (tabSwitchCount > 0 ? `⚠️ Proctorship Warning: ${tabSwitchCount} security flag(s) recorded.` : '🛡️ Proctorship Verified: Zero security infractions.');
-
-            let diagHTML = '';
-            for (let t in topicStats) {
-                const tScore = topicStats[t];
-                const tPct = isDisqualified ? 0 : Math.round((tScore.correct / tScore.total) * 100);
-                const isWeak = tPct < 60;
-                diagHTML += `
-                    <div class="print-card bg-slate-950 p-3 rounded-xl border ${isWeak ? 'border-rose-900/50 bg-rose-950/10' : 'border-slate-800'} flex justify-between items-center text-xs">
-                        <div>
-                            <span class="font-bold text-slate-200 print-text-dark">${t}</span>
-                            <p class="text-[10px] ${isWeak ? 'text-rose-400 print-text-rose' : 'text-slate-400 print-text-dark'}">${isWeak ? '⚠️ Weak Area - Recommended Revision' : '✅ Strength Confirmed'} (${isDisqualified ? 0 : tScore.correct}/${tScore.total} correct)</p>
-                        </div>
-                        <span class="font-bold ${isWeak ? 'text-rose-400 print-text-rose' : 'text-cyan-400 print-text-cyan'}">${tPct}%</span>
-                    </div>
-                `;
-            }
-            document.getElementById('diagnosticsList').innerHTML = diagHTML;
-
-            let corrHTML = '';
-            questions.forEach((q, idx) => {
-                const userAns = userAnswers[idx] ? userAnswers[idx].selected : 'None';
-                const isCorrect = !isDisqualified && (userAns === q.correct);
-                corrHTML += `
-                    <div class="print-card bg-slate-950 p-4 rounded-xl border ${isCorrect ? 'border-cyan-900/40' : 'border-rose-900/40'} space-y-1">
-                        <div class="flex justify-between text-[10px] text-slate-400 print-text-dark">
-                            <span>Q${idx + 1}: ${q.topic}</span>
-                            <span class="${isCorrect ? 'text-cyan-400 print-text-cyan' : 'text-rose-400 print-text-rose'} font-bold">${isCorrect ? 'CORRECT' : 'INCORRECT'}</span>
-                        </div>
-                        <p class="font-bold text-slate-200 print-text-dark text-xs">${q.q}</p>
-                        <p class="text-[11px] text-slate-300 print-text-dark">Your Answer: <strong class="uppercase ${isCorrect ? 'text-cyan-400 print-text-cyan' : 'text-rose-400 print-text-rose'}">${userAns}</strong> | Correct Answer: <strong class="uppercase text-cyan-400 print-text-cyan">${q.correct}</strong></p>
-                        ${q.explanation ? `<p class="text-[10px] text-slate-400 print-text-dark italic bg-slate-900 p-2 rounded border border-slate-800">💡 <strong>Explanation:</strong> ${q.explanation}</p>` : ''}
-                    </div>
-                `;
-            });
-            document.getElementById('correctionsList').innerHTML = corrHTML;
-            document.getElementById('resultsModal').classList.remove('hidden');
+            document.getElementById('score-percentage').textContent = `${percent}%`;
+            document.getElementById('score-raw').textContent = `${score} / ${questions.length}`;
+            document.getElementById('results-banner').classList.remove('hidden');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        function downloadPDF() {
-            window.print();
-        }
-
-        initExam();
     </script>
 </body>
 </html>
