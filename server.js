@@ -6,6 +6,84 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
+
+// Robust absolute URL XML Sitemap for Googlebot Indexing
+app.get('/sitemap.xml', (req, res) => {
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.status(200);
+    res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/login.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/dashboard.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/exam.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>`);
+});
+
+app.get('/robots.txt', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.status(200);
+    res.send("User-agent: *\nAllow: /\nSitemap: https://ezrelyn-ai-proctor-system.onrender.com/sitemap.xml");
+});
+
+
+// Explicit high-speed sitemap and robots endpoints for Googlebot
+app.get('/sitemap.xml', (req, res) => {
+    res.status(200).header('Content-Type', 'application/xml; charset=utf-8');
+    res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/login.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/dashboard.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ezrelyn-ai-proctor-system.onrender.com/exam.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>`);
+});
+
+app.get('/robots.txt', (req, res) => {
+    res.status(200).header('Content-Type', 'text/plain; charset=utf-8');
+    res.send("User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: https://ezrelyn-ai-proctor-system.onrender.com/sitemap.xml");
+});
+
 const PORT = process.env.PORT || 8080;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'scientist2026';
 
