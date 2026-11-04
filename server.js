@@ -24,14 +24,26 @@ const ADMIN_SECRET = process.env.ADMIN_SECRET;
 
 app.use(express.json());
 
-// Serve sitemap explicitly with XML content type
+// Explicitly serve sitemap.xml as raw string to prevent any file path streaming bugs
 app.get('/sitemap.xml', (req, res) => {
     const filePath = path.join(__dirname, 'sitemap.xml');
     if (fs.existsSync(filePath)) {
-        res.setHeader('Content-Type', 'application/xml');
-        return res.sendFile(filePath);
+        const xmlContent = fs.readFileSync(filePath, 'utf8');
+        res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+        return res.send(xmlContent);
     }
-    res.status(404).send('Not found');
+    res.status(404).send('Sitemap not found');
+});
+
+// Explicitly serve robots.txt as raw string
+app.get('/robots.txt', (req, res) => {
+    const filePath = path.join(__dirname, 'robots.txt');
+    if (fs.existsSync(filePath)) {
+        const txtContent = fs.readFileSync(filePath, 'utf8');
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        return res.send(txtContent);
+    }
+    res.status(404).send('Robots not found');
 });
 
 // Serve static files globally
