@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Automatically load local .env file into process.env if it exists
+// Auto-load .env locally
 if (fs.existsSync('.env')) {
     const envConfig = fs.readFileSync('.env', 'utf8');
     envConfig.split('\n').forEach(line => {
@@ -21,11 +21,30 @@ if (fs.existsSync('.env')) {
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-
-// STRICT: Pulling password exclusively from environment variables
 const ADMIN_SECRET = process.env.ADMIN_SECRET;
 
 app.use(express.json());
+
+// Explicitly serve sitemap.xml with correct XML header
+app.get('/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(__dirname, 'sitemap.xml');
+    if (fs.existsSync(sitemapPath)) {
+        res.header('Content-Type', 'application/xml');
+        return res.sendFile(sitemapPath);
+    }
+    res.status(404).send('Sitemap not found');
+});
+
+// Explicitly serve robots.txt with correct text header
+app.get('/robots.txt', (req, res) => {
+    const robotsPath = path.join(__dirname, 'robots.txt');
+    if (fs.existsSync(robotsPath)) {
+        res.header('Content-Type', 'text/plain');
+        return res.sendFile(robotsPath);
+    }
+    res.status(404).send('Robots file not found');
+});
+
 app.use(express.static(__dirname));
 
 // API: Get all stored topics/question packs from disk
@@ -41,20 +60,16 @@ app.get('/api/topics', (req, res) => {
     }
 });
 
-// API: Verify Admin Secret Key strictly against process.env.ADMIN_SECRET
+// API: Verify Admin Secret Key
 app.post('/api/admin/verify', (req, res) => {
     try {
         const { password } = req.body;
-
         if (!ADMIN_SECRET) {
-            console.error('❌ ADMIN_SECRET is missing from environment variables!');
-            return res.status(500).json({ success: false, error: 'ADMIN_SECRET environment variable is not defined.' });
+            return res.status(500).json({ success: false, error: 'ADMIN_SECRET not configured.' });
         }
-
         if (password === ADMIN_SECRET) {
             return res.json({ success: true });
         }
-        
         res.status(401).json({ success: false, error: 'Invalid security key' });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
@@ -66,11 +81,9 @@ app.post('/api/admin/save-topic', (req, res) => {
     try {
         const newTopic = req.body;
         let topics = [];
-        
         if (fs.existsSync('questions.json')) {
             topics = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
         }
-
         topics.push(newTopic);
         fs.writeFileSync('questions.json', JSON.stringify(topics, null, 2), 'utf8');
         res.json({ success: true, message: 'Topic pack saved successfully' });
@@ -84,7 +97,6 @@ app.put('/api/admin/topic/:index', (req, res) => {
     try {
         const index = parseInt(req.params.index, 10);
         const updatedData = req.body;
-
         if (fs.existsSync('questions.json')) {
             let topics = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
             if (index >= 0 && index < topics.length) {
@@ -103,7 +115,6 @@ app.put('/api/admin/topic/:index', (req, res) => {
 app.delete('/api/admin/topic/:index', (req, res) => {
     try {
         const index = parseInt(req.params.index, 10);
-
         if (fs.existsSync('questions.json')) {
             let topics = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
             if (index >= 0 && index < topics.length) {
