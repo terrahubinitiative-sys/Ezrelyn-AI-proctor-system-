@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Auto-load .env locally
+// Auto-load local .env file
 if (fs.existsSync('.env')) {
     const envConfig = fs.readFileSync('.env', 'utf8');
     envConfig.split('\n').forEach(line => {
@@ -16,7 +16,6 @@ if (fs.existsSync('.env')) {
             process.env[key.trim()] = val;
         }
     });
-    console.log('⚡ Loaded environment variables from .env file');
 }
 
 const app = express();
@@ -25,26 +24,17 @@ const ADMIN_SECRET = process.env.ADMIN_SECRET;
 
 app.use(express.json());
 
-// Explicitly serve sitemap.xml with correct XML header
+// Serve sitemap explicitly with XML content type
 app.get('/sitemap.xml', (req, res) => {
-    const sitemapPath = path.join(__dirname, 'sitemap.xml');
-    if (fs.existsSync(sitemapPath)) {
-        res.header('Content-Type', 'application/xml');
-        return res.sendFile(sitemapPath);
+    const filePath = path.join(__dirname, 'sitemap.xml');
+    if (fs.existsSync(filePath)) {
+        res.setHeader('Content-Type', 'application/xml');
+        return res.sendFile(filePath);
     }
-    res.status(404).send('Sitemap not found');
+    res.status(404).send('Not found');
 });
 
-// Explicitly serve robots.txt with correct text header
-app.get('/robots.txt', (req, res) => {
-    const robotsPath = path.join(__dirname, 'robots.txt');
-    if (fs.existsSync(robotsPath)) {
-        res.header('Content-Type', 'text/plain');
-        return res.sendFile(robotsPath);
-    }
-    res.status(404).send('Robots file not found');
-});
-
+// Serve static files globally
 app.use(express.static(__dirname));
 
 // API: Get all stored topics/question packs from disk
