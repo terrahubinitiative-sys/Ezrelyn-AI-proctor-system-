@@ -23,7 +23,7 @@
             <span id="proctor-indicator" class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
             <div>
                 <h1 class="text-xs font-bold text-white uppercase tracking-wider" id="exam-heading">Proctored Examination</h1>
-                <p class="text-[10px] text-slate-400">Ezrelyn AI Proctor Active — Zero-Tolerance Proctorship</p>
+                <p class="text-[10px] text-slate-400">Ezrelyn Proctor AI Active — Zero-Tolerance Proctorship</p>
             </div>
         </div>
         <div class="flex items-center space-x-3">
@@ -46,8 +46,8 @@
                 </div>
                 <h2 id="report-exam-title" class="text-lg font-bold text-white">Proctored Examination Certificate</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 text-xs text-slate-300 text-left bg-slate-950 p-3 rounded-xl border border-slate-800">
-                    <div><span class="text-slate-500 block text-[10px]">Candidate Name</span><strong id="report-candidate-name" class="text-cyan-400">Sarah</strong></div>
-                    <div><span class="text-slate-500 block text-[10px]">Evaluation Date</span><strong id="report-date">2026-10-24</strong></div>
+                    <div><span class="text-slate-500 block text-[10px]">Candidate Name</span><strong id="report-candidate-name" class="text-cyan-400">Candidate</strong></div>
+                    <div><span class="text-slate-500 block text-[10px]">Evaluation Date</span><strong id="report-date">2026-11-04</strong></div>
                     <div><span class="text-slate-500 block text-[10px]">Timestamp</span><strong id="report-time">19:30:00</strong></div>
                     <div><span class="text-slate-500 block text-[10px]">Final Status</span><strong class="text-emerald-400">Verified & Graded</strong></div>
                 </div>
@@ -116,7 +116,7 @@
         let timerInterval;
         let timeLeftSeconds = 45 * 60;
         let isSubmitted = false;
-        let candidateFullName = "Sarah";
+        let candidateFullName = "Candidate";
 
         const urlParams = new URLSearchParams(window.location.search);
         const targetCategory = urlParams.get('category') || 'Computer Science';
@@ -148,15 +148,13 @@
                     );
                     
                     if (match && match.questions) {
-                        questions = JSON.parse(JSON.stringify(match.questions)); // Deep clone
+                        questions = JSON.parse(JSON.stringify(match.questions)); 
                     } else if (diskTopics.length > 0) {
                         questions = JSON.parse(JSON.stringify(diskTopics[0].questions || []));
                     }
                 }
 
-                // SHUFFLE QUESTIONS & OPTIONS DYNAMICALLY
                 shuffleExamContent();
-
                 renderExamPaper();
                 startTimer();
             } catch (err) {
@@ -168,29 +166,29 @@
         });
 
         function shuffleExamContent() {
-            // 1. Shuffle question order
             questions.sort(() => Math.random() - 0.5);
 
-            // 2. Shuffle options for each question and remap correct answer
             questions.forEach(q => {
                 const keys = ['a', 'b', 'c', 'd'].filter(k => q[k]);
-                const originalCorrectText = q[q.correct];
+                // Store original correct answer text value before shuffling
+                const originalCorrectVal = q[q.correct] || q.correct;
 
-                // Shuffle keys array
                 keys.sort(() => Math.random() - 0.5);
 
                 const newOptions = {};
-                let newCorrectKey = '';
+                let newCorrectKey = 'a';
 
-                keys.forEach((newKey, index) => {
+                keys.forEach((oldKey, index) => {
                     const mappedKey = ['a', 'b', 'c', 'd'][index];
-                    newOptions[mappedKey] = q[newKey];
-                    if (q[newKey] === originalCorrectText) {
+                    const optionText = q[oldKey];
+                    newOptions[mappedKey] = optionText;
+
+                    // Match whether correct answer was stored as key ('a'), index, or text string
+                    if (oldKey === q.correct || optionText === originalCorrectVal || String(index) === String(q.correct)) {
                         newCorrectKey = mappedKey;
                     }
                 });
 
-                // Apply shuffled options and correct key back to question object
                 ['a', 'b', 'c', 'd'].forEach(k => delete q[k]);
                 Object.assign(q, newOptions);
                 q.correct = newCorrectKey;
@@ -331,7 +329,10 @@
                 const inputs = optionsGroup.querySelectorAll('input');
                 inputs.forEach(inp => inp.disabled = true);
 
-                if (userAns === q.correct) {
+                // Robust check supporting key matching
+                const isCorrect = userAns && userAns.toLowerCase() === String(q.correct).toLowerCase();
+
+                if (isCorrect) {
                     score++;
                     card.classList.add('border-emerald-500/60', 'bg-emerald-950/10');
                     correctionBox.className = "mt-3 p-3 rounded-xl text-xs bg-emerald-950/40 border border-emerald-800 text-emerald-300";
