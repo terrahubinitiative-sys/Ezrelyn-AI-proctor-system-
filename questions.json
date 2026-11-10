@@ -2,7 +2,7 @@
   {
     "category": "Computer Science",
     "subjectCode": "Introduction to computer science ",
-    "topicName": "Final exam prediction",
+    "topicName": "Final exam prediction I ",
     "moduleTitle": "FEP-001",
     "timeLimit": 60,
     "questions": [
@@ -280,9 +280,9 @@
   },
   {
     "category": "Computer Science",
-    "subjectCode": "Introduction to computer science ",
-    "topicName": "Programming Fundamentals",
-    "moduleTitle": "Unit Quiz",
+    "subjectCode": "General Computer science basics ",
+    "topicName": "Basic computer science quizzes ",
+    "moduleTitle": "Warm up quizzes ",
     "timeLimit": 60,
     "questions": [
       {
@@ -842,6 +842,380 @@
         "d": "Focus only on news stories",
         "correct": "A",
         "explanation": "Repositories of academic journals offer rigorously vetted studies necessary for reliable health science research."
+      }
+    ]
+  },
+  {
+    "category": "Computer Science",
+    "subjectCode": "Introduction to computer science ",
+    "topicName": "Final exam prediction II",
+    "moduleTitle": "FEP-002",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "Why do Solid-State Drives (SSDs) routinely exceed Hard Disk Drives (HDDs) in random data access velocities?",
+        "a": "SSDs rely on rapid mechanical magnetic platters",
+        "b": "SSDs have zero moving parts and fetch data directly from non-volatile flash memory cells electronically",
+        "c": "SSDs utilize high-voltage flash gas tubes to access data arrays",
+        "d": "SSDs write data continuously onto linear copper filaments",
+        "correct": "SSDs have zero moving parts and fetch data directly from non-volatile flash memory cells electronically",
+        "explanation": "The lack of mechanical read/write heads allows SSDs to achieve nearly instantaneous random access times compared to spinning magnetic disks."
+      },
+      {
+        "q": "What distinguishes a high-performance workstation configuration from a standard personal computer?",
+        "a": "The base physical dimensions of the chassis tracking unit",
+        "b": "Advanced processing power, multi-threaded CPU configurations, and high-velocity memory capacities",
+        "c": "The exterior chassis color scheme layout option",
+        "d": "The physical weight metrics of the system build",
+        "correct": "Advanced processing power, multi-threaded CPU configurations, and high-velocity memory capacities",
+        "explanation": "Workstations are engineered for heavy computational tasks with superior multi-threading and memory bandwidth compared to regular PCs."
+      },
+      {
+        "q": "What is the primary operational disadvantage of a Distributed Database Management System (DDBMS)?",
+        "a": "Increased operational complexity",
+        "b": "Decreased layout reliability",
+        "c": "Inability to hold multi-level transparency structures",
+        "d": "Complete absence of data persistence channels",
+        "correct": "Increased operational complexity",
+        "explanation": "Distributed databases introduce high operational, networking, and transaction control complexity."
+      },
+      {
+        "q": "Which function does the Control Unit (CU) execute within the classic Von Neumann processor architecture?",
+        "a": "Performing direct logical floating-point mathematical comparisons",
+        "b": "Managing the retrieval, decoding, and systematic execution sequencing of system instructions",
+        "c": "Retaining non-volatile application data log files indefinitely",
+        "d": "Directing local cooling systems on the motherboard array",
+        "correct": "Managing the retrieval, decoding, and systematic execution sequencing of system instructions",
+        "explanation": "The Control Unit coordinates the fetch-decode-execute cycle of instructions throughout the processor."
+      },
+      {
+        "q": "Which software category manages underlying hardware abstractions and balances application execution resources?",
+        "a": "Application software engines",
+        "b": "System software frameworks (e.g. Operating Systems)",
+        "c": "Embedded software modules",
+        "d": "Static text editing utility suites",
+        "correct": "System software frameworks (e.g. Operating Systems)",
+        "explanation": "The operating system acts as the core system software managing hardware abstractions and resource allocation."
+      },
+      {
+        "q": "Which performance asset describes the main operation of a hardware Cache unit?",
+        "a": "Securing redundant hardware power lines during system outages",
+        "b": "Providing structural cooling algorithms directly to the multi-core chip block",
+        "c": "Temporarily capturing and hosting frequently requested data pages to speed up CPU cycle access times",
+        "d": "Managing peripheral file serialization tasks over wide area networks",
+        "correct": "Temporarily capturing and hosting frequently requested data pages to speed up CPU cycle access times",
+        "explanation": "Cache memory holds frequently accessed data close to the CPU to reduce access latency from main RAM."
+      },
+      {
+        "q": "What type of software is an e-commerce platform engine like a custom application built on a web framework?",
+        "a": "System utility abstraction software",
+        "b": "Low-level bios hardware firmware mapping",
+        "c": "Application software, designed to handle user-facing business tasks",
+        "d": "Real-time mechanical kernel embedded software",
+        "correct": "Application software, designed to handle user-facing business tasks",
+        "explanation": "E-commerce platforms are application software engineered to facilitate business transactions and user interactions."
+      },
+      {
+        "q": "Which specific architecture layout differentiates Random Access Memory (RAM) from Read-Only Memory (ROM)?",
+        "a": "RAM is non-volatile and keeps records without power input",
+        "b": "RAM provides fast, volatile execution workspace maps that clear upon system shutdown, while ROM provides non-volatile startup firmware tracking",
+        "c": "ROM operates at higher system access velocities during direct multitasking cycles",
+        "d": "ROM structures permit continuous user-defined direct write permissions during execution",
+        "correct": "RAM provides fast, volatile execution workspace maps that clear upon system shutdown, while ROM provides non-volatile startup firmware tracking",
+        "explanation": "RAM is volatile high-speed working storage, whereas ROM is non-volatile persistent storage used for firmware such as the BIOS."
+      },
+      {
+        "q": "In rhetorical theory, which layer describes the use of 'pathos' within written communications?",
+        "a": "Appealing directly to the reader's deep structural emotions, core values, and empathy matrices",
+        "b": "Utilizing verified quantitative empirical datasets to structure logical points",
+        "c": "Establishing the formal professional credentials and authority footprint of the author",
+        "d": "Scheduling the delivery of documentation to match external event timings",
+        "correct": "Appealing directly to the reader's deep structural emotions, core values, and empathy matrices",
+        "explanation": "Pathos represents the rhetorical appeal to an audience's emotions and feelings."
+      },
+      {
+        "q": "True or False: The primary goal of a persuasive document is to share raw personal opinions without backing them up with evidence.",
+        "a": "True",
+        "b": "False",
+        "correct": "False",
+        "explanation": "Persuasive writing requires reasoned evidence and logical support rather than unbacked personal opinions."
+      },
+      {
+        "q": "What is a defining structural characteristic of a relational database layout?",
+        "a": "It organizes structural data models uniformly using interconnected two-dimensional tables",
+        "b": "It relies on single-field unindexed raw binary files",
+        "c": "It blocks complex multi-variable structural relationships entirely",
+        "d": "It structures properties inside a nested raw text layout scheme",
+        "correct": "It organizes structural data models uniformly using interconnected two-dimensional tables",
+        "explanation": "Relational databases structure datasets uniformly into two-dimensional tables consisting of rows and columns."
+      },
+      {
+        "q": "In data independence protocols, what does physical schema modification specifically imply?",
+        "a": "Dropping database application access configurations permanently",
+        "b": "Altering underlying data storage structures without disturbing user application layouts",
+        "c": "Executing raw data encryption matrices onto client tables",
+        "d": "Direct modification of application layer source files",
+        "correct": "Altering underlying data storage structures without disturbing user application layouts",
+        "explanation": "Physical data independence ensures that lower-level storage structure modifications can occur without rewriting client applications."
+      },
+      {
+        "q": "What is the primary target objective of an explicit persuasive essay blueprint?",
+        "a": "To list raw scientific datasets chronologically without comment",
+        "b": "To capture, inform, and methodically guide the audience toward a clear, reasoned conviction or specific call to action",
+        "c": "To present random personal opinions without supporting evidence structural channels",
+        "d": "To deliver fictional narratives designed purely for user entertainment",
+        "correct": "To capture, inform, and methodically guide the audience toward a clear, reasoned conviction or specific call to action",
+        "explanation": "Persuasive writing aims to convince readers to adopt a specific viewpoint or take action using reasoned arguments."
+      },
+      {
+        "q": "A software specialist writes microcode directly into a solid-state memory component on a smart washing machine. Identify this software layout.",
+        "a": "Application software infrastructure",
+        "b": "System middleware cluster frameworks",
+        "c": "Embedded software, configured for single hardware execution duties",
+        "d": "Enterprise data logging suites",
+        "correct": "Embedded software, configured for single hardware execution duties",
+        "explanation": "Software built into specialized hardware appliances for dedicated control tasks is classified as embedded software."
+      },
+      {
+        "q": "Which element describes the physical operation of a classic Von Neumann architecture bottleneck?",
+        "a": "The processing threshold speed of the ALU",
+        "b": "The serial communication speed constraint of the shared bus between the CPU and memory",
+        "c": "The storage allocation limit within RAM chips",
+        "d": "The structural configurations within BIOS firmware",
+        "correct": "The serial communication speed constraint of the shared bus between the CPU and memory",
+        "explanation": "The Von Neumann bottleneck refers to the throughput limit caused by sharing a single bus between CPU instructions and data memory."
+      },
+      {
+        "q": "Identify the feature that is missing if an author drafts a persuasive essay but skips all counter-arguments.",
+        "a": "The structural introductory roadmap",
+        "b": "A clear thesis statement configuration",
+        "c": "Acknowledgment and evaluation of opposing ideas and viewpoints",
+        "d": "The terminal wrap-up summary block",
+        "correct": "Acknowledgment and evaluation of opposing ideas and viewpoints",
+        "explanation": "A robust persuasive essay addresses counter-arguments to strengthen its own thesis and demonstrate comprehensive analysis."
+      },
+      {
+        "q": "Which option represents a highly focused and valid academic research question?",
+        "a": "Is studying useful?",
+        "b": "How does exposure to words through reading novels influence a person's language development?",
+        "c": "Are computers bad for people?",
+        "d": "What is the best way to live life?",
+        "correct": "How does exposure to words through reading novels influence a person's language development?",
+        "explanation": "A valid academic research question is specific, measurable, and focused on a clear relationship between variables."
+      },
+      {
+        "q": "In a business setting, what factor directly ensures your database can scale as product listings grow over time?",
+        "a": "Chassis cooling fans configuration limits",
+        "b": "Storage system capacity scaling and modular upgrade paths",
+        "c": "Operating system desktop color profiles",
+        "d": "Keyboard emoji shortcut support maps",
+        "correct": "Storage system capacity scaling and modular upgrade paths",
+        "explanation": "Database scalability relies on adequate storage allocation expansion and modular architectural capacity."
+      },
+      {
+        "q": "Which storage component operates as high-capacity, non-volatile storage to preserve system records when power collapses?",
+        "a": "The processor L1 cache memory register array",
+        "b": "Secondary storage devices (e.g. SSDs/HDDs)",
+        "c": "Volatile dynamic random access storage cells",
+        "d": "The processor execution data bus line",
+        "correct": "Secondary storage devices (e.g. SSDs/HDDs)",
+        "explanation": "Secondary storage drives maintain data persistently across power cycles unlike volatile RAM."
+      },
+      {
+        "q": "Which of the following is NOT an application of database infrastructure?",
+        "a": "Customer Relationship Management (CRM) engines",
+        "b": "Inventory monitoring tracking matrix setups",
+        "c": "Real-time hardware clock frequency adjustment",
+        "d": "Online e-commerce transaction carts",
+        "correct": "Real-time hardware clock frequency adjustment",
+        "explanation": "Hardware clock frequencies are managed by system hardware/firmware, not enterprise database applications."
+      }
+    ]
+  },
+  {
+    "category": "Computer Science",
+    "subjectCode": "Introduction to computer science ",
+    "topicName": "Final exam prediction III",
+    "moduleTitle": "FEP-003",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "Which software category manages underlying hardware abstractions and balances application execution resources?",
+        "a": "Application software engines",
+        "b": "System software frameworks (e.g. Operating Systems)",
+        "c": "Embedded software modules",
+        "d": "Static text editing utility suites",
+        "correct": "System software frameworks (e.g. Operating Systems)",
+        "explanation": "The operating system acts as the core system software managing hardware abstractions and resource allocation."
+      },
+      {
+        "q": "Which performance asset describes the main operation of a hardware Cache unit?",
+        "a": "Securing redundant hardware power lines during system outages",
+        "b": "Providing structural cooling algorithms directly to the multi-core chip block",
+        "c": "Temporarily capturing and hosting frequently requested data pages to speed up CPU cycle access times",
+        "d": "Managing peripheral file serialization tasks over wide area networks",
+        "correct": "Temporarily capturing and hosting frequently requested data pages to speed up CPU cycle access times",
+        "explanation": "Cache memory holds frequently accessed data close to the CPU to reduce access latency from main RAM."
+      },
+      {
+        "q": "Which of the following is NOT an application of database infrastructure?",
+        "a": "Customer Relationship Management (CRM) engines",
+        "b": "Inventory monitoring tracking matrix setups",
+        "c": "Real-time hardware clock frequency adjustment",
+        "d": "Online e-commerce transaction carts",
+        "correct": "Real-time hardware clock frequency adjustment",
+        "explanation": "Hardware clock frequencies are managed by system hardware/firmware, not enterprise database applications."
+      },
+      {
+        "q": "A software specialist writes microcode directly into a solid-state memory component on a smart washing machine. Identify this software layout.",
+        "a": "Application software infrastructure",
+        "b": "System middleware cluster frameworks",
+        "c": "Embedded software, configured for single hardware execution duties",
+        "d": "Enterprise data logging suites",
+        "correct": "Embedded software, configured for single hardware execution duties",
+        "explanation": "Software built into specialized hardware appliances for dedicated control tasks is classified as embedded software."
+      },
+      {
+        "q": "Identify the feature that is missing if an author drafts a persuasive essay but skips all counter-arguments.",
+        "a": "The structural introductory roadmap",
+        "b": "A clear thesis statement configuration",
+        "c": "Acknowledgment and evaluation of opposing ideas and viewpoints",
+        "d": "The terminal wrap-up summary block",
+        "correct": "Acknowledgment and evaluation of opposing ideas and viewpoints",
+        "explanation": "A robust persuasive essay addresses counter-arguments to strengthen its own thesis and demonstrate comprehensive analysis."
+      },
+      {
+        "q": "Which specific architecture layout differentiates Random Access Memory (RAM) from Read-Only Memory (ROM)?",
+        "a": "RAM is non-volatile and keeps records without power input",
+        "b": "RAM provides fast, volatile execution workspace maps that clear upon system shutdown, while ROM provides non-volatile startup firmware tracking",
+        "c": "ROM operates at higher system access velocities during direct multitasking cycles",
+        "d": "ROM structures permit continuous user-defined direct write permissions during execution",
+        "correct": "RAM provides fast, volatile execution workspace maps that clear upon system shutdown, while ROM provides non-volatile startup firmware tracking",
+        "explanation": "RAM is volatile high-speed working storage, whereas ROM is non-volatile persistent storage used for firmware such as the BIOS."
+      },
+      {
+        "q": "In rhetorical theory, which layer describes the use of 'pathos' within written communications?",
+        "a": "Appealing directly to the reader's deep structural emotions, core values, and empathy matrices",
+        "b": "Utilizing verified quantitative empirical datasets to structure logical points",
+        "c": "Establishing the formal professional credentials and authority footprint of the author",
+        "d": "Scheduling the delivery of documentation to match external event timings",
+        "correct": "Appealing directly to the reader's deep structural emotions, core values, and empathy matrices",
+        "explanation": "Pathos represents the rhetorical appeal to an audience's emotions and feelings."
+      },
+      {
+        "q": "Which function does the Control Unit (CU) execute within the classic Von Neumann processor architecture?",
+        "a": "Performing direct logical floating-point mathematical comparisons",
+        "b": "Managing the retrieval, decoding, and systematic execution sequencing of system instructions",
+        "c": "Retaining non-volatile application data log files indefinitely",
+        "d": "Directing local cooling systems on the motherboard array",
+        "correct": "Managing the retrieval, decoding, and systematic execution sequencing of system instructions",
+        "explanation": "The Control Unit coordinates the fetch-decode-execute cycle of instructions throughout the processor."
+      },
+      {
+        "q": "What is a defining structural characteristic of a relational database layout?",
+        "a": "It organizes structural data models uniformly using interconnected two-dimensional tables",
+        "b": "It relies on single-field unindexed raw binary files",
+        "c": "It blocks complex multi-variable structural relationships entirely",
+        "d": "It structures properties inside a nested raw text layout scheme",
+        "correct": "It organizes structural data models uniformly using interconnected two-dimensional tables",
+        "explanation": "Relational databases structure datasets uniformly into two-dimensional tables consisting of rows and columns."
+      },
+      {
+        "q": "In a business setting, what factor directly ensures your database can scale as product listings grow over time?",
+        "a": "Chassis cooling fans configuration limits",
+        "b": "Storage system capacity scaling and modular upgrade paths",
+        "c": "Operating system desktop color profiles",
+        "d": "Keyboard emoji shortcut support maps",
+        "correct": "Storage system capacity scaling and modular upgrade paths",
+        "explanation": "Database scalability relies on adequate storage allocation expansion and modular architectural capacity."
+      },
+      {
+        "q": "True or False: The primary goal of a persuasive document is to share raw personal opinions without backing them up with evidence.",
+        "a": "True",
+        "b": "False",
+        "correct": "False",
+        "explanation": "Persuasive writing requires reasoned evidence and logical support rather than unbacked personal opinions."
+      },
+      {
+        "q": "What is the primary operational disadvantage of a Distributed Database Management System (DDBMS)?",
+        "a": "Increased operational complexity",
+        "b": "Decreased layout reliability",
+        "c": "Inability to hold multi-level transparency structures",
+        "d": "Complete absence of logical data persistence channels",
+        "correct": "Increased operational complexity",
+        "explanation": "Distributed databases introduce high operational, networking, and transaction control complexity."
+      },
+      {
+        "q": "In data independence protocols, what does physical schema modification specifically imply?",
+        "a": "Dropping database application access configurations permanently",
+        "b": "Altering underlying data storage allocation structures without disturbing user application software layouts",
+        "c": "Executing raw data encryption matrices onto client storage tables",
+        "d": "Direct modification of application layer source files",
+        "correct": "Altering underlying data storage allocation structures without disturbing user application software layouts",
+        "explanation": "Physical data independence ensures that lower-level storage structure modifications can occur without rewriting client applications."
+      },
+      {
+        "q": "Which storage component operates as high-capacity, non-volatile storage to preserve system records when power collapses?",
+        "a": "The processor L1 cache memory register array",
+        "b": "Secondary storage devices (e.g. SSDs/HDDs)",
+        "c": "Volatile dynamic random access storage cells",
+        "d": "The processor execution data bus line",
+        "correct": "Secondary storage devices (e.g. SSDs/HDDs)",
+        "explanation": "Secondary storage drives maintain data persistently across power cycles unlike volatile RAM."
+      },
+      {
+        "q": "What type of software is an e-commerce platform engine like a custom application built on a web framework?",
+        "a": "System utility abstraction software",
+        "b": "Low-level bios hardware firmware mapping",
+        "c": "Application software, designed to handle user-facing business tasks",
+        "d": "Real-time mechanical kernel embedded software",
+        "correct": "Application software, designed to handle user-facing business tasks",
+        "explanation": "E-commerce platforms are application software engineered to facilitate business transactions and user interactions."
+      },
+      {
+        "q": "Why do Solid-State Drives (SSDs) routinely exceed Hard Disk Drives (HDDs) in random data access velocities?",
+        "a": "SSDs rely on rapid mechanical magnetic platters",
+        "b": "SSDs have zero moving parts and fetch data directly from non-volatile flash memory cells electronically",
+        "c": "SSDs utilize high-voltage flash gas tubes to access data arrays",
+        "d": "SSDs write data continuously onto linear copper filaments",
+        "correct": "SSDs have zero moving parts and fetch data directly from non-volatile flash memory cells electronically",
+        "explanation": "The lack of mechanical read/write heads allows SSDs to achieve nearly instantaneous random access times compared to spinning magnetic disks."
+      },
+      {
+        "q": "What is the primary target objective of an explicit persuasive essay blueprint?",
+        "a": "To list raw scientific datasets chronologically without comment",
+        "b": "To capture, inform, and methodically guide the audience toward a clear, reasoned conviction or specific call to action",
+        "c": "To present random personal opinions without supporting evidence structural channels",
+        "d": "To deliver fictional narratives designed purely for user entertainment",
+        "correct": "To capture, inform, and methodically guide the audience toward a clear, reasoned conviction or specific call to action",
+        "explanation": "Persuasive writing aims to convince readers to adopt a specific viewpoint or take action using reasoned arguments."
+      },
+      {
+        "q": "Which element describes the physical operation of a classic Von Neumann architecture bottleneck?",
+        "a": "The processing threshold speed of the execution chip ALU",
+        "b": "The serial communication speed constraint of the shared bus structure between the CPU and memory",
+        "c": "The physical storage allocation limit within modern primary RAM chips",
+        "d": "The structural volatility configurations within the BIOS firmware stack",
+        "correct": "The serial communication speed constraint of the shared bus structure between the CPU and memory",
+        "explanation": "The Von Neumann bottleneck refers to the throughput limit caused by sharing a single bus between CPU instructions and data memory."
+      },
+      {
+        "q": "What distinguishes a high-performance workstation configuration from a standard personal computer?",
+        "a": "The base physical dimensions of the chassis tracking unit",
+        "b": "Advanced processing power, multi-threaded CPU configurations, and high-velocity memory capacities",
+        "c": "The exterior chassis color scheme layout option",
+        "d": "The physical weight metrics of the system build",
+        "correct": "Advanced processing power, multi-threaded CPU configurations, and high-velocity memory capacities",
+        "explanation": "Workstations are engineered for heavy computational tasks with superior multi-threading and memory bandwidth compared to regular PCs."
+      },
+      {
+        "q": "Which option represents a highly focused and valid academic research question?",
+        "a": "Is studying useful?",
+        "b": "How does exposure to words through reading novels influence a person's language development?",
+        "c": "Are computers bad for people?",
+        "d": "What is the best way to live life?",
+        "correct": "How does exposure to words through reading novels influence a person's language development?",
+        "explanation": "A valid academic research question is specific, measurable, and focused on a clear relationship between variables."
       }
     ]
   }
