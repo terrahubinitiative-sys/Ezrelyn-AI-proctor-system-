@@ -277,5 +277,104 @@
         "explanation": "Bus topology links all devices directly to a single central communication line or backbone cable."
       }
     ]
+  },
+  {
+    "category": "Computer Science",
+    "subjectCode": "Introduction to computer science ",
+    "topicName": "Programming Fundamentals",
+    "moduleTitle": "Unit Quiz",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "What does CPU stand for?",
+        "a": "Central Processing Unit",
+        "b": "Computer Personal Unit",
+        "c": "Central Process Utility",
+        "d": "Control Processing Utility",
+        "correct": "A",
+        "explanation": "The CPU is known as the brain of the computer, responsible for executing instructions."
+      },
+      {
+        "q": "Which of the following is considered volatile memory?",
+        "a": "Hard Disk",
+        "b": "ROM",
+        "c": "RAM",
+        "d": "Flash Drive",
+        "correct": "C",
+        "explanation": "RAM (Random Access Memory) requires power to retain its data and loses everything when the computer is turned off."
+      },
+      {
+        "q": "What is the main function of an operating system?",
+        "a": "To browse the internet",
+        "b": "To manage hardware and software resources",
+        "c": "To write computer code",
+        "d": "To design graphics",
+        "correct": "B",
+        "explanation": "An operating system acts as the foundational software managing computer hardware and application programs."
+      },
+      {
+        "q": "Which device is used to input data into a computer?",
+        "a": "Monitor",
+        "b": "Printer",
+        "c": "Keyboard",
+        "d": "Speaker",
+        "correct": "C",
+        "explanation": "A keyboard is a standard input hardware device used to type text and commands."
+      },
+      {
+        "q": "What is the smallest unit of data in a computer?",
+        "a": "Byte",
+        "b": "Bit",
+        "c": "Kilobyte",
+        "d": "Word",
+        "correct": "B",
+        "explanation": "A bit (binary digit) is the fundamental unit of data in computing, taking a value of either 0 or 1."
+      },
+      {
+        "q": "How many bits make up a single byte?",
+        "a": "4",
+        "b": "8",
+        "c": "16",
+        "d": "32",
+        "correct": "B",
+        "explanation": "One byte consists of 8 bits, which can represent 256 different values."
+      },
+      {
+        "q": "Which component is responsible for permanent data storage?",
+        "a": "RAM",
+        "b": "Cache",
+        "c": "Hard Disk Drive / SSD",
+        "d": "Registers",
+        "correct": "C",
+        "explanation": "Hard drives and solid-state drives provide non-volatile storage to keep files saved when the device powers down."
+      },
+      {
+        "q": "What type of software is Microsoft Word?",
+        "a": "System software",
+        "b": "Application software",
+        "c": "Utility software",
+        "d": "Firmware",
+        "correct": "B",
+        "explanation": "Application software is designed to help users perform specific tasks, such as word processing."
+      },
+      {
+        "q": "Which network device connects multiple devices within a single local area network (LAN)?",
+        "a": "Router",
+        "b": "Switch",
+        "c": "Modem",
+        "d": "Satellite",
+        "correct": "B",
+        "explanation": "A network switch connects devices together on a computer network using packet switching."
+      },
+      {
+        "q": "What does HTML stand for?",
+        "a": "HyperText Markup Language",
+        "b": "High Tech Modern Language",
+        "c": "HyperTransfer Machine Language",
+        "d": "Home Tool Markup Language",
+        "correct": "A",
+        "explanation": "HTML is the standard markup language used to create and structure web pages."
+      }
+    ]
   }
 ]
