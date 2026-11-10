@@ -376,5 +376,473 @@
         "explanation": "HTML is the standard markup language used to create and structure web pages."
       }
     ]
+  },
+  {
+    "category": "Health Science",
+    "subjectCode": "Health science ",
+    "topicName": "Term 1 final exam prediction ",
+    "moduleTitle": "Unit 1 to 8",
+    "timeLimit": 60,
+    "questions": [
+      {
+        "q": "What is the primary focus of the Health Science field?",
+        "a": "Only clinical treatment of patients",
+        "b": "Applying scientific knowledge to improve health outcomes, prevent disease, and promote wellness",
+        "c": "Solely pharmaceutical research",
+        "d": "Administrative tasks in hospitals only",
+        "correct": "B",
+        "explanation": "Health Science is fundamentally centered on applying scientific principles to enhance overall health outcomes, prevent illnesses, and promote community and individual wellness."
+      },
+      {
+        "q": "According to the course, Health Science is best described as:",
+        "a": "A single narrow specialty",
+        "b": "A broad multidisciplinary field with many subdisciplines",
+        "c": "Identical to nursing",
+        "d": "Limited to laboratory work",
+        "correct": "B",
+        "explanation": "It encompasses a wide range of subdisciplines and multidimensional approaches rather than being confined to a single narrow track."
+      },
+      {
+        "q": "Which of the following is a Course Learning Objective of HS 1101?",
+        "a": "Master advanced surgical techniques",
+        "b": "Define and describe the health science field",
+        "c": "Perform independent clinical diagnoses",
+        "d": "Write pharmaceutical patents",
+        "correct": "B",
+        "explanation": "A foundational goal of HS 1101 is to help students clearly define and describe the scope and nature of the health science field."
+      },
+      {
+        "q": "PLO 1 of the UoPeople Health Science program emphasizes:",
+        "a": "Only biological causes of disease",
+        "b": "Applying biopsychosocial determinants of health and quantitative reasoning to analyze issues and design interventions",
+        "c": "Ignoring social factors",
+        "d": "Focusing exclusively on mental health",
+        "correct": "B",
+        "explanation": "Program Learning Outcome 1 focuses on integrating biopsychosocial determinants and quantitative reasoning to analyze health challenges."
+      },
+      {
+        "q": "Which PLO involves collaborating with diverse peers using technological tools?",
+        "a": "PLO 1",
+        "b": "PLO 2",
+        "c": "PLO 4",
+        "d": "PLO 5",
+        "correct": "B",
+        "explanation": "PLO 2 emphasizes teamwork, professional collaboration, and utilizing modern tech tools to work with diverse peers."
+      },
+      {
+        "q": "PLO 3 focuses on:",
+        "a": "Policy identification only",
+        "b": "Using ethical principles to evaluate dilemmas in disease prevention and health promotion",
+        "c": "Anatomy memorization",
+        "d": "Budget management",
+        "correct": "B",
+        "explanation": "PLO 3 centers on evaluating ethical dilemmas and principles relevant to public health and health promotion."
+      },
+      {
+        "q": "PLO 5 emphasizes:",
+        "a": "Silent observation",
+        "b": "Clear communication using oral, written, and technology skills with credible sources",
+        "c": "Avoiding stakeholder interaction",
+        "d": "Working in isolation",
+        "correct": "B",
+        "explanation": "PLO 5 requires effective communication across oral, written, and technological channels backed by credible evidence."
+      },
+      {
+        "q": "The course provides a basic introduction to all of the following except:",
+        "a": "Biology",
+        "b": "Psychology",
+        "c": "Public health and social determinants of health",
+        "d": "Advanced neurosurgery",
+        "correct": "D",
+        "explanation": "Advanced specialized procedures like neurosurgery are well beyond the introductory scope of foundational health science courses."
+      },
+      {
+        "q": "One purpose of HS 1101 is to help students:",
+        "a": "Explore career options in the health sciences",
+        "b": "Immediately begin clinical rotations",
+        "c": "Skip all future prerequisites",
+        "d": "Focus only on one subdiscipline",
+        "correct": "A",
+        "explanation": "The course exposes students to the diverse professional paths and career options available within the health sciences."
+      },
+      {
+        "q": "Health Science graduates are prepared for roles that may include:",
+        "a": "Only direct patient care",
+        "b": "Clinical work, research, community health, education, and policy-related positions",
+        "c": "Only laboratory technician jobs",
+        "d": "Non-health related fields exclusively",
+        "correct": "B",
+        "explanation": "Graduates possess versatile skills suitable for clinical environments, public health, research, education, and health policy sectors."
+      },
+      {
+        "q": "Which statement best reflects the holistic approach promoted in the course?",
+        "a": "Health is determined only by genetics",
+        "b": "Biological, psychological, and social factors interact to influence health",
+        "c": "Environment has no role in health",
+        "d": "Only medical treatment matters",
+        "correct": "B",
+        "explanation": "The holistic framework recognizes that biological, psychological, and social variables constantly intertwine to shape human health."
+      },
+      {
+        "q": "Historically, limited scientific understanding in health sciences often led to:",
+        "a": "Highly effective treatments based on evidence",
+        "b": "Reliance on informal practices and poorer patient outcomes",
+        "c": "Immediate formal medical education systems",
+        "d": "No patient care at all",
+        "correct": "B",
+        "explanation": "Without rigorous scientific backing, early healthcare relied heavily on informal traditions, leading to less reliable medical outcomes."
+      },
+      {
+        "q": "A major historical shift in health sciences was the move from:",
+        "a": "Formal education to informal apprenticeships",
+        "b": "Informal to formal medical education",
+        "c": "Hospitals to home-only care",
+        "d": "Science to superstition",
+        "correct": "B",
+        "explanation": "The evolution of healthcare heavily relied on transitioning from unstandardized informal apprenticeships to structured, formal medical education."
+      },
+      {
+        "q": "Modern healthcare delivery has been significantly shaped by the development of:",
+        "a": "Health insurance systems",
+        "b": "Complete elimination of disease",
+        "c": "Ending all research",
+        "d": "Removing ethics from practice",
+        "correct": "A",
+        "explanation": "Financial mechanisms and health insurance infrastructures have fundamentally altered how healthcare services are organized and delivered."
+      },
+      {
+        "q": "Current trends in health science include increased emphasis on:",
+        "a": "Ignoring technology",
+        "b": "Digital transformation, virtual health, health equity, and sustainability",
+        "c": "Reducing workforce development",
+        "d": "Isolating mental and physical health",
+        "correct": "B",
+        "explanation": "Contemporary trends focus heavily on technological integration, digital health tools, equity, and sustainable healthcare models."
+      },
+      {
+        "q": "Evidence-based practice in health science relies on:",
+        "a": "Personal opinion only",
+        "b": "Integrating the best available research evidence with clinical expertise and patient values",
+        "c": "Tradition alone",
+        "d": "Anecdotes exclusively",
+        "correct": "B",
+        "explanation": "Evidence-based practice successfully merges empirical research data, professional expertise, and patient preferences."
+      },
+      {
+        "q": "Credible sources in health science typically include:",
+        "a": "Peer-reviewed academic journals and reputable databases",
+        "b": "Unverified social media posts only",
+        "c": "Anonymous blogs without references",
+        "d": "Advertisements alone",
+        "correct": "A",
+        "explanation": "Academic rigor requires utilizing peer-reviewed literature and established institutional repositories."
+      },
+      {
+        "q": "The biopsychosocial model includes which three main domains?",
+        "a": "Biological, psychological, and social",
+        "b": "Only biological and chemical",
+        "c": "Economic, political, and legal only",
+        "d": "Spiritual, financial, and legal",
+        "correct": "A",
+        "explanation": "The biopsychosocial model evaluates biological, psychological, and social components as drivers of overall well-being."
+      },
+      {
+        "q": "Biological determinants of health include:",
+        "a": "Genetics, physiology, and physical disease processes",
+        "b": "Only income level",
+        "c": "Social networks exclusively",
+        "d": "Cultural beliefs alone",
+        "correct": "A",
+        "explanation": "Biological determinants refer to internal physical and genetic factors that influence an individual's health profile."
+      },
+      {
+        "q": "Psychological determinants include:",
+        "a": "Thoughts, emotions, behaviors, stress, and mental health",
+        "b": "Only blood pressure",
+        "c": "Housing quality only",
+        "d": "Pathogen exposure alone",
+        "correct": "A",
+        "explanation": "Mental processes, emotional states, and coping behaviors make up the psychological domain of health."
+      },
+      {
+        "q": "Social determinants of health include factors such as:",
+        "a": "Income, education, housing, social support, and environment",
+        "b": "Only individual genetics",
+        "c": "Personal willpower exclusively",
+        "d": "Random chance",
+        "correct": "A",
+        "explanation": "Socioeconomic status, educational access, living conditions, and community networks form the core social determinants."
+      },
+      {
+        "q": "The basic unit of life is the:",
+        "a": "Cell",
+        "b": "Organ",
+        "c": "Tissue",
+        "d": "Organism",
+        "correct": "A",
+        "explanation": "Cells represent the fundamental structural and functional building blocks of all living organisms."
+      },
+      {
+        "q": "Homeostasis refers to:",
+        "a": "The body’s ability to maintain a stable internal environment",
+        "b": "Complete absence of change",
+        "c": "Only disease processes",
+        "d": "External environmental control only",
+        "correct": "A",
+        "explanation": "Homeostasis is the physiological regulatory mechanism that keeps internal conditions stable despite external shifts."
+      },
+      {
+        "q": "Communicable (infectious) diseases are typically caused by:",
+        "a": "Pathogens such as bacteria, viruses, fungi, or parasites",
+        "b": "Genetics alone",
+        "c": "Lifestyle choices exclusively",
+        "d": "Aging only",
+        "correct": "A",
+        "explanation": "Infectious diseases spread via transmissible biological agents known as pathogens."
+      },
+      {
+        "q": "Health psychology examines:",
+        "a": "How psychological factors influence health, illness, and healthcare",
+        "b": "Only brain surgery",
+        "c": "Economic policy exclusively",
+        "d": "Architectural design",
+        "correct": "A",
+        "explanation": "Health psychology investigates how behavioral and mental processes impact physical wellness and disease management."
+      },
+      {
+        "q": "Public health focuses on:",
+        "a": "Population-level health, prevention, and health promotion",
+        "b": "Only individual clinical treatment",
+        "c": "Laboratory research exclusively",
+        "d": "Hospital administration only",
+        "correct": "A",
+        "explanation": "Public health targets collective community health outcomes through organized disease prevention and health promotion strategies."
+      },
+      {
+        "q": "Ethical principles in health science include considerations of:",
+        "a": "Autonomy, beneficence, non-maleficence, and justice",
+        "b": "Ignoring patient rights",
+        "c": "Profit only",
+        "d": "Speed over quality",
+        "correct": "A",
+        "explanation": "Biomedical and health ethics are guided by core principles including patient autonomy, beneficence, avoiding harm, and fairness."
+      },
+      {
+        "q": "Peer review in scientific publishing helps ensure:",
+        "a": "Popularity of the article",
+        "b": "Quality, validity, and reliability of the research",
+        "c": "Faster publication without scrutiny",
+        "d": "Guaranteed funding",
+        "correct": "B",
+        "explanation": "Independent expert evaluation via peer review safeguards the scientific validity and reliability of published studies."
+      },
+      {
+        "q": "Understanding levels of organization (cells to tissues to organs to systems) is important for:",
+        "a": "Relating structure to function in the body",
+        "b": "Ignoring anatomy",
+        "c": "Focusing only on psychology",
+        "d": "Administrative tasks",
+        "correct": "A",
+        "explanation": "Biological organization hierarchies help healthcare professionals map out how anatomical structures serve physiological functions."
+      },
+      {
+        "q": "Ignoring social determinants when addressing health problems can lead to:",
+        "a": "Incomplete or less effective solutions",
+        "b": "Better outcomes always",
+        "c": "No impact",
+        "d": "Automatic success",
+        "correct": "A",
+        "explanation": "Failing to account for environmental and socioeconomic factors yields short-sighted interventions that fail to solve root health disparities."
+      }
+    ]
+  },
+  {
+    "category": "Health Science",
+    "subjectCode": "Health science ",
+    "topicName": "Health science warm up quizzes ",
+    "moduleTitle": "20 simple quizzes ",
+    "timeLimit": 45,
+    "questions": [
+      {
+        "q": "Tissues are best defined as:",
+        "a": "Collections of similar cells carrying out similar functions",
+        "b": "Random groups of organs",
+        "c": "Entire organ systems",
+        "d": "Single molecules",
+        "correct": "A",
+        "explanation": "Tissues consist of specialized groups of similar cells working collaboratively to perform shared functions."
+      },
+      {
+        "q": "Non-communicable diseases are those that:",
+        "a": "Are not passed from person to person",
+        "b": "Always spread rapidly between people",
+        "c": "Are caused only by viruses",
+        "d": "Affect only children",
+        "correct": "A",
+        "explanation": "Non-communicable conditions (like chronic illnesses) are non-infectious and cannot be transmitted directly between individuals."
+      },
+      {
+        "q": "An example of a biological factor influencing health is:",
+        "a": "Genetic predisposition to a condition",
+        "b": "Neighborhood walkability",
+        "c": "Cultural attitudes toward exercise",
+        "d": "Social media use",
+        "correct": "A",
+        "explanation": "Inherited genetic traits represent classic biological factors influencing vulnerability to health issues."
+      },
+      {
+        "q": "Behavior change is important in health science because many health outcomes are influenced by:",
+        "a": "Lifestyle behaviors (diet, activity, smoking, adherence, etc.)",
+        "b": "Genetics alone",
+        "c": "Random chance",
+        "d": "Weather only",
+        "correct": "A",
+        "explanation": "Modifiable lifestyle habits heavily dictate chronic disease risk and recovery trajectories."
+      },
+      {
+        "q": "Stress can affect health by:",
+        "a": "Influencing physiological processes (e.g., immune function, cardiovascular system)",
+        "b": "Having no biological effects",
+        "c": "Only improving health always",
+        "d": "Affecting only social relationships",
+        "correct": "A",
+        "explanation": "Prolonged psychological stress triggers systemic physiological responses impacting cardiovascular and immune health."
+      },
+      {
+        "q": "An example of a psychological intervention in health is:",
+        "a": "Cognitive-behavioral approaches to support behavior change or manage chronic illness",
+        "b": "Only prescribing medication without support",
+        "c": "Ignoring patient thoughts and feelings",
+        "d": "Focusing solely on surgery",
+        "correct": "A",
+        "explanation": "Therapeutic techniques like CBT help patients reframe thoughts, manage illness stress, and adopt healthy behaviors."
+      },
+      {
+        "q": "Motivation, self-efficacy, and coping strategies are primarily:",
+        "a": "Psychological factors relevant to health behaviors",
+        "b": "Purely genetic traits",
+        "c": "Social policies",
+        "d": "Environmental toxins",
+        "correct": "A",
+        "explanation": "Internal cognitive drivers such as self-efficacy and motivation shape how individuals pursue health goals."
+      },
+      {
+        "q": "Understanding mental health is important because:",
+        "a": "Mental and physical health are interconnected",
+        "b": "Mental health has no relation to physical outcomes",
+        "c": "It can be ignored in health science",
+        "d": "It only matters in isolation",
+        "correct": "A",
+        "explanation": "The mind-body connection ensures that psychological well-being profoundly impacts physical health outcomes."
+      },
+      {
+        "q": "A person’s beliefs about illness (illness perceptions) can influence:",
+        "a": "Coping, treatment-seeking, and outcomes",
+        "b": "Only genetic expression",
+        "c": "Nothing related to health",
+        "d": "Only social status",
+        "correct": "A",
+        "explanation": "How a patient perceives their condition directly dictates their compliance, healthcare-seeking behavior, and coping efficacy."
+      },
+      {
+        "q": "Health behavior theories (e.g., stages of change, health belief model concepts) are useful for:",
+        "a": "Designing effective health promotion programs",
+        "b": "Diagnosing infections only",
+        "c": "Performing surgery",
+        "d": "Ignoring patient motivation",
+        "correct": "A",
+        "explanation": "Theories of behavior change offer structured frameworks for implementing successful public health campaigns."
+      },
+      {
+        "q": "The biopsychosocial model incorporates psychology by recognizing that:",
+        "a": "Thoughts, emotions, and behaviors affect health",
+        "b": "Psychology is separate from health",
+        "c": "Only biology matters",
+        "d": "Social factors override everything",
+        "correct": "A",
+        "explanation": "Psychological processes are integrated directly into health outcomes through emotional and behavioral pathways."
+      },
+      {
+        "q": "Social determinants of health are a core concept in:",
+        "a": "Public health and health science",
+        "b": "Purely individual genetics",
+        "c": "Ignoring community factors",
+        "d": "Only acute care",
+        "correct": "A",
+        "explanation": "Analyzing societal and environmental environments is foundational for modern public health practice."
+      },
+      {
+        "q": "Career pathways in health science include areas such as:",
+        "a": "Clinical care, public health, research, health education, policy, and administration",
+        "b": "Only one narrow role",
+        "c": "Non-scientific fields exclusively",
+        "d": "Unrelated industries",
+        "correct": "A",
+        "explanation": "The interdisciplinary nature of health science opens doors to diverse professional sectors."
+      },
+      {
+        "q": "When responding to a public health issue such as an outbreak, professionals should consider:",
+        "a": "Ethical, legal, and evidence-based responsibilities",
+        "b": "Personal convenience only",
+        "c": "Ignoring transmission",
+        "d": "Avoiding communication",
+        "correct": "A",
+        "explanation": "Epidemiological and public health responses require balancing rigorous science with legal mandates and ethical duties."
+      },
+      {
+        "q": "Clear communication with stakeholders is important for:",
+        "a": "Ensuring effective interventions, public trust, and compliance",
+        "b": "Creating confusion",
+        "c": "Keeping information secret",
+        "d": "Eliminating feedback",
+        "correct": "A",
+        "explanation": "Transparent stakeholder communication builds trust and ensures public cooperation during health initiatives."
+      },
+      {
+        "q": "Quantitative reasoning is used in PLO 1 to:",
+        "a": "Analyze health data and support recommendations",
+        "b": "Avoid numbers entirely",
+        "c": "Focus only on qualitative stories",
+        "d": "Ignore statistics",
+        "correct": "A",
+        "explanation": "Quantitative reasoning provides numerical support for evaluating health data trends and formulating evidence-based solutions."
+      },
+      {
+        "q": "An intervention based on the biopsychosocial model might address:",
+        "a": "Behavior change, social support, and biological risk factors together",
+        "b": "Only one isolated factor",
+        "c": "Ignoring the patient",
+        "d": "Medication without education",
+        "correct": "A",
+        "explanation": "Holistic treatments look at comprehensive strategies tackling biological vulnerability alongside psychological and social support."
+      },
+      {
+        "q": "The physical environment (e.g., air quality, built environment) is considered part of:",
+        "a": "Social/environmental determinants",
+        "b": "Purely psychological",
+        "c": "Irrelevant to health",
+        "d": "Only biological genetics",
+        "correct": "A",
+        "explanation": "Physical surroundings and environmental quality play a major role in shaping community-wide health profiles."
+      },
+      {
+        "q": "Health disparities often arise from differences in:",
+        "a": "Social and economic determinants of health",
+        "b": "Random individual choices only",
+        "c": "Genetics exclusively",
+        "d": "Weather patterns alone",
+        "correct": "A",
+        "explanation": "Inequities in wealth, education, and social resources are primary drivers of preventable health disparities."
+      },
+      {
+        "q": "Academic journals and research databases are valuable because they:",
+        "a": "Offer peer-reviewed, high-quality scientific information",
+        "b": "Provide unverified opinions",
+        "c": "Are always free of cost and unrestricted",
+        "d": "Focus only on news stories",
+        "correct": "A",
+        "explanation": "Repositories of academic journals offer rigorously vetted studies necessary for reliable health science research."
+      }
+    ]
   }
 ]
