@@ -86,17 +86,18 @@
 
                 <div>
                     <label class="block text-[11px] font-medium text-slate-400 mb-1">Questions Array (JSON Format)</label>
-                    <textarea id="questions-json" rows="6" required class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-cyan-300 focus:outline-none focus:border-cyan-500">[
+                    <textarea id="questions-json" rows="8" required class="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-cyan-300 focus:outline-none focus:border-cyan-500">[
   {
     "q": "What is the primary function of an operating system?",
     "a": "To manage hardware and software resources",
     "b": "To compile source code",
     "c": "To design user interfaces",
     "d": "To debug network packets",
-    "correct": "a",
+    "correct": "To manage hardware and software resources",
     "explanation": "An operating system acts as an intermediary between computer hardware and user applications."
   }
 ]</textarea>
+                    <p class="text-[10px] text-slate-500 mt-1">💡 <strong>Tip:</strong> Set the exact answer text string in <code>"correct"</code> instead of letters like <code>"a"</code> to prevent grading mismatches during shuffling.</p>
                 </div>
 
                 <div class="flex space-x-2">

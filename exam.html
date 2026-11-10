@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="KnK7fMRavFEkhzW_yI5F8W7LAt7twSg7p9Aj5OWXHwc" />
     <title>Ezrelyn Proctor AI - Secure Examination Room</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style> 
@@ -17,13 +18,12 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between antialiased select-none">
 
-    <!-- Top Secure Header -->
     <header class="no-print border-b border-slate-800 bg-slate-900/90 px-4 py-3 flex justify-between items-center sticky top-0 z-50">
         <div class="flex items-center space-x-2">
             <span id="proctor-indicator" class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
             <div>
                 <h1 class="text-xs font-bold text-white uppercase tracking-wider" id="exam-heading">Proctored Examination</h1>
-                <p class="text-[10px] text-slate-400">Ezrelyn Proctor AI Active — Zero-Tolerance Proctorship</p>
+                <p class="text-[10px] text-slate-400">Ezrelyn AI Proctor Active — Zero-Tolerance Proctorship</p>
             </div>
         </div>
         <div class="flex items-center space-x-3">
@@ -34,12 +34,9 @@
         </div>
     </header>
 
-    <!-- Main Single-Page Exam Container -->
     <main class="flex-grow max-w-4xl w-full mx-auto p-4 sm:p-6 space-y-6">
         
-        <!-- Results & Certificate Banner -->
         <div id="results-banner" class="hidden bg-slate-900 print-border border border-cyan-500/50 rounded-2xl p-6 shadow-2xl space-y-6">
-            
             <div class="print-header text-center space-y-2 border-b border-slate-800 pb-5">
                 <div class="inline-block px-3 py-1 bg-cyan-950 border border-cyan-800 text-cyan-300 rounded-full text-[10px] font-bold tracking-widest uppercase">
                     Ezrelyn Proctor AI — Official Academic Report
@@ -47,7 +44,7 @@
                 <h2 id="report-exam-title" class="text-lg font-bold text-white">Proctored Examination Certificate</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 text-xs text-slate-300 text-left bg-slate-950 p-3 rounded-xl border border-slate-800">
                     <div><span class="text-slate-500 block text-[10px]">Candidate Name</span><strong id="report-candidate-name" class="text-cyan-400">Candidate</strong></div>
-                    <div><span class="text-slate-500 block text-[10px]">Evaluation Date</span><strong id="report-date">2026-11-04</strong></div>
+                    <div><span class="text-slate-500 block text-[10px]">Evaluation Date</span><strong id="report-date">2026-11-10</strong></div>
                     <div><span class="text-slate-500 block text-[10px]">Timestamp</span><strong id="report-time">19:30:00</strong></div>
                     <div><span class="text-slate-500 block text-[10px]">Final Status</span><strong class="text-emerald-400">Verified & Graded</strong></div>
                 </div>
@@ -74,14 +71,12 @@
             </div>
         </div>
 
-        <!-- Questions List Container -->
         <div id="questions-list-container" class="space-y-6">
             <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl text-center">
                 <p class="text-xs text-slate-400 animate-pulse">Loading secure shuffled examination paper...</p>
             </div>
         </div>
 
-        <!-- Bottom Submit Bar -->
         <div id="submit-bar" class="no-print text-center pt-4 pb-8">
             <button onclick="confirmSubmit()" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl text-xs font-bold uppercase tracking-wider shadow-lg hover:opacity-95 transition">
                 Submit All Answers & View Corrections →
@@ -89,7 +84,6 @@
         </div>
     </main>
 
-    <!-- CUSTOM DARK MODAL POPUP & NAME INPUT -->
     <div id="custom-modal" class="no-print fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center space-y-4">
             <div id="modal-icon" class="text-3xl">⚠️</div>
@@ -108,7 +102,6 @@
     <footer class="no-print text-center py-3 text-[11px] text-slate-600 border-t border-slate-900">
         © 2026 Ezrelyn Proctor AI System. Secure Sandbox Active.
     </footer>
-
     <script>
         let questions = [];
         let userAnswers = {};
@@ -116,7 +109,7 @@
         let timerInterval;
         let timeLeftSeconds = 45 * 60;
         let isSubmitted = false;
-        let candidateFullName = "Candidate";
+        let candidateFullName = "Ezra Wanyama THE SMARTPHONE SCIENTIST";
 
         const urlParams = new URLSearchParams(window.location.search);
         const targetCategory = urlParams.get('category') || 'Computer Science';
@@ -154,7 +147,7 @@
                     }
                 }
 
-                shuffleExamContent();
+                prepareAndShuffleQuestions();
                 renderExamPaper();
                 startTimer();
             } catch (err) {
@@ -165,34 +158,34 @@
             window.addEventListener('blur', () => { triggerInfraction(); });
         });
 
-        function shuffleExamContent() {
-            questions.sort(() => Math.random() - 0.5);
-
+        function prepareAndShuffleQuestions() {
             questions.forEach(q => {
-                const keys = ['a', 'b', 'c', 'd'].filter(k => q[k]);
-                // Store original correct answer text value before shuffling
-                const originalCorrectVal = q[q.correct] || q.correct;
+                let correctText = "";
+                const rawCorrect = String(q.correct || "").trim();
+                const lowerKey = rawCorrect.toLowerCase();
 
+                // Robustly resolve uppercase/lowercase letter keys ('A', 'B', 'c', 'd') or text strings
+                if (['a', 'b', 'c', 'd'].includes(lowerKey) && q[lowerKey]) {
+                    correctText = q[lowerKey];
+                } else {
+                    correctText = rawCorrect;
+                }
+
+                const keys = ['a', 'b', 'c', 'd'].filter(k => q[k]);
                 keys.sort(() => Math.random() - 0.5);
 
                 const newOptions = {};
-                let newCorrectKey = 'a';
-
                 keys.forEach((oldKey, index) => {
                     const mappedKey = ['a', 'b', 'c', 'd'][index];
-                    const optionText = q[oldKey];
-                    newOptions[mappedKey] = optionText;
-
-                    // Match whether correct answer was stored as key ('a'), index, or text string
-                    if (oldKey === q.correct || optionText === originalCorrectVal || String(index) === String(q.correct)) {
-                        newCorrectKey = mappedKey;
-                    }
+                    newOptions[mappedKey] = q[oldKey];
                 });
 
                 ['a', 'b', 'c', 'd'].forEach(k => delete q[k]);
                 Object.assign(q, newOptions);
-                q.correct = newCorrectKey;
+                q._correctText = correctText ? correctText.trim() : "";
             });
+
+            questions.sort(() => Math.random() - 0.5);
         }
 
         function showCustomModal(title, message, icon = '⚠️', showInput = false, confirmCallback = null) {
@@ -216,11 +209,7 @@
                 document.getElementById('modal-confirm-btn').onclick = () => {
                     if (showInput) {
                         const val = document.getElementById('candidate-name-input').value.trim();
-                        if (!val) {
-                            alert('⚠️ Please enter your full name to proceed.');
-                            return;
-                        }
-                        candidateFullName = val;
+                        if (val) candidateFullName = val;
                     }
                     closeModal();
                     confirmCallback();
@@ -239,7 +228,6 @@
         function triggerInfraction() {
             if (isSubmitted) return;
             infractionCount++;
-            
             if (infractionCount === 1) {
                 showCustomModal("⚠️ First Warning: Tab Switch Detected", "You navigated away from the secure exam view. One more infraction will result in immediate disqualification and a 0% score.", '⚠️');
             } else if (infractionCount >= 2) {
@@ -254,7 +242,6 @@
                 const mins = Math.floor(timeLeftSeconds / 60);
                 const secs = timeLeftSeconds % 60;
                 document.getElementById('time-left').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-                
                 if (timeLeftSeconds <= 0) {
                     clearInterval(timerInterval);
                     promptCandidateNameForSubmission();
@@ -298,13 +285,11 @@
         function confirmSubmit() {
             if (isSubmitted) return;
             const answeredCount = Object.keys(userAnswers).length;
-
             if (answeredCount < questions.length) {
                 const remaining = questions.length - answeredCount;
                 showCustomModal("Incomplete Examination", `You have ${remaining} unanswered question(s). You must attempt all questions before submitting and viewing corrections.`, '🔒');
                 return;
             }
-
             promptCandidateNameForSubmission();
         }
 
@@ -321,7 +306,9 @@
 
             let score = 0;
             questions.forEach((q, idx) => {
-                const userAns = userAnswers[idx];
+                const userAnsKey = userAnswers[idx];
+                const userSelectedText = userAnsKey ? q[userAnsKey].trim() : "";
+                
                 const card = document.getElementById(`q-card-${idx}`);
                 const correctionBox = document.getElementById(`correction-${idx}`);
                 const optionsGroup = document.getElementById(`options-group-${idx}`);
@@ -329,8 +316,14 @@
                 const inputs = optionsGroup.querySelectorAll('input');
                 inputs.forEach(inp => inp.disabled = true);
 
-                // Robust check supporting key matching
-                const isCorrect = userAns && userAns.toLowerCase() === String(q.correct).toLowerCase();
+                let correctKey = 'a';
+                ['a', 'b', 'c', 'd'].forEach(k => {
+                    if (q[k] && q[k].trim().toLowerCase() === q._correctText.toLowerCase()) {
+                        correctKey = k;
+                    }
+                });
+
+                const isCorrect = userSelectedText !== "" && (userSelectedText.toLowerCase() === q._correctText.toLowerCase());
 
                 if (isCorrect) {
                     score++;
@@ -340,7 +333,7 @@
                 } else {
                     card.classList.add('border-red-500/60', 'bg-red-950/10');
                     correctionBox.className = "mt-3 p-3 rounded-xl text-xs bg-red-950/40 border border-red-800 text-red-300";
-                    correctionBox.innerHTML = `❌ <strong>Incorrect.</strong> Your answer: <span class="uppercase font-bold">${userAns || 'None'}</span>. Correct answer: <span class="uppercase font-bold">${q.correct}</span>. ${q.explanation || ''}`;
+                    correctionBox.innerHTML = `❌ <strong>Incorrect.</strong> Your answer: <span class="uppercase font-bold">${userAnsKey || 'None'}</span> (${userSelectedText || 'None'}). Correct answer: <span class="uppercase font-bold">${correctKey.toUpperCase()}</span> (${q._correctText}). ${q.explanation || ''}`;
                 }
                 correctionBox.classList.remove('hidden');
             });
@@ -356,7 +349,6 @@
             document.getElementById('score-percentage').textContent = `${percent}%`;
             document.getElementById('score-raw').textContent = `${score} / ${questions.length}`;
             document.getElementById('results-banner').classList.remove('hidden');
-            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
